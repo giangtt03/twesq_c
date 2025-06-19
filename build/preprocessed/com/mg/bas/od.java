@@ -5,7 +5,6 @@ package com.mg.bas;
 import com.mg.sq.a;
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
-import java.io.FilterInputStream;
 import java.io.IOException;
 
 public final class od
@@ -307,7 +306,6 @@ bi {
                     ++n;
                 }
                 stringArray = stringArray2;
-                ((FilterInputStream)object).close();
                 byteArrayInputStream.close();
             }
             catch (IOException iOException) {

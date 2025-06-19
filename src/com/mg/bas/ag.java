@@ -2,6 +2,8 @@ package com.mg.bas;
 // Decompiled with: CFR 0.152
 // Class Version: 1
 // Main game canvas class, handles rendering, input, and game loop logic.
+import com.mg.bas.f;
+import com.mg.bas.v;
 import com.mg.smsgame.MGMIDlet;
 import javax.microedition.lcdui.Canvas;
 import javax.microedition.lcdui.Graphics;
@@ -31,11 +33,11 @@ implements Runnable {
     private int s;
     private int t;
     private a u = new a(2);
-    private ap v;
+    private ap apInstance;
 
     static {
         e = 0;
-        a = f.d("/_arrow");
+        a = com.mg.bas.f.d("/_arrow");
         o = false;
     }
 
@@ -47,7 +49,7 @@ implements Runnable {
         String string = System.getProperty("microedition.platform").toUpperCase();
         v.L = this.getKeyCode(8) == -20 ? 3 : (string == null || string.length() == 0 ? 4 : (string.indexOf("NOKIAN") >= 0 ? 1 : (string.indexOf("NOKIA") >= 0 ? 0 : (string.indexOf("SONY") >= 0 ? 2 : (string.indexOf("SAMSUNG") >= 0 ? 7 : (string.indexOf("RIM") >= 0 ? 5 : (string.indexOf("SIE-EL71") >= 0 ? 6 : 4)))))));
         ct.a("Vendor: " + string + " detected as " + String.valueOf(v.L));
-        this.v = new ap();
+        this.apInstance = new ap();
     }
 
     public static ag a() {
@@ -66,11 +68,11 @@ implements Runnable {
     }
 
     public static ap c() {
-        return ag.a().v;
+        return ag.a().apInstance;
     }
 
     public static void a(ap ap2) {
-        ag.a().v = ap2;
+        ag.a().apInstance = ap2;
     }
 
     public final void d() {
@@ -308,16 +310,16 @@ implements Runnable {
         if (this.r == null) {
             return;
         }
-        int n2 = this.r.j();
-        n = ag.a(n, n2 != 0);
+        boolean n2 = this.r.j();
+        n = ag.a(n, n2);
         if (!(v.ai || n >= 89 && n <= 157)) {
             return;
         }
-        n2 = 0;
-        while (n2 < this.u.d()) {
-            ar ar2 = (ar)this.u.b(n2);
+        int i2 = 0;
+        while (i2 < this.u.d()) {
+            ar ar2 = (ar)this.u.b(i2);
             ar2.a(n);
-            ++n2;
+            ++i2;
         }
         if (n < 0 && n >= v.c.length) {
             return;

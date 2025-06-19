@@ -4,7 +4,6 @@ package com.mg.bas;
 // Class Version: 1
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
-import java.io.FilterInputStream;
 
 public final class dg {
     public int a;
@@ -29,7 +28,7 @@ public final class dg {
                 nArray[n] = ((DataInputStream)object).readInt();
                 ++n;
             }
-            ((FilterInputStream)object).close();
+            ((DataInputStream)object).close();
             return nArray;
         }
         catch (Exception exception) {

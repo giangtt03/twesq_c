@@ -2,6 +2,48 @@
 // Class Version: 1
 package com.mg.sq;
 
+import com.mg.bas.ah;
+import com.mg.bas.bn;
+import com.mg.bas.ih;
+import com.mg.bas.kq;
+import com.mg.bas.il;
+import com.mg.bas.d;
+import com.mg.bas.oi;
+import com.mg.bas.cp;
+import com.mg.bas.az;
+import com.mg.bas.am;
+import com.mg.bas.an;
+import com.mg.bas.be;
+import com.mg.bas.al;
+import com.mg.bas.bf;
+import com.mg.bas.doo;
+import com.mg.bas.ns;
+import com.mg.bas.lh;
+import com.mg.bas.df;
+import com.mg.bas.jn;
+import com.mg.bas.jm;
+import com.mg.bas.jo;
+import com.mg.bas.hl;
+import com.mg.bas.ll;
+import com.mg.bas.lm;
+import com.mg.bas.lq;
+import com.mg.bas.dh;
+import com.mg.bas.lr;
+import com.mg.bas.aw;
+import com.mg.bas.aq;
+import com.mg.bas.lf;
+import com.mg.bas.lt;
+import com.mg.bas.lv;
+import com.mg.bas.he;
+import com.mg.bas.pa;
+import com.mg.bas.ks;
+import com.mg.bas.ag;
+import com.mg.bas.lw;
+import com.mg.bas.oa;
+import com.mg.bas.om;
+import com.mg.bas.oq;
+import com.mg.bas.v;
+
 import com.mg.smsgame.MGMIDlet;
 import com.mg.sq.b;
 import javax.microedition.lcdui.Image;
@@ -2961,5 +3003,9 @@ kq {
         object = new hn((lf[])object);
         this.a((al)object, false);
         this.v();
+    }
+
+    public a(lw[] var1) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

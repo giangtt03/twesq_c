@@ -2,10 +2,11 @@
 // Class Version: 1
 package com.mg.sq;
 
+import com.mg.bas.lr;
 import com.mg.sq.a;
 
 final class b
-implements b {
+implements com.mg.bas.b{
     b(a a2) {
     }
 

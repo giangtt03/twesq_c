@@ -3,7 +3,6 @@ package com.mg.bas;
 // Class Version: 1
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
-import java.io.FilterInputStream;
 import java.io.InputStream;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
@@ -52,7 +51,6 @@ public final class mb {
                 }
                 ++n;
             }
-            ((FilterInputStream)object).close();
             return;
         }
         catch (Exception exception) {
