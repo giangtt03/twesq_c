@@ -1,4 +1,6 @@
 package com.mg.bas;
+
+
 // Decompiled with: CFR 0.152
 // Class Version: 1
 // Game or UI canvas class, handles rendering, input, and initialization logic. Extends Canvas and implements bf, Runnable.
@@ -32,9 +34,9 @@ Runnable {
         if (this.b > 0) {
             --this.b;
             if (this.b == 0) {
-                object = this;
-                v.t = object.d;
-                v.u = object.e;
+//                object = this;
+                v.t = this.d;
+                v.u = this.e;
                 try {
                     bw bw2 = new bw("Cài đặt tin nhắn");
                     bc bc2 = new bc("Máy điện thoại của bạn cần được cho phép nhận tin nhắn từ hệ thống. Hãy bấm cài đặt và sau đó chọn 'có' hoặc 'yes'.", 0);
@@ -45,7 +47,7 @@ Runnable {
                     bw2.a(new au[]{bc2, bc3, bc4});
                     bw2.a((bf)object);
                     bw2.a(new bd("Cài đặt", -1));
-                    object.c = bw2;
+                    this.c = bw2;
                     return;
                 }
                 catch (Exception exception) {

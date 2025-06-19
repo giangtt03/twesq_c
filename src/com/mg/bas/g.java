@@ -5,52 +5,50 @@ import java.io.InputStream;
 import javax.microedition.io.Connector;
 import javax.microedition.io.SocketConnection;
 import javax.microedition.lcdui.Image;
+import javax.microedition.rms.InvalidRecordIDException;
 import javax.microedition.rms.RecordStore;
+import javax.microedition.rms.RecordStoreException;
 
 public class g {
     public int a;
     public int b;
 
-    public static Image a(Image object, int n2, int n3) {
-        int n4 = object.getWidth();
-        int n5 = object.getHeight();
-        if (n4 != n2 || n5 != n3) {
-            int[] nArray = new int[n4 * n5];
-            object.getRGB(nArray, 0, n4, 0, 0, n4, n5);
-            Object object2 = object = (Object)new int[n2 * n3];
-            int n6 = n5;
-            int n7 = n4;
-            int n8 = n3;
-            n5 = n2;
-            int[] nArray2 = nArray;
-            int n9 = n7 * 1024 / n5;
-            int n10 = n6 * 1024 / n8;
-            int n11 = 0;
-            int n12 = 0;
-            while (n11 < n8) {
-                int n13 = (n10 * n11 >> 10) * n7;
-                int n14 = 0;
-                n6 = 0;
-                while (n6 < n5) {
-                    object2[n12 + n6] = (Image)nArray2[n13 + (n14 >> 10)];
-                    n14 += n9;
-                    ++n6;
+        public static Image a(Image img, int newW, int newH) {
+        int origW = img.getWidth();
+        int origH = img.getHeight();
+        if (origW != newW || origH != newH) {
+            int[] origPixels = new int[origW * origH];
+            img.getRGB(origPixels, 0, origW, 0, 0, origW, origH);
+            int[] resizedPixels = new int[newW * newH];
+            int xRatio = (origW << 10) / newW;
+            int yRatio = (origH << 10) / newH;
+            int destIndex = 0;
+            for (int y = 0; y < newH; y++) {
+                int srcY = (y * yRatio) >> 10;
+                int srcYIndex = srcY * origW;
+                int xAccum = 0;
+                for (int x = 0; x < newW; x++) {
+                    int srcX = xAccum >> 10;
+                    resizedPixels[destIndex + x] = origPixels[srcYIndex + srcX];
+                    xAccum += xRatio;
                 }
-                n12 += n5;
-                ++n11;
+                destIndex += newW;
             }
-            return Image.createRGBImage((int[])object, (int)n2, (int)n3, (boolean)true);
+            return Image.createRGBImage(resizedPixels, newW, newH, true);
         }
-        return object;
+        return img;
     }
 
-    public static SocketConnection a(String string, int n2) {
-        int n3 = 5;
-        String string2 = string;
-        string2 = (SocketConnection)Connector.open((String)("socket://" + string2 + ":" + n2));
-        string2.setSocketOption((byte)1, 5);
-        return string2;
+    public static SocketConnection a(String host, int port) {
+    SocketConnection socket = null;
+    try {
+        socket = (SocketConnection) Connector.open("socket://" + host + ":" + port);
+        socket.setSocketOption(SocketConnection.DELAY, 5); // DELAY = 1, 
+    } catch (Exception e) {
+        e.printStackTrace();
     }
+    return socket;
+}
 
     public static int a(InputStream inputStream, byte[] byArray, int n2) {
         while (n2 < byArray.length) {
@@ -82,63 +80,63 @@ public class g {
         return false;
     }
 
-    public static RecordStore a(String object, boolean bl) {
+    public static RecordStore a(String name, boolean createIfNecessary) {
         try {
-            return RecordStore.openRecordStore((String)object, (boolean)bl);
-        }
-        catch (Throwable throwable) {
-            object = throwable;
+            return RecordStore.openRecordStore(name, createIfNecessary);
+        } catch (Throwable throwable) {
             throwable.printStackTrace();
             return null;
         }
     }
 
-    public static byte[] a(RecordStore object, int n2) {
-        try {
-            object = object.getRecord(n2);
-        }
-        catch (Throwable throwable) {
-            object = throwable;
-            throwable.printStackTrace();
-            object = null;
-        }
-        return object;
+    public static byte[] a(RecordStore store, int recordId) {
+    try {
+        return store.getRecord(recordId);
+    } catch (Throwable throwable) {
+        throwable.printStackTrace();
+        return null;
     }
+}
 
     public static void a(RecordStore recordStore, int n2, byte[] byArray) {
         int n3 = byArray.length;
         boolean bl = false;
         RecordStore recordStore2 = recordStore;
-        recordStore2.setRecord(n2, byArray, 0, n3);
+        try {
+            recordStore2.setRecord(n2, byArray, 0, n3);
+        } catch (InvalidRecordIDException ex) {
+            ex.printStackTrace();
+        } catch (RecordStoreException ex) {
+            ex.printStackTrace();
+        }
     }
 
     public static int a(RecordStore recordStore, byte[] byArray) {
         int n2 = byArray.length;
         boolean bl = false;
         RecordStore recordStore2 = recordStore;
-        return recordStore2.addRecord(byArray, 0, n2);
+        try {
+            return recordStore2.addRecord(byArray, 0, n2);
+        } catch (RecordStoreException ex) {
+            ex.printStackTrace();
+        }
+        return 0;
     }
 
-    public static int a(RecordStore object) {
+    public static int a(RecordStore store) {
         try {
-            return object.getNumRecords();
-        }
-        catch (Throwable throwable) {
-            object = throwable;
+            return store.getNumRecords();
+        } catch (Throwable throwable) {
             throwable.printStackTrace();
             return 0;
         }
     }
 
-    public static void b(String object) {
+    public static void b(String name) {
         try {
-            RecordStore.deleteRecordStore((String)object);
-            return;
-        }
-        catch (Throwable throwable) {
-            object = throwable;
+            RecordStore.deleteRecordStore(name);
+        } catch (Throwable throwable) {
             throwable.printStackTrace();
-            return;
         }
     }
 

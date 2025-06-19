@@ -2,6 +2,29 @@
 // Class Version: 1
 package com.mg.sq;
 
+import com.mg.bas.ct;
+import com.mg.bas.go;
+import com.mg.bas.ba;
+import com.mg.bas.gr;
+import com.mg.bas.ag;
+import com.mg.bas.al;
+import com.mg.bas.ig;
+import com.mg.bas.i;
+import com.mg.bas.ff;
+import com.mg.bas.bx;
+import com.mg.bas.bk;
+import com.mg.bas.pd;
+import com.mg.bas.v;
+import com.mg.bas.m;
+import com.mg.bas.by;
+import com.mg.bas.iff;
+import com.mg.bas.oc;
+import com.mg.bas.ks;
+import com.mg.bas.gs;
+import com.mg.bas.am;
+import com.mg.bas.od;
+import com.mg.bas.pa;
+
 import com.mg.smsgame.MGMIDlet;
 import com.mg.sq.a;
 
