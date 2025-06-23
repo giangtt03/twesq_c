@@ -33,14 +33,14 @@ extends az {
         byArray4[3] = 16;
         byArrayArray[3] = byArray4;
         e = byArrayArray;
-        f = f.d("/skicon");
+        f = com.mg.bas.f.d("/skicon");
         h = false;
     }
 
     public gb(int n2, int n3) {
         super(n2);
         if (v.z && !h) {
-            f = g.a(f, f.getWidth() + 16, 18);
+            f = com.mg.bas.g.a(f, f.getWidth() + 16, 18);
             byte[][] byArrayArray = new byte[4][];
             byte[] byArray = new byte[4];
             byArray[2] = 18;
@@ -63,7 +63,7 @@ extends az {
             byArrayArray[3] = byArray4;
             e = byArrayArray;
             h = true;
-            ig.a = g.a(ig.a, ig.a.getWidth(), ba.a);
+            ig.a = com.mg.bas.g.a(ig.a, ig.a.getWidth(), ba.a);
         }
         this.c = e[n3][2];
         this.g = n3;

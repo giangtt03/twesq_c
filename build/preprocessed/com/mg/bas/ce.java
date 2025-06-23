@@ -39,7 +39,7 @@ implements Runnable {
         this.e = this.getWidth();
         this.d = this.getHeight();
         bx.a();
-        this.c = f.a("/_mglogo");
+        this.c = com.mg.bas.f.a("/_mglogo");
         this.f = this.c.getHeight() / 5;
         this.n = this.c.getHeight() / 2 / this.j + 1;
         if (!v.X) {
@@ -88,7 +88,7 @@ implements Runnable {
                 }
                 if (this.a > 30) {
                     object = this;
-                    this.c = f.a("/_partnerLogo");
+                    this.c = com.mg.bas.f.a("/_partnerLogo");
                     this.q = 1;
                     this.a = 0;
                 }

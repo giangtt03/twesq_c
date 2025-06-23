@@ -13,18 +13,17 @@ extends ld {
     }
 
     public final String toString() {
-        Object object = this;
-        object = "Skill " + ((ld)object).a + ": " + this.b + "\n";
-        object = String.valueOf(object) + this.d + "\n";
-        object = String.valueOf(object) + "Level: " + this.f + "  Mana: " + this.e + "\n";
-        object = String.valueOf(object) + "Max Level: " + this.g + "\n";
+        String result = "Skill " + this.a + ": " + this.b + "\n";
+        result = String.valueOf(result) + this.d + "\n";
+        result = String.valueOf(result) + "Level: " + this.f + "  Mana: " + this.e + "\n";
+        result = String.valueOf(result) + "Max Level: " + this.g + "\n";
         if (this.h != null) {
             int n = 0;
             while (n < this.h.length) {
-                object = String.valueOf(object) + this.h[n] + "\n";
+                result = String.valueOf(result) + this.h[n] + "\n";
                 ++n;
             }
         }
-        return object;
+        return result;
     }
 }

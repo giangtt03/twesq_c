@@ -33,8 +33,8 @@ public final class go {
         m = new lm[0];
         n = 50;
         o = 0;
-        p = new gp(0);
-        q = new gq(0);
+        p = new gp((byte)0);
+        q = new gq((byte)0);    
         s = -1L;
         t = true;
         u = null;

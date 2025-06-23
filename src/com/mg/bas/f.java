@@ -100,7 +100,6 @@ public static byte[] a(String path, boolean useCustomHeader) {
             return Image.createImage((byte[])object, (int)n2, (int)n3);
         }
         catch (Throwable throwable) {
-            object = throwable;
             throwable.printStackTrace();
             return null;
         }

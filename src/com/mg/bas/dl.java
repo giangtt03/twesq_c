@@ -10,7 +10,7 @@ public final class dl {
     public int f;
     public int g;
     public int h = -1;
-    public int i = 0;
+    public int idx = 0; 
     public int j = 0;
     public int k = 0;
     public boolean l = false;
@@ -19,16 +19,15 @@ public final class dl {
     public boolean o = false;
     public ls p = null;
 
-    public dl(ef object, int n2) {
-        Object[] objectArray;
-        this.e = ((ef)object).e();
-        this.f = ((ef)object).h();
-        this.c = ((ef)object).b();
-        this.g = ((ef)object).f() - 1;
-        this.i = ((ef)object).j();
-        this.j = ((ef)object).k();
-        this.k = ((ef)object).i();
-        boolean bl = this.l = ((ef)object).m() == 1;
+    public dl(ef efObj, int n2) {
+        this.e = efObj.e();
+        this.f = efObj.h();
+        this.c = efObj.b();
+        this.g = efObj.f() - 1;
+        this.idx = efObj.j();
+        this.j = efObj.k();
+        this.k = efObj.i();
+        boolean isLiked = this.l = efObj.m() == 1;
         if (!oy.g) {
             this.g = -1;
         }
@@ -38,44 +37,43 @@ public final class dl {
         } else {
             this.g = -1;
         }
-        if (((ef)object).g() != null) {
-            this.d = new lo("#" + ((ef)object).g() + "#", 1, -1, 0, 0, 16);
+        if (efObj.g() != null) {
+            this.d = new lo("#\u001b" + efObj.g() + "#", 1, -1, 0, 0, 16);
         }
-        this.a = new ls(((ef)object).c(), n3, 0, n2 - n3, bx.d.a(), 2);
+        this.a = new ls(efObj.c(), n3, 0, n2 - n3, bx.d.a(), 2);
         if (pc.a(this.f)) {
             n3 -= 20;
         }
         q q2 = new q("@" + go.e, 4, -1, 3 - n3, -21, bx.c.a(this.c), bx.c);
-        this.a.d().b(q2, 0);
+        a dynamicArr = ((o)this.a).d();
+        int[] likeArr = com.mg.bas.g.a(dynamicArr, 4); 
         if (this.c.equals(go.e)) {
             this.m = new int[0];
         } else {
-            objectArray = g.a(this.a.d(), 4);
-            this.m = new int[objectArray.length - 1];
-            System.arraycopy(objectArray, 1, this.m, 0, this.m.length);
+            this.m = new int[likeArr.length - 1];
+            System.arraycopy(likeArr, 1, this.m, 0, this.m.length);
         }
-        if (!i.b(((ef)object).l())) {
-            String[] stringArray = i.a(((ef)object).l(), ";", -1, true);
-            objectArray = stringArray;
-            if (stringArray != null && objectArray.length > 0) {
-                object = String.valueOf(this.j) + " người thích: ";
+        if (!com.mg.bas.i.b(efObj.l())) { 
+            String[] likeStrArr = com.mg.bas.i.a(efObj.l(), ";", -1, true);
+            if (likeStrArr != null && likeStrArr.length > 0) {
+                String likeString = String.valueOf(this.j) + " người thích: ";
                 boolean bl2 = false;
-                if (objectArray[0].equals(go.e)) {
-                    object = String.valueOf(object) + "Bạn ";
+                if (likeStrArr[0].equals(go.e)) {
+                    likeString = String.valueOf(likeString) + "Bạn ";
                     bl2 = true;
                 } else {
-                    object = String.valueOf(object) + "@" + (String)objectArray[0];
+                    likeString = String.valueOf(likeString) + "@" + likeStrArr[0];
                 }
                 int n4 = 1;
-                int n5 = objectArray.length;
+                int n5 = likeStrArr.length;
                 while (n4 < n5) {
-                    object = n4 == 1 && bl2 ? String.valueOf(object) + "và @" + (String)objectArray[n4] : String.valueOf(object) + ", @" + (String)objectArray[n4];
+                    likeString = n4 == 1 && bl2 ? String.valueOf(likeString) + "và @" + likeStrArr[n4] : String.valueOf(likeString) + ", @" + likeStrArr[n4];
                     ++n4;
                 }
-                if (objectArray.length < this.j) {
-                    object = String.valueOf(object) + ",...";
+                if (likeStrArr.length < this.j) {
+                    likeString = String.valueOf(likeString) + ",...";
                 }
-                this.p = new ls((String)object, 0, 0, n2 - 4, bx.d.a(), 2);
+                this.p = new ls(likeString, 0, 0, n2 - 4, bx.d.a(), 2);
             }
         }
         q2.a("");

@@ -15,7 +15,7 @@ extends aq {
 
     public static void a() {
         if (k == null) {
-            k = f.d("/mecommands");
+            k = com.mg.bas.f.d("/mecommands");
         }
     }
 
@@ -50,11 +50,10 @@ extends aq {
         }
     }
 
-    public final void a(lo object) {
-        this.n = object;
+    public final void a(lo loObj) {
+        this.n = loObj;
         int n2 = 0;
-        object = this;
-        ((fo)object).d(n2, 0);
+        this.d(n2, 0);
     }
 
     public final void s() {

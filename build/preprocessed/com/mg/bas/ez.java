@@ -47,44 +47,28 @@ implements bf {
             return true;
         }
         if (n >= 148 && n <= 157) {
-            int n2;
-            int n3;
             String string = this.l[this.i].substring(0, this.j);
             Object object = this.l[this.i].substring(this.j + 1);
             String string2 = String.valueOf(string == null ? "" : string) + (n - 148) + (String)(object == null ? "" : object);
             int n4 = Integer.parseInt(string2);
             int n5 = this.i;
             object = this;
+            int n2 = 0;
+            int n6 = 0;
             switch (n5) {
                 case 0: {
-                    gw cfr_ignored_0 = ((ez)object).m;
-                    n3 = 1;
+                    n6 = 1;
+                    n2 = ((ez)object).m.z();
                     break;
                 }
                 case 1: {
-                    gw cfr_ignored_1 = ((ez)object).m;
-                    n3 = 1;
+                    n6 = 1;
+                    n2 = 12;
                     break;
                 }
                 default: {
-                    n3 = ((ez)object).m.A();
-                }
-            }
-            int n6 = n3;
-            n5 = this.i;
-            object = this;
-            switch (n5) {
-                case 0: {
-                    int n7 = ((ez)object).m.z();
-                    break;
-                }
-                case 1: {
-                    gw cfr_ignored_2 = ((ez)object).m;
-                    int n7 = 12;
-                    break;
-                }
-                default: {
-                    int n7 = n2 = ((ez)object).m.B();
+                    n6 = ((ez)object).m.A();
+                    n2 = ((ez)object).m.B();
                 }
             }
             if (n4 < n6) {
@@ -144,7 +128,7 @@ implements bf {
     }
 
     public final long a() {
-        Calendar calendar = i.a;
+        Calendar calendar = com.mg.bas.i.a;
         ez ez2 = this;
         calendar.set(5, Integer.parseInt(ez2.l[0]));
         ez2 = this;

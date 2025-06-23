@@ -35,9 +35,9 @@ public final class el {
         }
         catch (Throwable throwable) {
             byte[] byArray = ((String)object).getBytes();
-            object = m.a(byArray.length);
+            byte[] lenBytes = m.a(byArray.length);
             try {
-                el2.a.write((byte[])object, 0, 4);
+                el2.a.write(lenBytes, 0, 4);
                 el2.a.write(byArray, 0, byArray.length);
                 return;
             }

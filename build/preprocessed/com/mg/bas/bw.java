@@ -28,37 +28,31 @@ extends al {
         this.t();
     }
 
-    private bw(String string, au[] object) {
+    private bw(String string, au[] auArray) {
         super(1);
         this.b = false;
-        object = this;
         try {
-            object.p = ag.a;
-        }
-        catch (Exception exception) {
-            Exception exception2 = exception;
+            this.p = ag.a;
+        } catch (Exception exception) {
             exception.printStackTrace();
         }
         this.n = new k(10, 41, this.f - 15, this.g - (47 + ba.a + 5));
         this.q = string;
         this.k = null;
         int n = this.u;
-        object = this;
         this.u = n;
-        if (object.q != null && object.q.length() > 0) {
-            object.t = object.r.a(object.q);
+        if (this.q != null && this.q.length() > 0) {
+            this.t = this.r.a(this.q);
             switch (n) {
-                case 0: {
-                    object.s = object.n.a + 2;
+                case 0:
+                    this.s = this.n.a + 2;
                     break;
-                }
-                case 1: {
-                    object.s = object.n.a + object.n.c / 2 - object.t / 2;
+                case 1:
+                    this.s = this.n.a + this.n.c / 2 - this.t / 2;
                     break;
-                }
-                case 2: {
-                    object.s = object.n.a + object.n.c - 2 - object.t;
-                }
+                case 2:
+                    this.s = this.n.a + this.n.c - 2 - this.t;
+                    break;
             }
         }
         this.t();

@@ -24,24 +24,24 @@ extends d {
     protected int i = 1;
 
     static {
-        char c2 = '\u0000';
-        int n = 0;
-        while (n < l.length()) {
-            if (c2 < l.charAt(n)) {
-                c2 = l.charAt(n);
+        char maxChar = '\u0000';
+        int idx = 0;
+        while (idx < l.length()) {
+            if (maxChar < l.charAt(idx)) {
+                maxChar = l.charAt(idx);
             }
-            ++n;
+            ++idx;
         }
-        m = new byte[c2 + 1];
-        n = 0;
-        while (n < m.length) {
-            c.m[n] = 0;
-            ++n;
+        m = new byte[maxChar + 1];
+        idx = 0;
+        while (idx < m.length) {
+            m[idx] = 0;
+            ++idx;
         }
-        n = 0;
-        while (n < l.length()) {
-            c.m[c.l.charAt((int)n)] = (byte)n;
-            ++n;
+        idx = 0;
+        while (idx < l.length()) {
+            m[l.charAt(idx)] = (byte)idx;
+            ++idx;
         }
     }
 

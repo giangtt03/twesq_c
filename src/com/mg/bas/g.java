@@ -50,7 +50,7 @@ public class g {
     return socket;
 }
 
-    public static int a(InputStream inputStream, byte[] byArray, int n2) {
+    public static int a(InputStream inputStream, byte[] byArray, int n2) throws java.io.IOException {
         while (n2 < byArray.length) {
             int n3 = inputStream.read(byArray, n2, byArray.length - n2);
             if (n3 < 0) {
@@ -268,7 +268,8 @@ public static String a(a var0, int var1_1, int var2_2, boolean var3_3) {
                     a a4 = a3;
                     int n5 = 0;
                     while (n5 < a4.d()) {
-                        int n6 = (Integer)a4.b(n5);
+//                        int n6 = (Integer)a4.b(n5);
+                        int n6 = ((Integer)a4.b(n5)).intValue();
                         n n7 = (n)a2.b(n6);
                         String string2 = g.a(a2, n7.b(), n6, true);
                         if (string2.equals(string)) {
@@ -288,54 +289,46 @@ public static String a(a var0, int var1_1, int var2_2, boolean var3_3) {
         object = a3;
         int n8 = 0;
         while (n8 < ((a)object).d()) {
-            nArray[n8] = (Integer)((a)object).b(n8);
+//            nArray[n8] = (Integer)((a)object).b(n8);
+            nArray[n8] = ((Integer)((a)object).b(n8)).intValue();
             ++n8;
         }
         return nArray;
     }
 
-    public static a c(String object) {
-        Object object2;
-        Object object3 = object;
-        Object object4 = new a(15);
-        if (!i.b((String)object3)) {
-            int n2;
-            object2 = ((String)object3).toLowerCase();
-            while ((n2 = ((String)object2).indexOf(10)) >= 0) {
-                ((a)object4).a(((String)object2).substring(0, n2));
-                ((a)object4).a("\n");
-                if (!i.b((String)(object2 = ((String)object2).substring(n2 + 1)))) continue;
+    public static a c(String str) {
+        a result = new a(15);
+        if (!i.b(str)) {
+            int idx;
+            String lower = str.toLowerCase();
+            while ((idx = lower.indexOf(10)) >= 0) {
+                result.a(lower.substring(0, idx));
+                result.a("\n");
+                lower = lower.substring(idx + 1);
+                if (i.b(lower)) break;
             }
-            if (!i.b((String)object2)) {
-                ((a)object4).a(object2);
+            if (!i.b(lower)) {
+                result.a(lower);
             }
         }
-        object3 = object = object4;
-        if (((a)object).d() > 0) {
+        if (result.d() > 0) {
             try {
-                object2 = object3;
-                g.a((a)object2, "rss://", " ", false, 3);
-                object2 = object3;
-                g.a((a)object2, "http://", " ", false, 3);
-                object2 = object3;
-                g.a((a)object2, "www.", " ", false, 3);
-                object2 = object3;
-                g.a((a)object2, "#", "#", true, 1);
-                object2 = object3;
-                g.a((a)object2, "@", " ", false, 4);
-                object2 = object3;
-                g.a((a)object2, "#", " ", false, 5);
-                object2 = object3;
+                g.a(result, "rss://", " ", false, 3);
+                g.a(result, "http://", " ", false, 3);
+                g.a(result, "www.", " ", false, 3);
+                g.a(result, "#\u001b", "#", true, 1);
+                g.a(result, "@", " ", false, 4);
+                g.a(result, "#", " ", false, 5);
                 int n3 = 0;
-                while (n3 < ((a)object2).d()) {
-                    object4 = (String)((a)object2).b(n3);
-                    if (((String)object4).length() > 0 && ((String)object4).charAt(0) != '') {
+                while (n3 < result.d()) {
+                    String s = (String)result.b(n3);
+                    if (s.length() > 0 && s.charAt(0) != '\u001a') {
                         int n4 = 0;
-                        int n5 = ((String)object4).length() - 1;
+                        int n5 = s.length() - 1;
                         while (n4 < n5) {
-                            int n6 = ((String)object4).length() - n4;
-                            char c = ((String)object4).charAt(n4);
-                            char c2 = ((String)object4).charAt(n4 + 1);
+                            int n6 = s.length() - n4;
+                            char c = s.charAt(n4);
+                            char c2 = s.charAt(n4 + 1);
                             int n7 = 3;
                             int n8 = -1;
                             switch (c) {
@@ -346,17 +339,17 @@ public static String a(a var0, int var1_1, int var2_2, boolean var3_3) {
                                     break;
                                 }
                                 case '@': {
-                                    if (c2 != ';' || n6 <= 2 || ((String)object4).charAt(n4 + 2) != '-') break;
+                                    if (c2 != ';' || n6 <= 2 || s.charAt(n4 + 2) != '-') break;
                                     n8 = 31;
                                     break;
                                 }
                                 case ':': {
                                     if (c2 == '-') {
                                         if (n6 <= 2) break;
-                                        c = ((String)object4).charAt(n4 + 2);
+                                        c = s.charAt(n4 + 2);
                                         if (c == ')') {
                                             if (n6 > 3) {
-                                                char c3 = ((String)object4).charAt(n4 + 3);
+                                                char c3 = s.charAt(n4 + 3);
                                                 n6 = c3;
                                                 if (c3 == ')') {
                                                     n7 = 4;
@@ -401,7 +394,7 @@ public static String a(a var0, int var1_1, int var2_2, boolean var3_3) {
                                         }
                                         if (c == '(') {
                                             if (n6 > 3) {
-                                                char c4 = ((String)object4).charAt(n4 + 3);
+                                                char c4 = s.charAt(n4 + 3);
                                                 n6 = c4;
                                                 if (c4 == '(') {
                                                     n7 = 4;
@@ -437,7 +430,7 @@ public static String a(a var0, int var1_1, int var2_2, boolean var3_3) {
                                         break;
                                     }
                                     if (c2 == ')') {
-                                        if (n6 > 2 && (c = ((String)object4).charAt(n4 + 2)) == ')') {
+                                        if (n6 > 2 && (c = s.charAt(n4 + 2)) == ')') {
                                             n8 = 3;
                                             break;
                                         }
@@ -471,7 +464,7 @@ public static String a(a var0, int var1_1, int var2_2, boolean var3_3) {
                                         break;
                                     }
                                     if (c2 == '(') {
-                                        if (n6 > 2 && (c = ((String)object4).charAt(n4 + 2)) == '(') {
+                                        if (n6 > 2 && (c = s.charAt(n4 + 2)) == '(') {
                                             n8 = 22;
                                             break;
                                         }
@@ -494,16 +487,16 @@ public static String a(a var0, int var1_1, int var2_2, boolean var3_3) {
                                         n8 = 20;
                                         break;
                                     }
-                                    if (c2 != '\"' || n6 <= 2 || (c = ((String)object4).charAt(n4 + 2)) != '>') break;
+                                    if (c2 != '\"' || n6 <= 2 || (c = s.charAt(n4 + 2)) != '>') break;
                                     n8 = 4;
                                     break;
                                 }
                                 case '>': {
                                     if (n6 <= 2) break;
-                                    c = ((String)object4).charAt(n4 + 2);
+                                    c = s.charAt(n4 + 2);
                                     if (c2 != ':') break;
                                     if (n6 > 3) {
-                                        n6 = ((String)object4).charAt(n4 + 3);
+                                        n6 = s.charAt(n4 + 3);
                                         if (c == 'd' && n6 == 60) {
                                             n7 = 4;
                                             n8 = 2;
@@ -516,14 +509,14 @@ public static String a(a var0, int var1_1, int var2_2, boolean var3_3) {
                                 }
                                 case 'b': {
                                     if (n6 <= 2) break;
-                                    c = ((String)object4).charAt(n4 + 2);
+                                    c = s.charAt(n4 + 2);
                                     if (c2 != '-' || c != ')') break;
                                     n8 = 5;
                                     break;
                                 }
                                 case ';': {
                                     if (n6 > 2) {
-                                        c = ((String)object4).charAt(n4 + 2);
+                                        c = s.charAt(n4 + 2);
                                         if (c2 == '-' && c == ')') {
                                             n8 = 10;
                                             break;
@@ -536,14 +529,14 @@ public static String a(a var0, int var1_1, int var2_2, boolean var3_3) {
                                 }
                                 case '|': {
                                     if (n6 <= 2) break;
-                                    c = ((String)object4).charAt(n4 + 2);
+                                    c = s.charAt(n4 + 2);
                                     if (c2 != '-' || c != ')') break;
                                     n8 = 11;
                                     break;
                                 }
                                 case '(': {
                                     if (n6 <= 2) break;
-                                    c = ((String)object4).charAt(n4 + 2);
+                                    c = s.charAt(n4 + 2);
                                     if (c2 == ':' && c == '|') {
                                         n8 = 12;
                                         break;
@@ -562,7 +555,7 @@ public static String a(a var0, int var1_1, int var2_2, boolean var3_3) {
                                 }
                                 case '=': {
                                     if (n6 > 2) {
-                                        c = ((String)object4).charAt(n4 + 2);
+                                        c = s.charAt(n4 + 2);
                                         if (c2 != '(' || c != '(') break;
                                         n8 = 23;
                                         break;
@@ -575,7 +568,7 @@ public static String a(a var0, int var1_1, int var2_2, boolean var3_3) {
                                 case 'X': 
                                 case 'x': {
                                     if (n6 > 2) {
-                                        c = ((String)object4).charAt(n4 + 2);
+                                        c = s.charAt(n4 + 2);
                                         if (c2 != '-' || c != '(') break;
                                         n8 = 26;
                                         break;
@@ -588,24 +581,24 @@ public static String a(a var0, int var1_1, int var2_2, boolean var3_3) {
                                 case 'I': 
                                 case 'i': {
                                     if (n6 <= 2) break;
-                                    c = ((String)object4).charAt(n4 + 2);
+                                    c = s.charAt(n4 + 2);
                                     if (c2 != '-' || c != ')') break;
                                     n8 = 11;
                                 }
                             }
                             if (n8 >= 0) {
-                                String string = ((String)object4).substring(0, n4);
-                                String string2 = ((String)object4).substring(n4, n4 + n7);
-                                object4 = ((String)object4).substring(n4 + n7);
+                                String string = s.substring(0, n4);
+                                String string2 = s.substring(n4, n4 + n7);
+                                s = s.substring(n4 + n7);
                                 string2 = "2" + (n8 < 10 ? "0" + n8 : String.valueOf(n8)) + string2;
                                 if (string == null || string.length() <= 0) {
-                                    ((a)object2).a(string2, n3);
+                                    result.a(string2, n3);
                                 } else {
-                                    ((a)object2).a(string, n3);
-                                    ((a)object2).b(string2, ++n3);
+                                    result.a(string, n3);
+                                    result.b(string2, ++n3);
                                 }
-                                if (object4 == null || ((String)object4).length() <= 0) break;
-                                ((a)object2).b(object4, n3 + 1);
+                                if (s == null || s.length() <= 0) break;
+                                result.b(s, n3 + 1);
                                 break;
                             }
                             ++n4;
@@ -613,13 +606,11 @@ public static String a(a var0, int var1_1, int var2_2, boolean var3_3) {
                     }
                     ++n3;
                 }
-            }
-            catch (Throwable throwable) {
-                object4 = throwable;
+            } catch (Throwable throwable) {
                 throwable.printStackTrace();
             }
         }
-        return object;
+        return result;
     }
 
     private static void a(a a2, String string, String string2, boolean bl, int n2) {
@@ -951,7 +942,7 @@ public static String a(a var0, int var1_1, int var2_2, boolean var3_3) {
     }
 
     public static String d() {
-        String string;
+        String string = "";
         String string2;
         try {
             string2 = System.getProperty("phone.mnc");
@@ -970,6 +961,7 @@ public static String a(a var0, int var1_1, int var2_2, boolean var3_3) {
             if (string2 == null || string2.equals("null") || string2.equals("")) {
                 string2 = System.getProperty("com.nokia.mid.networkid");
             }
+            
             if (string2 == null || string2.equals("null") || string2.equals("")) {
                 return null;
             }

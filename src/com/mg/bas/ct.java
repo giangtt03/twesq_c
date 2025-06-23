@@ -21,6 +21,11 @@ implements CommandListener {
         b = true;
     }
 
+    public ct() {
+        super("Debug");
+        this.e = Runtime.getRuntime().totalMemory() / 1024L;
+    }
+
     public static void a(boolean bl, int n) {
         b = false;
     }
@@ -29,12 +34,11 @@ implements CommandListener {
         return b;
     }
 
-    public final void commandAction(Command object, Displayable displayable) {
-        if (!object.getLabel().equals("Back") && object.getLabel().equals("Clear")) {
-            object = this;
-            object.deleteAll();
-            object.d = 0;
-            object.append("Start at " + new Date(System.currentTimeMillis()).toString());
+    public final void commandAction(Command command, Displayable displayable) {
+        if (!command.getLabel().equals("Back") && command.getLabel().equals("Clear")) {
+            this.deleteAll();
+            this.d = 0;
+            this.append("Start at " + new Date(System.currentTimeMillis()).toString());
         }
     }
 
@@ -45,32 +49,28 @@ implements CommandListener {
         return false;
     }
 
-    public static void a(String object) {
+    public static void a(String string) {
         if (a != null) {
-            String string = object;
-            object = a;
-            if ((((ct)((Object)object)).c & 1) == 1) {
-                if (((ct)((Object)object)).d >= 30) {
-                    object.delete(0);
+            if ((a.c & 1) == 1) {
+                if (a.d >= 30) {
+                    a.delete(0);
                 }
-                object.append("[" + string + "]");
+                a.append("[" + string + "]");
                 System.out.println(string);
-                ++((ct)((Object)object)).d;
+                ++a.d;
             }
         }
     }
 
-    public static void a(Throwable object) {
+    public static void a(Throwable throwable) {
         if (a != null) {
-            Throwable throwable = object;
-            object = a;
-            if ((((ct)((Object)object)).c & 2) == 2) {
-                if (((ct)((Object)object)).d >= 30) {
-                    object.delete(0);
+            if ((a.c & 2) == 2) {
+                if (a.d >= 30) {
+                    a.delete(0);
                 }
                 throwable.printStackTrace();
-                object.append(throwable.toString());
-                ++((ct)((Object)object)).d;
+                a.append(throwable.toString());
+                ++a.d;
             }
         }
     }
@@ -82,21 +82,17 @@ implements CommandListener {
         return false;
     }
 
-    public static void b(String object) {
+    public static void b(String string) {
         if (a != null) {
-            String string = object;
-            object = a;
-            if ((((ct)((Object)object)).c & 4) == 4) {
-                if (((ct)((Object)object)).d >= 30) {
-                    object.delete(0);
-                }
-                System.gc();
-                Runtime runtime = Runtime.getRuntime();
-                long l = (runtime.totalMemory() - runtime.freeMemory()) / 1024L;
-                string = "[MEM] " + string + " " + l + "K/" + ((ct)((Object)object)).e + "K";
-                object.append(string);
-                System.out.println(string);
+            if (a.d >= 30) {
+                a.delete(0);
             }
+            System.gc();
+            Runtime runtime = Runtime.getRuntime();
+            long l = (runtime.totalMemory() - runtime.freeMemory()) / 1024L;
+            String memString = "[MEM] " + string + " " + l + "K/" + a.e + "K";
+            a.append(memString);
+            System.out.println(memString);
         }
     }
 }

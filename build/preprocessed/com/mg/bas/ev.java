@@ -9,36 +9,29 @@ extends aq {
     private dt j;
     private String k = "";
 
-    public ev(dt object, boolean bl, int n) {
-        int n2;
-        StringBuffer stringBuffer;
-        Object object2;
-        this.d(n);
-        dt dt2 = object;
-        object = this;
-        this.j = dt2;
-        ds[] dsArray = dt2.c();
-        if (gr.c && dsArray != null) {
-            int n3 = 0;
-            int n4 = 0;
-            while (n4 < dsArray.length) {
-                if (dsArray[n4].e() == 2) {
-                    ++n3;
-                }
-                ++n4;
+    public ev(dt dt2, boolean bl, int n) {
+    this.d(n);
+    this.j = dt2;
+    ds[] dsArray = dt2.c();
+    int n2;
+    StringBuffer stringBuffer;
+    if (gr.c && dsArray != null) {
+        int n3 = 0;
+        int n4 = 0;
+        while (n4 < dsArray.length) {
+            if (dsArray[n4].e() == 2) {
+                ++n3;
             }
-            object2 = object;
-            stringBuffer = new StringBuffer(String.valueOf(dt2.b())).append("(").append(n3).append("/");
-            n2 = dsArray.length;
-        } else {
-            object2 = object;
-            stringBuffer = new StringBuffer(String.valueOf(dt2.b())).append("(");
-            n2 = dsArray == null ? 0 : dsArray.length;
+            ++n4;
         }
-        ((ev)object2).k = stringBuffer.append(n2).append(")").toString();
-        boolean bl2 = bl;
-        object = this;
-        this.i = bl2;
+        stringBuffer = new StringBuffer(String.valueOf(dt2.b())).append("(").append(n3).append("/");
+        n2 = dsArray.length;
+    } else {
+        stringBuffer = new StringBuffer(String.valueOf(dt2.b())).append("(");
+        n2 = dsArray == null ? 0 : dsArray.length;
+    }
+    this.k = stringBuffer.append(n2).append(")").toString();
+    this.i = bl;
     }
 
     public final void d(boolean bl) {

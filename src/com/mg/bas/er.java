@@ -19,19 +19,19 @@ implements eq {
     public final String a() {
         String string = "";
         Object object = this;
-        if (((er)object).b == 2) {
-            object = new boolean[this.size()];
-            this.getSelectedFlags((boolean[])object);
-            try {
-                int n = 0;
-                while (n < ((Object)object).length) {
-                    if (object[n] != false) {
-                        string = string.length() > 0 ? String.valueOf(string) + " " + this.a[n] : this.a[n];
-                    }
-                    ++n;
+        if (this.b == 2) {
+        boolean[] flags = new boolean[this.size()];
+        this.getSelectedFlags(flags);
+        try {
+            int n = 0;
+            while (n < flags.length) {
+                if (flags[n]) {
+                    string = string.length() > 0 ? string + " " + this.a[n] : this.a[n];
                 }
+                ++n;
             }
-            catch (Throwable throwable) {}
+        }
+        catch (Throwable throwable) {}
         } else {
             try {
                 string = this.a[this.getSelectedIndex()];

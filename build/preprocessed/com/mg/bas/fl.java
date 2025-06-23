@@ -1,7 +1,6 @@
 package com.mg.bas;
 // Decompiled with: CFR 0.152
 // Class Version: 1
-import com.mg.sq.a;
 import javax.microedition.lcdui.Graphics;
 
 public final class fl
@@ -40,20 +39,22 @@ implements bf {
         this.c(true);
     }
 
-    public final boolean f(int n) {
+    public final boolean f(final int n) {
         switch (n) {
             case 95: {
-                he he2 = com.mg.sq.a.a("Câu trả lời tự động " + this.j, null, "Xong", 0, "Hủy", 1);
-                ff ff2 = (ff)he2.e(1);
-                ff2.c(this.k);
-                ff2.h(100);
-                he2.b(this.i);
-                he2.a(this);
-                ag.b().a(he2);
+                final he a;
+                final ff ff;
+                (ff = (ff)(a = (he) com.mg.sq.a.a((ll)null, this, "Xong", 0, "Hủy", 1)).e(1)).c(this.k);
+                ff.h(100);
+                a.b(this.i);
+                a.a((bf)this);
+                ag.b().a(a);
                 return true;
             }
+            default: {
+                return false;
+            }
         }
-        return false;
     }
 
     public final boolean c(int n, int n2) {

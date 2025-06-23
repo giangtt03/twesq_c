@@ -22,21 +22,20 @@ implements eg {
             }
             catch (Exception exception) {}
         }
+    }final void a(el object, short s) {
+    if (this.a == null) {
+        return;
     }
-
-    final void a(el object, short s) {
-        if (this.a == null) {
-            return;
-        }
-        object = ((el)object).a();
+    try {
+        byte[] data = object.a();
         int n = 0;
-        if (object != null) {
+        if (data != null) {
             this.a.writeByte(4);
             this.a.write(eg.C, 0, 4);
-            this.a.writeInt(((Object)object).length);
+            this.a.writeInt(data.length);
             this.a.writeByte(s);
-            this.a.write((byte[])object, 0, ((Object)object).length);
-            n = 0 + (10 + ((Object)object).length);
+            this.a.write(data, 0, data.length);
+            n = 10 + data.length;
         } else {
             this.a.writeByte(4);
             this.a.write(eg.C, 0, 4);
@@ -48,7 +47,10 @@ implements eg {
             this.b.b(n);
         }
         this.a.flush();
+    } catch (Exception e) {
+        // todo
     }
+}
 
     public final void a(dv dv2) {
         this.b = dv2;

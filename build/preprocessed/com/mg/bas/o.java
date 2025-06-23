@@ -20,39 +20,31 @@ public class o {
         this.h = true;
     }
 
-    public o(d object, String object2, int n2, int n3, int n4, int n5, int n6) {
+    public o(d font, String text, int n2, int n3, int n4, int n5, int n6) {
         int n7 = n6;
         n6 = n5;
         n5 = n4;
         n4 = n3;
         n3 = n2;
-        Object object3 = object2;
-        object2 = object;
-        object = this;
-        object3 = ((String)object3).replace('\r', '\n');
-        int n8 = n7;
-        n7 = n6;
-        n6 = n5;
-        n5 = n4;
-        n4 = n3;
-        String string = object3;
-        object3 = g.c((String)object3);
-        ((o)v0).g = object2;
-        ((o)object).b = string;
-        ((o)object).a = new a(10);
-        ((o)object).e = n4;
-        ((o)object).f = n5;
-        ((o)object).c = n6;
-        if (n6 <= 0 || ((a)object3).d() <= 0) {
+        String processedText = text.replace('\r', '\n');
+        a processedLines = g.c(processedText);
+        this.g = font;
+        this.b = processedText;
+        this.a = new a(10);
+        this.e = n4;
+        this.f = n5;
+        this.c = n6;
+        int n8 = 0;
+        if (n6 <= 0 || processedLines.d() <= 0) {
             return;
         }
-        super.a((a)object3, ((o)object).b, n6, n7, n8);
-        if (((o)object).a.d() > 0) {
-            object2 = (n)((o)object).a.b(((o)object).a.d() - 1);
-            ((o)object).d = ((n)object2).e() + n7;
-            object3 = (n)((o)object).a.b(0);
-            if (((n)object3).e() == ((n)object2).e()) {
-                ((o)object).c = ((n)object2).d() + ((n)object2).f();
+        this.a(processedLines, this.b, n6, n7, n8);
+        if (this.a.d() > 0) {
+            n lastLine = (n)this.a.b(this.a.d() - 1);
+            this.d = lastLine.e() + n7;
+            n firstLine = (n)this.a.b(0);
+            if (firstLine.e() == lastLine.e()) {
+                this.c = lastLine.d() + lastLine.f();
             }
         }
     }
@@ -161,12 +153,8 @@ public class o {
         this.f = n3;
     }
 
-    public final String g() {
-        return g.a(this.a, 1, this.h);
-    }
-
-    public final String h() {
-        return g.a(this.a, 3, this.h);
+    public String getStringByType(int type, boolean flag) {
+        return com.mg.bas.g.a(this.a, type, flag);
     }
 
     public final void a(int n2, boolean bl) {
@@ -211,7 +199,7 @@ public class o {
     }
 
     public final String b(int n2, int n3) {
-        return g.a(this.a, n2, n3, this.h);
+        return com.mg.bas.g.a(this.a, n2, n3, this.h);
     }
 
     public final void a(Graphics graphics, int n2, int n3) {
@@ -230,19 +218,19 @@ public class o {
     }
 
     public final int b(int n2) {
-        return g.b(this.a, n2);
+        return com.mg.bas.g.b(this.a, n2);
     }
 
     public final int c(int n2) {
-        return g.c(this.a, n2);
+        return com.mg.bas.g.c(this.a, n2);
     }
 
     public final int d(int n2) {
-        return g.d(this.a, n2);
+        return com.mg.bas.g.d(this.a, n2);
     }
 
     public final int e(int n2) {
-        return g.e(this.a, n2);
+        return com.mg.bas.g.e(this.a, n2);
     }
 
     public final int j() {
@@ -250,7 +238,7 @@ public class o {
         int n2 = 0;
         while (n2 < a2.d()) {
             n n3 = (n)a2.b(n2);
-            if (g.a(n3.c())) {
+            if (com.mg.bas.g.a(n3.c())) {
                 return n2;
             }
             ++n2;
@@ -263,7 +251,7 @@ public class o {
         int n2 = a2.d() - 1;
         while (n2 >= 0) {
             n n3 = (n)a2.b(n2);
-            if (g.a(n3.c())) {
+            if (com.mg.bas.g.a(n3.c())) {
                 return n2;
             }
             --n2;

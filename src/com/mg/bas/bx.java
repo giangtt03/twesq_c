@@ -37,17 +37,16 @@ public final class bx {
     }
 
     private bx() {
-        Object object;
+        byte[] object2;
         a = new bz();
         try {
-            object = f.c("/_fontcap");
-            c = new ca(f.a(object));
-            h.a(object, new int[]{0xFFFFFF}, new int[]{0xFFFF68});
-            b = new ca(f.a(object));
+            object2 = com.mg.bas.f.c("/_fontcap");
+            c = new ca(com.mg.bas.f.a(object2));
+            com.mg.bas.h.a(object2, new int[]{0xFFFFFF}, new int[]{0xFFFF68});
+            b = new ca(com.mg.bas.f.a(object2));
         }
         catch (Exception exception) {}
         d d2 = b;
-        object = d2;
         g = d2;
     }
 

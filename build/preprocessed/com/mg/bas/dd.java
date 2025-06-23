@@ -22,11 +22,10 @@ extends at {
         this.f.c(2);
         this.o = 240;
         this.p = 70;
-        object = this;
         this.a = new k(5, 2, 56, 63);
-        ((dd)object).b = new k(112, 2, 122, 16);
-        ((dd)object).c = new k(112, 21, 122, 16);
-        ((dd)object).d = new k(112, 38, 122, 16);
+        this.b = new k(112, 2, 122, 16);
+        this.c = new k(112, 21, 122, 16);
+        this.d = new k(112, 38, 122, 16);
         new k(112, 55, 122, 16);
     }
 

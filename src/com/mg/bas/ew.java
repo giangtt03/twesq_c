@@ -30,7 +30,7 @@ extends aq {
 
     public final void a(doo doo2, String string, long l) {
         this.i = doo2;
-        this.j = String.valueOf(doo2.a) + (!i.b(doo2.e) ? " - " + doo2.e : "");
+        this.j = String.valueOf(doo2.a) + (!com.mg.bas.i.b(doo2.e) ? " - " + doo2.e : "");
         this.l = bx.d.a(this.j);
         this.k = "Cấp " + doo2.b + "  --  Danh vọng" + " " + doo2.d;
         this.q = string;
@@ -75,8 +75,8 @@ extends aq {
         this.p.a(graphics, this.k, n3, n2 + 13, 0);
         if (this.q != null) {
             long l = this.r - System.currentTimeMillis() > 0L ? this.r - System.currentTimeMillis() : 0L;
-            n = v.t - bx.c.a(this.q) - bx.c.a(i.b(l, "hh:mm:ss")) - 5;
-            com.mg.sq.a.h.a(graphics, String.valueOf(this.q) + " " + i.b(l, "hh:mm:ss"), n, v.u - 35, 0);
+            n = v.t - bx.c.a(this.q) - bx.c.a(com.mg.bas.i.b(l, "hh:mm:ss")) - 5;
+            com.mg.sq.a.h.a(graphics, String.valueOf(this.q) + " " + com.mg.bas.i.b(l, "hh:mm:ss"), n, v.u - 35, 0);
         }
     }
 

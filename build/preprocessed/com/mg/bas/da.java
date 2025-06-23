@@ -1,4 +1,6 @@
 package com.mg.bas;
+import com.mg.bas.t;
+import com.mg.bas.v;
 // Decompiled with: CFR 0.152
 // Class Version: 1
 import com.mg.sq.a;
@@ -21,7 +23,7 @@ bu {
     private k s = null;
     private k[] t = new k[7];
     private k[] u = new k[8];
-    private Image v;
+    private Image goldImage;
     private Image w;
     private Image x;
     private int[] y;
@@ -60,7 +62,7 @@ bu {
     private k ad;
     private k ae;
     private String af;
-    private String ag;
+    private String agString;
     private jz ah;
     private int ai;
     private int aj;
@@ -102,7 +104,7 @@ bu {
             n = v.t;
         }
         this.j = new k(0, 0, n, n2);
-        this.ag = "Chưa có";
+        this.agString = "Chưa có";
         this.af = "Chưa có";
         this.aJ = new iff(new int[]{0xFFFFFF, 0xFF7F00});
     }
@@ -160,11 +162,11 @@ bu {
         bx.d.c(true);
         bx.d.a(graphics2, "Điểm", ((da)object).S.a - 5 + n4, ((da)object).S.b + n3, 2);
         bx.d.c(false);
-        graphics2.drawImage(((da)object).x, ((da)object).q.a - 3 + n4, ((da)object).q.b + ((da)object).q.d + n3, 40);
+        graphics2.drawImage(((da)object).goldImage, ((da)object).q.a - 3 + n4, ((da)object).q.b + ((da)object).q.d + n3, 40);
         pc.a(graphics2, ((da)object).q.a + n4, ((da)object).q.b + n3, ((da)object).q.c, ((da)object).q.d, 1463700, 16311483);
         graphics2.drawImage(((da)object).w, ((da)object).r.a - 3 + n4, ((da)object).r.b + ((da)object).r.d + n3, 40);
         pc.a(graphics2, ((da)object).r.a + n4, ((da)object).r.b + n3, ((da)object).r.c, ((da)object).r.d, 1993479, 16311483);
-        graphics2.drawImage(((da)object).v, ((da)object).s.a - 3 + n4, ((da)object).s.b + ((da)object).s.d + n3, 40);
+        graphics2.drawImage(((da)object).x, ((da)object).s.a - 3 + n4, ((da)object).s.b + ((da)object).s.d + n3, 40);
         pc.a(graphics2, ((da)object).s.a + n4, ((da)object).s.b + n3, ((da)object).s.c, ((da)object).s.d, 7293991, 16311483);
         pc.a(graphics2, ((da)object).Y.a + n4, ((da)object).Y.b + n3, ((da)object).j.c - (((da)object).Y.a << 1));
         pc.a(graphics2, ((da)object).X.a + n4, ((da)object).X.b + n3, ((da)object).j.c - (((da)object).X.a << 1));
@@ -176,7 +178,7 @@ bu {
             bx.c.a(graphics, String.valueOf(this.O.G), n8, this.Q.b + n7 + n2, 0);
             bx.c.a(graphics, this.af, n4, this.Q.b + n7 + n2, 2);
             bx.c.a(graphics, String.valueOf(this.O.ab), n8, this.Q.b + (n7 += this.Q.d + 2) + n2, 0);
-            bx.c.a(graphics, this.ag, n4, this.Q.b + n7 + n2, 2);
+            bx.c.a(graphics, this.agString, n4, this.Q.b + n7 + n2, 2);
             n8 = this.R.a + this.R.c / 2 + n;
             n7 = (this.Q.d - bx.d.a()) / 2;
             n4 = this.R.d + 3;
@@ -266,9 +268,9 @@ bu {
 
     public final void q() {
         if (!this.N) {
-            this.w = f.d("/info/expicon");
-            this.x = f.d("/info/heart");
-            this.v = f.d("/info/gold");
+            this.w = com.mg.bas.f.d("/info/expicon");
+            this.x = com.mg.bas.f.d("/info/heart");
+            this.goldImage = com.mg.bas.f.d("/info/gold");
             this.Q = da.s() ? new k(170, 20, 124, 16) : new k(110, 25, 118, 16);
             this.Y = new cu(10, this.Q.b + (this.Q.d + 2 << 2) + 6);
             int n = da.s() ? this.j.c - 52 : 204;
@@ -299,7 +301,7 @@ bu {
                 n += this.R.d - 12 + 3 + 12;
                 ++n5;
             }
-            Image image = f.d("/info/btinscrease");
+            Image image = com.mg.bas.f.d("/info/btinscrease");
             n = image.getWidth() >> 2;
             n2 = image.getHeight();
             int[][] nArrayArray = new int[4][];
@@ -326,7 +328,7 @@ bu {
             n2 = 0;
             while (n2 < this.H.length) {
                 this.H[n2] = new fu(image, aG[n2]);
-                this.H[n2].a(this);
+                this.H[n2].a((bf)this);
                 n = n2 > 4 ? 2 : 0;
                 this.H[n2].b(this.aF[n][0], this.aF[n][1], this.aF[n][2], this.aF[n][3]);
                 this.H[n2].b(false);
@@ -414,7 +416,7 @@ bu {
         this.K = mb.h(lh2, mbArray[0], mbArray[1], mbArray[3], mbArray[2], false);
         this.K.a((lc)object);
         this.K.a(nr2);
-        object = f.d("/castingball");
+        object = com.mg.bas.f.d("/castingball");
         this.M = mb.a(lh2, (Image)object, mbArray[0], mbArray[1], mbArray[3], mbArray[2], false);
         this.M.a(nr2);
         if (!this.aB) {
@@ -425,7 +427,7 @@ bu {
         this.aB = true;
         this.x();
         this.af = "[" + this.O.S + "]";
-        this.ag = "[" + this.O.R + "]";
+        this.agString = "[" + this.O.R + "]";
     }
 
     private void h(int n) {
@@ -465,16 +467,15 @@ bu {
         }
         this.ac = n * 1000 / n2;
         this.ap = String.valueOf(this.ac / 10) + "," + this.ac % 10 + "%";
-        this.aq = String.valueOf(i.a(((lh)object).H, ".")) + "/" + i.a(((lh)object).I, ".");
+        this.aq = String.valueOf(this.O.H) + "/" + this.O.I;
         this.t();
-        object = this;
-        ((da)object).z[0] = ((da)object).O.h;
-        ((da)object).z[2] = ((da)object).O.j;
-        ((da)object).z[1] = ((da)object).O.i;
-        ((da)object).z[3] = ((da)object).O.k;
-        ((da)object).A = ((da)object).O.K;
-        if (((da)object).O.K <= 0) {
-            ((da)object).P = false;
+        this.z[0] = this.O.h;
+        this.z[2] = this.O.j;
+        this.z[1] = this.O.i;
+        this.z[3] = this.O.k;
+        this.A = this.O.K;
+        if (this.O.K <= 0) {
+            this.P = false;
         }
     }
 
@@ -515,7 +516,7 @@ bu {
         this.an = this.ah.f();
         this.ak = this.ah.b() + this.aw;
         this.ah.c();
-        this.ar = String.valueOf(i.a(this.aj, ".")) + "/" + i.a(this.ai, ".");
+        this.ar = String.valueOf(this.aj) + "/" + this.ai;
     }
 
     public final void n() {
@@ -675,10 +676,10 @@ bu {
         n2 = 0;
         while (n2 < this.y.length) {
             if (this.y[n2] > 0) {
-                object = ag.b().a("Chú ý", "Chưa cập nhật điểm cho nhân vật. Bạn muốn cập nhật không?", (String)object, 5, string, 6, 1);
-                ((am)object).a(bf2);
-                ((am)object).b(241226);
-                ag.b().a((al)object, false);
+                al dialog = ag.b().a("Chú ý", "Chưa cập nhật điểm cho nhân vật. Bạn muốn cập nhật không?", (String)object, 5, string, 6, 1);
+                dialog.a(bf2);
+                dialog.b(241226);
+                ag.b().a(dialog, false);
                 return true;
             }
             ++n2;

@@ -58,24 +58,32 @@ r {
             return;
         }
         this.d();
-        this.b = Manager.createPlayer((InputStream)"".getClass().getResourceAsStream("/audio/" + string + ".mid"), (String)"audio/midi");
-        this.g = n;
-        this.b.setLoopCount(n);
-        this.b.realize();
-        this.b.prefetch();
-        this.b.addPlayerListener((PlayerListener)this);
-        Control control = this.b.getControl("VolumeControl");
-        if (control != null) {
-            this.d = (VolumeControl)control;
-            this.d.setLevel(v.Q);
-            this.d.setMute(!v.N);
+        try {
+            this.b = Manager.createPlayer(
+                (InputStream)"".getClass().getResourceAsStream("/audio/" + string + ".mid"),
+                "audio/midi"
+            );
+            this.g = n;
+            this.b.setLoopCount(n);
+            this.b.realize();
+            this.b.prefetch();
+            this.b.addPlayerListener((PlayerListener)this);
+            Control control = this.b.getControl("VolumeControl");
+            if (control != null) {
+                this.d = (VolumeControl)control;
+                this.d.setLevel(v.Q);
+                this.d.setMute(!v.N);
+            }
+            if ((control = this.b.getControl("TempoControl")) != null) {
+                this.e = (TempoControl)control;
+                v.R = this.e.getTempo();
+            }
+            this.c = string;
+            this.f = false;
+        } catch (Exception e) {
+            e.printStackTrace();
+            this.b = null;
         }
-        if ((control = this.b.getControl("TempoControl")) != null) {
-            this.e = (TempoControl)control;
-            v.R = this.e.getTempo();
-        }
-        this.c = string;
-        this.f = false;
     }
 
     public final void c() {

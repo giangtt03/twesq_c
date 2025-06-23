@@ -34,4 +34,8 @@ public abstract class d {
     public final void a(int n) {
         this.j = n;
     }
+
+    a c(String processedText) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

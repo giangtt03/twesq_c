@@ -17,12 +17,11 @@ extends au {
         this.f = d2;
     }
 
-    public bc(String object, int n) {
-        this.c = object;
+    public bc(String text, int n) {
+        this.c = text;
         this.e = 0;
-        object = this;
         this.f = bx.c;
-        ((bc)object).h = bx.b;
+        this.h = bx.b;
     }
 
     public final void a(k k2) {

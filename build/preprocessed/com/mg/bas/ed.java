@@ -52,12 +52,16 @@ final class ed {
 
     private int a(byte[] byArray) {
         int n = 0;
-        while (n < byArray.length) {
-            int n2 = this.a.read(byArray, n, byArray.length - n);
-            if (n2 < 0) {
-                return -1;
+        try {
+            while (n < byArray.length) {
+                int n2 = this.a.read(byArray, n, byArray.length - n);
+                if (n2 < 0) {
+                    return -1;
+                }
+                n += n2;
             }
-            n += n2;
+        } catch (java.io.IOException e) {
+            return -1;
         }
         return n;
     }

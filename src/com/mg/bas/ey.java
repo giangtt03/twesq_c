@@ -21,7 +21,7 @@ public class ey extends aq {
     String str = paramString;
     ey ey1;
     (ey1 = this).j = str;
-    if (i.b(str)) {
+    if (com.mg.bas.i.b(str)) {
       ey1.m = 0;
       return;
     } 

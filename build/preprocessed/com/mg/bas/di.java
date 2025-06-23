@@ -20,10 +20,8 @@ public final class di {
 
     public di(ds object, int n, boolean bl, dq dq2) {
         ds ds2 = object;
-        object = this;
         this.c = ds2;
         boolean bl2 = bl;
-        object = this;
         this.f = bl2;
         this.e = n;
         this.d = new a(30);

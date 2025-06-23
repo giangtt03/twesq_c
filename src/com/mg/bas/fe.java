@@ -163,16 +163,20 @@ extends aq {
         return byArray;
     }
 
-    public final void a(byte[] object) {
-        object = new ByteArrayInputStream((byte[])object);
-        DataInputStream dataInputStream = new DataInputStream((InputStream)object);
-        int n = 0;
-        while (n < this.i.d()) {
-            fl fl2 = (fl)this.i.b(n);
-            fl2.a(dataInputStream.readUTF());
-            ++n;
+    public final void a(byte[] data) {
+        ByteArrayInputStream bais = new ByteArrayInputStream(data);
+        DataInputStream dis = new DataInputStream(bais);
+        try {
+            int n = 0;
+            while (n < this.i.d()) {
+                fl fl2 = (fl)this.i.b(n);
+                fl2.a(dis.readUTF());
+                ++n;
+            }
+            dis.close();
+            bais.close();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        dataInputStream.close();
-        ((ByteArrayInputStream)object).close();
     }
 }

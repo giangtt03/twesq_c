@@ -176,8 +176,7 @@ public final class cr {
         try {
             byte[] byArray = cx.a(v.d());
             return cx.a(v.m, byArray);
-        }
-        catch (UnsupportedEncodingException unsupportedEncodingException) {
+        } catch (Exception exception) {
             return true;
         }
     }

@@ -69,14 +69,15 @@ Runnable {
             object = "sms://" + this.a.a;
             ct.a("[SMS:" + this.a.a + "]" + this.a.b);
             Object object2 = null;
+            MessageConnection msgConn = null;
             try {
-                Throwable throwable;
+                TextMessage textMsg;
                 try {
-                    object2 = (MessageConnection)Connector.open((String)object);
-                    throwable = (TextMessage)object2.newMessage("text");
-                    throwable.setAddress((String)object);
-                    throwable.setPayloadText(this.a.b);
-                    object2.send((Message)throwable);
+                    msgConn = (MessageConnection)Connector.open((String)object);
+                    textMsg = (TextMessage)msgConn.newMessage("text");
+                    textMsg.setAddress((String)object);
+                    textMsg.setPayloadText(this.a.b);
+                    msgConn.send(textMsg);
                     cr.f();
                     if (cr.d()) {
                         this.g = true;
@@ -96,7 +97,6 @@ Runnable {
                     }
                 }
                 catch (Throwable throwable2) {
-                    throwable = throwable2;
                     throwable2.printStackTrace();
                     this.b = this.a;
                     this.a = null;
@@ -105,40 +105,40 @@ Runnable {
                     ((am)object).a(this);
                     ((am)object).b(-10002);
                     ag.b().a((al)object);
-                    if (object2 == null) continue;
+                    if (msgConn == null) continue;
                     try {
-                        object2.close();
+                        msgConn.close();
                     }
                     catch (IOException iOException) {
-                        object2 = iOException;
                         iOException.printStackTrace();
                     }
                     continue;
                 }
             }
             catch (Throwable throwable) {
-                if (object2 != null) {
+                if (msgConn != null) {
                     try {
-                        object2.close();
+                        msgConn.close();
                     }
                     catch (IOException iOException) {
-                        object2 = iOException;
                         iOException.printStackTrace();
                     }
                 }
-                throw throwable;
+                try {
+                    throw throwable;
+                } catch (Throwable ex) {
+                    ex.printStackTrace();
+                }
             }
-            if (object2 == null) continue;
+            if (msgConn == null) continue;
             try {
-                object2.close();
+                msgConn.close();
                 continue;
             }
             catch (IOException iOException) {
-                object2 = iOException;
                 iOException.printStackTrace();
                 continue;
             }
-            break;
         }
     }
 

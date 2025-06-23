@@ -45,12 +45,11 @@ public final class u {
     private byte[] a(RecordStore object) {
         byte[] byArray = new byte[this.c];
         try {
-            g.a(object, byArray);
-            g.a(object, byArray);
-            g.a(object, new byte[]{1});
+            com.mg.bas.g.a(object, 1, byArray);
+            com.mg.bas.g.a(object, 2, byArray);
+            com.mg.bas.g.a(object, 3, new byte[]{1});
         }
         catch (Exception exception) {
-            object = exception;
             exception.printStackTrace();
         }
         this.i = 1;
@@ -59,80 +58,63 @@ public final class u {
 
     private void f() {
         if (this.n == null) {
-            this.n = g.a(this.a, false);
+            this.n = com.mg.bas.g.a(this.a, false);
         }
         try {
             int n2;
             byte[] byArray;
-            if (this.n == null || g.a(this.n) < 3) {
+            if (this.n == null || com.mg.bas.g.a(this.n) < 3) {
                 this.d();
-                g.b(this.a);
-                this.n = g.a(this.a, true);
+                com.mg.bas.g.b(this.a);
+                this.n = com.mg.bas.g.a(this.a, true);
                 byArray = this.a(this.n);
             } else {
                 this.i = 0;
-                byte[] byArray2 = g.a(this.n, 3);
+                byte[] byArray2 = com.mg.bas.g.a(this.n, 3);
                 if (byArray2 != null) {
                     this.i = byArray2[0];
                 }
                 if (this.i <= 0 || this.i > 2) {
                     this.i = 1;
                 }
-                if ((n2 = m.a(byArray = g.a(this.n, this.i), 0)) < this.p) {
+                if ((n2 = com.mg.bas.m.a(byArray = com.mg.bas.g.a(this.n, this.i), 0)) < this.p) {
                     this.d();
-                    g.b(this.a);
+                    com.mg.bas.g.b(this.a);
                     this.f();
                     return;
                 }
             }
-            int n3 = g.a(this.n);
+            int n3 = com.mg.bas.g.a(this.n);
             n2 = 3;
             if (this.o) {
                 this.d();
             }
             int n4 = 4;
-            int n5 = m.a(byArray, 4);
+            int n5 = com.mg.bas.m.a(byArray, 4);
             n4 += 4;
             int n6 = 0;
             while (n6 < n5) {
                 t t2 = new t();
                 int n7 = n4;
                 byte[] byArray3 = byArray;
-                t t3 = t2;
-                int n8 = n7;
-                t3.a = m.a(byArray3, n7);
-                t3.e = m.b(byArray3, n7 += 4);
-                t3.b = m.a(byArray3, n7 += 8);
-                t3.c = new int[m.a(byArray3, n7 += 4)];
-                n7 += 4;
+                t2.a = com.mg.bas.m.a(byArray3, n7);
+                t2.e = com.mg.bas.m.b(byArray3, n7 += 4);
+                t2.b = com.mg.bas.m.a(byArray3, n7 += 8);
+                t2.c = new int[com.mg.bas.m.a(byArray3, n7 += 4)];
+                int n8 = t2.c.length;
                 int n9 = 0;
-                while (n9 < t3.c.length) {
-                    t3.c[n9] = m.a(byArray3, n7);
+                while (n9 < n8) {
+                    t2.c[n9] = com.mg.bas.m.a(byArray3, n7);
                     n7 += 4;
                     ++n9;
                 }
-                n4 += n7 - n8;
-                this.f.a(t2);
-                n2 += t2.c.length;
-                this.k += t2.b;
+                n4 = n7;
+                this.g.a(new Integer(com.mg.bas.m.a(byArray, n4)));
+                n4 += 4;
                 ++n6;
             }
-            n6 = m.a(byArray, n4);
-            n4 += 4;
-            int n10 = 0;
-            while (n10 < n6) {
-                this.g.a(new Integer(m.a(byArray, n4)));
-                n4 += 4;
-                ++n10;
-            }
-            if (n3 - 3 > (n2 += this.g.d())) {
-                this.e(n3);
-                return;
-            }
-        }
-        catch (Throwable throwable) {
-            this.d();
-            throwable.printStackTrace();
+        } catch (Exception exception) {
+            exception.printStackTrace();
         }
     }
 
@@ -150,7 +132,7 @@ public final class u {
         }
         n3 = this.g.d() - 1;
         while (n3 >= 0) {
-            int n5 = (Integer)this.g.b(n3);
+            int n5 = ((Integer)this.g.b(n3)).intValue();
             blArray[n5] = true;
             --n3;
         }
@@ -166,9 +148,9 @@ public final class u {
     private t f(int n2) {
         Object object = this.f.a(n2);
         if (object != null) {
-            object = (t)object;
-            this.k -= ((t)object).b;
-            return object;
+            t tObj = (t)object;
+            this.k -= tObj.b;
+            return tObj;
         }
         return null;
     }
@@ -191,7 +173,7 @@ public final class u {
         Object object = this.l;
         synchronized (object) {
             if (this.n == null) {
-                this.n = g.a(this.a, false);
+                this.n = com.mg.bas.g.a(this.a, false);
             }
             try {
                 byte[] byArray;
@@ -208,7 +190,7 @@ public final class u {
                     int[] nArray = t2.c;
                     int n4 = 0;
                     while (n4 < nArray.length) {
-                        byte[] byArray2 = g.a(this.n, nArray[n4]);
+                        byte[] byArray2 = com.mg.bas.g.a(this.n, nArray[n4]);
                         if (byArray2 == null) {
                             this.a(t2);
                             this.a(t2.c, 0, t2.c.length);
@@ -322,7 +304,7 @@ public final class u {
                 while (n6 < nArray.length) {
                     int n7 = this.g.d() - 1;
                     if (n7 >= 0) {
-                        nArray[n6] = (Integer)this.g.b(n7);
+                        nArray[n6] = ((Integer)this.g.b(n7)).intValue();
                         this.g.a(n7);
                     } else {
                         nArray[n6] = -1;
@@ -366,12 +348,12 @@ public final class u {
         Object object = this.l;
         synchronized (object) {
             if (this.n == null) {
-                this.n = g.a(this.a, false);
+                this.n = com.mg.bas.g.a(this.a, false);
             }
             try {
                 int n2;
                 if (this.n == null) {
-                    this.n = g.a(this.a, true);
+                    this.n = com.mg.bas.g.a(this.a, true);
                     if (this.n == null) {
                         return -3;
                     }
@@ -393,10 +375,8 @@ public final class u {
                 }
                 byte[] byArray = new byte[this.c];
                 n4 = 0;
-                System.arraycopy(m.a(this.p), 0, byArray, 0, 4);
-                n4 += 4;
-                System.arraycopy(m.a(this.f.d()), 0, byArray, 4, 4);
-                n4 += 4;
+                System.arraycopy(com.mg.bas.m.a(this.p), 0, byArray, 0, 4);
+                System.arraycopy(com.mg.bas.m.a(this.f.d()), 0, byArray, 4, 4);
                 int n5 = 0;
                 n2 = this.f.d();
                 while (n5 < n2) {
@@ -404,23 +384,23 @@ public final class u {
                     int n6 = 20 + (((t)object2).c.length << 2);
                     byte[] byArray2 = new byte[n6];
                     int n7 = 0;
-                    System.arraycopy(m.a(((t)object2).a), 0, byArray2, 0, 4);
+                    System.arraycopy(com.mg.bas.m.a(((t)object2).a), 0, byArray2, 0, 4);
                     n7 += 4;
-                    System.arraycopy(m.a(((t)object2).e), 0, byArray2, 4, 8);
+                    System.arraycopy(com.mg.bas.m.a(((t)object2).e), 0, byArray2, 4, 8);
                     n7 += 8;
-                    System.arraycopy(m.a(((t)object2).b), 0, byArray2, 12, 4);
+                    System.arraycopy(com.mg.bas.m.a(((t)object2).b), 0, byArray2, 12, 4);
                     n7 += 4;
-                    System.arraycopy(m.a(((t)object2).c.length), 0, byArray2, 16, 4);
+                    System.arraycopy(com.mg.bas.m.a(((t)object2).c.length), 0, byArray2, 16, 4);
                     n7 += 4;
                     int n8 = 0;
                     while (n8 < ((t)object2).c.length) {
-                        System.arraycopy(m.a(((t)object2).c[n8]), 0, byArray2, n7, 4);
+                        System.arraycopy(com.mg.bas.m.a(((t)object2).c[n8]), 0, byArray2, n7, 4);
                         n7 += 4;
                         ++n8;
                     }
                     object2 = byArray2;
-                    System.arraycopy(byArray2, 0, byArray, n4, ((Object)object2).length);
-                    n4 += ((Object)object2).length;
+                    System.arraycopy(byArray2, 0, byArray, n4, byArray2.length);
+                    n4 += byArray2.length;
                     ++n5;
                 }
                 n5 = this.h.d() - 1;
@@ -429,18 +409,18 @@ public final class u {
                     --n5;
                 }
                 this.h.a();
-                System.arraycopy(m.a(this.g.d()), 0, byArray, n4, 4);
+                System.arraycopy(com.mg.bas.m.a(this.g.d()), 0, byArray, n4, 4);
                 n4 += 4;
                 n5 = this.g.d() - 1;
                 while (n5 >= 0) {
-                    n2 = (Integer)this.g.b(n5);
-                    System.arraycopy(m.a(n2), 0, byArray, n4, 4);
+                    n2 = ((Integer)this.g.b(n5)).intValue();
+                    System.arraycopy(com.mg.bas.m.a(n2), 0, byArray, n4, 4);
                     n4 += 4;
                     --n5;
                 }
                 n5 = this.i == 1 ? 2 : 1;
-                g.a(this.n, n5, byArray);
-                g.a(this.n, 3, new byte[]{(byte)n5});
+                com.mg.bas.g.a(this.n, n5, byArray);
+                com.mg.bas.g.a(this.n, 3, new byte[]{(byte)n5});
                 this.i = n5;
                 if (this.o) {
                     this.d();
@@ -523,28 +503,14 @@ public final class u {
             n2 += n4;
             if (nArray[n3] > 3) {
                 try {
-                    g.a(recordStore, nArray[n3], byArray2);
-                }
-                catch (RecordStoreNotOpenException recordStoreNotOpenException) {
-                    return -1;
-                }
-                catch (RecordStoreFullException recordStoreFullException) {
-                    return -2;
-                }
-                catch (RecordStoreException recordStoreException) {
+                    com.mg.bas.g.a(recordStore, nArray[n3], byArray2);
+                } catch (Exception e) {
                     return -3;
                 }
             }
             try {
-                nArray[n3] = g.a(recordStore, byArray2);
-            }
-            catch (RecordStoreNotOpenException recordStoreNotOpenException) {
-                return -1;
-            }
-            catch (RecordStoreFullException recordStoreFullException) {
-                return -2;
-            }
-            catch (RecordStoreException recordStoreException) {
+                nArray[n3] = com.mg.bas.g.a(recordStore, byArray2);
+            } catch (Exception e) {
                 return -3;
             }
             ++n3;
@@ -595,7 +561,7 @@ public final class u {
         if (this.n != null) {
             Object object = this.n;
             try {
-                object.closeRecordStore();
+                ((RecordStore)object).closeRecordStore();
             }
             catch (Throwable throwable) {
                 object = throwable;
@@ -656,7 +622,7 @@ public final class u {
     public static void a(u u2) {
         if (u2 != null) {
             u2.d();
-            g.b(u2.a);
+            com.mg.bas.g.b(u2.a);
         }
     }
 }

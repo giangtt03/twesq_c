@@ -22,8 +22,8 @@ implements bu {
     public int l;
     private k t;
     private byte[] u;
-    private Image v = f.d("/info/increase");
-    private Image w = f.d("/info/decrease");
+    private Image v = com.mg.bas.f.d("/info/increase");
+    private Image w = com.mg.bas.f.d("/info/decrease");
     private boolean x = false;
     private lw[] y = null;
     private bq z;
@@ -59,16 +59,16 @@ implements bu {
         de de2 = this;
         this.j = new Image[go.r.length];
         de2.k = new Image[go.r.length];
-        de2.m = f.d("/info/skilltree");
+        de2.m = com.mg.bas.f.d("/info/skilltree");
         int n2 = 0;
         while (n2 < go.r.length) {
             int n3;
             int n4 = n3 = go.r[n2].a * 1000;
             Object object = pa.a();
             object = ((pa)object).b(n4, false);
-            de2.j[n2] = Image.createImage((byte[])object, (int)0, (int)((Object)object).length);
-            h.a((byte[])object);
-            de2.k[n2] = Image.createImage((byte[])object, (int)0, (int)((Object)object).length);
+            de2.j[n2] = Image.createImage((byte[])object, 0, ((byte[])object).length);
+            com.mg.bas.h.a((byte[])object, 0);
+            de2.k[n2] = Image.createImage((byte[])object, 0, ((byte[])object).length);
             ++n2;
         }
         this.n = new cu(28, 9);
@@ -175,21 +175,20 @@ implements bu {
             ++n2;
         }
         Object[] objectArray = go.r;
-        object = this;
-        this.y = objectArray;
-        objectArray = ((de)object).A.E;
-        ((de)object).o = new boolean[((de)object).y.length];
+        this.y = go.r;
+        objectArray = this.A.E;
+        this.o = new boolean[this.y.length];
         n = 0;
         while (n < objectArray.length) {
             object2 = objectArray[n];
             int n3 = ((ld)object2).a % 100;
-            ((de)object).o[n3] = true;
+            this.o[n3] = true;
             ++n;
         }
         n = 0;
-        while (n < ((de)object).y.length) {
-            if (!((de)object).o[n] && ((de)object).i(n)) {
-                ((de)object).o[n] = true;
+        while (n < this.y.length) {
+            if (!this.o[n] && this.i(n)) {
+                this.o[n] = true;
             }
             ++n;
         }
@@ -213,7 +212,7 @@ implements bu {
 
     private void l(int n) {
         if (this.s[n] > 0) {
-            this.u[n] = this.r[n] < this.y[n].c.length && this.k(n) ? 3 : 2;
+            this.u[n] = (byte)(this.r[n] < this.y[n].c.length && this.k(n) ? 3 : 2);
         } else {
             if (this.B >= this.y[n].c[this.r[n]].c && this.k(n)) {
                 this.u[n] = 4;
