@@ -7,7 +7,7 @@ import javax.microedition.lcdui.Image;
 
 public final class dc
 extends aq {
-    public static final Image i = f.d("/broken_heart");
+    public static final Image i = com.mg.bas.f.d("/broken_heart");
     public int j = 0;
     private Image l = null;
     public Object k;

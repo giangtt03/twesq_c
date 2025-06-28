@@ -17,13 +17,13 @@ extends aq {
         this.e(22 + bx.d.a());
         this.d(v.t);
         if (lr2.a() && j == null) {
-            j = f.d("/m/lock");
+                j = com.mg.bas.f.d("/m/lock");
         }
         if (l == null) {
-            l = f.d("/m/arena");
+            l = com.mg.bas.f.d("/m/arena");
         }
         if (k == null) {
-            k = f.d("/m/room");
+            k = com.mg.bas.f.d("/m/room");
         }
     }
 

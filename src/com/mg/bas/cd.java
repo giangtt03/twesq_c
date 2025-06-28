@@ -19,7 +19,7 @@ implements bf {
         super(n);
     }
 
-    public final void d() {
+    public final void dinit() {
         this.c = cs.h();
         this.a = cs.f();
         this.b = 0;

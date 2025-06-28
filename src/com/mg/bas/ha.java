@@ -108,8 +108,8 @@ public ha(at at2, at at3, boolean bl, boolean bl2, int n, bf bf2) {
         this.a((ba)null);
         this.z = 20;
         this.A = false;
-        this.k = object = mb.a((lh)object, false);
-        this.l = object2 = mb.a((lh)object2, false);
+        this.k = (at) mb.a((lh)object, false);
+        this.l = (at) mb.a((lh)object2, false);
         this.y = true;
         this.p = this.C.g;
         this.t = bl2;
@@ -124,11 +124,19 @@ public ha(at at2, at at3, boolean bl, boolean bl2, int n, bf bf2) {
         this.s = new k(this.x, this.o.b + this.w, 58, 68 - (this.w << 1));
         this.H = com.mg.sq.a.a(this.C.b, bx.d, 100);
         if (bl2) {
-            ((as)object).c(2);
-            ((as)object2).c(0);
+            if (this.k instanceof as) {
+                ((as)this.k).c(2);
+            }
+            if (this.l instanceof as) {
+                ((as)this.l).c(0);
+            }
         } else {
-            ((as)object).c(0);
-            ((as)object2).c(2);
+            if (this.k instanceof as) {
+                ((as)this.k).c(0);
+            }
+            if (this.l instanceof as) {
+                ((as)this.l).c(2);
+            }
         }
         this.q = this.B.g;
         this.I = com.mg.sq.a.a(this.B.c, bx.d, 100);
@@ -210,7 +218,7 @@ public ha(at at2, at at3, boolean bl, boolean bl2, int n, bf bf2) {
         if (this.J) {
             return;
         }
-        int n2 = v.aj;
+        int n2 = com.mg.bas.v.aj;
         if (this.N == 11) {
             n2 = 0xFDBDBD;
         }

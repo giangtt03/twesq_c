@@ -18,8 +18,8 @@ bq {
         super(105, 2, string, false);
         this.a(0, 0, v.t, v.u);
         this.p = new aw();
-        this.p.a(this);
-        this.p.a(this);
+        this.p.a((bn)this);
+        this.p.a((bq)this);
         this.q = new ay(2);
         this.q.a(this.c(), this.d() + 22, this.e(), this.f() - 22 - ba.a);
         this.q.b(this.p);
@@ -28,7 +28,8 @@ bq {
         this.a(new gb(-1, 0));
         this.b(new gb(-2, 1));
         this.c(com.mg.sq.a.n);
-        this.a(this);
+        this.a((aq)this);
+        this.a((bf)this);
         this.r = new op(this, 106, 3, "Đàm Đạo");
     }
 
@@ -84,53 +85,53 @@ bq {
         }
     }
 
-    public final void a(di object) {
+    public final void a(di diObj) {
         try {
-            this.p.b(object);
+            this.p.b(diObj);
             if (this.b != null) {
-                object = (fc)this.b;
+                fc fcObj = (fc)this.b;
                 if (this.p.a() <= 0) {
-                    ((fc)object).d(this);
+                    fcObj.d(this);
                 }
-                ((fc)object).d(this.r);
+                fcObj.d(this.r);
                 this.r.a();
                 return;
             }
-        }
-        catch (Exception exception) {
-            object = exception;
+        } catch (Exception exception) {
             exception.printStackTrace();
         }
     }
 
-    public final di a(String object, String string, int n) {
-        if ((object = this.b((String)object)) != null) {
-            boolean bl = ((di)object).a(string, 0);
-            if (this.r.p != null && ((di)object).b().a().equals(this.r.p.b().a())) {
-                this.r.a(((di)object).a(((di)object).d() - 1), bl);
+    public final di a(String key, String string, int n) {
+        di diObj = this.b(key);
+        if (diObj != null) {
+            boolean bl = diObj.a(string, 0);
+            if (this.r.p != null && diObj.b().a().equals(this.r.p.b().a())) {
+                this.r.a(diObj.a(diObj.d() - 1), bl);
             }
         }
-        return object;
+        return diObj;
     }
 
-    public final di b(String object, String string, int n) {
-        if ((object = this.b((String)object)) != null) {
-            boolean bl = ((di)object).b(string, n);
-            if (this.r.p != null && ((di)object).b().a().equals(this.r.p.b().a())) {
-                this.r.a(((di)object).a(((di)object).d() - 1), bl);
+    public final di b(String key, String string, int n) {
+        di diObj = this.b(key);
+        if (diObj != null) {
+            boolean bl = diObj.b(string, n);
+            if (this.r.p != null && diObj.b().a().equals(this.r.p.b().a())) {
+                this.r.a(diObj.a(diObj.d() - 1), bl);
             }
         }
-        return object;
+        return diObj;
     }
 
-    public final di a(ds object, String string, int n, boolean bl) {
-        object = new di((ds)object, this.p.e() - 20, bl, com.mg.sq.a.m.K());
-        this.p.a(object);
-        ((di)object).b(string, n);
+    public final di a(ds dsObj, String string, int n, boolean bl) {
+        di diObj = new di(dsObj, this.p.e() - 20, bl, com.mg.sq.a.m.K());
+        this.p.a(diObj);
+        diObj.b(string, n);
         if (this.p.a() < 2) {
-            this.a((di)object, false);
+            this.a(diObj, false);
         }
-        return object;
+        return diObj;
     }
 
     public final void a(ds ds2, boolean bl, boolean bl2) {
@@ -145,19 +146,19 @@ bq {
         }
     }
 
-    private void a(di object, boolean bl) {
-        if (this.r.p == null || !((di)object).b().a().equals(this.r.p.b().a())) {
-            this.r.a((di)object);
+    private void a(di diObj, boolean bl) {
+        if (this.r.p == null || !diObj.b().a().equals(this.r.p.b().a())) {
+            this.r.a(diObj);
         }
         if (this.b == null) {
             return;
         }
-        object = (fc)this.l();
-        if (!((fc)object).b(this.r)) {
-            ((fc)object).c(this.r);
+        fc fcObj = (fc)this.l();
+        if (!fcObj.b(this.r)) {
+            fcObj.c(this.r);
         }
         if (bl) {
-            ((fc)object).a(this.r);
+            fcObj.a((fb)this.r);
         }
     }
 
@@ -221,15 +222,20 @@ bq {
         return dsArray;
     }
 
-    public final aq a(aw object, int n) {
-        object = ((aw)object).i(n);
-        object = (di)object;
-        return new eu(((di)object).b(), this.q.e());
+    public final aq a(aw awObj, int n) {
+        Object item = awObj.i(n);
+        if (item instanceof di) {
+            di diObj = (di)item;
+            return new eu(diObj.b(), this.q.e());
+        }
+        return null;
     }
 
-    public final void b(aq object, int n) {
-        object = this.p.i(n);
-        this.a((di)object, true);
+    public final void b(aq aqObj, int n) {
+        Object item = this.p.i(n);
+        if (item instanceof di) {
+            this.a((di)item, true);
+        }
     }
 
     public final void a(aq aq2, int n) {
@@ -256,7 +262,7 @@ bq {
                 int n3 = bs2.e() > bs2.f() ? bs2.e() : bs2.f();
                 bs2.a_(-n3, v.u);
                 bs2.d(0, v.u - ba.a - bs2.f());
-                bs2.a(oj2);
+                bs2.a((bf)oj2);
                 oj2.a(bs2);
                 return;
             }

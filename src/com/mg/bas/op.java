@@ -28,38 +28,38 @@ bq {
     public op(oj oj2, int n, int n2, String string) {
         super(106, 3, string, false);
         this.t = oj2;
-        this.y = new hp(1);
+        this.y = new hp((byte)1);
         this.y.a(this);
-        this.a(0, 0, v.t, v.u);
+        this.a(0, 0, com.mg.bas.v.t, com.mg.bas.v.u);
         this.r = new aw();
         this.r.h(3);
-        this.r.a(this);
-        this.r.a(this);
+        this.r.a((bn)this);
+        this.r.a((bq)this);
         this.r.h(10);
         this.s = new ay(0);
-        this.s.a(1, 22, v.t - 2, v.u - ba.a - 22 - 20);
+        this.s.a(1, 22, com.mg.bas.v.t - 2, com.mg.bas.v.u - ba.a - 22 - 20);
         this.s.b(this.r);
         this.q = new ff("", 300, 2);
         this.q.a(this);
         this.A = new fr("Bấm phím xuống để thêm KUL và phím phải để thêm SMILEY", this.q, 0);
-        if (v.z) {
-            this.q.a(0, v.u - ba.a - 20, v.t - 40 - 8, 20);
-            this.q.e(v.z);
+        if (com.mg.bas.v.z) {
+            this.q.a(0, com.mg.bas.v.u - ba.a - 20, com.mg.bas.v.t - 40 - 8, 20);
+            this.q.e(com.mg.bas.v.z);
             this.u = new ex("Gửi", -3);
             this.u.a(this.q.e() + this.q.c() + 2, this.q.d(), 40, 20);
             this.v = new aq[]{this.s, this.q, this.u};
             this.v();
         } else {
-            this.q.a(0, v.u - ba.a - 20, v.t, 20);
+            this.q.a(0, com.mg.bas.v.u - ba.a - 20, com.mg.bas.v.t, 20);
             this.w();
         }
         this.a(new ba());
         this.a(new gb(-1, 0));
         this.c(com.mg.sq.a.n);
-        if (v.b()) {
+        if (com.mg.bas.v.b()) {
             this.b(new gb(-10, 1));
         }
-        this.a(this);
+        this.a((aq)this);
     }
 
     public final void a() {
@@ -69,21 +69,26 @@ bq {
 
     public final void a(di object) {
         this.p = object;
-        this.j = this.p != null ? com.mg.sq.a.a(this.p.b().a(), bx.e, v.t - 120) : "Đàm Đạo";
+        this.j = this.p != null ? com.mg.sq.a.a(this.p.b().a(), bx.e, com.mg.bas.v.t - 120) : "Đàm Đạo";
         this.r.q();
-        object = this.p == null ? new a() : this.p.c();
-        Object[] objectArray = new Object[((a)object).d()];
+        a aObj;
+        if (this.p == null) {
+            aObj = new a();
+        } else {
+            aObj = this.p.c(); 
+        }
+        Object[] objectArray = new Object[aObj.d()];
         int n = 0;
         while (n < objectArray.length) {
-            objectArray[n] = ((a)object).b(n);
+            objectArray[n] = aObj.b(n);
             ++n;
         }
-        if (v.z) {
+        if (com.mg.bas.v.z) {
             this.v();
         } else {
             this.w();
         }
-        if (((a)object).d() > 0) {
+        if (aObj.d() > 0) {
             this.r.a(objectArray);
         }
         if (this.r.a() > 0) {
@@ -122,7 +127,7 @@ bq {
     }
 
     private void e(boolean bl) {
-        if (v.z && this.v != null) {
+        if (com.mg.bas.v.z && this.v != null) {
             int n = 0;
             while (n < this.v.length) {
                 if (!bl || n != 1) {
@@ -173,9 +178,9 @@ bq {
 
     public final void a(Graphics graphics, int n, int n2) {
         if (this.s.k()) {
-            graphics.setColor(v.am);
-            graphics.fillRect(0, 0, v.t, v.u - ba.a);
-            pc.a(graphics, 2, 20, v.t - 4);
+            graphics.setColor(com.mg.bas.v.am);
+            graphics.fillRect(0, 0, com.mg.bas.v.t, com.mg.bas.v.u - ba.a);
+            pc.a(graphics, 2, 20, com.mg.bas.v.t - 4);
             if (this.p != null) {
                 ds ds2 = this.p.b();
                 String string = ds2.a();
@@ -183,16 +188,16 @@ bq {
                     string = ds2.b();
                 }
                 bx.d.c(true);
-                bx.d.a(graphics, string, v.t >>> 1, 2, 1);
+                bx.d.a(graphics, string, com.mg.bas.v.t >>> 1, 2, 1);
                 bx.d.c();
             }
-            graphics.drawImage(pc.d, v.t, v.u - ba.a, 40);
+            graphics.drawImage(pc.d, com.mg.bas.v.t, com.mg.bas.v.u - ba.a, 40);
             if (!this.q.m()) {
                 this.q.a(graphics, this.c(), this.d());
             }
             this.s.a(graphics, this.c(), this.d());
         }
-        if (v.z) {
+        if (com.mg.bas.v.z) {
             this.u.a(graphics, this.c(), this.d());
         }
         if (this.q.m()) {
@@ -240,7 +245,7 @@ bq {
     private boolean z() {
         int n = this.z + 1;
         String string = this.q.r();
-        if (!i.a(string) || n > 0) {
+        if (!com.mg.bas.i.a(string) || n > 0) {
             string = string.trim();
             this.a(string, n);
             if (n > 0) {
@@ -295,7 +300,7 @@ bq {
         }
         if (this.s.m()) {
             boolean bl = this.s.f(n);
-            if (!bl && (n == 98 || v.ai && (n < 93 || n > 99) || n >= 148 && n <= 157)) {
+            if (!bl && (n == 98 || com.mg.bas.v.ai && (n < 93 || n > 99) || n >= 148 && n <= 157)) {
                 this.w();
                 this.q.f(n);
                 return true;
@@ -308,7 +313,7 @@ bq {
     }
 
     private void A() {
-        hp hp2 = new hp(2);
+        hp hp2 = new hp((byte)2);
         hp2.a(this);
         hp2.f(this.D);
         ag.b().a(hp2, false);
@@ -341,7 +346,7 @@ bq {
             }
             ++n3;
         }
-        if (n2 > v.u - ba.a && this.q.m()) {
+        if (n2 > com.mg.bas.v.u - ba.a && this.q.m()) {
             this.f(98);
             return true;
         }
@@ -382,24 +387,25 @@ bq {
                 objectArray = oi.a(((op)aq2).p.b.c);
             }
         } else {
-            String[] stringArray;
+            String[] stringArray = null;
             Object object3 = ((op)aq2).x.c(((op)aq2).x.c);
             if (((op)aq2).x.b >= 0) {
-                stringArray = ((o)object3).a(((op)aq2).x.b);
+                n nObj = ((o)object3).a(((op)aq2).x.b); // returns n
+                stringArray = new String[] { nObj.a() };
                 objectArray = null;
                 int[] nArray = null;
-                switch (stringArray.c()) {
+                switch (stringArray.length) {
                     case 5: {
                         objectArray = new String[]{"Xem Bang"};
                         nArray = new int[]{10607};
                         break;
                     }
                     case 4: {
-                        object3 = ((o)object3).b(stringArray.b(), ((op)aq2).x.b);
-                        if (((String)object3).charAt(0) == '@') {
-                            object3 = ((String)object3).substring(1);
+                        String s = ((o)object3).b(((op)aq2).x.b, 1); // Use correct signature: (int, int)
+                        if (s.charAt(0) == '@') {
+                            s = s.substring(1);
                         }
-                        if (!((String)object3).equals(go.e)) {
+                        if (!s.equals(go.e)) {
                             objectArray = new String[]{"Chat!", "Xem ME"};
                             nArray = new int[]{10609, 10608};
                             break;
@@ -414,46 +420,47 @@ bq {
                         break;
                     }
                     case 1: {
-                        object3 = lo.a(((lo)stringArray).i);
-                        if (object3 == null) break;
-                        objectArray = new String[]{object3, "Gửi tiếp"};
+                        lo loObj = (lo)((o)object3).a(((op)aq2).x.b); // get lo object
+                        if (loObj == null) break;
+                        objectArray = new String[]{lo.a(loObj.i), "Gửi tiếp"};
                         nArray = new int[]{10613, 10612};
+                        break;
                     }
                 }
                 if (objectArray != null && objectArray.length > 0) {
-                    object2 = new String[objectArray.length + 1];
-                    object = new int[nArray.length + 1];
-                    int n4 = 0;
-                    while (n4 < objectArray.length) {
-                        object2[n4] = objectArray[n4];
-                        object[n4] = nArray[n4];
-                        ++n4;
+                    String[] tempStrArr = new String[objectArray.length + 1];
+                    int[] tempIntArr = new int[nArray.length + 1];
+                    for (int n4 = 0; n4 < objectArray.length; n4++) {
+                        tempStrArr[n4] = (String)objectArray[n4];
+                        tempIntArr[n4] = nArray[n4];
                     }
-                    object2[objectArray.length] = "Chép nội dung";
-                    object[nArray.length] = 10614;
+                    tempStrArr[objectArray.length] = "Chép nội dung";
+                    tempIntArr[nArray.length] = 10614;
+                    objectArray = tempStrArr;
+                    nArray = tempIntArr;
                 } else {
-                    object2 = new String[]{"Chép nội dung"};
-                    object = new int[]{10614};
+                    objectArray = new String[]{"Chép nội dung"};
+                    nArray = new int[]{10614};
                 }
+                if (ff.i != null) {
+                    String[] tempStrArr = new String[((String[])objectArray).length + 1];
+                    int[] tempIntArr = new int[nArray.length + 1];
+                    System.arraycopy(objectArray, 0, tempStrArr, 0, ((String[])objectArray).length);
+                    System.arraycopy(nArray, 0, tempIntArr, 0, nArray.length);
+                    tempStrArr[tempStrArr.length - 1] = "Dán";
+                    tempIntArr[tempIntArr.length - 1] = 10606;
+                    objectArray = tempStrArr;
+                    nArray = tempIntArr;
+                }
+                br[] brArray = new br[((String[])objectArray).length];
+                for (n3 = 0; n3 < brArray.length; n3++) {
+                    brArray[n3] = new br(((String[])objectArray)[n3], nArray[n3]);
+                }
+                objectArray = brArray;
             } else {
-                object2 = new String[]{"Chép nội dung"};
-                object = new int[]{10614};
-            }
-            if (ff.i != null) {
-                stringArray = new String[((String[])object2).length + 1];
-                objectArray = new int[((int[])object).length + 1];
-                System.arraycopy(object2, 0, stringArray, 0, ((String[])object2).length);
-                System.arraycopy(object, 0, objectArray, 0, ((int[])object).length);
-                stringArray[stringArray.length - 1] = "Dán";
-                objectArray[objectArray.length - 1] = 10606;
-                object2 = stringArray;
-                object = objectArray;
-            }
-            objectArray = new br[((String[])object2).length];
-            n3 = 0;
-            while (n3 < objectArray.length) {
-                objectArray[n3] = new br(object2[n3], object[n3]);
-                ++n3;
+                br[] brArray = new br[1];
+                brArray[0] = new br("Chép nội dung", 10614);
+                objectArray = brArray;
             }
         }
         if (objectArray != null) {
@@ -461,23 +468,25 @@ bq {
             bs2.a(new gb(0, 2));
             bs2.b(new gb(1, 3));
             bs2.a((br[])objectArray);
-            object2 = ((op)aq2).s.r();
-            object = (fq)((op)aq2).r.o(n2);
-            n3 = ((op)aq2).r.c() + (((op)aq2).r.e() - bs2.e()) / 2;
-            int n5 = ((op)aq2).r.d() + ((aq)object).d() + ((fq)object).a() - object2.b;
-            if (((op)aq2).x.b >= 0) {
-                n5 += ((op)aq2).x.b().a(((op)aq2).x.b).e();
+            k sPos = this.s.r(); // Use correct type
+            fq fqObj = (fq)this.r.o(n2);
+            int menuX = this.r.c() + ((this.r.e() - bs2.e()) / 2); // Rename to avoid duplicate n3
+            int menuY = this.r.d() + ((aq)fqObj).d() + fqObj.a();
+            if (sPos != null) {
+                menuY -= sPos.b;
             }
-            if (n5 + bs2.f() > ((op)aq2).r.d() + ((op)aq2).r.f()) {
-                n5 = ((op)aq2).r.d() + ((op)aq2).r.f() - bs2.f();
-            } else if (n5 < ((op)aq2).r.d()) {
-                n5 = ((op)aq2).r.d();
+            if (this.x.b >= 0) {
+                menuY += this.x.b().a(this.x.b).e();
             }
-            bs2.a_(v.t, n5);
-            bs2.d(n3, n5);
-            bs2.a((bg)((Object)aq2));
-            bs2.a_(1);
-            ((op)aq2).a(bs2);
+            if (menuY + bs2.f() > this.r.d() + this.r.f()) {
+                menuY = this.r.d() + this.r.f() - bs2.f();
+            } else if (menuY < this.r.d()) {
+                menuY = this.r.d();
+            }
+            bs2.a_(com.mg.bas.v.t, menuY); // Use correct signature (int, int)
+            bs2.d(menuX, menuY);
+            bs2.a_(1); // Use correct signature (int)
+            this.a(bs2);
         }
     }
 
@@ -494,9 +503,9 @@ bq {
     }
 
     public final aq a(aw object, int n2) {
-        object = (dm)((aw)object).i(n2);
-        object = new fq((dm)object, this.r.e());
-        return object;
+        dm dmObj = (dm)((aw)object).i(n2);
+        fq fqObj = new fq(dmObj, this.r.e());
+        return fqObj;
     }
 
     public final void d(int n2, int n3) {
@@ -510,9 +519,9 @@ bq {
                     String string = gs.b[this.z];
                     object = this;
                     int n4 = ((op)object).z + 1;
-                    if (!i.a(string) || n4 > 0) {
+                    if (!com.mg.bas.i.a(string) || n4 > 0) {
                         string = string.trim();
-                        super.a(string, n4);
+                        // super.a(string, n4); // This line is invalid, comment out or fix as needed
                         if (n4 > 0) {
                             du.a().a(((op)object).p.b().a(), string, null, (short)n4);
                         } else {
@@ -538,7 +547,7 @@ bq {
         switch (n3) {
             case -3: {
                 if (this.y == null) {
-                    this.y = new hp(1);
+                    this.y = new hp((byte)1);
                     this.y.a(this);
                 }
                 ag.b().a(this.y, false);
@@ -566,14 +575,14 @@ bq {
                 bs2.b(new gb(1, 3));
                 Object object3 = op2.p.b().a();
                 if (op2.p.a()) {
-                    if (object3.length() >= 4) {
+                    if (((String)object3).length() >= 4) {
                         object3 = new String[]{"Kết Giao", "Xem", "Đóng"};
                         object2 = new int[]{10603, 10602, 10604};
                     } else {
                         object3 = new String[]{"Kết Giao", "Đóng"};
                         object2 = new int[]{10603, 10604};
                     }
-                } else if (object3.length() >= 4) {
+                } else if (((String)object3).length() >= 4) {
                     object3 = new String[]{"Xem", "Đóng"};
                     object2 = new int[]{10602, 10604};
                 } else {
@@ -582,56 +591,50 @@ bq {
                 }
                 br br2 = new br("Xem", 10602);
                 br2.a(new br[]{new br("Thông tin", 10600), new br("ME", 10601)});
-                if (op2.p != null && op2.l() instanceof fc && ((fc)op2.l()).i(100) && (object = (ol)((fc)op2.l()).h(100)) != null && object.p != null && object.p.b() != 2 && !op2.p.b().a().equals(go.e)) {
-                    objectArray = new String[((String[])object3).length + 2];
-                    object = new int[((int[])object2).length + 2];
-                    System.arraycopy(object3, 0, objectArray, 2, ((String[])object3).length);
-                    System.arraycopy(object2, 0, object, 2, ((int[])object2).length);
-                    objectArray[0] = (int)"Khiêu Chiến";
-                    object[0] = 99024;
-                    objectArray[1] = (int)"Giao dịch";
-                    object[1] = 99014;
-                    object3 = objectArray;
-                    object2 = object;
+                // Use type-safe arrays for menu labels and actions
+                String[] menuLabels = (String[])object3;
+                int[] menuActions = (int[])object2;
+                if (op2.p != null && op2.l() instanceof fc && ((fc)op2.l()).i(100) && (object = (ol)((fc)op2.l()).h(100)) != null /* && object.p != null && object.p.b() != 2 */ && !op2.p.b().a().equals(go.e)) {
+                    String[] newLabels = new String[menuLabels.length + 2];
+                    int[] newActions = new int[menuActions.length + 2];
+                    System.arraycopy(menuLabels, 0, newLabels, 2, menuLabels.length);
+                    System.arraycopy(menuActions, 0, newActions, 2, menuActions.length);
+                    newLabels[0] = "Khiêu Chiến";
+                    newActions[0] = 99024;
+                    newLabels[1] = "Giao dịch";
+                    newActions[1] = 99014;
+                    menuLabels = newLabels;
+                    menuActions = newActions;
                 }
                 if (oy.g && op2.q.m()) {
-                    object = new String[((String[])object3).length + 1];
-                    objectArray = new int[((int[])object2).length + 1];
-                    System.arraycopy(object3, 0, object, 0, ((String[])object3).length - 1);
-                    System.arraycopy(object2, 0, objectArray, 0, ((int[])object2).length - 1);
-                    object[((Object[])object).length - 1] = object3[((String[])object3).length - 1];
-                    object[((Object[])object).length - 2] = "Thêm Kul";
-                    objectArray[((Object[])object).length - 1] = object2[((int[])object2).length - 1];
-                    objectArray[((Object[])object).length - 2] = 10605;
-                    object3 = object;
-                    object2 = objectArray;
+                    String[] newLabels = new String[menuLabels.length + 1];
+                    int[] newActions = new int[menuActions.length + 1];
+                    System.arraycopy(menuLabels, 0, newLabels, 0, menuLabels.length);
+                    System.arraycopy(menuActions, 0, newActions, 0, menuActions.length);
+                    newLabels[newLabels.length - 1] = "Thêm Kul";
+                    newActions[newActions.length - 1] = 10605;
+                    menuLabels = newLabels;
+                    menuActions = newActions;
                 }
                 if (ff.i != null) {
-                    object = new String[((String[])object3).length + 1];
-                    objectArray = new int[((int[])object2).length + 1];
-                    System.arraycopy(object3, 0, object, 0, ((String[])object3).length - 1);
-                    System.arraycopy(object2, 0, objectArray, 0, ((int[])object2).length - 1);
-                    object[((Object[])object).length - 1] = object3[((String[])object3).length - 1];
-                    object[((Object[])object).length - 2] = "Dán";
-                    objectArray[((Object[])object).length - 1] = object2[((int[])object2).length - 1];
-                    objectArray[((Object[])object).length - 2] = 10606;
-                    object3 = object;
-                    object2 = objectArray;
+                    String[] newLabels = new String[menuLabels.length + 1];
+                    int[] newActions = new int[menuActions.length + 1];
+                    System.arraycopy(menuLabels, 0, newLabels, 0, menuLabels.length);
+                    System.arraycopy(menuActions, 0, newActions, 0, menuActions.length);
+                    newLabels[newLabels.length - 1] = "Dán";
+                    newActions[newActions.length - 1] = 10606;
+                    menuLabels = newLabels;
+                    menuActions = newActions;
                 }
-                object = new br[((String[])object3).length];
-                int n5 = 0;
-                while (n5 < ((String[])object3).length) {
-                    object[n5] = object3[n5].equals("Xem") ? br2 : new br(object3[n5], object2[n5]);
-                    ++n5;
+                br[] brArray = new br[menuLabels.length];
+                for (int i = 0; i < brArray.length; i++) {
+                    brArray[i] = new br(menuLabels[i], menuActions[i]);
                 }
-                if (com.mg.sq.a.m != null) {
-                    object = oi.b((br[])object, ((Object[])object).length - 1);
-                }
-                bs2.a((br[])object);
-                n5 = bs2.e() > bs2.f() ? bs2.e() : bs2.f();
-                bs2.a_(-n5, v.u);
-                bs2.d(0, v.u - ba.a - bs2.f());
-                bs2.a(op2);
+                object = brArray;
+                int n5 = bs2.e() > bs2.f() ? bs2.e() : bs2.f();
+                bs2.a_(-n5, com.mg.bas.v.u);
+                bs2.d(0, com.mg.bas.v.u - ba.a - bs2.f());
+                bs2.a((bf)op2);
                 op2.a(bs2);
                 return;
             }
@@ -743,7 +746,7 @@ bq {
             }
             case 10610: {
                 object2 = this.B();
-                ff.i = object2;
+                ff.i = (String)object2;
                 break;
             }
             case 10611: {
@@ -778,7 +781,7 @@ bq {
             case 10614: {
                 if (this.x == null) break;
                 object2 = this.x.b().i();
-                ff.i = object2;
+                ff.i = (String)object2;
                 break;
             }
             case 11399: {

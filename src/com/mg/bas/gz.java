@@ -34,32 +34,31 @@ bf {
         this.a(new ba());
         this.a(this);
         this.k = object;
-        this.v = (lv[])g.a(((lh)object).E, this);
-        object = this;
-        this.l = new Image[((gz)object).v.length];
-        ((gz)object).m = new Image[((gz)object).v.length];
+        // this.v = (lv[])g.a(this.k.E, this); 
+        this.l = new Image[this.v.length];
+        this.m = new Image[this.v.length];
         int n4 = 0;
-        while (n4 < ((gz)object).l.length) {
-            int n5 = n3 = ((gz)object).v[n4].a * 1000;
+        while (n4 < this.l.length) {
+            int n5 = n3 = this.v[n4].a * 1000;
             object2 = pa.a();
             byte[] byArray = ((pa)object2).b(n5, false);
-            ((gz)object).l[n4] = Image.createImage((byte[])byArray, (int)0, (int)byArray.length);
-            h.a(byArray);
-            ((gz)object).m[n4] = Image.createImage((byte[])byArray, (int)0, (int)byArray.length);
+            this.l[n4] = Image.createImage(byArray, 0, byArray.length);
+            // h.a(byArray); 
+            this.m[n4] = Image.createImage(byArray, 0, byArray.length);
             ++n4;
         }
-        ((gz)object).o = ((gz)object).l[0].getWidth();
-        ((gz)object).p = ((gz)object).l[0].getHeight();
+        this.o = this.l[0].getWidth();
+        this.p = this.l[0].getHeight();
         int n6 = this.k.E.length;
         this.t = new String[n6][0];
         this.n = new k[n6];
         n4 = 3;
         if (com.mg.sq.a.k == 1) {
-            if (v.t >= 320) {
+            if (com.mg.bas.v.t >= 320) {
                 this.f = 300;
             }
             n4 = 5;
-        } else if (v.t >= 240) {
+        } else if (com.mg.bas.v.t >= 240) {
             this.f = 220;
         }
         n3 = (this.f - n4 * this.o) / 3 / (n4 - 1);
@@ -112,8 +111,8 @@ bf {
         }
         this.q = new int[]{10, this.n[this.n.length - 1].b + this.n[this.n.length - 1].d + 10};
         this.g = this.q[1] + 10 + 5 + bx.d.a() * this.x;
-        this.c = (v.t - this.f) / 2;
-        this.d = (v.u - this.g - ba.a) / 2;
+        this.c = (com.mg.bas.v.t - this.f) / 2;
+        this.d = (com.mg.bas.v.u - this.g - ba.a) / 2;
         this.e(this.s);
         bd bd2 = new bd("Đóng", 0);
         object2 = this;
@@ -130,7 +129,7 @@ bf {
     }
 
     public final void c(Graphics graphics) {
-        pc.d(graphics, this.c, this.d, this.f, this.g, v.aj);
+        pc.d(graphics, this.c, this.d, this.f, this.g, com.mg.bas.v.aj);
         int n2 = 0;
         while (n2 < this.n.length) {
             graphics.fillRect(this.n[n2].a + this.c, this.n[n2].b + this.d, this.n[n2].c, this.n[n2].d);
@@ -214,12 +213,12 @@ bf {
         if (go.r[n3].c[0].e != null) {
             if (this.t[n2].length > this.x) {
                 this.g = (this.t[n2].length - this.x) * bx.d.a();
-                this.d = (v.u - this.g - ba.a) / 2;
+                this.d = (com.mg.bas.v.u - this.g - ba.a) / 2;
                 this.y = true;
             } else if (this.y) {
                 this.y = false;
                 this.g = this.q[1] + 10 + 5 + bx.d.a() * this.x;
-                this.d = (v.u - this.g - ba.a) / 2;
+                this.d = (com.mg.bas.v.u - this.g - ba.a) / 2;
             }
         }
         if (this.k.u >= this.v[n2].e) {

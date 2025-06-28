@@ -94,6 +94,18 @@ import com.mg.bas.fu;
 import com.mg.bas.gn;
 import com.mg.bas.hq;
 import com.mg.bas.hn;
+import com.mg.bas.hg;
+import com.mg.bas.jz;
+import com.mg.bas.lb;
+import com.mg.bas.jp;
+import com.mg.bas.ll;
+import com.mg.bas.hv;
+import com.mg.bas.hm;
+import com.mg.bas.mb;
+import com.mg.bas.ib;
+import com.mg.bas.ox;
+import com.mg.bas.ho;
+import com.mg.bas.id;
 
 import javax.microedition.lcdui.Image;
 import com.mg.smsgame.MGMIDlet;
@@ -121,11 +133,7 @@ public abstract class a extends ah implements bn, ih, kq
     static {
         i = null;
         j = -1;
-        r = new a(){
-            public void a(String var1, String var2, long var3, int var5) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
+        r = new a() {
             public void a(String[] var1, int[] var2, int[] var3, int[] var4, int[] var5) {
                 throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
@@ -478,8 +486,8 @@ public abstract class a extends ah implements bn, ih, kq
                         return;
                     }
                     catch (final Exception ex) {
-                        final Throwable t;
-                        t.printStackTrace();
+//                        final Throwable t;
+                        ex.printStackTrace();
                         return;
                     }
                 }
@@ -491,8 +499,8 @@ public abstract class a extends ah implements bn, ih, kq
                         ci.a("DEPO", u, w[((fx)((he)this.d(0)).e(1)).a().q()]);
                     }
                     catch (final Exception ex2) {
-                        final Throwable t2;
-                        t2.printStackTrace();
+//                        final Throwable t2;
+                        ex2.printStackTrace();
                     }
                     this.a(0, false);
                     return;
@@ -502,7 +510,7 @@ public abstract class a extends ah implements bn, ih, kq
             case 301: {
                 ag.b().a(false);
                 if (m != null) {
-                    final oi m;
+//                    final oi m;
                     m.b(null, "rss://ola/0/2011/12/napken");
                     m.i(true);
                     return;
@@ -1364,7 +1372,7 @@ public abstract class a extends ah implements bn, ih, kq
         ks.a().a(false, s2, "Tui chưa sẵn sàng!!!");
     }
     
-    public final void a(boolean bl, String string) {
+     public final void a(boolean bl, String string) {
         gt gt2 = (gt)((a)ag.b()).d(-241209);
         String string2 = "";
         if (gt2 != null) {
@@ -1372,21 +1380,22 @@ public abstract class a extends ah implements bn, ih, kq
             this.b(gt2, false);
         }
         if (bl) {
-            for (int i = a.r.d() - 1; i >= 0; --i) {
-                if (t.equals(a.r.b(i))) {
-                    ks.a().a(b, t, s);
+            int n = r.l.length - 1;
+                while (n >= 0) {
+                    if (string2.equals(r.b(n))) {
+                        ks.a().a(bl, string2, string);
+                    } else {
+                        ks.a().a(false, (String)r.b(n), string);
+                    }
+                    --n;
                 }
-                else {
-                    ks.a().a(false, (String)a.r.b(i), s);
-                }
-            }
-            a.r.a();
-            this.l();
-            this.a(null, (il)null);
-            return;
+                r.a();
+                this.l();
+                this.a((String)null, (il)null);
+                return;
         }
-        ks.a().a(b, t, s);
-        a.r.a(a.r.d() - 1);
+        ks.a().a(bl, string2, string);
+        r.a(r.l.length - 1);
     }
     
     public final void f(final String s) {
@@ -1442,7 +1451,7 @@ public abstract class a extends ah implements bn, ih, kq
             if (array != null && array2 != null) {
                 final int n3 = t / array.length;
                 ex ex;
-                (ex = ex.a(array[0], array2[0])).a_(2);
+                (ex = com.mg.bas.ex.a(array[0], array2[0])).a_(2);
                 ex.a_(n3 - ex.e() >> 1, n2);
                 ex.d(true);
                 he.a(new bd("", array2[0]), true);
@@ -1469,8 +1478,8 @@ public abstract class a extends ah implements bn, ih, kq
             return he;
         }
         catch (final Exception ex2) {
-            final Throwable t2;
-            t2.printStackTrace();
+//            final Throwable t2;
+            ex2.printStackTrace();
             return null;
         }
     }
@@ -1542,10 +1551,10 @@ public abstract class a extends ah implements bn, ih, kq
         }
     }
     
-    public final void a(final int n, final String[] l) {
-        if (l.length > 0) {
+     public final void a(int n, String[] stringArray) {
+        if (stringArray.length > 0) {
             pd.g(n);
-            a.l = l;
+            l = stringArray;
         }
     }
     
@@ -1961,16 +1970,18 @@ public abstract class a extends ah implements bn, ih, kq
         lh.y = a.c() + n5;
         return lh;
     }
-    
-    public static al a(final lm lm, final bf bf, final String s, final int n, final String s2, final int n2) {
-        final hg hg = new hg(ll);
-        if (bf != null) {
-            hg.a(bf);
-            hg.a(new bd(s, n), true);
-            hg.b(new bd(s2, n2), true);
-        }
-        ag.b().a(hg, false);
-        return hg;
+
+    public static al a(lm lmObj, bf bfObj) {
+        hl hlObj = new hl("Chi Tiết", lmObj); 
+        hlObj.b(241215);
+        hlObj.a((a)ag.b());
+        bd bd2 = null;
+        hlObj.a(bd2, true);
+        bd2 = new bd("", 204);
+        hlObj.b(bd2, true);
+        hlObj.a(new bd("Đóng", 204));
+        ag.b().a(hlObj);
+        return hlObj;
     }
     
     public final void L() {
@@ -2050,8 +2061,8 @@ public abstract class a extends ah implements bn, ih, kq
             }
         }
         else {
-            a.i = i;
-            a.j = 0;
+            this.i = null; 
+            this.j = 0;    
         }
         this.v();
     }
@@ -2070,7 +2081,7 @@ public abstract class a extends ah implements bn, ih, kq
     
     public static String b(final long n) {
         final String s;
-        return s = ((n < 0L) ? "?  KEN" : (String.valueOf(i.a(n, ".")) + "  KEN"));
+        return s = ((n < 0L) ? "?  KEN" : (String.valueOf(com.mg.bas.i.a(n, ".")) + "  KEN"));
     }
     
     public final void r(final String s) {
@@ -2084,7 +2095,7 @@ public abstract class a extends ah implements bn, ih, kq
     }
     
     public final void N() {
-        if (a.m != null && a.o) {
+        if (com.mg.sq.a.m != null && com.mg.sq.a.o) {
             this.m(99004);
             return;
         }
@@ -2188,7 +2199,7 @@ public abstract class a extends ah implements bn, ih, kq
     }
     
     public static final void d(final String s, final String q) {
-        a.q = q;
+//        a.q = q;
         final he he;
         (he = new he()).b(241223);
         final bb bb;
@@ -2231,8 +2242,8 @@ public abstract class a extends ah implements bn, ih, kq
     
     public static void a(final String s, final String u, final String[] array, final String[] w) {
         ((a)ag.b()).v();
-        a.u = u;
-        a.w = w;
+//        a.u = u;
+//        a.w = w;
         final int n = (com.mg.bas.v.t < 320) ? (com.mg.bas.v.t - 20) : 200;
         final he he = new he();
         final bb bb;
@@ -2281,7 +2292,7 @@ public abstract class a extends ah implements bn, ih, kq
             this.a(null, (il)null);
             return true;
         }
-        if (a.m != null && a.o && !gr.b) {
+        if (com.mg.sq.a.m != null && com.mg.sq.a.o) {
             if (t == 99005 || t == 99004) {
                 if (t == 99005) {
                     ks.a().w();
@@ -2359,19 +2370,16 @@ public abstract class a extends ah implements bn, ih, kq
     
     public final void a(final lr[] array) {
         if (this.n(1)) {
-            g.a(array, new b(this));
+            com.mg.bas.g.a(array, new b(this));
             ((oa)super.a).a(array);
         }
     }
     
-    public final void a(final String s, final long n, final int n2) {
+    public final void a(final String s, final String s2, final long n, final int n2) {
         if (super.a != null && super.a.h() == 1) {
             final oa oa = (oa)super.a;
-            final String s3 = s2;
-            s2 = s;
-            final oa oa2 = oa;
             if (oa.k != null) {
-                oa2.k.a(s2, s3, n, n2);
+                oa.k.a(s, s2, n, n2);
             }
         }
     }
@@ -2547,8 +2555,8 @@ public abstract class a extends ah implements bn, ih, kq
     public final void a(final int[] array, final String[] array2, final int[] array3, final int[] array4, final int[] array5) {
         for (int i = 0; i < array.length; ++i) {
             for (int j = 0; j < go.l.length; ++j) {
-                if (go.l[j].c.equals(array[i])) {
-                    go.l[j].p = array2[i];
+                if (go.l[j].c.equals(String.valueOf(array[i]))) {
+                    go.l[j].p = Integer.parseInt(array2[i]);
                     go.l[j].q = array3[i];
                     break;
                 }
@@ -2726,14 +2734,14 @@ public abstract class a extends ah implements bn, ih, kq
         final String s2 = s;
         final String s3 = u;
         final String[] array2 = array;
-        v = v;
+        com.mg.sq.a.v = v;
         array = array2;
         u = s3;
         s = s2;
         ((a)ag.b()).v();
-        a.u = u;
-        a.v = v;
-        final int n = (v.t < 320) ? (v.t - 20) : 200;
+        com.mg.sq.a.u = u;
+        com.mg.sq.a.v = v;
+        final int n = (com.mg.bas.v.t < 320) ? (com.mg.bas.v.t - 20) : 200;
         final he he = new he();
         final bb bb;
         (bb = new bb(s, n - 20, bx.c)).a_(10, 10);
