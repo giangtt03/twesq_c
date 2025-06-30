@@ -75,9 +75,9 @@ implements bf {
         this.D = new cu(19, this.C.b + 19);
         this.B = new cu(8, this.D.b + 10);
         this.E = new cu(19, this.B.b + 19 + 10);
-        this.I = f.d("/info/gold");
-        this.K = f.d("/info/heart");
-        this.J = f.d("/info/expicon");
+        this.I = com.mg.bas.f.d("/info/gold");
+        this.K = com.mg.bas.f.d("/info/heart");
+        this.J = com.mg.bas.f.d("/info/expicon");
         this.u.d = this.E.b + this.J.getHeight() + 8;
         this.u.b = this.g - this.u.d >> 1;
         this.H = lh2;
@@ -91,7 +91,7 @@ implements bf {
             this.O = "Thưởng";
             this.Q = "+";
         }
-        this.N = (int)(l.a((long)t) * 7L / 100L);
+        this.N = (int)(Long.parseLong(com.mg.bas.i.a((long)t)) * 7L / 100L);
         this.S = l;
         this.L = p[this.G];
         this.M = q[this.G];
@@ -100,10 +100,10 @@ implements bf {
             this.Y = new cp("lvu");
         }
         if (r) {
-            this.ad = f.d("/strwin");
+            this.ad = com.mg.bas.f.d("/strwin");
             return;
         }
-        this.ad = f.d("/strlose");
+        this.ad = com.mg.bas.f.d("/strlose");
     }
 
     protected final void s() {
@@ -113,7 +113,7 @@ implements bf {
     }
 
     public final void c(Graphics graphics) {
-        pc.a(graphics, this.u.a, this.u.b, this.u.c, this.u.d, v.aj, false);
+        pc.a(graphics, this.u.a, this.u.b, this.u.c, this.u.d, com.mg.bas.v.aj, false);
         if (this.ad != null) {
             cw.a(graphics, this.ad, 0, 0, this.ad.getWidth() / 3, this.ad.getHeight(), this.u.a + this.u.c - 5, this.u.b + this.u.d - 5, 40);
         }
@@ -126,7 +126,7 @@ implements bf {
         pc.a(graphics, this.y.a + this.u.a, this.y.b + this.u.b, this.y.c, this.y.d, 6729912, 16579546);
         pc.a(graphics, this.z.a + this.u.a, this.z.b + this.u.b, this.y.c, this.y.d, 6729912, 16579546);
         pc.a(graphics, this.y, this.H.s * (this.y.c - 2) / this.H.r, this.aa, this.u.a, this.u.b);
-        bx.d.a(graphics, String.valueOf(i.a(this.H.s, ".")) + "/" + i.a(this.H.r, "."), this.y.a + (this.y.c >> 1) + this.u.a, this.y.b + this.u.b + 1, 1);
+        bx.d.a(graphics, String.valueOf(com.mg.bas.i.a(this.H.s, ".")) + "/" + com.mg.bas.i.a(this.H.r, "."), this.y.a + (this.y.c >> 1) + this.u.a, this.y.b + this.u.b + 1, 1);
         n = k - this.L;
         int n2 = this.M + 1 - this.L;
         if (n > n2) {
@@ -146,7 +146,7 @@ implements bf {
             n %= this.z.c;
         }
         pc.a(graphics, this.z, n, this.ac, this.u.a, this.u.b);
-        bx.d.a(graphics, String.valueOf(i.a(m, ".")) + "/" + i.a(this.H.I, "."), this.z.a + (this.z.c >> 1) + this.u.a, this.z.b + this.u.b + 1, 1);
+        bx.d.a(graphics, String.valueOf(com.mg.bas.i.a(m, ".")) + "/" + com.mg.bas.i.a(this.H.I, "."), this.z.a + (this.z.c >> 1) + this.u.a, this.z.b + this.u.b + 1, 1);
         pc.a(graphics, this.u.a + 3, this.u.b + this.F, this.u.c - 6);
         bx.d.c(true);
         bx.d.a(graphics, "Điểm Thu Thập", this.A.a + this.u.a, this.A.b + this.u.b, 0);
@@ -254,7 +254,7 @@ implements bf {
                     }
                 }
             } else {
-                int n = (int)l.a((long)t);
+                int n = Integer.parseInt(com.mg.bas.i.a((long)t));
                 int n4 = this.N = n > 1 ? n / 2 : 1;
                 if (t < 0) {
                     k -= this.N;
@@ -267,7 +267,7 @@ implements bf {
                         k = this.L;
                     }
                 }
-                int n5 = this.N = (n = (int)l.a((long)s)) > 1 ? n / 2 : 1;
+                int n5 = this.N = (n = Integer.parseInt(com.mg.bas.i.a((long)s)) > 1 ? n / 2 : 1);
                 if (s < 0) {
                     m -= this.N;
                     if ((s += this.N) < 0) {

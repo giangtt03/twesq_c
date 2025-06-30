@@ -312,4 +312,12 @@ public abstract class am {
     public abstract void b_();
 
     public abstract void c(Graphics var1);
+    
+     public void resetHandlerAndArray() {
+        this.i = null;
+        this.j = null;
+    }
+    public boolean isM() {
+        return this.m;
+    }
 }

@@ -71,13 +71,13 @@ ik {
         b = 0;
         a = 0;
         if (this.d == null) {
-            this.d = f.d("/offline/avatardownloadscreen");
+            this.d = com.mg.bas.f.d("/offline/avatardownloadscreen");
         }
         if (this.k == null) {
-            this.k = f.d("/bardownloadscreen");
+            this.k = com.mg.bas.f.d("/bardownloadscreen");
         }
         if (this.l == null) {
-            this.l = f.d("/fillbardownloadscreen");
+            this.l = com.mg.bas.f.d("/fillbardownloadscreen");
         }
     }
 
@@ -85,29 +85,28 @@ ik {
         return this.p != 2;
     }
 
-    public final void a(boolean bl, String object, int n, int[] nArray, int n2) {
-        this.s = object;
-        this.t = n;
-        this.u = nArray;
-        this.v = n2;
-        if (bl) {
-            nx nx2 = this;
-            object = ag.b().a("Thông báo", "Có phiên bản mới, vui lòng cập nhật!", "Cập nhật", -4, 1);
-            ((am)object).a(nx2);
-            ((am)object).b(3000);
-            ag.b().a((al)object, false);
+     public final void a(final boolean b, final String s, final int t, final int[] u, final int v) {
+        this.s = s;
+        this.t = t;
+        this.u = u;
+        this.v = v;
+        if (b) {
+            final al a;
+            (a = ag.b().a("Thông báo", "Có phiên bản mới, vui lòng cập nhật!", "Cập nhật", -4, 1)).a(this);
+            a.b(3000);
+            ag.b().a(a, false);
             return;
         }
-        if (!i.b((String)object)) {
-            nx nx3 = this;
-            object = ag.b().a("Thông báo", "Có phiên bản mới, bạn có muốn cập nhật không?", "Cập nhật", -4, "Không", -5, 1);
-            ((am)object).a(nx3);
-            ((am)object).b(3000);
-            ag.b().a((al)object, false);
+        if (!com.mg.bas.i.b(s)) {
+            final al a2;
+            (a2 = ag.b().a("Thông báo", "Có phiên bản mới, bạn có muốn cập nhật không?", "Cập nhật", -4, "Không", -5, 1)).a(this);
+            a2.b(3000);
+            ag.b().a(a2, false);
             return;
         }
-        this.a(n, nArray, n2);
+        this.a(t, u, v);
     }
+    
 
     private void a(int n, int[] nArray, int n2) {
         if (n < 0) {
@@ -119,36 +118,35 @@ ik {
         pa.a().a(n, nArray, n2, this);
     }
 
-    protected final void a(Graphics graphics) {
+    protected final void a(final Graphics graphics) {
         int n = 0;
-        if (this.d != null && v.u > this.d.getHeight()) {
-            n = (v.u - this.d.getHeight()) / 2;
+        if (this.d != null && com.mg.bas.v.u > this.d.getHeight()) {
+            n = (com.mg.bas.v.u - this.d.getHeight()) / 2;
         }
-        if (m > 0 && this.d != null) {
-            if (v.t > this.d.getWidth() || v.u > this.d.getHeight()) {
+        if (nx.m > 0 && this.d != null) {
+            if (com.mg.bas.v.t > this.d.getWidth() || com.mg.bas.v.u > this.d.getHeight()) {
                 graphics.setColor(0);
-                graphics.fillRect(0, 0, this.f, this.g);
+                graphics.fillRect(0, 0, super.f, super.g);
             }
-            graphics.drawImage(this.d, this.f / 2, this.g - n, 33);
-            if (o != null) {
-                bx.c.a(graphics, o, this.f / 2, this.g - n - 17, 1);
+            graphics.drawImage(this.d, super.f / 2, super.g - n, 33);
+            if (nx.o != null) {
+                bx.c.a(graphics, nx.o, super.f / 2, super.g - n - 17, 1);
             }
             if (this.e()) {
-                com.mg.sq.a.g.a(graphics, "0.18.0" + (ct.a() ? " TEST SVIP = 210.211.116.157" : ""), v.t / 2, 0, 1);
+                com.mg.sq.a.g.a(graphics, "0.18.0" + (ct.a() ? " TEST SVIP = 210.211.116.157" : ""), com.mg.bas.v.t / 2, 0, 1);
             }
-            --m;
+            --nx.m;
         }
         if (this.l != null && this.k != null) {
-            int n2 = (this.f - this.k.getWidth()) / 2;
-            n = this.g - 33 - n;
-            graphics.drawImage(this.k, n2, n, 0);
-            if (a > 0) {
-                if (b > a) {
-                    b = a;
+            final int n2 = (super.f - this.k.getWidth()) / 2;
+            final int n3 = super.g - 33 - n;
+            graphics.drawImage(this.k, n2, n3, 0);
+            if (nx.a > 0) {
+                if (nx.b > nx.a) {
+                    nx.b = nx.a;
                 }
-                int n3 = b * 144 / a;
-                this.a(graphics, n2 + 2, n + 2, n3, 1);
-                bx.d.a(graphics, String.valueOf(b * 100 / a) + "%", n2 + this.k.getWidth() / 2, n, 1);
+                this.a(graphics, n2 + 2, n3 + 2, nx.b * 144 / nx.a, 1);
+                bx.d.a(graphics, String.valueOf(nx.b * 100 / nx.a) + "%", n2 + this.k.getWidth() / 2, n3, 1);
             }
         }
     }
@@ -224,16 +222,8 @@ ik {
     public final void d(int n, int n2) {
         switch (n2) {
             case -4: {
-                try {
-                    MGMIDlet.d().a(this.s);
-                    return;
-                }
-                catch (ConnectionNotFoundException connectionNotFoundException) {
-                    MGMIDlet mGMIDlet = MGMIDlet.d();
-                    mGMIDlet.notifyDestroyed();
-                    connectionNotFoundException.printStackTrace();
-                    return;
-                }
+                MGMIDlet.d().a(this.s);
+                return;
             }
             case -5: {
                 com.mg.sq.a.s().a(3000, false);

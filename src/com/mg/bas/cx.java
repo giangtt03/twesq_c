@@ -1,6 +1,9 @@
 package com.mg.bas;
 // Utility class for cryptographic or encoding operations, manages byte and char arrays for hashing or encoding.
 // Decompiled with: CFR 0.152
+
+import java.io.UnsupportedEncodingException;
+
 // Class Version: 1
 public final class cx {
     private cy a = new cy();
@@ -231,7 +234,12 @@ public final class cx {
         String string2 = string;
         string = null;
         string = string2;
-        return cx.a(i.c(string2, null));
+        try {
+            return cx.a(com.mg.bas.i.c(string2, null));
+        } catch (UnsupportedEncodingException ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
 
     public static byte[] a(byte[] byArray) {

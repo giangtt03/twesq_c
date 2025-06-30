@@ -35,7 +35,7 @@ implements bf {
             }
         }
         catch (Throwable throwable) {
-            object = throwable;
+//            object = throwable;
             throwable.printStackTrace();
         }
         this.l = new ls(bx.d, string, 0, 0, v.t - 4, bx.d.a(), 1);
@@ -163,7 +163,7 @@ implements bf {
                 ((bs)object).a_(-n4, hk2.j() - ((aq)object).f() + n4);
                 ((bs)object).d(0, v.u - ba.a - ((aq)object).f());
                 ((bs)object).a(hk2);
-                v0.t = object;
+//                v0.t = object;
                 hk2.t.a(hk2);
                 gb gb2 = new gb(-3, 2);
                 object = hk2;

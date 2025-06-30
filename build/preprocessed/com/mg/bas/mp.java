@@ -115,8 +115,8 @@ public final class mp {
             Object object = pa.a();
             byte[] byArray = ((pa)object).b(n, false);
             object = byArray;
-            h.a(byArray, -98);
-            this.z = f.a((byte[])object);
+            com.mg.bas.h.a(byArray, -98);
+            this.z = com.mg.bas.f.a((byte[])object);
         }
     }
 
@@ -126,8 +126,8 @@ public final class mp {
             Object object = pa.a();
             byte[] byArray = ((pa)object).b(n, false);
             object = byArray;
-            h.a(byArray, -180);
-            this.I = f.a((byte[])object);
+            com.mg.bas.h.a(byArray, -180);
+            this.I = com.mg.bas.f.a((byte[])object);
         }
     }
 
@@ -367,46 +367,46 @@ public final class mp {
                 this.U.w();
                 continue;
             }
-            break;
+//            break;
         }
     }
 
     private mp(oq object) {
         this.U = object;
-        this.P = f.d("/skillupdownstat");
-        this.N = f.d("/firerage");
-        this.O = f.d("/firerageext");
-        this.h = f.d("/castingball");
-        this.j = f.a("/barrier");
+        this.P = com.mg.bas.f.d("/skillupdownstat");
+        this.N = com.mg.bas.f.d("/firerage");
+        this.O = com.mg.bas.f.d("/firerageext");
+        this.h = com.mg.bas.f.d("/castingball");
+        this.j = com.mg.bas.f.a("/barrier");
         int n = 99099;
-        object = pa.a();
-        this.i = f.a(((pa)object).b(n, false));
+        pa pa2 = pa.a();
+        this.i = com.mg.bas.f.a(pa2.b(n, false));
         this.c = new Image[9];
         int n2 = 0;
         while (n2 < this.c.length) {
-            this.c[n2] = f.d("/chess" + n2);
+            this.c[n2] = com.mg.bas.f.d("/chess" + n2);
             ++n2;
         }
-        this.b = f.d("/chesscrystal");
-        this.a = f.d("/star");
-        this.f = f.d("/bloodthrowaround");
+        this.b = com.mg.bas.f.d("/chesscrystal");
+        this.a = com.mg.bas.f.d("/star");
+        this.f = com.mg.bas.f.d("/bloodthrowaround");
         this.e = new Image[2];
         this.d = new Image[2];
         n = 0;
         while (n < this.e.length) {
-            byte[] byArray = f.b("/arrowfocus1");
+            byte[] byArray = com.mg.bas.f.b("/arrowfocus1");
             if (n == 1) {
-                h.a(byArray, 140);
+                com.mg.bas.h.a(byArray, 140);
             }
-            this.e[n] = f.a(byArray);
-            byArray = f.b("/focusmovechess1");
+            this.e[n] = com.mg.bas.f.a(byArray);
+            byArray = com.mg.bas.f.b("/focusmovechess1");
             if (n == 1) {
-                h.a(byArray, 140);
+                com.mg.bas.h.a(byArray, 140);
             }
-            this.d[n] = f.a(byArray);
+            this.d[n] = com.mg.bas.f.a(byArray);
             ++n;
         }
-        this.g = f.d("/zoomfocus");
+        this.g = com.mg.bas.f.d("/zoomfocus");
     }
 
     public static void f() {

@@ -1,9 +1,11 @@
 package com.mg.bas;
 // Decompiled with: CFR 0.152
 // Class Version: 1
+
 import java.io.UnsupportedEncodingException;
 
 public final class jn {
+
     public String a;
     public String b;
     public int c;
@@ -20,7 +22,8 @@ public final class jn {
     public int n;
 
     public final byte[] a() {
-        byte[] byArray = null;
+        try {
+            byte[] byArray = null;
 //        try {
             byte[] byArray2 = com.mg.bas.i.c(this.a);
             int n = 32 + (byArray2.length + 4);
@@ -75,8 +78,12 @@ public final class jn {
                 n2 += byArrayArray[n5].length;
                 ++n5;
             }
-        return null;
+            return null;
+        } catch (UnsupportedEncodingException ex) {
+            ex.printStackTrace();
         }
+        return null;
+    }
 //        catch (UnsupportedEncodingException unsupportedEncodingException) {
 //            UnsupportedEncodingException unsupportedEncodingException2 = unsupportedEncodingException;
 //            unsupportedEncodingException.printStackTrace();

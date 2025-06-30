@@ -10,8 +10,11 @@ extends am {
     private boolean b;
     private bs c;
     private boolean d;
-    private boolean k;
+    boolean k;
+    private ol olRef;
     private az[] l;
+    public String u;
+    public String[] v;
 
     public an(int n) {
         this.b(n);
@@ -69,7 +72,7 @@ extends am {
     }
 
     protected final void c(boolean flag) {
-        v.c();
+        com.mg.bas.v.c();
         if (this.c != null) {
             this.d = flag;
             if (flag) {
@@ -86,8 +89,8 @@ extends am {
                 an2 = this;
                 an2.b(az2, true);
                 int n2 = this.c.e() > this.c.f() ? this.c.e() : this.c.f();
-                this.c.a_(-n2, v.u);
-                this.c.d(0, v.u - ba.a - this.c.f());
+                this.c.a_(-n2, com.mg.bas.v.u);
+                this.c.d(0, com.mg.bas.v.u - ba.a - this.c.f());
                 return;
             }
             int n = 0;
@@ -193,5 +196,18 @@ extends am {
 
     static bs a(an an2) {
         return an2.c;
+    }
+
+    public int dInt() {
+        // No dynamic array, so return 0 by default
+        return 0;
+    }
+
+    public boolean getK() {
+        return this.k;
+    }
+
+    public ol getOl() {
+        return this.olRef;
     }
 }

@@ -77,7 +77,11 @@ extends MGMIDlet {
         bx.a(bx.e);
         bk.a(0xFFFFFF);
         v.a(480, 480, true);
-        ag.a(new a());
+        ag.a(new a() {
+            public void a(String[] var1, int[] var2, int[] var3, int[] var4, int[] var5) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
         ag.b().a(new oc());
         if (v.ai) {
             v.b = true;

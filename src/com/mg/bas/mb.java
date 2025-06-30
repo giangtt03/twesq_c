@@ -24,46 +24,40 @@ public final class mb {
         this.a(byArray);
     }
 
-    private void a(byte[] object) {
+     private void a(final byte[] array) {
         try {
-            object = new ByteArrayInputStream((byte[])object);
-            DataInputStream dataInputStream = new DataInputStream((InputStream)object);
-            object = dataInputStream;
-            dataInputStream.readByte();
-            this.e = ((DataInputStream)object).readInt();
-            int n = ((DataInputStream)object).readByte();
-            this.b = new int[n][][];
-            this.d = new byte[n][];
-            this.c = new int[n];
-            n = 0;
-            while (n < this.b.length) {
-                byte by = ((DataInputStream)object).readByte();
-                this.c[n] = ((DataInputStream)object).readByte();
-                int n2 = ((DataInputStream)object).readByte();
-                this.b[by] = new int[n2][2];
-                this.d[by] = new byte[n2];
-                int n3 = 0;
-                while (n3 < n2) {
-                    this.d[by][n3] = ((DataInputStream)object).readByte();
-                    this.b[by][n3][0] = ((DataInputStream)object).readShort();
-                    this.b[by][n3][1] = ((DataInputStream)object).readShort();
-                    ++n3;
+            final DataInputStream dataInputStream;
+            (dataInputStream = new DataInputStream(new ByteArrayInputStream(array))).readByte();
+            this.e = dataInputStream.readInt();
+            final byte byte1 = dataInputStream.readByte();
+            this.b = new int[byte1][][];
+            this.d = new byte[byte1][];
+            this.c = new int[byte1];
+            for (int i = 0; i < this.b.length; ++i) {
+                final byte byte2 = dataInputStream.readByte();
+                this.c[i] = dataInputStream.readByte();
+                final byte byte3 = dataInputStream.readByte();
+                this.b[byte2] = new int[byte3][2];
+                this.d[byte2] = new byte[byte3];
+                for (byte b = 0; b < byte3; ++b) {
+                    this.d[byte2][b] = dataInputStream.readByte();
+                    this.b[byte2][b][0] = dataInputStream.readShort();
+                    this.b[byte2][b][1] = dataInputStream.readShort();
                 }
-                ++n;
             }
-            return;
+            dataInputStream.close();
         }
-        catch (Exception exception) {
-            ct.a(String.valueOf(this.a));
-            exception.printStackTrace();
-            return;
+        catch (final Exception ex) {
+            ct.a(new StringBuffer(String.valueOf(this.a)).toString());
+            ex.printStackTrace();
         }
     }
+    
 
     private static Image b(int n) {
         int n2 = n;
         pa pa2 = pa.a();
-        return f.a(pa2.b(n2, false));
+        return com.mg.bas.f.a(pa2.b(n2, false));
     }
 
     private static Image a(int n, df df2) {
@@ -73,7 +67,7 @@ public final class mb {
         if (df2 != null && df2.d != null && df2.e != null && !df2.d.equals(df2.e)) {
             h.a((byte[])object, df2.d.c, df2.e.c);
         }
-        return f.a((byte[])object);
+        return com.mg.bas.f.a((byte[])object);
     }
 
     private static Image a(int n, df df2, df df3) {
@@ -86,156 +80,140 @@ public final class mb {
         if (df3 != null && df3.d != null && df3.e != null && !df3.d.equals(df3.e)) {
             h.a((byte[])object, df3.d.c, df3.e.c);
         }
-        return f.a((byte[])object);
+        return com.mg.bas.f.a((byte[])object);
     }
 
-    private static ma a(lh lh2, mb object, mb object2, mb object3, mb object4, int n2, int n3, boolean bl) {
-        int n4 = mb.a(lh2, (mb)object, (mb)object2, (mb)object3, (mb)object4, n2);
-        ma ma2 = mb.c(n4);
-        if (ma2 != null) {
-            return ma2;
+    private static ma a(final lh lh, final mb mb, final mb mb2, final mb mb3, final mb mb4, final int n, final int n2, final boolean b) {
+        final int a;
+        final ma c;
+        if ((c = c(a = a(lh, mb, mb2, mb3, mb4, n))) != null) {
+            return c;
         }
-        int n5 = ((mb)object2).c[n2];
-        int n6 = ((mb)object).c[n2];
-        int n7 = ((mb)object3).c[n2];
-        int n8 = ((mb)object4).c[n2];
-        Image image = mb.a(n2 + 99000, lh2.W);
-        int n9 = n2;
-        Object mb2 = object2;
-        Image image2 = mb.a(((mb)mb2).e + n9, lh2.V, lh2.W);
-        n9 = n2;
-        mb2 = object;
-        lh2 = mb.a(((mb)mb2).e + n9, lh2.U);
-        n9 = n2;
-        mb2 = object3;
-        Image image3 = mb.b(((mb)mb2).e + n9);
-        n9 = n2;
-        mb2 = object4;
-        mb2 = mb.b(((mb)mb2).e + n9);
-        n9 = image.getWidth() / n3;
-        n5 = image2.getWidth() / n5;
-        n7 = image3.getWidth() / n7;
-        n8 = mb2.getWidth() / n8;
-        n6 = lh2.getWidth() / n6;
-        int n10 = image.getHeight();
-        int n11 = image2.getHeight();
-        int n12 = lh2.getHeight();
-        int n13 = image3.getHeight();
-        int n14 = mb2.getHeight();
-        byte[] byArray = ((mb)object2).d[n2];
-        byte[] byArray2 = ((mb)object).d[n2];
-        byte[] byArray3 = ((mb)object3).d[n2];
-        byte[] byArray4 = ((mb)object4).d[n2];
-        object2 = ((mb)object2).b[n2];
-        object = ((mb)object).b[n2];
-        object3 = ((mb)object3).b[n2];
-        object4 = ((mb)object4).b[n2];
-        int[][] nArray = new int[n3][2];
-        int[][] nArray2 = new int[n3][2];
-        g g2 = new g();
-        Image[] imageArray = new Image[n3];
-        g2.a = n9;
-        g2.b = n10;
-        int n15 = 0;
-        while (n15 < n3) {
-            Object object5;
-            Object object6;
-            Object object7;
-            Object object8;
-            boolean n16 = false;
-            Object object9 = n9;
-            int n17 = false;
-            Object object10 = n10;
-            if (object2[n15][0] < 0) {
-                object8 = object2[n15][0];
+        final int n3 = mb2.c[n];
+        final int n4 = mb.c[n];
+        final int n5 = mb3.c[n];
+        final int n6 = mb4.c[n];
+        final Image a2 = a(n + 99000, lh.W);
+        final Image a3 = a(mb2.e + n, lh.V, lh.W);
+        final Image a4 = a(mb.e + n, lh.U);
+        final Image b2 = b(mb3.e + n);
+        final Image b3 = b(mb4.e + n);
+        final int a5 = a2.getWidth() / n2;
+        final int n7 = a3.getWidth() / n3;
+        final int n8 = b2.getWidth() / n5;
+        final int n9 = b3.getWidth() / n6;
+        final int n10 = a4.getWidth() / n4;
+        final int height = a2.getHeight();
+        final int height2 = a3.getHeight();
+        final int height3 = a4.getHeight();
+        final int height4 = b2.getHeight();
+        final int height5 = b3.getHeight();
+        final byte[] array = mb2.d[n];
+        final byte[] array2 = mb.d[n];
+        final byte[] array3 = mb3.d[n];
+        final byte[] array4 = mb4.d[n];
+        final int[][] array5 = mb2.b[n];
+        final int[][] array6 = mb.b[n];
+        final int[][] array7 = mb3.b[n];
+        final int[][] array8 = mb4.b[n];
+        final int[][] array9 = new int[n2][2];
+        final int[][] array10 = new int[n2][2];
+        final g g = new g();
+        final Image[] array11 = new Image[n2];
+        g.a = a5;
+        g.b = height;
+        for (int i = 0; i < n2; ++i) {
+            int n11 = 0;
+            int n12 = a5;
+            int n13 = 0;
+            int n14 = height;
+            if (array5[i][0] < 0) {
+                n11 = array5[i][0];
             }
-            if (object[n15][0] < object8) {
-                object7 = object[n15][0];
+            if (array6[i][0] < n11) {
+                n11 = array6[i][0];
             }
-            if (object3[n15][0] < object7) {
-                object6 = object3[n15][0];
+            if (array7[i][0] < n11) {
+                n11 = array7[i][0];
             }
-            if (object4[n15][0] < object6) {
-                object5 = object4[n15][0];
+            if (array8[i][0] < n11) {
+                n11 = array8[i][0];
             }
-            int n18 = Math.abs((int)object5);
-            if (object9 < object2[n15][0] + n5) {
-                object9 = object2[n15][0] + n5;
+            final int abs = Math.abs(n11);
+            if (n12 < array5[i][0] + n7) {
+                n12 = array5[i][0] + n7;
             }
-            if (object9 < object[n15][0] + n6) {
-                object9 = object[n15][0] + n6;
+            if (n12 < array6[i][0] + n10) {
+                n12 = array6[i][0] + n10;
             }
-            if (object9 < object3[n15][0] + n7) {
-                object9 = object3[n15][0] + n7;
+            if (n12 < array7[i][0] + n8) {
+                n12 = array7[i][0] + n8;
             }
-            if (object9 < object4[n15][0] + n8) {
-                object9 = object4[n15][0] + n8;
+            if (n12 < array8[i][0] + n9) {
+                n12 = array8[i][0] + n9;
             }
-            nArray[n15][0] = -n18;
-            nArray[n15][1] = n9 - object9;
-            if (object2[n15][1] < 0) {
-                n17 = object2[n15][1];
+            array9[i][0] = -abs;
+            array9[i][1] = a5 - n12;
+            if (array5[i][1] < 0) {
+                n13 = array5[i][1];
             }
-            if (object[n15][1] < n17) {
-                n17 = object[n15][1];
+            if (array6[i][1] < n13) {
+                n13 = array6[i][1];
             }
-            if (object3[n15][1] < n17) {
-                n17 = object3[n15][1];
+            if (array7[i][1] < n13) {
+                n13 = array7[i][1];
             }
-            if (object4[n15][1] < n17) {
-                n17 = object4[n15][1];
+            if (array8[i][1] < n13) {
+                n13 = array8[i][1];
             }
-            n17 = Math.abs(n17);
-            if (n10 < object2[n15][1] + n11) {
-                object10 = object2[n15][1] + n11;
+            final int abs2 = Math.abs(n13);
+            if (height < array5[i][1] + height2) {
+                n14 = array5[i][1] + height2;
             }
-            if (object10 < object[n15][1] + n12) {
-                object10 = object[n15][1] + n12;
+            if (n14 < array6[i][1] + height3) {
+                n14 = array6[i][1] + height3;
             }
-            if (object10 < object3[n15][1] + n13) {
-                object10 = object3[n15][1] + n13;
+            if (n14 < array7[i][1] + height4) {
+                n14 = array7[i][1] + height4;
             }
-            if (object10 < object4[n15][1] + n14) {
-                object10 = object4[n15][1] + n14;
+            if (n14 < array8[i][1] + height5) {
+                n14 = array8[i][1] + height5;
             }
-            nArray2[n15][0] = -n17;
-            nArray2[n15][1] = n10 - object10;
-            object9 = n18 + object9;
-            object10 = n17 + object10;
-            Image image4 = Image.createImage((int)object9, (int)object10);
-            Graphics graphics = image4.getGraphics();
-            graphics.setColor(0xFF00FF);
-            graphics.fillRect(0, 0, object9, object10);
-            cw.a(graphics, image, n15 * n9, 0, n9, n10, n18, n17, 0);
-            if (image2 != null) {
-                cw.a(graphics, image2, byArray[n15] * n5, 0, n5, n11, n18 + object2[n15][0], n17 + object2[n15][1], 0);
+            array10[i][0] = -abs2;
+            array10[i][1] = height - n14;
+            final int n15 = abs + n12;
+            final int n16 = abs2 + n14;
+            final Image image;
+            final Graphics graphics;
+            (graphics = (image = Image.createImage(n15, n16)).getGraphics()).setColor(16711935);
+            graphics.fillRect(0, 0, n15, n16);
+            cw.a(graphics, a2, i * a5, 0, a5, height, abs, abs2, 0);
+            if (a3 != null) {
+                cw.a(graphics, a3, array[i] * n7, 0, n7, height2, abs + array5[i][0], abs2 + array5[i][1], 0);
             }
-            if (lh2 != null) {
-                cw.a(graphics, (Image)lh2, byArray2[n15] * n6, 0, n6, n12, n18 + object[n15][0], n17 + object[n15][1], 0);
+            if (a4 != null) {
+                cw.a(graphics, a4, array2[i] * n10, 0, n10, height3, abs + array6[i][0], abs2 + array6[i][1], 0);
             }
-            if (mb2 != null) {
-                cw.a(graphics, (Image)mb2, byArray4[n15] * n8, 0, n8, n14, n18 + object4[n15][0], n17 + object4[n15][1], 0);
+            if (b3 != null) {
+                cw.a(graphics, b3, array4[i] * n9, 0, n9, height5, abs + array8[i][0], abs2 + array8[i][1], 0);
             }
-            if (image3 != null) {
-                cw.a(graphics, image3, byArray3[n15] * n7, 0, n7, n13, n18 + object3[n15][0], n17 + object3[n15][1], 0);
+            if (b2 != null) {
+                cw.a(graphics, b2, array3[i] * n8, 0, n8, height4, abs + array7[i][0], abs2 + array7[i][1], 0);
             }
-            int[] nArray3 = new int[object9 * object10];
-            image4.getRGB(nArray3, 0, object9, 0, 0, object9, object10);
-            n17 = 0;
-            while (n17 < nArray3.length) {
-                if ((nArray3[n17] & 0xFFFFFF) == 0xFF00FF) {
-                    nArray3[n17] = 0;
+            final int[] array12 = new int[n15 * n16];
+            image.getRGB(array12, 0, n15, 0, 0, n15, n16);
+            for (int j = 0; j < array12.length; ++j) {
+                if ((array12[j] & 0xFFFFFF) == 0xFF00FF) {
+                    array12[j] = 0;
                 }
-                ++n17;
             }
-            imageArray[n15] = Image.createRGBImage((int[])nArray3, (int)object9, (int)object10, (boolean)true);
-            ++n15;
+            array11[i] = Image.createRGBImage(array12, n15, n16, true);
         }
-        ma ma3 = new ma(n4, imageArray, nArray, nArray2, n3, g2);
-        if (bl) {
-            mb.a(ma3);
+        final ma ma = new ma(a, array11, array9, array10, n2, g);
+        if (b) {
+            a(ma);
         }
-        return ma3;
+        return ma;
     }
 
     /*
@@ -280,434 +258,446 @@ public final class mb {
         f.a();
     }
 
-    public static mg a(lh lh2, mb object, mb mb2, mb mb3, mb mb4, boolean bl) {
-        lh2.b();
-        object = !lh2.ad ? mb.a(lh2, (mb)object, mb2, mb3, mb4, 0, 2, bl) : mb.a(lh2, (mb)object, mb2, mb3, mb4, 3, 2, bl);
-        object = new mg(((ma)object).b, ((ma)object).c, ((ma)object).d, ((ma)object).e);
-        if (!lh2.ad) {
-            ((as)object).a(mg.u);
-        } else {
-            ((as)object).a(mf.s);
+     
+    public static mg a(final lh lh, final mb mb, final mb mb2, final mb mb3, final mb mb4, final boolean b) {
+        lh.b();
+        ma ma;
+        if (!lh.ad) {
+            ma = a(lh, mb, mb2, mb3, mb4, 0, 2, b);
         }
-        if (lh2.ad) {
-            ((as)object).d(1);
-        } else {
-            ((as)object).d(0);
+        else {
+            ma = a(lh, mb, mb2, mb3, mb4, 3, 2, b);
         }
-        return object;
+        final mg mg = new mg(ma.b, ma.c, ma.d, ma.e);
+        if (!lh.ad) {
+            mg.a(mg.u);
+        }
+        else {
+            mg.a(mf.s);
+        }
+        if (lh.ad) {
+            mg.d(1);
+        }
+        else {
+            mg.d(0);
+        }
+        return mg;
     }
 
-    public static mg b(lh lh2, mb object, mb mb2, mb mb3, mb mb4, boolean bl) {
-        object = mb.a(lh2, (mb)object, mb2, mb3, mb4, 1, 6, true);
-        object = new mg(((ma)object).b, ((ma)object).c, ((ma)object).d, ((ma)object).e);
-        ((as)object).a(mg.w);
-        if (lh2.ad) {
-            ((as)object).d(1);
-        } else {
-            ((as)object).d(0);
+    public static mg b(final lh lh, final mb mb, final mb mb2, final mb mb3, final mb mb4, final boolean b) {
+        final ma a = a(lh, mb, mb2, mb3, mb4, 1, 6, true);
+        final mg mg;
+        (mg = new mg(a.b, a.c, a.d, a.e)).a(mg.w);
+        if (lh.ad) {
+            mg.d(1);
         }
-        return object;
+        else {
+            mg.d(0);
+        }
+        return mg;
     }
 
-    public static mg c(lh lh2, mb object, mb mb2, mb mb3, mb mb4, boolean bl) {
-        object = mb.a(lh2, (mb)object, mb2, mb3, mb4, 2, 4, bl);
-        object = new mg(((ma)object).b, ((ma)object).c, ((ma)object).d, ((ma)object).e);
-        ((as)object).a(mg.v);
-        if (lh2.ad) {
-            ((as)object).d(1);
-        } else {
-            ((as)object).d(0);
+    public static mg c(final lh lh, final mb mb, final mb mb2, final mb mb3, final mb mb4, final boolean b) {
+        final ma a = a(lh, mb, mb2, mb3, mb4, 2, 4, b);
+        final mg mg;
+        (mg = new mg(a.b, a.c, a.d, a.e)).a(mg.v);
+        if (lh.ad) {
+            mg.d(1);
         }
-        return object;
+        else {
+            mg.d(0);
+        }
+        return mg;
+    }
+    
+    public static mg d(final lh lh, final mb mb, final mb mb2, final mb mb3, final mb mb4, final boolean b) {
+        final ma a = a(lh, mb, mb2, mb3, mb4, 9, 1, true);
+        final mg mg;
+        (mg = new mg(a.b, a.c, a.d, a.e)).a(mg.z);
+        if (lh.ad) {
+            mg.d(1);
+        }
+        else {
+            mg.d(0);
+        }
+        return mg;
+    }
+    
+    public static mg e(final lh lh, final mb mb, final mb mb2, final mb mb3, final mb mb4, final boolean b) {
+        final ma a = a(lh, mb, mb2, mb3, mb4, 7, 1, true);
+        final mg mg;
+        (mg = new mg(a.b, a.c, a.d, a.e)).a(mg.x);
+        if (lh.ad) {
+            mg.d(1);
+        }
+        else {
+            mg.d(0);
+        }
+        return mg;
+    }
+    
+    public static mg f(final lh lh, final mb mb, final mb mb2, final mb mb3, final mb mb4, final boolean b) {
+        final ma a = a(lh, mb, mb2, mb3, mb4, 8, 1, true);
+        final mg mg;
+        (mg = new mg(a.b, a.c, a.d, a.e)).a(mg.y);
+        if (lh.ad) {
+            mg.d(1);
+        }
+        else {
+            mg.d(0);
+        }
+        return mg;
     }
 
-    public static mg d(lh lh2, mb object, mb mb2, mb mb3, mb mb4, boolean bl) {
-        object = mb.a(lh2, (mb)object, mb2, mb3, mb4, 9, 1, true);
-        object = new mg(((ma)object).b, ((ma)object).c, ((ma)object).d, ((ma)object).e);
-        ((as)object).a(mg.z);
-        if (lh2.ad) {
-            ((as)object).d(1);
-        } else {
-            ((as)object).d(0);
-        }
-        return object;
-    }
-
-    public static mg e(lh lh2, mb object, mb mb2, mb mb3, mb mb4, boolean bl) {
-        object = mb.a(lh2, (mb)object, mb2, mb3, mb4, 7, 1, true);
-        object = new mg(((ma)object).b, ((ma)object).c, ((ma)object).d, ((ma)object).e);
-        ((as)object).a(mg.x);
-        if (lh2.ad) {
-            ((as)object).d(1);
-        } else {
-            ((as)object).d(0);
-        }
-        return object;
-    }
-
-    public static mg f(lh lh2, mb object, mb mb2, mb mb3, mb mb4, boolean bl) {
-        object = mb.a(lh2, (mb)object, mb2, mb3, mb4, 8, 1, true);
-        object = new mg(((ma)object).b, ((ma)object).c, ((ma)object).d, ((ma)object).e);
-        ((as)object).a(mg.y);
-        if (lh2.ad) {
-            ((as)object).d(1);
-        } else {
-            ((as)object).d(0);
-        }
-        return object;
-    }
-
-    public static mc a(lh lh2, Image image, mb object, mb object2, mb object3, mb object4, boolean bl) {
-        int n2 = 3;
-        n2 = 6;
-        Object object5 = lh2;
-        int n3 = mb.a((lh)object5, (mb)object, (mb)object2, (mb)object3, (mb)object4, 6);
-        ma ma2 = mb.c(n3);
-        if (ma2 == null) {
-            int n4 = ((mb)object2).c[6];
-            int n5 = ((mb)object).c[6];
-            int n6 = ((mb)object3).c[6];
-            int n7 = ((mb)object4).c[6];
-            Image image2 = mb.a(99006, ((lh)object5).W);
-            int n8 = 6;
-            Object mb2 = object2;
-            Image image3 = mb.a(((mb)mb2).e + n8, ((lh)object5).V, ((lh)object5).W);
-            n8 = 6;
-            mb2 = object;
-            object5 = mb.a(((mb)mb2).e + n8, ((lh)object5).U);
-            n8 = 6;
-            mb2 = object3;
-            Image image4 = mb.b(((mb)mb2).e + n8);
-            n8 = 6;
-            mb2 = object4;
-            mb2 = mb.b(((mb)mb2).e + n8);
-            n8 = image2.getWidth() / 3;
-            n4 = image3.getWidth() / n4;
-            n6 = image4.getWidth() / n6;
-            n7 = mb2.getWidth() / n7;
-            n5 = object5.getWidth() / n5;
-            int n9 = image2.getHeight();
-            int n10 = image3.getHeight();
-            int n11 = object5.getHeight();
-            int n12 = image4.getHeight();
-            int n13 = mb2.getHeight();
-            byte[] byArray = ((mb)object2).d[6];
-            byte[] byArray2 = ((mb)object).d[6];
-            byte[] byArray3 = ((mb)object3).d[6];
-            byte[] byArray4 = ((mb)object4).d[6];
-            object2 = ((mb)object2).b[6];
-            object = ((mb)object).b[6];
-            object3 = ((mb)object3).b[6];
-            object4 = ((mb)object4).b[6];
-            int[][] nArray = new int[3][2];
-            int[][] nArray2 = new int[3][2];
-            g g2 = new g();
-            Image[] imageArray = new Image[3];
-            g2.a = n8;
-            g2.b = n9;
-            int n14 = 0;
-            while (n14 < 3) {
-                Object object6;
-                Object object7;
-                Object object8;
-                Object object9;
-                boolean n15 = false;
-                Object object10 = n8;
-                int n16 = false;
-                Object object11 = n9;
-                if (object2[n14][0] < 0) {
-                    object9 = object2[n14][0];
+    public static mc a(lh lh, final Image image, mb mb, mb mb2, mb mb3, mb mb4, final boolean b) {
+        final lh lh2 = lh;
+        final mb mb5 = mb;
+        final mb mb6 = mb2;
+        final mb mb7 = mb3;
+        mb4 = mb4;
+        mb3 = mb7;
+        mb2 = mb6;
+        mb = mb5;
+        lh = lh2;
+        final int a;
+        ma c;
+        if ((c = c(a = a(lh2, mb, mb2, mb3, mb4, 6))) == null) {
+            final int n = mb2.c[6];
+            final int n2 = mb.c[6];
+            final int n3 = mb3.c[6];
+            final int n4 = mb4.c[6];
+            final Image a2 = a(99006, lh.W);
+            final Image a3 = a(mb2.e + 6, lh.V, lh.W);
+            final Image a4 = a(mb.e + 6, lh.U);
+            final Image b2 = b(mb3.e + 6);
+            final Image b3 = b(mb4.e + 6);
+            final int a5 = a2.getWidth() / 3;
+            final int n5 = a3.getWidth() / n;
+            final int n6 = b2.getWidth() / n3;
+            final int n7 = b3.getWidth() / n4;
+            final int n8 = a4.getWidth() / n2;
+            final int height = a2.getHeight();
+            final int height2 = a3.getHeight();
+            final int height3 = a4.getHeight();
+            final int height4 = b2.getHeight();
+            final int height5 = b3.getHeight();
+            final byte[] array = mb2.d[6];
+            final byte[] array2 = mb.d[6];
+            final byte[] array3 = mb3.d[6];
+            final byte[] array4 = mb4.d[6];
+            final int[][] array5 = mb2.b[6];
+            final int[][] array6 = mb.b[6];
+            final int[][] array7 = mb3.b[6];
+            final int[][] array8 = mb4.b[6];
+            final int[][] array9 = new int[3][2];
+            final int[][] array10 = new int[3][2];
+            final g g = new g();
+            final Image[] array11 = new Image[3];
+            g.a = a5;
+            g.b = height;
+            for (int i = 0; i < 3; ++i) {
+                int n9 = 0;
+                int n10 = a5;
+                int n11 = 0;
+                int n12 = height;
+                if (array5[i][0] < 0) {
+                    n9 = array5[i][0];
                 }
-                if (object[n14][0] < object9) {
-                    object8 = object[n14][0];
+                if (array6[i][0] < n9) {
+                    n9 = array6[i][0];
                 }
-                if (object3[n14][0] < object8) {
-                    object7 = object3[n14][0];
+                if (array7[i][0] < n9) {
+                    n9 = array7[i][0];
                 }
-                if (object4[n14][0] < object7) {
-                    object6 = object4[n14][0];
+                if (array8[i][0] < n9) {
+                    n9 = array8[i][0];
                 }
-                int n17 = Math.abs((int)object6);
-                if (n8 < object2[n14][0] + n4) {
-                    object10 = object2[n14][0] + n4;
+                final int abs = Math.abs(n9);
+                if (a5 < array5[i][0] + n5) {
+                    n10 = array5[i][0] + n5;
                 }
-                if (object10 < object[n14][0] + n5) {
-                    object10 = object[n14][0] + n5;
+                if (n10 < array6[i][0] + n8) {
+                    n10 = array6[i][0] + n8;
                 }
-                if (object10 < object3[n14][0] + n6) {
-                    object10 = object3[n14][0] + n6;
+                if (n10 < array7[i][0] + n6) {
+                    n10 = array7[i][0] + n6;
                 }
-                if (object10 < object4[n14][0] + n7) {
-                    object10 = object4[n14][0] + n7;
+                if (n10 < array8[i][0] + n7) {
+                    n10 = array8[i][0] + n7;
                 }
-                nArray[n14][0] = -n17;
-                nArray[n14][1] = n8 - object10;
-                if (object2[n14][1] < 0) {
-                    n16 = object2[n14][1];
+                array9[i][0] = -abs;
+                array9[i][1] = a5 - n10;
+                if (array5[i][1] < 0) {
+                    n11 = array5[i][1];
                 }
-                if (object[n14][1] < n16) {
-                    n16 = object[n14][1];
+                if (array6[i][1] < n11) {
+                    n11 = array6[i][1];
                 }
-                if (object3[n14][1] < n16) {
-                    n16 = object3[n14][1];
+                if (array7[i][1] < n11) {
+                    n11 = array7[i][1];
                 }
-                if (object4[n14][1] < n16) {
-                    n16 = object4[n14][1];
+                if (array8[i][1] < n11) {
+                    n11 = array8[i][1];
                 }
-                n16 = Math.abs(n16);
-                if (n9 < object2[n14][1] + n10) {
-                    object11 = object2[n14][1] + n10;
+                final int abs2 = Math.abs(n11);
+                if (height < array5[i][1] + height2) {
+                    n12 = array5[i][1] + height2;
                 }
-                if (object11 < object[n14][1] + n11) {
-                    object11 = object[n14][1] + n11;
+                if (n12 < array6[i][1] + height3) {
+                    n12 = array6[i][1] + height3;
                 }
-                if (object11 < object3[n14][1] + n12) {
-                    object11 = object3[n14][1] + n12;
+                if (n12 < array7[i][1] + height4) {
+                    n12 = array7[i][1] + height4;
                 }
-                if (object11 < object4[n14][1] + n13) {
-                    object11 = object4[n14][1] + n13;
+                if (n12 < array8[i][1] + height5) {
+                    n12 = array8[i][1] + height5;
                 }
-                nArray2[n14][0] = -n16;
-                nArray2[n14][1] = n9 - object11;
-                object10 = n17 + object10;
-                object11 = n16 + object11;
-                Image image5 = Image.createImage((int)object10, (int)object11);
-                Graphics graphics = image5.getGraphics();
-                graphics.setColor(0xFF00FF);
-                graphics.fillRect(0, 0, object10, object11);
-                cw.a(graphics, image2, n14 * n8, 0, n8, n9, n17, n16, 0);
-                if (image3 != null) {
-                    cw.a(graphics, image3, byArray[n14] * n4, 0, n4, n10, n17 + object2[n14][0], n16 + object2[n14][1], 0);
+                array10[i][0] = -abs2;
+                array10[i][1] = height - n12;
+                final int n13 = abs + n10;
+                final int n14 = abs2 + n12;
+                final Image image2;
+                final Graphics graphics;
+                (graphics = (image2 = Image.createImage(n13, n14)).getGraphics()).setColor(16711935);
+                graphics.fillRect(0, 0, n13, n14);
+                cw.a(graphics, a2, i * a5, 0, a5, height, abs, abs2, 0);
+                if (a3 != null) {
+                    cw.a(graphics, a3, array[i] * n5, 0, n5, height2, abs + array5[i][0], abs2 + array5[i][1], 0);
                 }
-                if (object5 != null) {
-                    cw.a(graphics, (Image)object5, byArray2[n14] * n5, 0, n5, n11, n17 + object[n14][0], n16 + object[n14][1], 0);
+                if (a4 != null) {
+                    cw.a(graphics, a4, array2[i] * n8, 0, n8, height3, abs + array6[i][0], abs2 + array6[i][1], 0);
                 }
-                if (mb2 != null) {
-                    cw.a(graphics, (Image)mb2, byArray4[n14] * n7, 0, n7, n13, n17 + object4[n14][0], n16 + object4[n14][1], 0);
+                if (b3 != null) {
+                    cw.a(graphics, b3, array4[i] * n7, 0, n7, height5, abs + array8[i][0], abs2 + array8[i][1], 0);
                 }
-                if (image4 != null) {
-                    cw.a(graphics, image4, byArray3[n14] * n6, 0, n6, n12, n17 + object3[n14][0], n16 + object3[n14][1], 0);
+                if (b2 != null) {
+                    cw.a(graphics, b2, array3[i] * n6, 0, n6, height4, abs + array7[i][0], abs2 + array7[i][1], 0);
                 }
-                int[] nArray3 = new int[object10 * object11];
-                image5.getRGB(nArray3, 0, object10, 0, 0, object10, object11);
-                n16 = 0;
-                while (n16 < nArray3.length) {
-                    if ((nArray3[n16] & 0xFFFFFF) == 0xFF00FF) {
-                        nArray3[n16] = 0;
+                final int[] array12 = new int[n13 * n14];
+                image2.getRGB(array12, 0, n13, 0, 0, n13, n14);
+                for (int j = 0; j < array12.length; ++j) {
+                    if ((array12[j] & 0xFFFFFF) == 0xFF00FF) {
+                        array12[j] = 0;
                     }
-                    ++n16;
                 }
-                imageArray[n14] = Image.createRGBImage((int[])nArray3, (int)object10, (int)object11, (boolean)true);
-                ++n14;
+                array11[i] = Image.createRGBImage(array12, n13, n14, true);
             }
-            ma2 = new ma(n3, imageArray, nArray, nArray2, 3, g2);
-            if (bl) {
-                mb.a(ma2);
+            c = new ma(a, array11, array9, array10, 3, g);
+            if (b) {
+                a(c);
             }
         }
-        object5 = ma2;
-        object5 = new mc(((ma)object5).b, ((ma)object5).c, ((ma)object5).d, ((ma)object5).e, image);
-        ((as)object5).a(mc.s);
-        return object5;
+        final ma ma = c;
+        final mc mc;
+        (mc = new mc(ma.b, ma.c, ma.d, ma.e, image)).a(mc.s);
+        return mc;
     }
 
-    public static mf g(lh object, mb mb2, mb mb3, mb mb4, mb mb5, boolean bl) {
-        object = mb.a((lh)object, mb2, mb3, mb4, mb5, 3, 2, true);
-        object = new mf(((ma)object).b, ((ma)object).c, ((ma)object).d, ((ma)object).e);
-        ((as)object).a(mf.s);
-        return object;
+        public static mf g(final lh lh, final mb mb, final mb mb2, final mb mb3, final mb mb4, final boolean b) {
+        final ma a = a(lh, mb, mb2, mb3, mb4, 3, 2, true);
+        final mf mf;
+        (mf = new mf(a.b, a.c, a.d, a.e)).a(mf.s);
+        return mf;
+    }
+    
+    public static me h(final lh lh, final mb mb, final mb mb2, final mb mb3, final mb mb4, final boolean b) {
+        final ma a = a(lh, mb, mb2, mb3, mb4, 4, 3, b);
+        final me me;
+        (me = new me(a.b, a.c, a.d, a.e)).a(me.s);
+        return me;
     }
 
-    public static me h(lh object, mb mb2, mb mb3, mb mb4, mb mb5, boolean bl) {
-        object = mb.a((lh)object, mb2, mb3, mb4, mb5, 4, 3, bl);
-        object = new me(((ma)object).b, ((ma)object).c, ((ma)object).d, ((ma)object).e);
-        ((as)object).a(me.s);
-        return object;
-    }
-
-    public static md i(lh lh2, mb object, mb object2, mb object3, mb object4, boolean bl) {
-        bl = true;
-        int n2 = 4;
-        n2 = 5;
-        Object object5 = lh2;
-        int n3 = mb.a((lh)object5, (mb)object, (mb)object2, (mb)object3, (mb)object4, 5);
-        ma ma2 = mb.c(n3);
-        if (ma2 == null) {
-            int n4 = ((mb)object2).c[5];
-            int n5 = ((mb)object).c[5];
-            int n6 = ((mb)object3).c[5];
-            int n7 = ((mb)object4).c[5];
-            Image image = mb.a(99005, ((lh)object5).W);
-            int n8 = 5;
-            Object mb2 = object2;
-            Image image2 = mb.a(((mb)mb2).e + n8, ((lh)object5).V, ((lh)object5).W);
-            n8 = 5;
-            mb2 = object;
-            object5 = mb.a(((mb)mb2).e + n8, ((lh)object5).U);
-            n8 = 5;
-            mb2 = object3;
-            Image image3 = mb.b(((mb)mb2).e + n8);
-            n8 = 5;
-            mb2 = object4;
-            mb2 = mb.b(((mb)mb2).e + n8);
-            n8 = image.getWidth() / 4;
-            n4 = image2.getWidth() / n4;
-            n6 = image3.getWidth() / n6;
-            n7 = mb2.getWidth() / n7;
-            n5 = object5.getWidth() / n5;
-            int n9 = image.getHeight();
-            int n10 = image2.getHeight();
-            int n11 = object5.getHeight();
-            int n12 = image3.getHeight();
-            int n13 = mb2.getHeight();
-            byte[] byArray = ((mb)object2).d[5];
-            byte[] byArray2 = ((mb)object).d[5];
-            byte[] byArray3 = ((mb)object3).d[5];
-            byte[] byArray4 = ((mb)object4).d[5];
-            object2 = ((mb)object2).b[5];
-            object = ((mb)object).b[5];
-            object3 = ((mb)object3).b[5];
-            object4 = ((mb)object4).b[5];
-            int[][] nArray = new int[4][2];
-            int[][] nArray2 = new int[4][2];
-            g g2 = new g();
-            Image[] imageArray = new Image[4];
-            g2.a = n8;
-            g2.b = n9;
-            int n14 = 0;
-            while (n14 < 4) {
-                Object object6;
-                Object object7;
-                Object object8;
-                Object object9;
-                boolean n15 = false;
-                Object object10 = n8;
-                int n16 = false;
-                Object object11 = n9;
-                if (object2[n14][0] < 0) {
-                    object9 = object2[n14][0];
+    public static md i(lh lh, mb mb, mb mb2, mb mb3, mb mb4, final boolean b) {
+        final lh lh2 = lh;
+        final mb mb5 = mb;
+        final mb mb6 = mb2;
+        final mb mb7 = mb3;
+        final mb mb8 = mb4;
+        final boolean b2 = true;
+        mb4 = mb8;
+        mb3 = mb7;
+        mb2 = mb6;
+        mb = mb5;
+        lh = lh2;
+        final int a;
+        ma c;
+        if ((c = c(a = a(lh2, mb, mb2, mb3, mb4, 5))) == null) {
+            final int n = mb2.c[5];
+            final int n2 = mb.c[5];
+            final int n3 = mb3.c[5];
+            final int n4 = mb4.c[5];
+            final Image a2 = a(99005, lh.W);
+            final Image a3 = a(mb2.e + 5, lh.V, lh.W);
+            final Image a4 = a(mb.e + 5, lh.U);
+            final Image b3 = b(mb3.e + 5);
+            final Image b4 = b(mb4.e + 5);
+            final int a5 = a2.getWidth() / 4;
+            final int n5 = a3.getWidth() / n;
+            final int n6 = b3.getWidth() / n3;
+            final int n7 = b4.getWidth() / n4;
+            final int n8 = a4.getWidth() / n2;
+            final int height = a2.getHeight();
+            final int height2 = a3.getHeight();
+            final int height3 = a4.getHeight();
+            final int height4 = b3.getHeight();
+            final int height5 = b4.getHeight();
+            final byte[] array = mb2.d[5];
+            final byte[] array2 = mb.d[5];
+            final byte[] array3 = mb3.d[5];
+            final byte[] array4 = mb4.d[5];
+            final int[][] array5 = mb2.b[5];
+            final int[][] array6 = mb.b[5];
+            final int[][] array7 = mb3.b[5];
+            final int[][] array8 = mb4.b[5];
+            final int[][] array9 = new int[4][2];
+            final int[][] array10 = new int[4][2];
+            final g g = new g();
+            final Image[] array11 = new Image[4];
+            g.a = a5;
+            g.b = height;
+            for (int i = 0; i < 4; ++i) {
+                int n9 = 0;
+                int n10 = a5;
+                int n11 = 0;
+                int n12 = height;
+                if (array5[i][0] < 0) {
+                    n9 = array5[i][0];
                 }
-                if (object[n14][0] < object9) {
-                    object8 = object[n14][0];
+                if (array6[i][0] < n9) {
+                    n9 = array6[i][0];
                 }
-                if (object3[n14][0] < object8) {
-                    object7 = object3[n14][0];
+                if (array7[i][0] < n9) {
+                    n9 = array7[i][0];
                 }
-                if (object4[n14][0] < object7) {
-                    object6 = object4[n14][0];
+                if (array8[i][0] < n9) {
+                    n9 = array8[i][0];
                 }
-                int n17 = Math.abs((int)object6);
-                if (n8 < object2[n14][0] + n4) {
-                    object10 = object2[n14][0] + n4;
+                final int abs = Math.abs(n9);
+                if (a5 < array5[i][0] + n5) {
+                    n10 = array5[i][0] + n5;
                 }
-                if (object10 < object[n14][0] + n5) {
-                    object10 = object[n14][0] + n5;
+                if (n10 < array6[i][0] + n8) {
+                    n10 = array6[i][0] + n8;
                 }
-                if (object10 < object3[n14][0] + n6) {
-                    object10 = object3[n14][0] + n6;
+                if (n10 < array7[i][0] + n6) {
+                    n10 = array7[i][0] + n6;
                 }
-                if (object10 < object4[n14][0] + n7) {
-                    object10 = object4[n14][0] + n7;
+                if (n10 < array8[i][0] + n7) {
+                    n10 = array8[i][0] + n7;
                 }
-                nArray[n14][0] = -n17;
-                nArray[n14][1] = n8 - object10;
-                if (object2[n14][1] < 0) {
-                    n16 = object2[n14][1];
+                array9[i][0] = -abs;
+                array9[i][1] = a5 - n10;
+                if (array5[i][1] < 0) {
+                    n11 = array5[i][1];
                 }
-                if (object[n14][1] < n16) {
-                    n16 = object[n14][1];
+                if (array6[i][1] < n11) {
+                    n11 = array6[i][1];
                 }
-                if (object3[n14][1] < n16) {
-                    n16 = object3[n14][1];
+                if (array7[i][1] < n11) {
+                    n11 = array7[i][1];
                 }
-                if (object4[n14][1] < n16) {
-                    n16 = object4[n14][1];
+                if (array8[i][1] < n11) {
+                    n11 = array8[i][1];
                 }
-                n16 = Math.abs(n16);
-                if (n9 < object2[n14][1] + n10) {
-                    object11 = object2[n14][1] + n10;
+                final int abs2 = Math.abs(n11);
+                if (height < array5[i][1] + height2) {
+                    n12 = array5[i][1] + height2;
                 }
-                if (object11 < object[n14][1] + n11) {
-                    object11 = object[n14][1] + n11;
+                if (n12 < array6[i][1] + height3) {
+                    n12 = array6[i][1] + height3;
                 }
-                if (object11 < object3[n14][1] + n12) {
-                    object11 = object3[n14][1] + n12;
+                if (n12 < array7[i][1] + height4) {
+                    n12 = array7[i][1] + height4;
                 }
-                if (object11 < object4[n14][1] + n13) {
-                    object11 = object4[n14][1] + n13;
+                if (n12 < array8[i][1] + height5) {
+                    n12 = array8[i][1] + height5;
                 }
-                nArray2[n14][0] = -n16;
-                nArray2[n14][1] = n9 - object11;
-                object10 = n17 + object10;
-                object11 = n16 + object11;
-                Image image4 = Image.createImage((int)object10, (int)object11);
-                Graphics graphics = image4.getGraphics();
-                graphics.setColor(0xFF00FF);
-                graphics.fillRect(0, 0, object10, object11);
-                cw.a(graphics, image, n14 * n8, 0, n8, n9, n17, n16, 0);
-                if (image2 != null) {
-                    cw.a(graphics, image2, byArray[n14] * n4, 0, n4, n10, n17 + object2[n14][0], n16 + object2[n14][1], 0);
+                array10[i][0] = -abs2;
+                array10[i][1] = height - n12;
+                final int n13 = abs + n10;
+                final int n14 = abs2 + n12;
+                final Image image;
+                final Graphics graphics;
+                (graphics = (image = Image.createImage(n13, n14)).getGraphics()).setColor(16711935);
+                graphics.fillRect(0, 0, n13, n14);
+                cw.a(graphics, a2, i * a5, 0, a5, height, abs, abs2, 0);
+                if (a3 != null) {
+                    cw.a(graphics, a3, array[i] * n5, 0, n5, height2, abs + array5[i][0], abs2 + array5[i][1], 0);
                 }
-                if (object5 != null) {
-                    cw.a(graphics, (Image)object5, byArray2[n14] * n5, 0, n5, n11, n17 + object[n14][0], n16 + object[n14][1], 0);
+                if (a4 != null) {
+                    cw.a(graphics, a4, array2[i] * n8, 0, n8, height3, abs + array6[i][0], abs2 + array6[i][1], 0);
                 }
-                if (mb2 != null) {
-                    cw.a(graphics, (Image)mb2, byArray4[n14] * n7, 0, n7, n13, n17 + object4[n14][0], n16 + object4[n14][1], 0);
+                if (b4 != null) {
+                    cw.a(graphics, b4, array4[i] * n7, 0, n7, height5, abs + array8[i][0], abs2 + array8[i][1], 0);
                 }
-                if (image3 != null) {
-                    cw.a(graphics, image3, byArray3[n14] * n6, 0, n6, n12, n17 + object3[n14][0], n16 + object3[n14][1], 0);
+                if (b3 != null) {
+                    cw.a(graphics, b3, array3[i] * n6, 0, n6, height4, abs + array7[i][0], abs2 + array7[i][1], 0);
                 }
-                int[] nArray3 = new int[object10 * object11];
-                image4.getRGB(nArray3, 0, object10, 0, 0, object10, object11);
-                n16 = 0;
-                while (n16 < nArray3.length) {
-                    if ((nArray3[n16] & 0xFFFFFF) == 0xFF00FF) {
-                        nArray3[n16] = 0;
+                final int[] array12 = new int[n13 * n14];
+                image.getRGB(array12, 0, n13, 0, 0, n13, n14);
+                for (int j = 0; j < array12.length; ++j) {
+                    if ((array12[j] & 0xFFFFFF) == 0xFF00FF) {
+                        array12[j] = 0;
                     }
-                    ++n16;
                 }
-                imageArray[n14] = Image.createRGBImage((int[])nArray3, (int)object10, (int)object11, (boolean)true);
-                ++n14;
+                array11[i] = Image.createRGBImage(array12, n13, n14, true);
             }
-            ma2 = new ma(n3, imageArray, nArray, nArray2, 4, g2);
-            if (bl) {
-                mb.a(ma2);
+            c = new ma(a, array11, array9, array10, 4, g);
+            if (b2) {
+                a(c);
             }
         }
-        object5 = ma2;
-        object5 = new md(((ma)object5).b, ((ma)object5).c, ((ma)object5).d, ((ma)object5).e);
-        ((as)object5).a(md.s);
-        return object5;
+        final ma ma = c;
+        final md md;
+        (md = new md(ma.b, ma.c, ma.d, ma.e)).a(md.s);
+        return md;
+    
     }
 
-    public static mb[] a(lh lh2) {
-        mb[] mbArray;
-        int n2;
-        int[] nArray = null;
-        if (lh2.D != null) {
-            nArray = new int[4];
-            n2 = 0;
-            while (n2 < lh2.D.length) {
-                mbArray = lh2.D[n2];
-                if (mbArray.e < 4) {
-                    int n3 = mbArray.n;
-                    nArray[mbArray.e] = n3 - n3 % 10;
+    public static mb[] a(lh lh) {
+        if ((lh = lh).D != null) {
+            final int[] array = new int[4];
+            for (int i = 0; i < lh.D.length; ++i) {
+                final ll ll;
+                if ((ll = lh.D[i]).e < 4) {
+                    final int[] array2 = array;
+                    final byte e = ll.e;
+                    final int n = ll.n;
+                    array2[e] = n - n % 10;
                 }
-                ++n2;
             }
-        } else {
-            ct.a("[BodyPartLoader.loadMetadata()] charaterInfo.equipments is Null");
-            return new mb[0];
+            final mb[] array3;
+            (array3 = new mb[4])[1] = new mb(lh.V.a + 99);
+            final int n2 = lh.U.a + 99;
+            int n3;
+            if (lh.f == 1) {
+                n3 = 79999;
+            }
+            else {
+                n3 = 79899;
+            }
+            if (array[0] > 0 && !lh.Z) {
+                array3[0] = new mb(array[0] + 99);
+            }
+            else {
+                array3[0] = new mb(n2);
+            }
+            if (array[1] > 0) {
+                array3[2] = new mb(array[1] + 99);
+            }
+            else {
+                array3[2] = new mb(n3);
+            }
+            if (array[2] > 0) {
+                array3[3] = new mb(array[2] + 99);
+            }
+            else {
+                array3[3] = new mb(89999);
+            }
+            return array3;
         }
-        mb[] mbArray2 = new mb[4];
-        mbArray = mbArray2;
-        mbArray2[1] = new mb(lh2.V.a + 99);
-        int n4 = lh2.U.a + 99;
-        n2 = lh2.f == 1 ? 79999 : 79899;
-        mbArray[0] = nArray[0] > 0 && !lh2.Z ? new mb(nArray[0] + 99) : new mb(n4);
-        mbArray[2] = nArray[1] > 0 ? new mb(nArray[1] + 99) : new mb(n2);
-        mbArray[3] = nArray[2] > 0 ? new mb(nArray[2] + 99) : new mb(89999);
-        return mbArray;
+        ct.a("[BodyPartLoader.loadMetadata()] charaterInfo.equipments is Null");
+        return new mb[0];
     }
 
     public static mg a(lh lh2, boolean bl) {
@@ -726,40 +716,36 @@ public final class mb {
         return stringBuffer;
     }
 
-    private static int a(lh object, mb mb2, mb mb3, mb mb4, mb mb5, int n2) {
-        int n3;
-        StringBuffer stringBuffer = new StringBuffer(100);
-        stringBuffer.append(n2).append(':');
-        mb.a(stringBuffer, ((lh)object).W.e.c).append(':');
-        if (mb3 != null) {
-            n3 = n2;
-            stringBuffer.append(mb3.e + n3).append(':');
-            if (((lh)object).V != null) {
-                mb.a(stringBuffer, ((lh)object).V.e.c).append(':');
+        private static int a(final lh lh, final mb mb, mb mb2, final mb mb3, final mb mb4, final int n) {
+        final StringBuffer sb;
+        (sb = new StringBuffer(100)).append(n).append(':');
+        a(sb, lh.W.e.c).append(':');
+        if (mb2 != null) {
+            sb.append((mb2 = mb2).e + n).append(':');
+            if (lh.V != null) {
+                a(sb, lh.V.e.c).append(':');
             }
         }
-        if (mb2 != null) {
-            n3 = n2;
-            mb3 = mb2;
-            stringBuffer.append(mb3.e + n3).append(':');
-            if (((lh)object).U != null) {
-                mb.a(stringBuffer, ((lh)object).U.e.c).append(':');
+        if (mb != null) {
+            final StringBuffer sb2 = sb;
+            mb2 = mb;
+            sb2.append(mb.e + n).append(':');
+            if (lh.U != null) {
+                a(sb, lh.U.e.c).append(':');
             }
+        }
+        if (mb3 != null) {
+            final StringBuffer sb3 = sb;
+            mb2 = mb3;
+            sb3.append(mb3.e + n).append(':');
         }
         if (mb4 != null) {
-            n3 = n2;
-            mb3 = mb4;
-            stringBuffer.append(mb3.e + n3).append(':');
+            final StringBuffer sb4 = sb;
+            mb2 = mb4;
+            sb4.append(mb4.e + n).append(':');
         }
-        if (mb5 != null) {
-            n3 = n2;
-            mb3 = mb5;
-            stringBuffer.append(mb3.e + n3).append(':');
-        }
-        object = stringBuffer.toString();
-        return ((String)object).hashCode();
+        return sb.toString().hashCode();
     }
-
     public static int a(ll ll2) {
         int n2 = ll2.n;
         return n2 - n2 % 10;

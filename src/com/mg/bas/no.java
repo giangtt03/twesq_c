@@ -1,11 +1,13 @@
 package com.mg.bas;
 // Decompiled with: CFR 0.152
 // Class Version: 1
+
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 
 public final class no
-extends as {
+        extends as {
+
     private int s = 30;
     private int t = 40;
     private int u;
@@ -18,34 +20,34 @@ extends as {
         this.q = 3;
     }
 
-    public final void a(int n, int n2, k k2, Image image, int n3, int n4, int n5, boolean n6) {
-        this.y = n6;
-        this.x = k2;
-        n6 = k2.c >> 1;
-        int n7 = k2.d >> 1;
-        n6 = n6 <= 0 ? 1 : n6;
-        n7 = n7 <= 0 ? 1 : n7;
-        int n8 = k2.a + cv.a() % n6;
-        int n9 = k2.b + cv.a() % n7;
-        n7 = n5;
-        n6 = n4;
-        n5 = n3;
-        Image image2 = image;
-        n3 = n9;
-        int n10 = n8;
-        int n11 = n2 + cv.a() % 13;
-        n2 = n + cv.a() % 13;
-        no no2 = this;
-        no2.c(n2, n11);
-        no2.h = n10;
-        no2.i = n3;
-        no2.r = true;
-        no2.j = at.a(no2.m, n10, no2.s) + cv.a(4);
-        no2.k = at.a(no2.n, n3, no2.t) + cv.a(4);
-        no2.b = image2;
-        no2.u = n5;
-        no2.o = n6;
-        no2.p = n7;
+    public final void a(final int n, int n2, final k x, final Image b, int i, final int o, int u, final boolean y) {
+        this.y = y;
+        this.x = x;
+        final int n3 = x.c >> 1;
+        final int n4 = x.d >> 1;
+        final int n5 = (n3 <= 0) ? 1 : n3;
+        final int n6 = (n4 <= 0) ? 1 : n4;
+        final int n7 = n + cv.a() % 13;
+        final int n8 = n2 + cv.a() % 13;
+        final int n9 = x.a + cv.a() % n5;
+        final int n10 = x.b + cv.a() % n6;
+        final int n11 = i;
+        final int p8 = u;
+        u = n11;
+        i = n10;
+        final int h = n9;
+        final int n12 = n8;
+        n2 = n7;
+        this.c(n2, n12);
+        super.h = h;
+        super.i = i;
+        super.r = true;
+        super.j = at.a(super.m, h, this.s) + cv.a(4);
+        super.k = at.a(super.n, i, this.t) + cv.a(4);
+        super.b = b;
+        this.u = u;
+        super.o = o;
+        super.p = p8;
     }
 
     public final void k() {

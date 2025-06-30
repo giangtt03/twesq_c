@@ -23,9 +23,8 @@ extends mq {
     public final void c(int n) {
     }
 
-    public final void a(String object, String string) {
-        object = this.b;
-        ((mt)object).b(string);
+    public final void a(String s, String string) {
+        this.b.b(string);
     }
 
     public final void a() {

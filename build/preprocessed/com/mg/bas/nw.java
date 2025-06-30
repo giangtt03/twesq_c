@@ -39,19 +39,19 @@ bg {
         this.c = nArray;
         this.d = new int[2];
         this.A = new String[]{"Hỏa", "Lôi", "Thủy"};
-        this.a = f.d("/createcs/bk");
-        this.b = f.d("/createcs/stone");
+        this.a = com.mg.bas.f.d("/createcs/bk");
+        this.b = com.mg.bas.f.d("/createcs/stone");
         this.k = new by();
         this.k.c(true);
         this.l = bx.c;
-        int n = v.t - this.c[2] - this.b.getWidth();
+        int n = com.mg.bas.v.t - this.c[2] - this.b.getWidth();
         int n2 = 5;
         if (n > 80) {
             n2 = 50;
         }
         n = n - n2 >> 1;
         this.c[0] = n + this.b.getWidth() + n2;
-        this.c[1] = (v.u - ba.a - this.c[3]) / 2;
+        this.c[1] = (com.mg.bas.v.u - ba.a - this.c[3]) / 2;
         this.d[0] = n;
         this.d[1] = this.c[1] + this.c[3] - 60;
         Object object = this;
@@ -78,7 +78,7 @@ bg {
         this.f(false);
         this.a(com.mg.sq.a.n);
         object = new bs(new br[]{new br("Bắt đầu", 301), new br("Đăng Xuất", 302)});
-        ((bs)object).a(this);
+        ((bs)object).a((bf)this);
         this.a((bs)object);
     }
 
@@ -112,34 +112,35 @@ bg {
     }
 
     protected final void a(int n) {
-        int n2 = this.m[this.n].f(n);
-        if (n2 == 0) {
-            n2 = this.n--;
+        boolean changed = this.m[this.n].f(n);
+        if (!changed) {
+            int prev = this.n;
             if (n == 99) {
+                this.n--;
                 if (this.n < 0) {
                     this.n = this.m.length - 1;
                 }
             } else if (n == 98) {
-                ++this.n;
+                this.n++;
                 if (this.n >= this.m.length) {
                     this.n = 0;
                 }
             }
-            if (n2 != this.n) {
-                this.m[n2].d(false);
+            if (prev != this.n) {
+                this.m[prev].d(false);
                 this.m[this.n].d(true);
             }
         }
     }
 
     protected final void a(Graphics graphics) {
-        if (v.u > this.a.getHeight()) {
+        if (com.mg.bas.v.u > this.a.getHeight()) {
             graphics.setColor(555256);
-            graphics.fillRect(0, 0, v.t, v.u - this.a.getHeight());
+            graphics.fillRect(0, 0, com.mg.bas.v.t, com.mg.bas.v.u - this.a.getHeight());
         }
         int n = 0;
-        while (n < v.t) {
-            graphics.drawImage(this.a, n, v.u, 36);
+        while (n < com.mg.bas.v.t) {
+            graphics.drawImage(this.a, n, com.mg.bas.v.u, 36);
             n += this.a.getWidth();
         }
         if (this.y) {
@@ -179,9 +180,8 @@ bg {
                         break;
                     }
                     case 5: {
-                        Object object = nw2;
-                        df df2 = ((nw)object).r[((nw)object).m[0].a()];
-                        df2.e = object = (dg)((nw)object).m[5].q();
+                        df df2 = this.r[this.m[0].a()];
+                        df2.e = (dg)this.m[5].q();
                     }
                 }
                 nw2.e();
@@ -203,8 +203,8 @@ bg {
     }
 
     private void g() {
-        Object[] objectArray = this.p[this.m[0].a()];
-        Object[] objectArray2 = this.q[this.m[0].a()];
+        df[] objectArray = this.p[this.m[0].a()];
+        df[] objectArray2 = this.q[this.m[0].a()];
         df df2 = this.r[this.m[0].a()];
         this.m[0].a();
         int n = 0;

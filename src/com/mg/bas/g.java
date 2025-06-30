@@ -82,7 +82,7 @@ public class g {
 
     public static RecordStore a(String name, boolean createIfNecessary) {
         try {
-            return RecordStore.openRecordStore(name, createIfNecessary);
+            return RecordStore.openRecordStore(name, true); // luôn tạo mới nếu chưa có
         } catch (Throwable throwable) {
             throwable.printStackTrace();
             return null;
@@ -90,33 +90,38 @@ public class g {
     }
 
     public static byte[] a(RecordStore store, int recordId) {
-    try {
-        return store.getRecord(recordId);
-    } catch (Throwable throwable) {
-        throwable.printStackTrace();
-        return null;
+        try {
+            if (store == null) return null;
+            int num = store.getNumRecords();
+            if (recordId <= 0 || recordId > num) return null;
+            return store.getRecord(recordId);
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+            return null;
+        }
     }
-}
 
     public static void a(RecordStore recordStore, int n2, byte[] byArray) {
+        if (recordStore == null || byArray == null) return;
         int n3 = byArray.length;
-        boolean bl = false;
-        RecordStore recordStore2 = recordStore;
         try {
-            recordStore2.setRecord(n2, byArray, 0, n3);
-        } catch (InvalidRecordIDException ex) {
-            ex.printStackTrace();
-        } catch (RecordStoreException ex) {
+            int num = recordStore.getNumRecords();
+            if (n2 <= 0 || n2 > num) {
+                // Nếu recordId không hợp lệ, thêm mới
+                recordStore.addRecord(byArray, 0, n3);
+            } else {
+                recordStore.setRecord(n2, byArray, 0, n3);
+            }
+        } catch (Throwable ex) {
             ex.printStackTrace();
         }
     }
 
     public static int a(RecordStore recordStore, byte[] byArray) {
+        if (recordStore == null || byArray == null) return 0;
         int n2 = byArray.length;
-        boolean bl = false;
-        RecordStore recordStore2 = recordStore;
         try {
-            return recordStore2.addRecord(byArray, 0, n2);
+            return recordStore.addRecord(byArray, 0, n2);
         } catch (RecordStoreException ex) {
             ex.printStackTrace();
         }
@@ -125,6 +130,7 @@ public class g {
 
     public static int a(RecordStore store) {
         try {
+            if (store == null) return 0;
             return store.getNumRecords();
         } catch (Throwable throwable) {
             throwable.printStackTrace();

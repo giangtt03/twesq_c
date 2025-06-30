@@ -46,9 +46,9 @@ implements bu {
         this.i[16] = new k(157, 27, 71, 26);
         this.o = new cu(this.i[0].a + this.i[0].c / 2, this.i[0].b + this.i[0].d / 2);
         this.q = new iff(new int[]{0xFF0000, 0xFFFFFF});
-        this.l = f.d("/m/m");
+        this.l = com.mg.bas.f.d("/m/m");
         this.p = pc.e;
-        this.r = f.d("/m/lock");
+        this.r = com.mg.bas.f.d("/m/lock");
     }
 
     public final boolean f(int n) {
@@ -280,7 +280,7 @@ implements bu {
     }
 
     static void c(oh oh2) {
-        v0.p = null;
+        oh2.p = null;
         oh2.r = null;
         oh2.l = null;
         oh2.i = null;

@@ -1,2204 +1,2074 @@
 package com.mg.bas;
-// Decompiled with: CFR 0.152
+// Decompiled with: Procyon 0.6.0
 // Class Version: 1
 import com.mg.smsgame.MGMIDlet;
 import java.io.InputStream;
 
-final class ky
-implements Runnable,
-kn {
+final class ky implements Runnable, kn
+{
     public kq b;
     public kp c;
     public ko d;
     private kv e;
-    private boolean f = false;
-
-    public ky(InputStream inputStream) {
+    private boolean f;
+    
+    public ky(final InputStream inputStream) {
+        super();
+        this.f = false;
         this.e = new kv(inputStream);
         this.f = false;
         new Thread(this).start();
     }
-
+    
     public final void run() {
-        int n2 = 10;
+        int n = 10;
         this.f = false;
-        block102: while (!this.f) {
-            Object[] objectArray;
-            short s;
-            int n3;
-            Object object;
-            Object object2;
-            Object object3;
-            Object object4;
+        while (!this.f) {
+            ku ku4;
             try {
-                Object object5;
-                block144: {
-                    object4 = this;
-                    if (((ky)object4).e == null) {
+                ku ku2 = null;
+                ku ku = null;
+                Label_0293: {
+                    if (this.e == null) {
                         ct.a("[SocketReader] input null");
-                        object5 = null;
-                    } else {
-                        object3 = ((ky)object4).e;
-                        Object[] objectArray2 = object2 = new byte[7];
-                        object4 = ((kv)object3).a;
-                        int n4 = g.a((InputStream)object4, objectArray2, 0);
-                        object = new ku();
-                        if (n4 <= 0) {
+                        ku = (ku2 = null);
+                    }
+                    else {
+                        final kv e = this.e;
+                        final byte[] array = new byte[7];
+                        final int a = g.a(e.a, array, 0);
+                        final ku ku3 = new ku();
+                        if (a <= 0) {
                             ct.a("[InputBuffer] readPacket() PACKET_FAIL");
-                            object5 = null;
-                        } else {
-                            int n5;
-                            ks.h += n4;
-                            n3 = m.a(object2[0], object2[1]);
-                            ((ku)object).a = n5 = m.a(object2[2], object2[3], object2[4], object2[5]);
-                            ((ku)object).b = n4 = m.a(object2[6]);
-                            if (n5 > 0) {
-                                ks.h += n5;
-                                object2 = new kt[n3];
-                                n3 = 0;
-                                while (n3 < ((byte[])object2).length) {
-                                    InputStream inputStream = ((kv)object3).a;
-                                    byte[] byArray = new byte[5];
-                                    objectArray2 = byArray;
-                                    if (g.a(inputStream, objectArray2, 0) < 0) {
-                                        object5 = null;
-                                        break block144;
+                            ku = (ku2 = null);
+                        }
+                        else {
+                            ks.h += a;
+                            final int a2 = m.a(array[0], array[1]);
+                            final int a3 = m.a(array[2], array[3], array[4], array[5]);
+                            ku3.a = a3;
+                            ku3.b = m.a(array[6]);
+                            if (a3 > 0) {
+                                ks.h += a3;
+                                final kt[] c = new kt[a2];
+                                for (int i = 0; i < c.length; ++i) {
+                                    final byte[] array2 = new byte[5];
+                                    if (g.a(e.a, array2, 0) < 0) {
+                                        ku = (ku2 = null);
+                                        break Label_0293;
                                     }
-                                    s = (short)m.a(byArray[0]);
-                                    inputStream = ((kv)object3).a;
-                                    n5 = m.a(byArray[1], byArray[2], byArray[3], byArray[4]);
-                                    objectArray = new byte[n5];
-                                    objectArray2 = objectArray;
-                                    if (g.a(inputStream, objectArray2, 0) < 0) {
-                                        object5 = null;
-                                        break block144;
+                                    final short n2 = (short)m.a(array2[0]);
+                                    final byte[] array3 = new byte[m.a(array2[1], array2[2], array2[3], array2[4])];
+                                    if (g.a(e.a, array3, 0) < 0) {
+                                        ku = (ku2 = null);
+                                        break Label_0293;
                                     }
-                                    object2[n3] = (byte)new kt(s, (byte[])objectArray);
-                                    ++n3;
+                                    c[i] = new kt(n2, array3);
                                 }
-                                ((ku)object).c = (kt[])object2;
+                                ku3.c = c;
                             }
-                            object5 = object4 = object;
+                            ku = (ku2 = ku3);
                         }
                     }
                 }
-                if (object5 == null) {
-                    if (--n2 <= 0) {
+                ku4 = ku2;
+                if (ku == null) {
+                    if (--n <= 0) {
                         this.f = true;
-                    } else {
+                    }
+                    else {
                         try {
                             Thread.sleep(3000L);
                         }
-                        catch (Throwable throwable) {}
+                        catch (final Throwable t) {}
                     }
-                } else {
-                    n2 = 10;
+                }
+                else {
+                    n = 10;
                 }
             }
-            catch (Throwable throwable) {
-                object4 = throwable;
-                throwable.printStackTrace();
-                if (--n2 <= 0) {
+            catch (final Throwable t2) {
+//                final Throwable t3;
+                t2.printStackTrace();
+                if (--n <= 0) {
                     this.f = true;
-                } else {
+                }
+                else {
                     try {
                         Thread.sleep(1000L);
                     }
-                    catch (Throwable throwable2) {}
+                    catch (final Throwable t4) {}
                 }
-                object4 = null;
+                ku4 = null;
             }
-            object3 = object4;
-            object4 = this;
-            if (object3 == null) {
+            final ku ku5 = ku4;
+            if (ku5 == null) {
                 ct.a("[PAT] Get NULL packet on SocketReader.process()");
-                continue;
             }
-            if (((ky)object4).b == null) {
-                throw new NullPointerException("Main listener can't be NULL");
-            }
-            try {
-                int n6 = ((ku)object3).b;
-                block4 : switch (n6) {
-                    case 0: {
-                        n6 = ((ku)object3).a((short)0, (byte)-1);
-                        object = ((ku)object3).d((short)1);
-                        switch (n6) {
-                            case 7: {
-                                if (((ky)object4).c == null) continue block102;
-                                ((ky)object4).c.a();
-                                break;
+            else {
+                if (this.b == null) {
+                    throw new NullPointerException("Main listener can't be NULL");
+                }
+                try {
+                    switch ((short)ku5.b) {
+                        case 0: {
+                            final ku ku6 = ku5;
+                            final byte a4 = ku6.a((short)0, (byte)(-1));
+                            final String d = ku6.d((short)1);
+                            switch (a4) {
+                                case 7: {
+                                    if (this.c != null) {
+                                        this.c.a();
+                                        continue;
+                                    }
+                                    continue;
+                                }
+                                case 3: {
+                                    this.b.w();
+                                    continue;
+                                }
+                                case 8: {
+                                    this.b.b(d);
+                                    continue;
+                                }
+                                default: {
+                                    this.b.a(a4, d);
+                                    continue;
+                                }
                             }
-                            case 3: {
-                                ((ky)object4).b.w();
-                                break;
+//                            continue;
+                        }
+                        case 1: {
+                            ks.a().b = 3;
+                            continue;
+                        }
+                        case 2: {
+                            ks.a().a(ku5.d((short)3));
+                            continue;
+                        }
+                        case 5: {
+                            this.c(ku5);
+                            continue;
+                        }
+                        case 3: {
+                            final byte[] c2 = ku5.c((short)2);
+                            ks.a().a(ks.a().c, g.a(c2, ks.a().d), c2);
+                            continue;
+                        }
+                        case 8: {
+                            this.e(ku5);
+                            continue;
+                        }
+                        case 9: {
+                            ku5.c((short)112);
+                            final byte a5;
+                            if ((a5 = ku5.a((short)134, (byte)(-1))) > 0) {
+                                this.b.a(this.a(ku5), a5);
+                                continue;
                             }
-                            case 8: {
-                                ((ky)object4).b.b((String)object);
-                                break;
+                            this.b(ku5);
+                            continue;
+                        }
+                        case 30: {
+                            this.q(ku5);
+                            continue;
+                        }
+                        case 29: {
+                            this.b.a(ku5.d((short)9), ku5.d((short)20), ku5.a((short)21, 0, -1, 0));
+                            continue;
+                        }
+                        case 10: {
+                            this.b(ku5);
+                            this.b.U();
+                            continue;
+                        }
+                        case 27: {
+                            this.b.U();
+                            continue;
+                        }
+                        case 36: {
+                            this.C(ku5);
+                            continue;
+                        }
+                        case 42: {
+                            this.r(ku5);
+                            continue;
+                        }
+                        case 37: {
+                            final byte a6;
+                            if ((a6 = ku5.a((short)89, (byte)(-1))) == 0) {
+                                this.b(ku5);
+                                continue;
                             }
-                            default: {
-                                ((ky)object4).b.a(n6, (String)object);
-                                break;
+                            if (a6 != 1 && a6 != 2) {
+                                continue;
                             }
-                        }
-                        continue block102;
-                    }
-                    case 1: {
-                        ks.a().b = 3;
-                        break;
-                    }
-                    case 2: {
-                        ks.a().a(((ku)object3).d((short)3));
-                        break;
-                    }
-                    case 5: {
-                        super.c((ku)object3);
-                        break;
-                    }
-                    case 3: {
-                        object4 = ((ku)object3).c((short)2);
-                        object = ks.a().c;
-                        String string = ks.a().d;
-                        byte[] byArray = g.a((byte[])object4, string);
-                        ks.a().a((String)object, byArray, (byte[])object4);
-                        break;
-                    }
-                    case 8: {
-                        super.e((ku)object3);
-                        break;
-                    }
-                    case 9: {
-                        ((ku)object3).c((short)112);
-                        byte by = ((ku)object3).a((short)134, (byte)-1);
-                        n6 = by;
-                        if (by > 0) {
-                            lh lh2 = super.a((ku)object3);
-                            ((ky)object4).b.a(lh2, (byte)n6);
-                            break;
-                        }
-                        super.b((ku)object3);
-                        break;
-                    }
-                    case 30: {
-                        super.q((ku)object3);
-                        break;
-                    }
-                    case 29: {
-                        String string = ((ku)object3).d((short)9);
-                        String string2 = ((ku)object3).d((short)20);
-                        s = ((ku)object3).a((short)21, 0, -1, 0);
-                        ((ky)object4).b.a(string, string2, (int)s);
-                        break;
-                    }
-                    case 10: {
-                        super.b((ku)object3);
-                        ((ky)object4).b.U();
-                        break;
-                    }
-                    case 27: {
-                        ((ky)object4).b.U();
-                        break;
-                    }
-                    case 36: {
-                        super.C((ku)object3);
-                        break;
-                    }
-                    case 42: {
-                        super.r((ku)object3);
-                        break;
-                    }
-                    case 37: {
-                        byte by = ((ku)object3).a((short)89, (byte)-1);
-                        if (by == 0) {
-                            super.b((ku)object3);
-                            break;
-                        }
-                        if (by != 1 && by != 2) continue block102;
-                        objectArray = new String[((ku)object3).b((short)83)];
-                        n6 = 0;
-                        while (n6 < objectArray.length) {
-                            objectArray[n6] = ((ku)object3).b(((ku)object3).b((short)83, n6));
-                            ++n6;
-                        }
-                        if (by == 1) {
-                            ((ky)object4).b.c((String[])objectArray);
-                            break;
-                        }
-                        ((ky)object4).b.d((String[])objectArray);
-                        break;
-                    }
-                    case 48: {
-                        String string = ((ku)object3).d((short)83);
-                        int n7 = ((ku)object3).c((short)114, -1);
-                        int n8 = ((ku)object3).c((short)106, -1);
-                        ((ky)object4).b.b(string, n7, n8);
-                        break;
-                    }
-                    case 11: {
-                        super.d((ku)object3);
-                        break;
-                    }
-                    case 43: {
-                        super.f((ku)object3);
-                        break;
-                    }
-                    case 6: {
-                        n6 = ((ku)object3).c((short)4, 0);
-                        int n9 = ((ku)object3).a(((ku)object3).b((short)7, 0), -1);
-                        if (n9 < 0) {
-                            int n10 = ((ku)object3).a(((ku)object3).b((short)6, 0), -1);
-                            int n11 = ((ku)object3).a(((ku)object3).b((short)5, 0), -1);
-                            if (((ky)object4).d == null) continue block102;
-                            ((ky)object4).d.a(n6, n10, n11);
-                            break;
-                        }
-                        byte[] byArray = ((ku)object3).c((short)8);
-                        if (((ky)object4).d == null) continue block102;
-                        ((ky)object4).d.a(n6, n9, byArray);
-                        break;
-                    }
-                    case 13: {
-                        String string = ((ku)object3).d((short)20);
-                        int n12 = ((ku)object3).c((short)21, 0);
-                        byte by = ((ku)object3).a((short)22, (byte)0);
-                        ((ky)object4).b.a(string, n12, (int)by);
-                        break;
-                    }
-                    case 16: {
-                        String string = ((ku)object3).d((short)9);
-                        objectArray = ((ku)object3).d((short)1);
-                        ((ky)object4).b.b(string, (String)objectArray);
-                        break;
-                    }
-                    case 17: {
-                        String string = ((ku)object3).d((short)28);
-                        object = ((ku)object3).d((short)9);
-                        String string3 = ((ku)object3).d((short)1);
-                        lh lh3 = super.a((ku)object3, 0, -1);
-                        super.a((ku)object3, 0, -1).b = object;
-                        long l = ((ku)object3).a((short)132, 0L);
-                        byte by = ((ku)object3).a((short)167, (byte)0);
-                        n3 = ((ku)object3).a((short)169, (byte)0);
-                        ((ky)object4).b.a(lh3, string3, l, string, by > 0, n3 > 0);
-                        break;
-                    }
-                    case 22: {
-                        super.j((ku)object3);
-                        break;
-                    }
-                    case 18: {
-                        n6 = ((ku)object3).c((short)41, 0);
-                        object = new nq(n6, 0);
-                        boolean bl = ((ku)object3).a((short)32);
-                        if (((ku)object3).a((short)39)) {
-                            ((nq)object).E = true;
-                        } else {
-                            ((nq)object).d = bl;
-                        }
-                        if (((ky)object4).c == null) continue block102;
-                        ((ky)object4).c.a((nq)object);
-                        break;
-                    }
-                    case 19: {
-                        short s2;
-                        n6 = ((ku)object3).c((short)41, 0);
-                        object = new nq(n6, 3);
-                        new nq(n6, 3).i = ((ku)object3).a((short)44, 0L);
-                        int n13 = ((ku)object3).a(((ku)object3).b((short)33, 0), -1);
-                        int n14 = ((ku)object3).a(((ku)object3).b((short)34, 0), -1);
-                        int n15 = ((ku)object3).a(((ku)object3).b((short)33, 1), -1);
-                        s = s2 = ((ku)object3).a(((ku)object3).b((short)34, 1), -1);
-                        int n16 = n15;
-                        n6 = n14;
-                        n3 = n13;
-                        Object object6 = object;
-                        ((nq)object).j = n3;
-                        ((nq)object6).l = n16;
-                        ((nq)object6).k = n6;
-                        ((nq)object6).m = s;
-                        super.a((ku)object3, (nq)object);
-                        break;
-                    }
-                    case 24: {
-                        ct.a("[processUpdateMatch]======================================");
-                        n6 = ((ku)object3).c((short)41, 0);
-                        object = new nq(n6, 2);
-                        ky.b((ku)object3, (nq)object);
-                        boolean bl = ((ku)object3).a((short)32);
-                        byte[] byArray = ((ku)object3).c((short)39);
-                        if (byArray != null) {
-                            ((ky)object4).c.a((nq)object);
-                            ((nq)object).E = true;
-                            super.a((ku)object3, byArray[0], ((nq)object).b);
-                            break;
-                        }
-                        ((nq)object).d = bl;
-                        ((ky)object4).c.a((nq)object);
-                        break;
-                    }
-                    case 20: {
-                        super.m((ku)object3);
-                        break;
-                    }
-                    case 44: {
-                        int n17;
-                        n6 = ((ku)object3).c((short)41, 0);
-                        object = new nq(n6, 4);
-                        new nq(n6, 4).i = ((ku)object3).a((short)44, 0L);
-                        ((nq)object).e = n17 = ((ku)object3).c((short)114, 0);
-                        super.a((ku)object3, (nq)object);
-                        break;
-                    }
-                    case 47: {
-                        if (((ky)object4).c == null) continue block102;
-                        nq nq2 = new nq(1);
-                        new nq(1).k = ((ku)object3).c((short)34, 2);
-                        nq2.j = ((ku)object3).c((short)33, 2);
-                        if (((ky)object4).c == null) continue block102;
-                        ((ky)object4).c.a(nq2);
-                        break;
-                    }
-                    case 84: {
-                        n6 = ((ku)object3).c((short)114, -1);
-                        int n18 = ((ku)object3).c((short)106, -1);
-                        ((ky)object4).b.e(n6, n18);
-                        super.b((ku)object3);
-                        break;
-                    }
-                    case 40: {
-                        if (((ky)object4).c == null) continue block102;
-                        byte[] byArray = ((ku)object3).c((short)39);
-                        if (byArray == null) {
-                            ((ky)object4).c.a(-1);
-                            break;
-                        }
-                        ((ky)object4).c.a(byArray[0]);
-                        super.a((ku)object3, byArray[0], -1);
-                        break;
-                    }
-                    case 25: {
-                        String string = ((ku)object3).d((short)9);
-                        objectArray = ((ku)object3).d((short)1);
-                        if (((ky)object4).c != null) {
-                            ((ky)object4).c.a(string, (String)objectArray);
-                        }
-                        ((ky)object4).b.c(string, (String)objectArray);
-                        break;
-                    }
-                    case 12: {
-                        String string = ((ku)object3).d((short)192);
-                        object = ((ku)object3).d((short)1);
-                        long l = ((ku)object3).c((short)157, 0);
-                        String string4 = ((ku)object3).d((short)9);
-                        byte by = ((ku)object3).a((short)40, (byte)-1);
-                        switch (by) {
-                            case 0: {
-                                ((ky)object4).b.a(string, string4);
-                                break block4;
+                            final String[] array4 = new String[ku5.b((short)83)];
+                            for (int j = 0; j < array4.length; ++j) {
+                                array4[j] = ku5.b(ku5.b((short)83, j));
                             }
-                            case 1: {
-                                ((ky)object4).b.a(string, ky.d((ku)object3, ((ku)object3).b((short)9, 0), -1), (String)object, l);
-                                break block4;
+                            if (a6 == 1) {
+                                this.b.c(array4);
+                                continue;
                             }
-                            case 2: {
-                                ((ky)object4).b.b(string, ky.d((ku)object3, ((ku)object3).b((short)9, 0), -1), (String)object, l);
-                                break block4;
+                            this.b.d(array4);
+                            continue;
+                        }
+                        case 48: {
+                            final ku ku7 = ku5;
+                            this.b.b(ku7.d((short)83), ku7.c((short)114, -1), ku7.c((short)106, -1));
+                            continue;
+                        }
+                        case 11: {
+                            this.d(ku5);
+                            continue;
+                        }
+                        case 43: {
+                            this.f(ku5);
+                            continue;
+                        }
+                        case 6: {
+                            final ku ku8 = ku5;
+                            final int c3 = ku8.c((short)4, 0);
+                            final int a7;
+                            if ((a7 = ku8.a(ku8.b((short)7, 0), -1)) < 0) {
+                                final int a8 = ku8.a(ku8.b((short)6, 0), -1);
+                                final int a9 = ku8.a(ku8.b((short)5, 0), -1);
+                                if (this.d == null) {
+                                    continue;
+                                }
+                                this.d.a(c3, a8, a9);
                             }
-                            case 3: {
-                                super.h((ku)object3);
+                            else {
+                                final byte[] c4 = ku8.c((short)8);
+                                if (this.d == null) {
+                                    continue;
+                                }
+                                this.d.a(c3, a7, c4);
                             }
+                            continue;
                         }
-                        break;
-                    }
-                    case 21: {
-                        n6 = ((ku)object3).c((short)41, 0);
-                        object = new nq(n6, 6);
-                        super.a((ku)object3, (nq)object);
-                        break;
-                    }
-                    case 28: {
-                        ((ky)object4).b.V();
-                        break;
-                    }
-                    case 23: {
-                        super.l((ku)object3);
-                        break;
-                    }
-                    case 31: {
-                        super.g((ku)object3);
-                        break;
-                    }
-                    case 32: {
-                        ((ky)object4).b.A();
-                        break;
-                    }
-                    case 41: {
-                        ((ky)object4).b.B();
-                        break;
-                    }
-                    case 33: {
-                        super.n((ku)object3);
-                        break;
-                    }
-                    case 38: {
-                        ky.o((ku)object3);
-                        break;
-                    }
-                    case 34: {
-                        nu.a(new nt(((ku)object3).c((short)80, -1), ((ku)object3).d((short)81), "", ((ku)object3).d((short)77)));
-                        String string = ((ku)object3).d((short)149);
-                        ((ky)object4).b.a(string, (byte)0);
-                        break;
-                    }
-                    case 35: {
-                        super.p((ku)object3);
-                        break;
-                    }
-                    case 45: {
-                        ((ky)object4).b.c(((ku)object3).d((short)1));
-                        break;
-                    }
-                    case 46: {
-                        kq kq2 = ((ky)object4).b;
-                        ((ku)object3).d((short)9);
-                        kq2.a(((ku)object3).a((short)132, 0L));
-                        break;
-                    }
-                    case 55: {
-                        super.s((ku)object3);
-                        break;
-                    }
-                    case 56: {
-                        super.v((ku)object3);
-                        break;
-                    }
-                    case 57: {
-                        super.t((ku)object3);
-                        break;
-                    }
-                    case 7: {
-                        byte by = ((ku)object3).a((short)147, (byte)-1);
-                        switch (by) {
-                            case 0: {
-                                n6 = ((ku)object3).a((short)165, (byte)-1);
-                                ((ky)object4).b.c(n6 == 1);
-                                break block4;
+                        case 13: {
+                            final ku ku9 = ku5;
+                            this.b.a(ku9.d((short)20), ku9.c((short)21, 0), ku9.a((short)22, (byte)0));
+                            continue;
+                        }
+                        case 16: {
+                            this.b.b(ku5.d((short)9), ku5.d((short)1));
+                            continue;
+                        }
+                        case 17: {
+                            final ku ku10 = ku5;
+                            final String d2 = ku10.d((short)28);
+                            final String d3 = ku10.d((short)9);
+                            final String d4 = ku10.d((short)1);
+                            final lh a10;
+                            (a10 = this.a(ku10, 0, -1)).b = d3;
+                            this.b.a(a10, d4, ku10.a((short)132, 0L), d2, ku10.a((short)167, (byte)0) > 0, ku10.a((short)169, (byte)0) > 0);
+                            continue;
+                        }
+                        case 22: {
+                            this.j(ku5);
+                            continue;
+                        }
+                        case 18: {
+                            final ku ku11 = ku5;
+                            final nq nq = new nq(ku11.c((short)41, 0), (byte)0);
+                            final boolean a11 = ku11.a((short)32);
+                            if (ku11.a((short)39)) {
+                                nq.E = true;
                             }
-                            case 1: {
-                                n6 = ((ku)object3).a((short)166, (byte)-1);
-                                ((ky)object4).b.d(n6 == 1);
+                            else {
+                                nq.d = a11;
                             }
-                        }
-                        break;
-                    }
-                    case 125: {
-                        ((ky)object4).b.a(((ku)object3).d((short)149), (byte)0);
-                        break;
-                    }
-                    case 52: {
-                        super.w((ku)object3);
-                        break;
-                    }
-                    case 128: {
-                        ((ky)object4).b.s(((ku)object3).d((short)1));
-                        break;
-                    }
-                    case 129: {
-                        byte by = ((ku)object3).a((short)147, (byte)-1);
-                        n6 = by;
-                        switch (by) {
-                            case 0: {
-                                ((ky)object4).b.a(((ku)object3).d((short)162), ((ku)object3).c((short)161) != null, ((ku)object3).c((short)163) != null);
-                                break block4;
+                            if (this.c == null) {
+                                continue;
                             }
-                            case 1: {
-                                ((ky)object4).b.a(((ku)object3).d((short)162), ((ku)object3).c((short)101) != null, ((ku)object3).c((short)161) != null, ((ku)object3).c((short)163) != null);
-                                break block4;
+                            this.c.a(nq);
+                            continue;
+                        }
+                        case 19: {
+                            final ku ku12 = ku5;
+                            final nq nq2;
+                            (nq2 = new nq(ku12.c((short)41, 0), (byte)3)).i = ku12.a((short)44, 0L);
+                            final int a12 = ku12.a(ku12.b((short)33, 0), -1);
+                            final int a13 = ku12.a(ku12.b((short)34, 0), -1);
+                            final int a14 = ku12.a(ku12.b((short)33, 1), -1);
+                            final int a15 = ku12.a(ku12.b((short)34, 1), -1);
+                            final nq nq3 = nq2;
+                            final int n3 = a12;
+                            final int n4 = a13;
+                            final int n5 = a14;
+                            final int m = a15;
+                            final int l = n5;
+                            final int k = n4;
+                            final int j2 = n3;
+                            final nq nq4 = nq3;
+                            nq3.j = j2;
+                            nq4.l = l;
+                            nq4.k = k;
+                            nq4.m = m;
+                            this.a(ku12, nq2);
+                            continue;
+                        }
+                        case 24: {
+                            final ku ku13 = ku5;
+                            ct.a("[processUpdateMatch]======================================");
+                            final nq nq5 = new nq(ku13.c((short)41, 0), (byte)2);
+                            b(ku13, nq5);
+                            final boolean a16 = ku13.a((short)32);
+                            final byte[] c5;
+                            if ((c5 = ku13.c((short)39)) != null) {
+                                this.c.a(nq5);
+                                nq5.E = true;
+                                this.a(ku13, c5[0], nq5.b);
+                                continue;
                             }
-                            case 2: {
-                                ((ky)object4).b.b(((ku)object3).d((short)162), ((ku)object3).c((short)101) != null, ((ku)object3).c((short)161) != null, ((ku)object3).c((short)163) != null);
+                            nq5.d = a16;
+                            this.c.a(nq5);
+                            continue;
+                        }
+                        case 20: {
+                            this.m(ku5);
+                            continue;
+                        }
+                        case 44: {
+                            final ku ku14 = ku5;
+                            final nq nq6;
+                            (nq6 = new nq(ku14.c((short)41, 0), (byte)4)).i = ku14.a((short)44, 0L);
+                            nq6.e = ku14.c((short)114, 0);
+                            this.a(ku14, nq6);
+                            continue;
+                        }
+                        case 47: {
+                            if (this.c == null) {
+                                continue;
                             }
-                        }
-                        break;
-                    }
-                    case 64: {
-                        super.i((ku)object3);
-                        break;
-                    }
-                    case 65: {
-                        String string = ((ku)object3).d((short)192);
-                        object = ((ku)object3).d((short)1);
-                        long l = ((ku)object3).a((short)157, 0L);
-                        int n19 = ((ku)object3).c((short)194, 0);
-                        ct.a("[processJoinRoom]  " + (String)object + ":  " + l);
-                        ((ky)object4).b.a(string, (String)object, l, n19);
-                        break;
-                    }
-                    case 130: {
-                        byte[] byArray = ((ku)object3).c((short)176);
-                        object = ((ku)object3).c((short)2);
-                        ((ky)object4).b.a(byArray, (byte[])object);
-                        break;
-                    }
-                    case 131: {
-                        String string = ((ku)object3).d((short)1);
-                        if (((ky)object4).b == null) continue block102;
-                        ((ky)object4).b.o(string);
-                        break;
-                    }
-                    case 4: {
-                        if (((ky)object4).b == null) continue block102;
-                        ((ky)object4).b.T();
-                        break;
-                    }
-                    case 51: {
-                        lm[] lmArray;
-                        n6 = ((ku)object3).c((short)114, 0);
-                        object = ((ku)object3).d((short)1);
-                        String string = ((ku)object3).d((short)83);
-                        if (n6 > 0) {
-                            go.b(n6, 1);
-                        }
-                        if (object != null) {
-                            ((ky)object4).b.v((String)object);
-                        }
-                        if (string != null) {
-                            int n20 = ((ku)object3).b((short)83, 0);
-                            int n21 = ((ku)object3).a((short)83, n20);
-                            ll ll2 = ky.a((ku)object3, n20, n21, true);
-                            ((ky)object4).b.c(ll2);
-                        }
-                        if ((lmArray = ky.a((ku)object3, 1)).length <= 0) continue block102;
-                        ((ky)object4).b.a(lmArray);
-                        break;
-                    }
-                    case 83: {
-                        n6 = ((ku)object3).c((short)114, -1);
-                        int n22 = ((ku)object3).c((short)106, 0);
-                        ((ky)object4).b.f(n6, n22);
-                        break;
-                    }
-                    case 99: {
-                        String string = ((ku)object3).d((short)186);
-                        object = ((ku)object3).d((short)1);
-                        if (ct.b()) {
-                            ct.a("[processRequestUpgradeEquipment]  session  " + string + "  message  " + (String)object);
-                        }
-                        if (((ky)object4).b == null) continue block102;
-                        ((ky)object4).b.e(string, (String)object);
-                        break;
-                    }
-                    case 100: {
-                        ((ku)object3).d((short)186);
-                        byte by = ((ku)object3).a((short)187, (byte)0);
-                        String string = ((ku)object3).d((short)83);
-                        int n23 = ((ku)object3).c((short)114, -1);
-                        int n24 = ((ku)object3).c((short)106, -1);
-                        long l = ((ku)object3).a((short)132, 0L);
-                        String string5 = ((ku)object3).d((short)1);
-                        n6 = ((ku)object3).a((short)188, (byte)0);
-                        if (string != null) {
-                            if (by == 0) {
-                                ((ky)object4).b.a(string, string5, (byte)n6, l);
-                            } else {
-                                ((ky)object4).b.b(string, string5, (byte)n6, l);
+                            final nq nq7;
+                            (nq7 = new nq((byte)1)).k = ku5.c((short)34, 2);
+                            nq7.j = ku5.c((short)33, 2);
+                            if (this.c != null) {
+                                this.c.a(nq7);
+                                continue;
                             }
+                            continue;
                         }
-                        if (n23 <= 0) continue block102;
-                        if (by == 0) {
-                            ((ky)object4).b.a(string5, (byte)n6, l);
-                            break;
+                        case 84: {
+                            final ku ku15 = ku5;
+                            this.b.e(ku15.c((short)114, -1), ku15.c((short)106, -1));
+                            this.b(ku15);
+                            continue;
                         }
-                        ((ky)object4).b.a(n23, n24, string5, (byte)n6, l);
-                        break;
-                    }
-                    case 101: {
-                        super.A((ku)object3);
-                        break;
-                    }
-                    case 96: {
-                        String string = ((ku)object3).d((short)186);
-                        object = ((ku)object3).d((short)83);
-                        String string6 = ((ku)object3).d((short)1);
-                        if (ct.b()) {
-                            ct.a("[processRequestUpgradeEquipment]  equipKey  " + (String)object + " message" + string6);
-                        }
-                        if (((ky)object4).b == null) continue block102;
-                        ((ky)object4).b.a(string, (String)object, string6);
-                        break;
-                    }
-                    case 97: {
-                        ((ku)object3).d((short)186);
-                        byte by = ((ku)object3).a((short)187, (byte)0);
-                        String string = ((ku)object3).d((short)83);
-                        int n25 = ((ku)object3).c((short)114, -1);
-                        int n26 = ((ku)object3).c((short)106, -1);
-                        long l = ((ku)object3).a((short)132, 0L);
-                        String string7 = ((ku)object3).d((short)1);
-                        n6 = ((ku)object3).a((short)188, (byte)0);
-                        if (ct.b()) {
-                            ct.a("[processModifiedUpgradeEquipment]readyStatus   " + n6);
-                        }
-                        if (string != null) {
-                            if (by == 0) {
-                                ((ky)object4).b.d(string, string7, (byte)n6, l);
-                            } else {
-                                ((ky)object4).b.c(string, string7, (byte)n6, l);
+                        case 40: {
+                            if (this.c == null) {
+                                continue;
                             }
+                            final byte[] c6;
+                            if ((c6 = ku5.c((short)39)) == null) {
+                                this.c.a(-1);
+                                continue;
+                            }
+                            this.c.a(c6[0]);
+                            this.a(ku5, c6[0], -1);
+                            continue;
                         }
-                        if (n25 <= 0) continue block102;
-                        if (by == 0) {
-                            ((ky)object4).b.b(string7, (byte)n6, l);
-                            break;
+                        case 25: {
+                            final String d5 = ku5.d((short)9);
+                            final String d6 = ku5.d((short)1);
+                            if (this.c != null) {
+                                this.c.a(d5, d6);
+                            }
+                            this.b.c(d5, d6);
+                            continue;
                         }
-                        ((ky)object4).b.b(n25, n26, string7, (byte)n6, l);
-                        break;
-                    }
-                    case 98: {
-                        super.B((ku)object3);
-                        break;
-                    }
-                    case 112: {
-                        int n27;
-                        String string = ((ku)object3).d((short)83);
-                        if (string != null) {
-                            ((ku)object3).d((short)175);
-                            long l = ((ku)object3).a((short)157, 0L);
-                            ((ky)object4).b.a(string, l);
+                        case 12: {
+                            final ku ku16 = ku5;
+                            final String d7 = ku16.d((short)192);
+                            final String d8 = ku16.d((short)1);
+                            final long n6 = ku16.c((short)157, 0);
+                            final String d9 = ku16.d((short)9);
+                            switch (ku16.a((short)40, (byte)(-1))) {
+                                case 0: {
+                                    this.b.a(d7, d9);
+                                    continue;
+                                }
+                                case 1: {
+                                    this.b.a(d7, d(ku16, ku16.b((short)9, 0), -1), d8, n6);
+                                    continue;
+                                }
+                                case 2: {
+                                    this.b.b(d7, d(ku16, ku16.b((short)9, 0), -1), d8, n6);
+                                    continue;
+                                }
+                                case 3: {
+                                    this.h(ku16);
+                                    continue;
+                                }
+                            }
+                            continue;
                         }
-                        if ((n27 = ((ku)object3).c((short)114, 0)) <= 0) continue block102;
-                        ((ku)object3).d((short)175);
-                        int n28 = ((ku)object3).c((short)106, 0);
-                        ((ku)object3).a((short)157, 0L);
-                        ((ky)object4).b.g(n27, n28);
-                        break;
-                    }
-                    case 116: {
-                        super.y((ku)object3);
-                        break;
-                    }
-                    case 113: {
-                        super.x((ku)object3);
-                        break;
-                    }
-                    case 114: {
-                        n6 = ((ku)object3).a((short)152, (byte)-1);
-                        int n29 = ((ku)object3).c((short)106, 0);
-                        ct.a("[processListMarketProducts]catid == " + n6 + "qty ==" + n29);
-                        ((ky)object4).b.a(n6, n29, super.u((ku)object3));
-                        break;
-                    }
-                    case 115: {
-                        super.z((ku)object3);
-                        break;
-                    }
-                    case 132: {
-                        super.D((ku)object3);
-                        break;
-                    }
-                    case 133: {
-                        String string = ((ku)object3).d((short)1);
-                        ((ky)object4).b.w(string);
+                        case 21: {
+                            final ku ku17 = ku5;
+                            this.a(ku17, new nq(ku17.c((short)41, 0), (byte)6));
+                            continue;
+                        }
+                        case 28: {
+                            this.b.V();
+                            continue;
+                        }
+                        case 23: {
+                            this.l(ku5);
+                            continue;
+                        }
+                        case 31: {
+                            this.g(ku5);
+                            continue;
+                        }
+                        case 32: {
+                            this.b.A();
+                            continue;
+                        }
+                        case 41: {
+                            this.b.B();
+                            continue;
+                        }
+                        case 33: {
+                            this.n(ku5);
+                            continue;
+                        }
+                        case 38: {
+                            o(ku5);
+                            continue;
+                        }
+                        case 34: {
+                            nu.a(new nt(ku5.c((short)80, -1), ku5.d((short)81), "", ku5.d((short)77)));
+                            this.b.a(ku5.d((short)149), (byte)0);
+                            continue;
+                        }
+                        case 35: {
+                            this.p(ku5);
+                            continue;
+                        }
+                        case 45: {
+                            this.b.c(ku5.d((short)1));
+                            continue;
+                        }
+                        case 46: {
+                            final kq b = this.b;
+                            ku5.d((short)9);
+                            b.a(ku5.a((short)132, 0L));
+                            continue;
+                        }
+                        case 55: {
+                            this.s(ku5);
+                            continue;
+                        }
+                        case 56: {
+                            this.v(ku5);
+                            continue;
+                        }
+                        case 57: {
+                            this.t(ku5);
+                            continue;
+                        }
+                        case 7: {
+                            final ku ku18 = ku5;
+                            switch (ku18.a((short)147, (byte)(-1))) {
+                                case 0: {
+                                    this.b.c(ku18.a((short)165, (byte)(-1)) == 1);
+                                    continue;
+                                }
+                                case 1: {
+                                    this.b.d(ku18.a((short)166, (byte)(-1)) == 1);
+                                    continue;
+                                }
+                            }
+                            continue;
+                        }
+                        case 125: {
+                            this.b.a(ku5.d((short)149), (byte)0);
+                            continue;
+                        }
+                        case 52: {
+                            this.w(ku5);
+                            continue;
+                        }
+                        case 128: {
+                            this.b.s(ku5.d((short)1));
+                            continue;
+                        }
+                        case 129: {
+                            final ku ku19 = ku5;
+                            switch (ku19.a((short)147, (byte)(-1))) {
+                                case 0: {
+                                    this.b.a(ku19.d((short)162), ku19.c((short)161) != null, ku19.c((short)163) != null);
+                                    continue;
+                                }
+                                case 1: {
+                                    this.b.a(ku19.d((short)162), ku19.c((short)101) != null, ku19.c((short)161) != null, ku19.c((short)163) != null);
+                                    continue;
+                                }
+                                case 2: {
+                                    this.b.b(ku19.d((short)162), ku19.c((short)101) != null, ku19.c((short)161) != null, ku19.c((short)163) != null);
+                                    continue;
+                                }
+                            }
+                            continue;
+                        }
+                        case 64: {
+                            this.i(ku5);
+                            continue;
+                        }
+                        case 65: {
+                            final ku ku20 = ku5;
+                            final String d10 = ku20.d((short)192);
+                            final String d11 = ku20.d((short)1);
+                            final long a17 = ku20.a((short)157, 0L);
+                            final int c7 = ku20.c((short)194, 0);
+                            ct.a("[processJoinRoom]  " + d11 + ":  " + a17);
+                            this.b.a(d10, d11, a17, c7);
+                            continue;
+                        }
+                        case 130: {
+                            final ku ku21 = ku5;
+                            this.b.a(ku21.c((short)176), ku21.c((short)2));
+                            continue;
+                        }
+                        case 131: {
+                            final String d12 = ku5.d((short)1);
+                            if (this.b == null) {
+                                continue;
+                            }
+                            this.b.o(d12);
+                            continue;
+                        }
+                        case 4: {
+                            if (this.b != null) {
+                                this.b.T();
+                                continue;
+                            }
+                            continue;
+                        }
+                        case 51: {
+                            final ku ku22 = ku5;
+                            final int c8 = ku22.c((short)114, 0);
+                            final String d13 = ku22.d((short)1);
+                            final String d14 = ku22.d((short)83);
+                            if (c8 > 0) {
+                                go.b(c8, 1);
+                            }
+                            if (d13 != null) {
+                                this.b.v(d13);
+                            }
+                            if (d14 != null) {
+                                final int b2 = ku22.b((short)83, 0);
+                                this.b.c(a(ku22, b2, ku22.a((short)83, b2), true));
+                            }
+                            final lm[] a18;
+                            if ((a18 = a(ku22, 1)).length <= 0) {
+                                continue;
+                            }
+                            this.b.a(a18);
+                            continue;
+                        }
+                        case 83: {
+                            final ku ku23 = ku5;
+                            this.b.f(ku23.c((short)114, -1), ku23.c((short)106, 0));
+                            continue;
+                        }
+                        case 99: {
+                            final ku ku24 = ku5;
+                            final String d15 = ku24.d((short)186);
+                            final String d16 = ku24.d((short)1);
+                            if (ct.b()) {
+                                ct.a("[processRequestUpgradeEquipment]  session  " + d15 + "  message  " + d16);
+                            }
+                            if (this.b == null) {
+                                continue;
+                            }
+                            this.b.e(d15, d16);
+                            continue;
+                        }
+                        case 100: {
+                            final ku ku25 = ku5;
+                            ku25.d((short)186);
+                            final byte a19 = ku25.a((short)187, (byte)0);
+                            final String d17 = ku25.d((short)83);
+                            final int c9 = ku25.c((short)114, -1);
+                            final int c10 = ku25.c((short)106, -1);
+                            final long a20 = ku25.a((short)132, 0L);
+                            final String d18 = ku25.d((short)1);
+                            final byte a21 = ku25.a((short)188, (byte)0);
+                            if (d17 != null) {
+                                if (a19 == 0) {
+                                    this.b.a(d17, d18, a21, a20);
+                                }
+                                else {
+                                    this.b.b(d17, d18, a21, a20);
+                                }
+                            }
+                            if (c9 <= 0) {
+                                continue;
+                            }
+                            if (a19 == 0) {
+                                this.b.a(d18, a21, a20);
+                            }
+                            else {
+                                this.b.a(c9, c10, d18, a21, a20);
+                            }
+                            continue;
+                        }
+                        case 101: {
+                            this.A(ku5);
+                            continue;
+                        }
+                        case 96: {
+                            final ku ku26 = ku5;
+                            final String d19 = ku26.d((short)186);
+                            final String d20 = ku26.d((short)83);
+                            final String d21 = ku26.d((short)1);
+                            if (ct.b()) {
+                                ct.a("[processRequestUpgradeEquipment]  equipKey  " + d20 + " message" + d21);
+                            }
+                            if (this.b == null) {
+                                continue;
+                            }
+                            this.b.a(d19, d20, d21);
+                            continue;
+                        }
+                        case 97: {
+                            final ku ku27 = ku5;
+                            ku27.d((short)186);
+                            final byte a22 = ku27.a((short)187, (byte)0);
+                            final String d22 = ku27.d((short)83);
+                            final int c11 = ku27.c((short)114, -1);
+                            final int c12 = ku27.c((short)106, -1);
+                            final long a23 = ku27.a((short)132, 0L);
+                            final String d23 = ku27.d((short)1);
+                            final byte a24 = ku27.a((short)188, (byte)0);
+                            if (ct.b()) {
+                                ct.a("[processModifiedUpgradeEquipment]readyStatus   " + a24);
+                            }
+                            if (d22 != null) {
+                                if (a22 == 0) {
+                                    this.b.d(d22, d23, a24, a23);
+                                }
+                                else {
+                                    this.b.c(d22, d23, a24, a23);
+                                }
+                            }
+                            if (c11 <= 0) {
+                                continue;
+                            }
+                            if (a22 == 0) {
+                                this.b.b(d23, a24, a23);
+                            }
+                            else {
+                                this.b.b(c11, c12, d23, a24, a23);
+                            }
+                            continue;
+                        }
+                        case 98: {
+                            this.B(ku5);
+                            continue;
+                        }
+                        case 112: {
+                            final ku ku28 = ku5;
+                            final String d24;
+                            if ((d24 = ku28.d((short)83)) != null) {
+                                ku28.d((short)175);
+                                this.b.a(d24, ku28.a((short)157, 0L));
+                            }
+                            final int c13;
+                            if ((c13 = ku28.c((short)114, 0)) <= 0) {
+                                continue;
+                            }
+                            ku28.d((short)175);
+                            final int c14 = ku28.c((short)106, 0);
+                            ku28.a((short)157, 0L);
+                            this.b.g(c13, c14);
+                            continue;
+                        }
+                        case 116: {
+                            this.y(ku5);
+                            continue;
+                        }
+                        case 113: {
+                            this.x(ku5);
+                            continue;
+                        }
+                        case 114: {
+                            final ku ku29 = ku5;
+                            final byte a25 = ku29.a((short)152, (byte)(-1));
+                            final int c15 = ku29.c((short)106, 0);
+                            ct.a("[processListMarketProducts]catid == " + a25 + "qty ==" + c15);
+                            this.b.a(a25, c15, this.u(ku29));
+                            continue;
+                        }
+                        case 115: {
+                            this.z(ku5);
+                            continue;
+                        }
+                        case 132: {
+                            this.D(ku5);
+                            continue;
+                        }
+                        case 133: {
+                            this.b.w(ku5.d((short)1));
+                            continue;
+                        }
                     }
                 }
-            }
-            catch (Throwable throwable) {
-                object2 = throwable;
-                throwable.printStackTrace();
+                catch (final Throwable t5) {
+//                    final Throwable t6;
+                    t5.printStackTrace();
+                }
             }
         }
     }
-
-    private lh a(ku ku2, int n2, int n3) {
-        int n4;
-        int n5;
-        int n6;
-        n2 = ku2.a((short)15, 0, -1, (byte)-1);
-        lh lh2 = new lh(n2);
-        new lh(n2).b = ku2.b(0);
-        lh2.c = ku2.d((short)26, 0, -1);
-        lh2.f = ku2.a((short)16, 0, -1, (byte)0);
-        lh2.g = ku2.a((short)15, 0, -1, (byte)0);
-        lh2.G = ku2.a((short)27, 0, -1, 0);
-        lh2.e = ku2.a((short)24, 0, -1, (byte)0);
-        lh2.H = ku2.a((short)43, 0, -1, 0);
-        lh2.s = ku2.a((short)17, 0, -1, 0);
-        lh2.r = ku2.a((short)47, 0, -1, 1);
-        lh2.u = ku2.a((short)18, 0, -1, 0);
-        lh2.t = ku2.a((short)48, 0, -1, 1);
-        lh2.w = ku2.a((short)45, 0, -1, 0);
-        lh2.v = ku2.a((short)49, 0, -1, 1);
-        lh2.S = ku2.d((short)209);
-        lh2.R = ku2.d((short)210);
-        if (lh2.Q == null) {
-            lh2.Q = lh2.G > 100 && lh2.G <= 200 ? "Đại Hiệp" : (lh2.G > 200 ? "Chiến Vương" : "Hào Kiệt");
-        }
-        lh2.ab = ku2.c((short)160, 0);
-        n3 = ku2.a((short)64, 0, -1);
-        lh2.E = new lv[n3];
-        if (n3 > 0) {
-            n6 = ku2.b((short)64, 0, -1);
-            n5 = 0;
-            while (n5 < n3) {
-                n4 = ku2.a((short)64, n6);
-                lh2.E[n5] = new lv(ku2.a(n6, -1));
-                n6 = n4;
-                ++n5;
+    
+    private lh a(final ku ku, int a, int n) {
+        a = ku.a((short)15, 0, -1, (byte)(-1));
+        final lh lh;
+        (lh = new lh(a)).b = ku.b(0);
+        lh.c = ku.d((short)26, 0, -1);
+        lh.f = ku.a((short)16, 0, -1, (byte)0);
+        lh.g = ku.a((short)15, 0, -1, (byte)0);
+        lh.G = ku.a((short)27, 0, -1, 0);
+        lh.e = ku.a((short)24, 0, -1, (byte)0);
+        lh.H = ku.a((short)43, 0, -1, 0);
+        lh.s = ku.a((short)17, 0, -1, 0);
+        lh.r = ku.a((short)47, 0, -1, 1);
+        lh.u = ku.a((short)18, 0, -1, 0);
+        lh.t = ku.a((short)48, 0, -1, 1);
+        lh.w = ku.a((short)45, 0, -1, 0);
+        lh.v = ku.a((short)49, 0, -1, 1);
+        lh.S = ku.d((short)209);
+        lh.R = ku.d((short)210);
+        if (lh.Q == null) {
+            if (lh.G > 100 && lh.G <= 200) {
+                lh.Q = "Đại Hiệp";
+            }
+            else if (lh.G > 200) {
+                lh.Q = "Chiến Vương";
+            }
+            else {
+                lh.Q = "Hào Kiệt";
             }
         }
-        lh2.D = new ll[ku2.a((short)83, 0, -1)];
-        n6 = ku2.a((short)83, 0);
-        n5 = 0;
-        while (n5 < lh2.D.length) {
-            n4 = ku2.a((short)83, n6);
-            lh2.D[n5] = ky.a(ku2, n6, n4, false);
-            n6 = n4;
-            ++n5;
+        lh.ab = ku.c((short)160, 0);
+        n = ku.a((short)64, 0, -1);
+        lh.E = new lv[n];
+        if (n > 0) {
+            int b = ku.b((short)64, 0, -1);
+            for (int i = 0; i < n; ++i) {
+                final int a2 = ku.a((short)64, b);
+                lh.E[i] = new lv(ku.a(b, -1));
+                b = a2;
+            }
         }
-        n5 = ku2.a((short)90, 0, -1);
-        n6 = ku2.a((short)90, 0);
-        n4 = 0;
-        while (n4 < n5) {
-            n3 = ku2.a((short)90, n6);
-            int n7 = ku2.a(n6, 0);
-            byte by = ku2.a((short)91, n6, n3, (byte)0);
-            df df2 = new df(n7);
-            int n8 = ku2.a((short)93, n6, n3, 0);
-            byte[] byArray = ku2.c((short)95, n6, n3);
-            df2.d = new dg(n8, byArray);
-            df2.f = new dg[]{df2.d};
-            n8 = ku2.a((short)96, n6, n3, 0);
-            byte[] byArray2 = ku2.c((short)98, n6, n3);
-            df2.e = new dg(n8, byArray2);
-            switch (by) {
+        lh.D = new ll[ku.a((short)83, 0, -1)];
+        int a3 = ku.a((short)83, 0);
+        for (int j = 0; j < lh.D.length; ++j) {
+            final int a4 = ku.a((short)83, a3);
+            lh.D[j] = a(ku, a3, a4, false);
+            a3 = a4;
+        }
+        final int a5 = ku.a((short)90, 0, -1);
+        int a6 = ku.a((short)90, 0);
+        for (int k = 0; k < a5; ++k) {
+            n = ku.a((short)90, a6);
+            final int a7 = ku.a(a6, 0);
+            final byte a8 = ku.a((short)91, a6, n, (byte)0);
+            final df w = new df(a7);
+            w.d = new dg(ku.a((short)93, a6, n, 0), ku.c((short)95, a6, n));
+            w.f = new dg[] { w.d };
+            w.e = new dg(ku.a((short)96, a6, n, 0), ku.c((short)98, a6, n));
+            switch (a8) {
                 case 0: {
-                    lh2.U = df2;
+                    lh.U = w;
                     break;
                 }
                 case 1: {
-                    lh2.V = df2;
+                    lh.V = w;
                     break;
                 }
                 case 2: {
-                    lh2.W = df2;
+                    lh.W = w;
+                    break;
                 }
             }
-            n6 = n3;
-            ++n4;
+            a6 = n;
         }
-        return lh2;
+        return lh;
     }
-
-    private lh b(ku ku2, int n2, int n3) {
+    
+    private lh b(final ku ku, int n, final int n2) {
         try {
-            int n4;
-            int n5;
-            int n6;
-            int n7;
-            int n8;
-            int n9;
-            byte by = ku2.a((short)15, n2, n3, (byte)-1);
-            lh lh2 = new lh(by);
-            new lh(by).b = ku2.b(n2);
-            lh2.c = ku2.d((short)26, n2, n3);
-            lh2.O = ku2.c((short)36, n2, n3) != null;
-            lh2.f = ku2.a((short)16, n2, n3, (byte)0);
-            lh2.g = ku2.a((short)15, n2, n3, (byte)0);
-            lh2.G = ku2.a((short)27, n2, n3, 0);
-            lh2.Y = ku2.a((short)4, n2, n3, 0);
-            lh2.T = ku2.a((short)19, n2, n3, (byte)0);
-            lh2.s = ku2.a((short)17, n2, n3, 0);
-            lh2.r = ku2.a((short)47, n2, n3, 1);
-            lh2.u = ku2.a((short)18, n2, n3, 0);
-            lh2.t = ku2.a((short)48, n2, n3, 1);
-            lh2.w = ku2.a((short)45, n2, n3, 0);
-            lh2.v = ku2.a((short)49, n2, n3, 1);
-            lh2.S = ku2.d((short)209);
-            lh2.R = ku2.d((short)210);
-            if (lh2.Q == null) {
-                lh2.Q = lh2.G > 100 && lh2.G <= 200 ? "Đại Hiệp" : (lh2.G > 200 ? "Chiến Vương" : "Hào Kiệt");
-            }
-            int n10 = ku2.a((short)64, n2, n3);
-            lh2.E = new lv[n10];
-            if (n10 > 0) {
-                n9 = ku2.b((short)64, n2, n3);
-                n8 = 0;
-                while (n8 < n10) {
-                    n7 = ku2.a((short)64, n9);
-                    lh2.E[n8] = new lv(ku2.a(n9, -1));
-                    lh2.E[n8].b = ku2.d((short)26, n9, n7);
-                    lh2.E[n8].d = ku2.d((short)66, n9, n7);
-                    lh2.E[n8].f = ku2.a((short)67, n9, n7, -1);
-                    lh2.E[n8].e = ku2.a((short)68, n9, n7, -1);
-                    n6 = ku2.a((short)69, n9, n7);
-                    lh2.E[n8].h = new String[n6];
-                    lv[] cfr_ignored_0 = lh2.E;
-                    n5 = ku2.b((short)69, n9, n7);
-                    n4 = 0;
-                    while (n4 < n6) {
-                        int n11 = ku2.a((short)69, n5);
-                        lh2.E[n8].h[n4] = ku2.b(n5);
-                        n5 = n11;
-                        ++n4;
-                    }
-                    n9 = n7;
-                    ++n8;
+            final lh lh;
+            (lh = new lh(ku.a((short)15, n, n2, (byte)(-1)))).b = ku.b(n);
+            lh.c = ku.d((short)26, n, n2);
+            lh.O = (ku.c((short)36, n, n2) != null);
+            lh.f = ku.a((short)16, n, n2, (byte)0);
+            lh.g = ku.a((short)15, n, n2, (byte)0);
+            lh.G = ku.a((short)27, n, n2, 0);
+            lh.Y = ku.a((short)4, n, n2, 0);
+            lh.T = ku.a((short)19, n, n2, (byte)0);
+            lh.s = ku.a((short)17, n, n2, 0);
+            lh.r = ku.a((short)47, n, n2, 1);
+            lh.u = ku.a((short)18, n, n2, 0);
+            lh.t = ku.a((short)48, n, n2, 1);
+            lh.w = ku.a((short)45, n, n2, 0);
+            lh.v = ku.a((short)49, n, n2, 1);
+            lh.S = ku.d((short)209);
+            lh.R = ku.d((short)210);
+            if (lh.Q == null) {
+                if (lh.G > 100 && lh.G <= 200) {
+                    lh.Q = "Đại Hiệp";
+                }
+                else if (lh.G > 200) {
+                    lh.Q = "Chiến Vương";
+                }
+                else {
+                    lh.Q = "Hào Kiệt";
                 }
             }
-            lh2.D = new ll[ku2.a((short)83, n2, n3)];
-            n9 = ku2.a((short)83, n2);
-            n8 = 0;
-            while (n8 < lh2.D.length) {
-                n7 = ku2.a((short)83, n9);
-                lh2.D[n8] = ky.a(ku2, n9, n7, false);
-                n9 = n7;
-                ++n8;
+            final int a = ku.a((short)64, n, n2);
+            lh.E = new lv[a];
+            if (a > 0) {
+                int b = ku.b((short)64, n, n2);
+                for (int i = 0; i < a; ++i) {
+                    final int a2 = ku.a((short)64, b);
+                    lh.E[i] = new lv(ku.a(b, -1));
+                    lh.E[i].b = ku.d((short)26, b, a2);
+                    lh.E[i].d = ku.d((short)66, b, a2);
+                    lh.E[i].f = ku.a((short)67, b, a2, -1);
+                    lh.E[i].e = ku.a((short)68, b, a2, -1);
+                    final int a3 = ku.a((short)69, b, a2);
+                    lh.E[i].h = new String[a3];
+                    final lv[] e = lh.E;
+                    int b2 = ku.b((short)69, b, a2);
+                    for (int j = 0; j < a3; ++j) {
+                        final int a4 = ku.a((short)69, b2);
+                        lh.E[i].h[j] = ku.b(b2);
+                        b2 = a4;
+                    }
+                    b = a2;
+                }
             }
-            ku ku3 = ku2;
-            ky ky2 = this;
-            lh2.F = ky.a(ku3, 0);
-            n8 = ku2.a((short)90, n2, n3);
-            int n12 = ku2.a((short)90, n2);
-            n7 = 0;
-            while (n7 < n8) {
-                n6 = ku2.a((short)90, n12);
-                n5 = ku2.a(n12, 0);
-                n4 = ku2.a((short)91, n12, n6, (byte)0);
-                df df2 = new df(n5);
-                n2 = ku2.a((short)93, n12, n6, 0);
-                byte[] byArray = ku2.c((short)95, n12, n6);
-                df2.d = new dg(n2, byArray);
-                df2.f = new dg[]{df2.d};
-                n2 = ku2.a((short)96, n12, n6, 0);
-                byArray = ku2.c((short)98, n12, n6);
-                df2.e = new dg(n2, byArray);
-                switch (n4) {
+            lh.D = new ll[ku.a((short)83, n, n2)];
+            int a5 = ku.a((short)83, n);
+            for (int k = 0; k < lh.D.length; ++k) {
+                final int a6 = ku.a((short)83, a5);
+                lh.D[k] = a(ku, a5, a6, false);
+                a5 = a6;
+            }
+            lh.F = a(ku, 0);
+            final int a7 = ku.a((short)90, n, n2);
+            int a8 = ku.a((short)90, n);
+            for (int l = 0; l < a7; ++l) {
+                final int a9 = ku.a((short)90, a8);
+                final int a10 = ku.a(a8, 0);
+                final byte a11 = ku.a((short)91, a8, a9, (byte)0);
+                final df w = new df(a10);
+                n = ku.a((short)93, a8, a9, 0);
+                w.d = new dg(n, ku.c((short)95, a8, a9));
+                w.f = new dg[] { w.d };
+                n = ku.a((short)96, a8, a9, 0);
+                w.e = new dg(n, ku.c((short)98, a8, a9));
+                switch (a11) {
                     case 0: {
-                        lh2.U = df2;
+                        lh.U = w;
                         break;
                     }
                     case 1: {
-                        lh2.V = df2;
+                        lh.V = w;
                         break;
                     }
                     case 2: {
-                        lh2.W = df2;
+                        lh.W = w;
+                        break;
                     }
                 }
-                n12 = n6;
-                ++n7;
+                a8 = a9;
             }
-            return lh2;
+            return lh;
         }
-        catch (Exception exception) {
-            Exception exception2 = exception;
-            exception.printStackTrace();
-            MGMIDlet mGMIDlet = MGMIDlet.d();
-            mGMIDlet.notifyDestroyed();
+        catch (final Exception t) {
+//            final Throwable t;
+            t.printStackTrace();
+            MGMIDlet.d().notifyDestroyed();
             return null;
         }
     }
-
-    private lh c(ku object, int n2, int n3) {
+    
+    private lh c(final ku ku, int a, int a2) {
         try {
-            int n4;
-            int n5;
-            int n6;
-            lh lh2 = new lh(0);
-            new lh(0).b = ((ku)object).b(n2);
-            lh2.c = ((ku)object).d((short)26, n2, n3);
-            lh2.O = ((ku)object).c((short)36, n2, n3) != null;
-            lh2.f = ((ku)object).a((short)16, n2, n3, (byte)0);
-            lh2.g = ((ku)object).a((short)15, n2, n3, (byte)0);
-            lh2.G = ((ku)object).a((short)27, n2, n3, 0);
-            lh2.Y = ((ku)object).a((short)4, n2, n3, 0);
-            lh2.T = ((ku)object).a((short)19, n2, n3, (byte)0);
-            lh2.s = ((ku)object).a((short)17, n2, n3, 0);
-            lh2.r = ((ku)object).a((short)47, n2, n3, 1);
-            lh2.u = ((ku)object).a((short)18, n2, n3, 0);
-            lh2.t = ((ku)object).a((short)48, n2, n3, 1);
-            lh2.w = ((ku)object).a((short)45, n2, n3, 0);
-            lh2.v = ((ku)object).a((short)49, n2, n3, 1);
-            lh2.S = ((ku)object).d((short)209);
-            lh2.R = ((ku)object).d((short)210);
-            if (lh2.Q == null) {
-                lh2.Q = lh2.G > 100 && lh2.G <= 200 ? "Đại Hiệp" : (lh2.G > 200 ? "Chiến Vương" : "Hào Kiệt");
-            }
-            int n7 = ((ku)object).a((short)64, n2, n3);
-            lh2.E = new lv[n7];
-            if (n7 > 0) {
-                n6 = ((ku)object).b((short)64, n2, n3);
-                n5 = 0;
-                while (n5 < n7) {
-                    n4 = ((ku)object).a((short)64, n6);
-                    lh2.E[n5] = new lv(((ku)object).a(n6, -1));
-                    n6 = n4;
-                    ++n5;
+            final lh lh;
+            (lh = new lh(0)).b = ku.b(a);
+            lh.c = ku.d((short)26, a, a2);
+            lh.O = (ku.c((short)36, a, a2) != null);
+            lh.f = ku.a((short)16, a, a2, (byte)0);
+            lh.g = ku.a((short)15, a, a2, (byte)0);
+            lh.G = ku.a((short)27, a, a2, 0);
+            lh.Y = ku.a((short)4, a, a2, 0);
+            lh.T = ku.a((short)19, a, a2, (byte)0);
+            lh.s = ku.a((short)17, a, a2, 0);
+            lh.r = ku.a((short)47, a, a2, 1);
+            lh.u = ku.a((short)18, a, a2, 0);
+            lh.t = ku.a((short)48, a, a2, 1);
+            lh.w = ku.a((short)45, a, a2, 0);
+            lh.v = ku.a((short)49, a, a2, 1);
+            lh.S = ku.d((short)209);
+            lh.R = ku.d((short)210);
+            if (lh.Q == null) {
+                if (lh.G > 100 && lh.G <= 200) {
+                    lh.Q = "Đại Hiệp";
+                }
+                else if (lh.G > 200) {
+                    lh.Q = "Chiến Vương";
+                }
+                else {
+                    lh.Q = "Hào Kiệt";
                 }
             }
-            lh2.D = new ll[((ku)object).a((short)83, n2, n3)];
-            n6 = ((ku)object).a((short)83, n2);
-            n5 = 0;
-            while (n5 < lh2.D.length) {
-                n4 = ((ku)object).a((short)83, n6);
-                lh2.D[n5] = ky.a((ku)object, n6, n4, false);
-                n6 = n4;
-                ++n5;
+            final int a3 = ku.a((short)64, a, a2);
+            lh.E = new lv[a3];
+            if (a3 > 0) {
+                int b = ku.b((short)64, a, a2);
+                for (int i = 0; i < a3; ++i) {
+                    final int a4 = ku.a((short)64, b);
+                    lh.E[i] = new lv(ku.a(b, -1));
+                    b = a4;
+                }
             }
-            lh2.F = new lm[((ku)object).a((short)114, n2, n3)];
-            n6 = ((ku)object).a((short)114, n2);
-            n5 = 0;
-            while (n5 < lh2.F.length) {
-                n4 = ((ku)object).a((short)114, n6);
-                n7 = ((ku)object).a(n6, 0);
-                lh2.F[n5] = new lm(n7);
-                lh2.F[n5].g = ((ku)object).a((short)106, n6, n4, 0);
-                lh2.F[n5].j = ((ku)object).a((short)4, n6, n4, 0);
-                n6 = n4;
-                ++n5;
+            lh.D = new ll[ku.a((short)83, a, a2)];
+            int a5 = ku.a((short)83, a);
+            for (int j = 0; j < lh.D.length; ++j) {
+                final int a6 = ku.a((short)83, a5);
+                lh.D[j] = a(ku, a5, a6, false);
+                a5 = a6;
             }
-            n5 = ((ku)object).a((short)90, n2, n3);
-            n6 = ((ku)object).a((short)90, n2);
-            n4 = 0;
-            while (n4 < n5) {
-                n7 = ((ku)object).a((short)90, n6);
-                int n8 = ((ku)object).a(n6, 0);
-                n3 = ((ku)object).a((short)91, n6, n7, (byte)0);
-                df df2 = new df(n8);
-                int n9 = ((ku)object).a((short)93, n6, n7, 0);
-                byte[] byArray = ((ku)object).c((short)95, n6, n7);
-                df2.d = new dg(n9, byArray);
-                df2.f = new dg[]{df2.d};
-                n9 = ((ku)object).a((short)96, n6, n7, 0);
-                byte[] byArray2 = ((ku)object).c((short)98, n6, n7);
-                df2.e = new dg(n9, byArray2);
-                switch (n3) {
+            lh.F = new lm[ku.a((short)114, a, a2)];
+            int a7 = ku.a((short)114, a);
+            for (int k = 0; k < lh.F.length; ++k) {
+                final int a8 = ku.a((short)114, a7);
+                lh.F[k] = new lm(ku.a(a7, 0));
+                lh.F[k].g = ku.a((short)106, a7, a8, 0);
+                lh.F[k].j = ku.a((short)4, a7, a8, 0);
+                a7 = a8;
+            }
+            final int a9 = ku.a((short)90, a, a2);
+            int a10 = ku.a((short)90, a);
+            for (int l = 0; l < a9; ++l) {
+                final int a11 = ku.a((short)90, a10);
+                a = ku.a(a10, 0);
+                a2 = ku.a((short)91, a10, a11, (byte)0);
+                final df w = new df(a);
+                w.d = new dg(ku.a((short)93, a10, a11, 0), ku.c((short)95, a10, a11));
+                w.f = new dg[] { w.d };
+                w.e = new dg(ku.a((short)96, a10, a11, 0), ku.c((short)98, a10, a11));
+                switch (a2) {
                     case 0: {
-                        lh2.U = df2;
+                        lh.U = w;
                         break;
                     }
                     case 1: {
-                        lh2.V = df2;
+                        lh.V = w;
                         break;
                     }
                     case 2: {
-                        lh2.W = df2;
+                        lh.W = w;
+                        break;
                     }
                 }
-                n6 = n7;
-                ++n4;
+                a10 = a11;
             }
-            return lh2;
+            return lh;
         }
-        catch (Exception exception) {
-            Exception exception2 = exception;
-            exception.printStackTrace();
-            object = MGMIDlet.d();
-            object.notifyDestroyed();
+        catch (final Exception ex) {
+//            final Throwable t;
+            ex.printStackTrace();
+            MGMIDlet.d().notifyDestroyed();
             return null;
         }
     }
-
-    private lh a(ku ku2) {
-        int n2;
-        int n3;
-        int n4;
-        int n5;
-        byte by = ku2.a((short)15, 0, -1, (byte)-1);
-        lh lh2 = new lh(by);
-        new lh(by).b = ku2.d((short)9);
-        lh2.c = ku2.d((short)26);
-        lh2.g = ku2.a((short)15, (byte)0);
-        lh2.f = ku2.a((short)16, (byte)0);
-        lh2.G = ku2.c((short)27, 0);
-        lh2.s = ku2.c((short)17, 0);
-        lh2.r = ku2.c((short)47, 0);
-        lh2.u = ku2.c((short)18, 0);
-        lh2.t = ku2.c((short)48, 0);
-        lh2.h = ku2.c((short)118, 0);
-        lh2.j = ku2.c((short)119, 0);
-        lh2.i = ku2.c((short)120, 0);
-        lh2.k = ku2.c((short)121, 0);
-        lh2.l = ku2.c((short)196, 0);
-        lh2.m = ku2.c((short)197, 0);
-        lh2.n = ku2.c((short)198, 0);
-        lh2.o = ku2.c((short)199, 0);
-        lh2.p = ku2.c((short)116, 0);
-        lh2.q = ku2.c((short)115, 0);
-        ct.a("[readFighterInf] addHealth " + lh2.p + " heatlPec  " + lh2.q);
-        lh2.J = ku2.c((short)42, 0);
-        lh2.H = ku2.c((short)43, 0);
-        lh2.I = ku2.c((short)99, 10000);
-        lh2.K = ku2.c((short)53, 0);
-        lh2.L = ku2.c((short)76, 0);
-        lh2.M = ku2.c((short)73, 0);
-        lh2.N = ku2.c((short)74, 0);
-        lh2.S = ku2.d((short)209);
-        lh2.R = ku2.d((short)210);
-        if (lh2.Q == null) {
-            lh2.Q = lh2.G > 100 && lh2.G <= 200 ? "Đại Hiệp" : (lh2.G > 200 ? "Chiến Vương" : "Hào Kiệt");
-        }
-        lh2.ab = ku2.c((short)160, 0);
-        lh2.Z = ku2.a((short)165, (byte)0) == 1;
-        lh2.aa = ku2.a((short)166, (byte)0) == 1;
-        int n6 = ku2.b((short)64);
-        lh2.E = new lv[n6];
-        if (n6 > 0) {
-            n5 = ku2.a((short)64, 0);
-            n4 = 0;
-            while (n4 < n6) {
-                n3 = ku2.a((short)64, n5);
-                lh2.E[n4] = new lv(ku2.a(n5, -1));
-                lh2.E[n4].f = ku2.a((short)67, n5, n3, -1);
-                lh2.E[n4].e = ku2.a((short)68, n5, n3, -1);
-                lv[] cfr_ignored_0 = lh2.E;
-                ku2.a((short)89, n5, n3, (byte)-1);
-                n5 = n3;
-                ++n4;
+    
+    private lh a(final ku ku) {
+        final lh lh;
+        (lh = new lh(ku.a((short)15, 0, -1, (byte)(-1)))).b = ku.d((short)9);
+        lh.c = ku.d((short)26);
+        lh.g = ku.a((short)15, (byte)0);
+        lh.f = ku.a((short)16, (byte)0);
+        lh.G = ku.c((short)27, 0);
+        lh.s = ku.c((short)17, 0);
+        lh.r = ku.c((short)47, 0);
+        lh.u = ku.c((short)18, 0);
+        lh.t = ku.c((short)48, 0);
+        lh.h = ku.c((short)118, 0);
+        lh.j = ku.c((short)119, 0);
+        lh.i = ku.c((short)120, 0);
+        lh.k = ku.c((short)121, 0);
+        lh.l = ku.c((short)196, 0);
+        lh.m = ku.c((short)197, 0);
+        lh.n = ku.c((short)198, 0);
+        lh.o = ku.c((short)199, 0);
+        lh.p = ku.c((short)116, 0);
+        lh.q = ku.c((short)115, 0);
+        ct.a("[readFighterInf] addHealth " + lh.p + " heatlPec  " + lh.q);
+        lh.J = ku.c((short)42, 0);
+        lh.H = ku.c((short)43, 0);
+        lh.I = ku.c((short)99, 10000);
+        lh.K = ku.c((short)53, 0);
+        lh.L = ku.c((short)76, 0);
+        lh.M = ku.c((short)73, 0);
+        lh.N = ku.c((short)74, 0);
+        lh.S = ku.d((short)209);
+        lh.R = ku.d((short)210);
+        if (lh.Q == null) {
+            if (lh.G > 100 && lh.G <= 200) {
+                lh.Q = "Đại Hiệp";
+            }
+            else if (lh.G > 200) {
+                lh.Q = "Chiến Vương";
+            }
+            else {
+                lh.Q = "Hào Kiệt";
             }
         }
-        lh2.D = new ll[ku2.b((short)83)];
-        n5 = ku2.b((short)83, 0);
-        n4 = 0;
-        while (n4 < lh2.D.length) {
-            n3 = ku2.a((short)83, n5);
-            lh2.D[n4] = ky.a(ku2, n5, n3, false);
-            n5 = n3;
-            ++n4;
+        lh.ab = ku.c((short)160, 0);
+        lh.Z = (ku.a((short)165, (byte)0) == 1);
+        lh.aa = (ku.a((short)166, (byte)0) == 1);
+        final int b = ku.b((short)64);
+        lh.E = new lv[b];
+        if (b > 0) {
+            int a = ku.a((short)64, 0);
+            for (int i = 0; i < b; ++i) {
+                final int a2 = ku.a((short)64, a);
+                lh.E[i] = new lv(ku.a(a, -1));
+                lh.E[i].f = ku.a((short)67, a, a2, -1);
+                lh.E[i].e = ku.a((short)68, a, a2, -1);
+                final lv[] e = lh.E;
+                ku.a((short)89, a, a2, (byte)(-1));
+                a = a2;
+            }
         }
-        lh2.F = this.k(ku2);
-        n4 = ku2.b((short)90);
-        n5 = ku2.b((short)90, 0);
-        n3 = 0;
-        while (n3 < n4) {
-            n6 = ku2.a((short)90, n5);
-            int n7 = ku2.a(n5, 0);
-            n2 = ku2.a((short)91, n5, n6, (byte)0);
-            df df2 = new df(n7);
-            int n8 = ku2.a((short)93, n5, n6, 0);
-            byte[] byArray = ku2.c((short)95, n5, n6);
-            df2.d = new dg(n8, byArray);
-            df2.f = new dg[]{df2.d};
-            n8 = ku2.a((short)96, n5, n6, 0);
-            byte[] byArray2 = ku2.c((short)98, n5, n6);
-            df2.e = new dg(n8, byArray2);
-            switch (n2) {
+        lh.D = new ll[ku.b((short)83)];
+        int b2 = ku.b((short)83, 0);
+        for (int j = 0; j < lh.D.length; ++j) {
+            final int a3 = ku.a((short)83, b2);
+            lh.D[j] = a(ku, b2, a3, false);
+            b2 = a3;
+        }
+        lh.F = this.k(ku);
+        final int b3 = ku.b((short)90);
+        int b4 = ku.b((short)90, 0);
+        for (int k = 0; k < b3; ++k) {
+            final int a4 = ku.a((short)90, b4);
+            final int a5 = ku.a(b4, 0);
+            final byte a6 = ku.a((short)91, b4, a4, (byte)0);
+            final df w = new df(a5);
+            w.d = new dg(ku.a((short)93, b4, a4, 0), ku.c((short)95, b4, a4));
+            w.f = new dg[] { w.d };
+            w.e = new dg(ku.a((short)96, b4, a4, 0), ku.c((short)98, b4, a4));
+            switch (a6) {
                 case 0: {
-                    lh2.U = df2;
+                    lh.U = w;
                     break;
                 }
                 case 1: {
-                    lh2.V = df2;
+                    lh.V = w;
                     break;
                 }
                 case 2: {
-                    lh2.W = df2;
+                    lh.W = w;
+                    break;
                 }
             }
-            n5 = n6;
-            ++n3;
+            b4 = a4;
         }
-        n3 = ku2.b((short)158);
-        lt[] ltArray = new lt[n3];
-        n5 = ku2.b((short)158, 0);
-        int n9 = 0;
-        while (n9 < n3) {
-            n2 = ku2.a((short)158, n5);
-            ltArray[n9] = new lt();
-            ku2.d((short)158, n5, n2);
-            ltArray[n9].a = ku2.a((short)4, n5, n2, 0);
-            ltArray[n9].b = ku2.a((short)157, n5, n2, 0L);
-            n5 = n2;
-            ++n9;
+        final int b5;
+        final lt[] ac = new lt[b5 = ku.b((short)158)];
+        int b6 = ku.b((short)158, 0);
+        for (int l = 0; l < b5; ++l) {
+            final int a7 = ku.a((short)158, b6);
+            ac[l] = new lt();
+            ku.d((short)158, b6, a7);
+            ac[l].a = ku.a((short)4, b6, a7, 0);
+            ac[l].b = ku.a((short)157, b6, a7, 0L);
+            b6 = a7;
         }
-        lh2.ac = ltArray;
-        return lh2;
+        lh.ac = ac;
+        return lh;
     }
-
-    private void b(ku ku2) {
-        int n2;
-        int n3;
-        int n4;
-        int n5;
-        int n6;
-        int n7;
-        int n8;
-        int n9 = ku2.c((short)23, 0);
-        String string = ku2.d((short)9);
-        if ((n9 & 1) != 0) {
-            n8 = ku2.b((short)90);
-            n7 = ku2.b((short)90, 0);
-            n6 = ku2.a((short)15, (byte)0);
-            n5 = ku2.a((short)16, (byte)0);
+    
+    private void b(final ku ku) {
+        final int c = ku.c((short)23, 0);
+        final String d = ku.d((short)9);
+        if ((c & 0x1) != 0x0) {
+            final int b = ku.b((short)90);
+            int b2 = ku.b((short)90, 0);
+            final byte a = ku.a((short)15, (byte)0);
+            final byte a2 = ku.a((short)16, (byte)0);
+            df df = null;
             df df2 = null;
             df df3 = null;
-            df df4 = null;
-            n4 = 0;
-            while (n4 < n8) {
-                n3 = ku2.a((short)90, n7);
-                int n10 = ku2.a(n7, 0);
-                n2 = ku2.a((short)91, n7, n3, (byte)0);
-                df df5 = new df(n10);
-                int n11 = ku2.a((short)93, n7, n3, 0);
-                byte[] byArray = ku2.c((short)95, n7, n3);
-                df5.d = new dg(n11, byArray);
-                df5.f = new dg[]{df5.d};
-                n11 = ku2.a((short)96, n7, n3, 0);
-                byte[] byArray2 = ku2.c((short)98, n7, n3);
-                df5.e = new dg(n11, byArray2);
-                switch (n2) {
+            for (int i = 0; i < b; ++i) {
+                final int a3 = ku.a((short)90, b2);
+                final int a4 = ku.a(b2, 0);
+                final byte a5 = ku.a((short)91, b2, a3, (byte)0);
+                final df df4 = new df(a4);
+                df4.d = new dg(ku.a((short)93, b2, a3, 0), ku.c((short)95, b2, a3));
+                df4.f = new dg[] { df4.d };
+                df4.e = new dg(ku.a((short)96, b2, a3, 0), ku.c((short)98, b2, a3));
+                switch (a5) {
                     case 0: {
-                        df2 = df5;
+                        df = df4;
                         break;
                     }
                     case 1: {
-                        df3 = df5;
+                        df2 = df4;
                         break;
                     }
                     case 2: {
-                        df4 = df5;
+                        df3 = df4;
+                        break;
                     }
                 }
-                n7 = n3;
-                ++n4;
+                b2 = a3;
             }
             if (this.b != null) {
-                this.b.a(string, (byte)n6, (byte)n5, df2, df3, df4);
+                this.b.a(d, a, a2, df, df2, df3);
             }
         }
-        if ((n9 & 2) != 0) {
-            n8 = ku2.c((short)27, 0);
-            n7 = ku2.c((short)118, 0);
-            n6 = ku2.c((short)119, 0);
-            n5 = ku2.c((short)120, 0);
-            int n12 = ku2.c((short)121, 0);
-            int n13 = ku2.c((short)196, 0);
-            int n14 = ku2.c((short)197, 0);
-            n4 = ku2.c((short)198, 0);
-            n3 = ku2.c((short)199, 0);
-            int n15 = ku2.c((short)116, 0);
-            n2 = ku2.c((short)115, 0);
+        if ((c & 0x2) != 0x0) {
+            final int c2 = ku.c((short)27, 0);
+            final int c3 = ku.c((short)118, 0);
+            final int c4 = ku.c((short)119, 0);
+            final int c5 = ku.c((short)120, 0);
+            final int c6 = ku.c((short)121, 0);
+            final int c7 = ku.c((short)196, 0);
+            final int c8 = ku.c((short)197, 0);
+            final int c9 = ku.c((short)198, 0);
+            final int c10 = ku.c((short)199, 0);
+            final int c11 = ku.c((short)116, 0);
+            final int c12 = ku.c((short)115, 0);
             if (this.b != null) {
-                this.b.a(string, n8, n7, n6, n5, n12, n13, n14, n4, n3, n15, n2);
+                this.b.a(d, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12);
             }
         }
-        if ((n9 & 4) != 0) {
-            n8 = ku2.c((short)17, 0);
-            n7 = ku2.c((short)47, 0);
-            n6 = ku2.c((short)42, 0);
-            n5 = ku2.c((short)73, 0);
-            int n16 = ku2.c((short)74, 0);
-            int n17 = ku2.c((short)43, 0);
-            int n18 = ku2.c((short)99, 10000);
+        if ((c & 0x4) != 0x0) {
+            final int c13 = ku.c((short)17, 0);
+            final int c14 = ku.c((short)47, 0);
+            final int c15 = ku.c((short)42, 0);
+            final int c16 = ku.c((short)73, 0);
+            final int c17 = ku.c((short)74, 0);
+            final int c18 = ku.c((short)43, 0);
+            final int c19 = ku.c((short)99, 10000);
             if (this.b != null) {
-                this.b.a(string, n8, n7, n6, n5, n16, n17, n18);
+                this.b.a(d, c13, c14, c15, c16, c17, c18, c19);
             }
         }
-        if ((n9 & 8) != 0) {
-            n8 = ku2.c((short)53, 0);
-            n7 = ku2.c((short)76, 0);
-            n6 = ku2.c((short)160, 0);
-            n5 = ku2.c((short)27, 0);
-            String string2 = ku2.d((short)209);
-            String string3 = ku2.d((short)210);
-            String string4 = n5 > 100 && n5 <= 200 ? "Đại Hiệp" : (n5 > 200 ? "Chiến Vương" : "Hào Kiệt");
+        if ((c & 0x8) != 0x0) {
+            final int c20 = ku.c((short)53, 0);
+            final int c21 = ku.c((short)76, 0);
+            final int c22 = ku.c((short)160, 0);
+            final int c23 = ku.c((short)27, 0);
+            final String d2 = ku.d((short)209);
+            final String d3 = ku.d((short)210);
+            String s;
+            if (c23 > 100 && c23 <= 200) {
+                s = "Đại Hiệp";
+            }
+            else if (c23 > 200) {
+                s = "Chiến Vương";
+            }
+            else {
+                s = "Hào Kiệt";
+            }
             if (this.b != null) {
-                this.b.a(string, n8, n7, n6, string2, string3, string4);
+                this.b.a(d, c20, c21, c22, d2, d3, s);
             }
         }
-        if ((n9 & 0x10) != 0) {
-            this.b.c(ku2.a((short)165, (byte)0) == 1);
-            this.b.d(ku2.a((short)166, (byte)0) == 1);
+        if ((c & 0x10) != 0x0) {
+            this.b.c(ku.a((short)165, (byte)0) == 1);
+            this.b.d(ku.a((short)166, (byte)0) == 1);
         }
-        if ((n9 & 0x20) != 0) {
-            n8 = ku2.b((short)64);
-            lv[] lvArray = new lv[n8];
-            if (n8 > 0) {
-                n6 = ku2.a((short)64, 0);
-                n5 = 0;
-                while (n5 < n8) {
-                    int n19 = ku2.a((short)64, n6);
-                    lvArray[n5] = new lv(ku2.a(n6, -1));
-                    lvArray[n5].f = ku2.a((short)67, n6, n19, -1);
-                    n6 = n19;
-                    ++n5;
+        if ((c & 0x20) != 0x0) {
+            final int b3;
+            final lv[] array = new lv[b3 = ku.b((short)64)];
+            if (b3 > 0) {
+                int a6 = ku.a((short)64, 0);
+                for (int j = 0; j < b3; ++j) {
+                    final int a7 = ku.a((short)64, a6);
+                    array[j] = new lv(ku.a(a6, -1));
+                    array[j].f = ku.a((short)67, a6, a7, -1);
+                    a6 = a7;
                 }
             }
             if (this.b != null) {
-                this.b.a(lvArray);
+                this.b.a(array);
             }
         }
-        if ((n9 & 0x40) != 0) {
-            ll[] llArray = new ll[ku2.b((short)83)];
-            int n20 = ku2.b((short)83, 0);
-            n6 = 0;
-            while (n6 < llArray.length) {
-                n5 = ku2.a((short)83, n20);
-                llArray[n6] = ky.a(ku2, n20, n5, false);
-                n20 = n5;
-                ++n6;
+        if ((c & 0x40) != 0x0) {
+            final ll[] array2 = new ll[ku.b((short)83)];
+            int b4 = ku.b((short)83, 0);
+            for (int k = 0; k < array2.length; ++k) {
+                final int a8 = ku.a((short)83, b4);
+                array2[k] = a(ku, b4, a8, false);
+                b4 = a8;
             }
             if (this.b != null) {
-                this.b.a(string, llArray);
+                this.b.a(d, array2);
             }
         }
-        if ((n9 & 0x100) != 0) {
-            int n21 = ku2.b((short)158);
-            lt[] ltArray = new lt[n21];
-            n6 = ku2.b((short)158, 0);
-            n5 = 0;
-            while (n5 < n21) {
-                int n22 = ku2.a((short)158, n6);
-                ltArray[n5] = new lt();
-                ku2.d((short)158, n6, n22);
-                ltArray[n5].a = ku2.a((short)4, n6, n22, 0);
-                ltArray[n5].b = ku2.a((short)157, n6, n22, 0L);
-                n6 = n22;
-                ++n5;
+        if ((c & 0x100) != 0x0) {
+            final int b5;
+            final lt[] array3 = new lt[b5 = ku.b((short)158)];
+            int b6 = ku.b((short)158, 0);
+            for (int l = 0; l < b5; ++l) {
+                final int a9 = ku.a((short)158, b6);
+                array3[l] = new lt();
+                ku.d((short)158, b6, a9);
+                array3[l].a = ku.a((short)4, b6, a9, 0);
+                array3[l].b = ku.a((short)157, b6, a9, 0L);
+                b6 = a9;
             }
             if (this.b != null) {
-                this.b.a(ltArray);
+                this.b.a(array3);
             }
         }
         if (this.b != null) {
             this.b.U();
         }
     }
-
-    private static ll a(ku ku2, int n2, int n3, boolean bl) {
-        Object object = ku2.b(n2);
-        byte by = ku2.a((short)84, n2, n3, (byte)0);
-        object = new ll((String)object, by);
-        v0.n = ku2.a((short)4, n2, n3, 0);
-        ((ll)object).p = ku2.a((short)139, n2, n3, -1);
-        ((ll)object).j = ku2.a((short)27, n2, n3, 0);
-        if (bl) {
-            ((ll)object).d = ku2.d((short)26, n2, n3);
-            ((ll)object).i = ku2.a((short)135, n2, n3, -1);
-            ((ll)object).f = ku2.a((short)15, n2, n3, (byte)7);
-            ((ll)object).h = ku2.a((short)16, n2, n3, (byte)2);
-            ((ll)object).m = ku2.a((short)138, n2, n3, (byte)0);
-            ((ll)object).q = ku2.a((short)144, n2, n3, 0);
-            ((ll)object).g = ku2.d((short)117, n2, n3);
-            ((ll)object).s = ku2.a((short)156, n2, n3, (byte)-1);
-            ((ll)object).t = ku2.a((short)85, n2, n3, (byte)1);
-            ((ll)object).k = ku2.a((short)190, n2, n3, (byte)-1);
-            lb lb2 = new lb();
-            new lb().a = ku2.a((short)118, n2, n3, 0);
-            lb2.b = ku2.a((short)119, n2, n3, 0);
-            lb2.c = ku2.a((short)120, n2, n3, 0);
-            lb2.d = ku2.a((short)121, n2, n3, 0);
-            lb2.e = ku2.a((short)72, n2, n3, 0);
-            lb2.f = ku2.a((short)71, n2, n3, 0);
-            lb2.g = ku2.a((short)126, n2, n3, 0);
-            lb2.h = ku2.a((short)124, n2, n3, 0);
-            lb2.i = ku2.a((short)47, n2, n3, 0);
-            lb2.j = ku2.a((short)200, n2, n3, 0);
-            lb2.k = ku2.a((short)201, n2, n3, 0);
-            lb2.l = ku2.a((short)202, n2, n3, 0);
-            lb2.m = ku2.a((short)203, n2, n3, 0);
-            lb2.n = ku2.a((short)204, n2, n3, 0);
-            lb2.o = ku2.a((short)221, n2, n3, 0);
-            ((ll)object).r = lb2;
+    
+    private static ll a(final ku ku, final int n, final int n2, final boolean b) {
+        final ll ll;
+        (ll = new ll(ku.b(n), ku.a((short)84, n, n2, (byte)0))).n = ku.a((short)4, n, n2, 0);
+        ll.p = ku.a((short)139, n, n2, -1);
+        ll.j = ku.a((short)27, n, n2, 0);
+        if (b) {
+            ll.d = ku.d((short)26, n, n2);
+            ll.i = ku.a((short)135, n, n2, -1);
+            ll.f = ku.a((short)15, n, n2, (byte)7);
+            ll.h = ku.a((short)16, n, n2, (byte)2);
+            ll.m = ku.a((short)138, n, n2, (byte)0);
+            ll.q = ku.a((short)144, n, n2, 0);
+            ll.g = ku.d((short)117, n, n2);
+            ll.s = ku.a((short)156, n, n2, (byte)(-1));
+            ll.t = ku.a((short)85, n, n2, (byte)1);
+            ll.k = ku.a((short)190, n, n2, (byte)(-1));
+            final lb r;
+            (r = new lb()).a = ku.a((short)118, n, n2, 0);
+            r.b = ku.a((short)119, n, n2, 0);
+            r.c = ku.a((short)120, n, n2, 0);
+            r.d = ku.a((short)121, n, n2, 0);
+            r.e = ku.a((short)72, n, n2, 0);
+            r.f = ku.a((short)71, n, n2, 0);
+            r.g = ku.a((short)126, n, n2, 0);
+            r.h = ku.a((short)124, n, n2, 0);
+            r.i = ku.a((short)47, n, n2, 0);
+            r.j = ku.a((short)200, n, n2, 0);
+            r.k = ku.a((short)201, n, n2, 0);
+            r.l = ku.a((short)202, n, n2, 0);
+            r.m = ku.a((short)203, n, n2, 0);
+            r.n = ku.a((short)204, n, n2, 0);
+            r.o = ku.a((short)221, n, n2, 0);
+            ll.r = r;
         }
-        return object;
+        return ll;
     }
-
-    private void c(ku ku2) {
-        byte by = ku2.a((short)12, (byte)0);
-        String string = ku2.d((short)131);
-        int n2 = ku2.c((short)41, -1);
-        int n3 = ku2.c((short)13, 0);
-        int[] nArray = new int[ku2.b((short)4)];
-        int n4 = ku2.b((short)4, 0);
-        int n5 = 0;
-        while (n5 < nArray.length) {
-            nArray[n5] = ku2.a(n4, 0);
-            ++n4;
-            ++n5;
+    
+    private void c(final ku ku) {
+        final byte a = ku.a((short)12, (byte)0);
+        final String d = ku.d((short)131);
+        final int c = ku.c((short)41, -1);
+        final int c2 = ku.c((short)13, 0);
+        final int[] array = new int[ku.b((short)4)];
+        int b = ku.b((short)4, 0);
+        for (int i = 0; i < array.length; ++i) {
+            array[i] = ku.a(b, 0);
+            ++b;
         }
-        this.b.a(by == 2, string, n2, nArray, n3);
-        n5 = ku2.c((short)170, -1);
-        String[] stringArray = new String[ku2.b((short)1)];
-        if (stringArray.length > 0) {
-            int n6 = ku2.b((short)1, 0);
-            n2 = 0;
-            while (n2 < stringArray.length) {
-                n3 = ku2.a((short)1, n6);
-                stringArray[n2] = ku2.b(n6);
-                n6 = n3;
-                ++n2;
+        this.b.a(a == 2, d, c, array, c2);
+        final int c3 = ku.c((short)170, -1);
+        final String[] array2;
+        if ((array2 = new String[ku.b((short)1)]).length > 0) {
+            int b2 = ku.b((short)1, 0);
+            for (int j = 0; j < array2.length; ++j) {
+                final int a2 = ku.a((short)1, b2);
+                array2[j] = ku.b(b2);
+                b2 = a2;
             }
         }
-        this.b.a(n5, stringArray);
+        this.b.a(c3, array2);
     }
-
-    private void d(ku ku2) {
+    
+    private void d(final ku ku) {
         try {
-            jm jm2;
-            byte by = ku2.a((short)12, (byte)0);
-            Object object = ku2.d((short)20);
-            if (by == 0) {
-                jm jm3;
-                int n2;
-                jm[] jmArray = new jm[ku2.b((short)21)];
-                int n3 = ku2.b((short)21, 0);
-                int n4 = 0;
-                while (n4 < jmArray.length) {
-                    n2 = ku2.a((short)21, n3);
-                    jm3 = new jm();
-                    new jm().c = ku2.a(n3, -1);
-                    jm3.b = ku2.d((short)26, n3, n2);
-                    jm3.a = ku2.a((short)22, n3, n2, (byte)0);
-                    jm3.d = ku2.a((short)102, n3, n2, 0);
-                    jm3.e = ku2.a((short)103, n3, n2, 0);
-                    jm3.f = ku2.a((short)104, n3, n2, 0);
-                    jm3.g = ku2.a((short)105, n3, n2, 0);
-                    jm3.h = ku2.a((short)101, n3, n2, (byte)0) == 1;
-                    jm3.i = ku2.a((short)4, n3, n2, 0);
-                    jmArray[n4] = jm3;
-                    n3 = n2;
-                    ++n4;
+            final byte a = ku.a((short)12, (byte)0);
+            final String d = ku.d((short)20);
+            if (a == 0) {
+                final jm[] array = new jm[ku.b((short)21)];
+                int b = ku.b((short)21, 0);
+                for (int i = 0; i < array.length; ++i) {
+                    final int a2 = ku.a((short)21, b);
+                    final jm jm;
+                    (jm = new jm()).c = ku.a(b, -1);
+                    jm.b = ku.d((short)26, b, a2);
+                    jm.a = ku.a((short)22, b, a2, (byte)0);
+                    jm.d = ku.a((short)102, b, a2, 0);
+                    jm.e = ku.a((short)103, b, a2, 0);
+                    jm.f = ku.a((short)104, b, a2, 0);
+                    jm.g = ku.a((short)105, b, a2, 0);
+                    jm.h = (ku.a((short)101, b, a2, (byte)0) == 1);
+                    jm.i = ku.a((short)4, b, a2, 0);
+                    array[i] = jm;
+                    b = a2;
                 }
-                n4 = 0;
-                while (n4 < jmArray.length - 1) {
-                    n2 = n4 + 1;
-                    while (n2 < jmArray.length) {
-                        if (jmArray[n4].c > jmArray[n2].c) {
-                            jm3 = jmArray[n4];
-                            jmArray[n4] = jmArray[n2];
-                            jmArray[n2] = jm3;
+                for (int j = 0; j < array.length - 1; ++j) {
+                    for (int k = j + 1; k < array.length; ++k) {
+                        if (array[j].c > array[k].c) {
+                            final jm jm2 = array[j];
+                            array[j] = array[k];
+                            array[k] = jm2;
                         }
-                        ++n2;
                     }
-                    ++n4;
                 }
-                this.b.a((String)object, jmArray);
+                this.b.a(d, array);
                 return;
             }
-            a a2 = new a();
-            jn jn2 = new jn();
-            new jn().a = object;
-            jn2.b = ku2.d((short)26);
-            jn2.c = ku2.c((short)41, 0);
-            jn2.d = ku2.c((short)56, 0);
-            jn2.e = ku2.c((short)57, 0);
-            jn2.h = ku2.c((short)55);
-            jn2.i = ku2.c((short)54);
-            jn2.j = ku2.c((short)61);
-            jn2.k = ku2.c((short)60, 0);
-            jn2.f = ku2.c((short)63, 0);
-            jn2.g = ku2.c((short)29, 0);
-            a2.a(new Integer(jn2.k));
-            a2.a(new Integer(jn2.f));
-            a2.a(new Integer(jn2.g));
-            jm[] jmArray = new jm[ku2.b((short)21)];
-            int n5 = ku2.b((short)21, 0);
-            int n6 = 0;
-            while (n6 < jmArray.length) {
-                int n7 = ku2.a((short)21, n5);
-                jm2 = new jm();
-                new jm().c = ku2.a(n5, -1);
-                jm2.b = ku2.d((short)26, n5, n7);
-                jm2.a = ku2.a((short)22, n5, n7, (byte)0);
-                jm2.d = ku2.a((short)102, n5, n7, 0);
-                jm2.e = ku2.a((short)103, n5, n7, 0);
-                jm2.f = ku2.a((short)104, n5, n7, 0);
-                jm2.g = ku2.a((short)105, n5, n7, 0);
-                jm2.h = ku2.a((short)101, n5, n7, (byte)0) == 1;
-                jm2.i = ku2.a((short)4, n5, n7, 0);
-                if (jm2.i != 0) {
-                    a2.a(new Integer(jm2.i));
+            final a a3 = new a();
+            final jn jn;
+            (jn = new jn()).a = d;
+            jn.b = ku.d((short)26);
+            jn.c = ku.c((short)41, 0);
+            jn.d = ku.c((short)56, 0);
+            jn.e = ku.c((short)57, 0);
+            jn.h = ku.c((short)55);
+            jn.i = ku.c((short)54);
+            jn.j = ku.c((short)61);
+            jn.k = ku.c((short)60, 0);
+            jn.f = ku.c((short)63, 0);
+            jn.g = ku.c((short)29, 0);
+            a3.a(new Integer(jn.k));
+            a3.a(new Integer(jn.f));
+            a3.a(new Integer(jn.g));
+            final jm[] l = new jm[ku.b((short)21)];
+            int b2 = ku.b((short)21, 0);
+            for (int n = 0; n < l.length; ++n) {
+                final int a4 = ku.a((short)21, b2);
+                final jm jm3;
+                (jm3 = new jm()).c = ku.a(b2, -1);
+                jm3.b = ku.d((short)26, b2, a4);
+                jm3.a = ku.a((short)22, b2, a4, (byte)0);
+                jm3.d = ku.a((short)102, b2, a4, 0);
+                jm3.e = ku.a((short)103, b2, a4, 0);
+                jm3.f = ku.a((short)104, b2, a4, 0);
+                jm3.g = ku.a((short)105, b2, a4, 0);
+                jm3.h = (ku.a((short)101, b2, a4, (byte)0) == 1);
+                jm3.i = ku.a((short)4, b2, a4, 0);
+                if (jm3.i != 0) {
+                    a3.a(new Integer(jm3.i));
                 }
-                jmArray[n6] = jm2;
-                n5 = n7;
-                ++n6;
+                l[n] = jm3;
+                b2 = a4;
             }
-            n6 = 0;
-            while (n6 < jmArray.length - 1) {
-                int n8 = n6 + 1;
-                while (n8 < jmArray.length) {
-                    if (jmArray[n6].c > jmArray[n8].c) {
-                        jm2 = jmArray[n6];
-                        jmArray[n6] = jmArray[n8];
-                        jmArray[n8] = jm2;
+            for (int n2 = 0; n2 < l.length - 1; ++n2) {
+                for (int n3 = n2 + 1; n3 < l.length; ++n3) {
+                    if (l[n2].c > l[n3].c) {
+                        final jm jm4 = l[n2];
+                        l[n2] = l[n3];
+                        l[n3] = jm4;
                     }
-                    ++n8;
-                }
-                ++n6;
-            }
-            jn2.l = jmArray;
-            n6 = ku2.a(ku2.b((short)6, 0), 0);
-            object = new int[a2.d()];
-            int n9 = 0;
-            while (n9 < ((Object)object).length) {
-                object[n9] = (Integer)a2.b(n9);
-                ++n9;
-            }
-            int[] nArray = new int[ku2.b((short)154)];
-            if (nArray.length > 0) {
-                n5 = ku2.b((short)154, 0);
-                int n10 = 0;
-                while (n10 < nArray.length) {
-                    int n11 = ku2.a((short)154, n5);
-                    nArray[n10] = ku2.a(n5, 0);
-                    n5 = n11;
-                    ++n10;
                 }
             }
-            int n12 = ku2.a(ku2.b((short)6, 1), 0);
-            this.b.a(jn2, (int[])object, n6, nArray, n12);
-            return;
+            jn.l = l;
+            final int a5 = ku.a(ku.b((short)6, 0), 0);
+            final int[] array2 = new int[a3.d()];
+            for (int n4 = 0; n4 < array2.length; ++n4) {
+//                array2[n4] = (int)a3.b(n4);
+                array2[n4] = ((Integer)a3.b(n4)).intValue();
+            }
+            final int[] array3;
+            if ((array3 = new int[ku.b((short)154)]).length > 0) {
+                int b3 = ku.b((short)154, 0);
+                for (int n5 = 0; n5 < array3.length; ++n5) {
+                    final int a6 = ku.a((short)154, b3);
+                    array3[n5] = ku.a(b3, 0);
+                    b3 = a6;
+                }
+            }
+            this.b.a(jn, array2, a5, array3, ku.a(ku.b((short)6, 1), 0));
         }
-        catch (OutOfMemoryError outOfMemoryError) {
-            return;
-        }
+        catch (final OutOfMemoryError outOfMemoryError) {}
     }
-
-    private void e(ku ku2) {
-        Object[] objectArray;
-        int n2;
-        int n3;
-        int n4;
+    
+    private void e(final ku ku) {
+        int n = 0;
+        int n2 = 0;
+        int n3 = 0;
+        int n4 = 0;
         int n5 = 0;
         int n6 = 0;
-        int n7 = 0;
-        int n8 = 0;
-        int n9 = 0;
-        int n10 = 0;
-        int n11 = ku2.b((short)90);
-        df[] dfArray = new df[n11];
-        byte[] byArray = new byte[n11];
-        int n12 = ku2.b((short)90, 0);
-        int n13 = 0;
-        while (n13 < n11) {
-            n4 = ku2.a((short)90, n12);
-            n3 = ku2.a(n12, 0);
-            byArray[n13] = ku2.a((short)91, n12, n4, (byte)0);
-            df df2 = new df(n3);
-            new df(n3).b = ku2.d((short)92, n12, n4);
-            df2.c = ku2.a((short)16, n12, n4, (byte)0);
-            n2 = ku2.a((short)93, n12, n4, 0);
-            String string = ku2.d((short)94, n12, n4);
-            objectArray = ku2.c((short)95, n12, n4);
-            df2.d = new dg(n2, (byte[])objectArray);
-            df2.d.b = string;
-            df2.e = df2.d;
-            df2.f = new dg[ku2.a((short)96, n12, n4)];
-            df2.f[0] = df2.d;
-            n12 = ku2.a((short)96, n12);
-            int n14 = 1;
-            int n15 = 0;
-            while (n15 < df2.f.length) {
-                int n16 = ku2.a((short)96, n12);
-                int n17 = ku2.a(n12, 0);
-                String string2 = ku2.d((short)97, n12, n16);
-                byte[] byArray2 = ku2.c((short)98, n12, n16);
-                if (n17 != n2) {
-                    df2.f[n14] = new dg(n17, byArray2);
-                    df2.f[n14].b = string2;
-                    ++n14;
+        final int b;
+        final df[] array = new df[b = ku.b((short)90)];
+        final byte[] array2 = new byte[b];
+        int b2 = ku.b((short)90, 0);
+        for (int i = 0; i < b; ++i) {
+            final int a = ku.a((short)90, b2);
+            final int a2 = ku.a(b2, 0);
+            array2[i] = ku.a((short)91, b2, a, (byte)0);
+            final df df;
+            (df = new df(a2)).b = ku.d((short)92, b2, a);
+            df.c = ku.a((short)16, b2, a, (byte)0);
+            final int a3 = ku.a((short)93, b2, a, 0);
+            final String d = ku.d((short)94, b2, a);
+            df.d = new dg(a3, ku.c((short)95, b2, a));
+            df.d.b = d;
+            df.e = df.d;
+            (df.f = new dg[ku.a((short)96, b2, a)])[0] = df.d;
+            int a4 = ku.a((short)96, b2);
+            int n7 = 1;
+            for (int j = 0; j < df.f.length; ++j) {
+                final int a5 = ku.a((short)96, a4);
+                final int a6 = ku.a(a4, 0);
+                final String d2 = ku.d((short)97, a4, a5);
+                final byte[] c = ku.c((short)98, a4, a5);
+                if (a6 != a3) {
+                    df.f[n7] = new dg(a6, c);
+                    df.f[n7].b = d2;
+                    ++n7;
                 }
-                n12 = n16;
-                ++n15;
+                a4 = a5;
             }
-            if (df2.c == 0) {
-                switch (byArray[n13]) {
+            if (df.c == 0) {
+                switch (array2[i]) {
                     case 0: {
-                        ++n6;
+                        ++n2;
                         break;
                     }
                     case 1: {
+                        ++n;
+                        break;
+                    }
+                    case 2: {
+                        ++n3;
+                        break;
+                    }
+                }
+            }
+            else {
+                switch (array2[i]) {
+                    case 0: {
                         ++n5;
                         break;
                     }
-                    case 2: {
-                        ++n7;
-                    }
-                }
-            } else {
-                switch (byArray[n13]) {
-                    case 0: {
-                        ++n9;
-                        break;
-                    }
                     case 1: {
-                        ++n8;
+                        ++n4;
                         break;
                     }
                     case 2: {
-                        ++n10;
+                        ++n6;
+                        break;
                     }
                 }
             }
-            dfArray[n13] = df2;
-            n12 = n4;
-            ++n13;
+            array[i] = df;
+            b2 = a;
         }
-        n13 = 0;
-        n4 = 0;
-        n3 = 0;
-        int n18 = 0;
-        n2 = 0;
-        int n19 = 0;
-        objectArray = new df[n5];
-        df[] dfArray2 = new df[n6];
-        df[] dfArray3 = new df[n7];
-        df[] dfArray4 = new df[n8];
-        df[] dfArray5 = new df[n9];
-        df[] dfArray6 = new df[n10];
-        int n20 = 0;
-        while (n20 < dfArray.length) {
-            if (dfArray[n20].c == 0) {
-                switch (byArray[n20]) {
+        int n8 = 0;
+        int n9 = 0;
+        int n10 = 0;
+        int n11 = 0;
+        int n12 = 0;
+        int n13 = 0;
+        final df[] array3 = new df[n];
+        final df[] array4 = new df[n2];
+        final df[] array5 = new df[n3];
+        final df[] array6 = new df[n4];
+        final df[] array7 = new df[n5];
+        final df[] array8 = new df[n6];
+        for (int k = 0; k < array.length; ++k) {
+            if (array[k].c == 0) {
+                switch (array2[k]) {
                     case 0: {
-                        dfArray2[n4++] = dfArray[n20];
+                        array4[n9++] = array[k];
                         break;
                     }
                     case 1: {
-                        objectArray[n13++] = dfArray[n20];
+                        array3[n8++] = array[k];
                         break;
                     }
                     case 2: {
-                        dfArray3[n3++] = dfArray[n20];
-                    }
-                }
-            } else {
-                switch (byArray[n20]) {
-                    case 0: {
-                        dfArray5[n2++] = dfArray[n20];
+                        array5[n10++] = array[k];
                         break;
-                    }
-                    case 1: {
-                        dfArray4[n18++] = dfArray[n20];
-                        break;
-                    }
-                    case 2: {
-                        dfArray6[n19++] = dfArray[n20];
                     }
                 }
             }
-            ++n20;
+            else {
+                switch (array2[k]) {
+                    case 0: {
+                        array7[n12++] = array[k];
+                        break;
+                    }
+                    case 1: {
+                        array6[n11++] = array[k];
+                        break;
+                    }
+                    case 2: {
+                        array8[n13++] = array[k];
+                        break;
+                    }
+                }
+            }
         }
-        this.b.a(dfArray2, (df[])objectArray, dfArray3, dfArray5, dfArray4, dfArray6);
+        this.b.a(array4, array3, array5, array7, array6, array8);
     }
-
-    private void f(ku ku2) {
-        String string = ku2.d((short)20);
-        byte by = ku2.a((short)40, (byte)3);
-        jo[] joArray = new jo[ku2.b((short)9)];
-        int n2 = ku2.b((short)9, 0);
-        int n3 = 0;
-        while (n3 < joArray.length) {
-            int n4 = ku2.a((short)9, n2);
-            jo jo2 = new jo();
-            new jo().a = ku2.b(n2);
-            jo2.b = ku2.d((short)26, n2, n4);
-            jo2.d = ku2.a((short)27, n2, n4, 0);
-            jo2.c = ku2.a((short)15, n2, n4, (byte)0);
-            jo2.e = ku2.a((short)129, n2, n4, 0);
-            jo2.f = ku2.a((short)106, n2, n4, 0);
-            jo2.g = ku2.a((short)107, n2, n4, (byte)0);
-            joArray[n3] = jo2;
-            n2 = n4;
-            ++n3;
+    
+    private void f(final ku ku) {
+        final String d = ku.d((short)20);
+        final byte a = ku.a((short)40, (byte)3);
+        final jo[] array = new jo[ku.b((short)9)];
+        int b = ku.b((short)9, 0);
+        for (int i = 0; i < array.length; ++i) {
+            final int a2 = ku.a((short)9, b);
+            final jo jo;
+            (jo = new jo()).a = ku.b(b);
+            jo.b = ku.d((short)26, b, a2);
+            jo.d = ku.a((short)27, b, a2, 0);
+            jo.c = ku.a((short)15, b, a2, (byte)0);
+            jo.e = ku.a((short)129, b, a2, 0);
+            jo.f = ku.a((short)106, b, a2, 0);
+            jo.g = ku.a((short)107, b, a2, (byte)0);
+            array[i] = jo;
+            b = a2;
         }
-        switch (by) {
+        switch (a) {
             case 0: {
-                this.b.b(joArray, string);
+                this.b.b(array, d);
                 return;
             }
             case 1: {
-                this.b.c(joArray, string);
+                this.b.c(array, d);
                 return;
             }
             case 3: {
-                this.b.a(joArray, string);
+                this.b.a(array, d);
+                break;
             }
         }
     }
-
-    private void g(ku ku2) {
-        ns[] nsArray = new ns[ku2.b((short)77)];
-        int n2 = ku2.b((short)77, 0);
-        int n3 = 0;
-        while (n3 < nsArray.length) {
-            int n4 = ku2.a((short)77, n2);
-            String string = ku2.b(n2);
-            String string2 = ku2.d((short)26, n2, n4);
-            n2 = ku2.a((short)100, n2, n4, (byte)0) == 1 ? 1 : 0;
-            nsArray[n3] = new ns(string, string2, "", 0L);
-            nsArray[n3].e = n2;
-            n2 = n4;
-            ++n3;
+    
+    private void g(final ku ku) {
+        final ns[] array = new ns[ku.b((short)77)];
+        int b = ku.b((short)77, 0);
+        for (int i = 0; i < array.length; ++i) {
+            final int a = ku.a((short)77, b);
+            final String b2 = ku.b(b);
+            final String d = ku.d((short)26, b, a);
+            final boolean e = ku.a((short)100, b, a, (byte)0) == 1;
+            array[i] = new ns(b2, d, "", 0L);
+            array[i].e = e;
+            b = a;
         }
-        this.b.a(nsArray);
+        this.b.a(array);
     }
-
-    private void h(ku ku2) {
-        String string = ku2.d((short)192);
-        int n2 = ku2.b((short)9);
-        if (n2 > 0) {
-            doo[] dooArray = new doo[n2];
-            int n3 = ku2.b((short)9, 0);
+    
+    private void h(final ku ku) {
+        final String d = ku.d((short)192);
+        final int b;
+        if ((b = ku.b((short)9)) > 0) {
+            final doo[] array = new doo[b];
+            int b2 = ku.b((short)9, 0);
             try {
-                int n4 = 0;
-                while (n4 < dooArray.length) {
-                    int n5 = ku2.a((short)9, n3);
-                    dooArray[n4] = ky.d(ku2, n3, n5);
-                    n3 = n5;
-                    ++n4;
+                for (int i = 0; i < array.length; ++i) {
+                    final int a = ku.a((short)9, b2);
+                    array[i] = d(ku, b2, a);
+                    b2 = a;
                 }
-                this.b.a(string, dooArray);
-                return;
+                this.b.a(d, array);
             }
-            catch (OutOfMemoryError outOfMemoryError) {
-                ku2.c = null;
+            catch (final OutOfMemoryError outOfMemoryError) {
+                ku.c = null;
                 System.gc();
             }
         }
     }
-
-    private void i(ku ku2) {
-        byte by = ku2.a((short)193, (byte)0);
-        int n2 = ku2.b((short)192, 0);
-        int n3 = ku2.b((short)192);
-        lr[] lrArray = new lr[n3];
-        int n4 = 0;
-        while (n4 < n3) {
-            int n5;
-            int n6 = n5 = ku2.a((short)192, n2);
-            int n7 = n2;
-            ku ku3 = ku2;
-            String string = ku3.b(n7);
-            String string2 = ku3.d((short)26, n7, n6);
-            int n8 = ku3.a((short)106, n7, n6, 0);
-            String string3 = ku3.d((short)1, n7, n6);
-            byte by2 = ku3.a((short)101, n7, n6, (byte)0);
-            n2 = ku3.a((short)143, n7, n6, (byte)0);
-            lrArray[n4] = new lr(string, string2, string3, n8, by2, (byte)n2);
-            n2 = n5;
-            ++n4;
+    
+    private void i(final ku ku) {
+        final byte a = ku.a((short)193, (byte)0);
+        int b = ku.b((short)192, 0);
+        final int b2;
+        final lr[] array = new lr[b2 = ku.b((short)192)];
+        for (int i = 0; i < b2; ++i) {
+            final int a2 = ku.a((short)192, b);
+            final lr[] array2 = array;
+            final int n = i;
+            final int n2 = b;
+            final int n3 = a2;
+            final int n4 = n2;
+            array2[n] = new lr(ku.b(n4), ku.d((short)26, n4, n3), ku.d((short)1, n4, n3), ku.a((short)106, n4, n3, 0), ku.a((short)101, n4, n3, (byte)0), ku.a((short)143, n4, n3, (byte)0));
+            b = a2;
         }
-        if (by != 0) {
-            this.b.b(lrArray);
+        if (a != 0) {
+            this.b.b(array);
             return;
         }
-        this.b.a(lrArray);
+        this.b.a(array);
     }
-
-    private static doo d(ku ku2, int n2, int n3) {
-        doo doo2 = new doo();
-        new doo().a = ku2.b(n2);
-        doo2.b = ku2.a((short)27, n2, n3, 0);
-        doo2.c = ku2.a((short)24, n2, n3, (byte)0);
-        doo2.d = ku2.a((short)160, n2, n3, 0);
-        doo2.f = ku2.a((short)132, n2, n3, 0);
-        return doo2;
+    
+    private static doo d(final ku ku, final int n, final int n2) {
+        final doo doo;
+        (doo = new doo()).a = ku.b(n);
+        doo.b = ku.a((short)27, n, n2, 0);
+        doo.c = ku.a((short)24, n, n2, (byte)0);
+        doo.d = ku.a((short)160, n, n2, 0);
+        doo.f = ku.a((short)132, n, n2, 0);
+        return doo;
     }
-
-    private void j(ku ku2) {
+    
+    private void j(final ku ku) {
         ct.a("[processPrepareData]======================================");
+        lh lh = null;
         lh lh2 = null;
-        lh lh3 = null;
-        byte by = ku2.a((short)111, (byte)0);
-        byte by2 = ku2.a((short)140, (byte)0);
-        boolean bl = false;
-        int n2 = ku2.b((short)9, 0);
-        int n3 = 0;
-        while (n3 < 2) {
-            int n4 = ku2.a((short)9, n2);
-            lh lh4 = this.c(ku2, n2, n4);
-            if (by2 != 9) {
-                if (lh4.b.equals(go.e)) {
-                    lh2 = lh4;
-                    if (lh3 == null) {
-                        bl = true;
+        final byte a = ku.a((short)111, (byte)0);
+        final byte a2 = ku.a((short)140, (byte)0);
+        boolean b = false;
+        int b2 = ku.b((short)9, 0);
+        for (int i = 0; i < 2; ++i) {
+            final int a3 = ku.a((short)9, b2);
+            final lh c = this.c(ku, b2, a3);
+            if (a2 != 9) {
+                if (c.b.equals(go.e)) {
+                    lh = c;
+                    if (lh2 == null) {
+                        b = true;
                     }
-                } else {
-                    lh3 = lh4;
                 }
-            } else if (lh2 == null) {
-                lh2 = lh4;
-                ks.i = lh4.b;
-            } else {
-                lh3 = lh4;
+                else {
+                    lh2 = c;
+                }
             }
-            n2 = n4;
-            ++n3;
-        }
-        ks.a().e = ku2.d((short)28);
-        byte[] byArray = ku2.c((short)30);
-        byte[] byArray2 = null;
-        byte[] byArray3 = null;
-        int n5 = ku2.b((short)35);
-        int n6 = 0;
-        while (n6 < n5) {
-            byte[] byArray4 = ku2.a(ku2.b((short)35, n6));
-            if (byArray2 == null) {
-                byArray2 = byArray4;
-            } else {
-                byArray3 = byArray4;
+            else if (lh == null) {
+                lh = c;
+                ks.i = c.b;
             }
-            ++n6;
+            else {
+                lh2 = c;
+            }
+            b2 = a3;
         }
-        n6 = ku2.a((short)70, (byte)0);
-        this.b.a(lh2, lh3, bl, byArray, byArray2, byArray3, n6, by, by2);
-    }
-
-    private lm[] k(ku ku2) {
-        return ky.a(ku2, 0);
-    }
-
-    private static lm[] a(ku ku2, int n2) {
-        lm[] lmArray = new lm[ku2.b((short)114) - n2];
-        n2 = ku2.b((short)114, n2);
-        int n3 = 0;
-        while (n3 < lmArray.length) {
-            int n4 = ku2.a((short)114, n2);
-            int n5 = ku2.a(n2, 0);
-            lmArray[n3] = new lm(n5);
-            lmArray[n3].b = ku2.d((short)26, n2, n4);
-            lmArray[n3].d = ku2.d((short)117, n2, n4);
-            lmArray[n3].g = ku2.a((short)106, n2, n4, 0);
-            lmArray[n3].e = ku2.a((short)122, n2, n4, (byte)-1);
-            lmArray[n3].f = ku2.a((short)123, n2, n4, (byte)-1);
-            lmArray[n3].j = ku2.a((short)4, n2, n4, 0);
-            lmArray[n3].h = ku2.a((short)145, n2, n4, 0);
-            lmArray[n3].i = ku2.a((short)106, n2, n4, 0);
-            lmArray[n3].l = ku2.a((short)82, n2, n4, -1);
-            lmArray[n3].k = ku2.a((short)132, n2, n4, 0L);
-            lmArray[n3].m = ku2.a((short)85, n2, n4, (byte)1);
-            n2 = n4;
-            ++n3;
+        ks.a().e = ku.d((short)28);
+        final byte[] c2 = ku.c((short)30);
+        byte[] array = null;
+        byte[] array2 = null;
+        for (int b3 = ku.b((short)35), j = 0; j < b3; ++j) {
+            final byte[] a4 = ku.a(ku.b((short)35, j));
+            if (array == null) {
+                array = a4;
+            }
+            else {
+                array2 = a4;
+            }
         }
-        return lmArray;
+        this.b.a(lh, lh2, b, c2, array, array2, ku.a((short)70, (byte)0), a, a2);
     }
-
-    private void l(ku ku2) {
-        int n2;
-        int n3 = ku2.c((short)41, 0);
-        byte[] byArray = ku2.c((short)30);
-        byte[] byArray2 = ku2.c((short)35);
-        byte[] byArray3 = ku2.a(ku2.b((short)35, 1));
-        lh[] lhArray = new lh[1];
-        lh[] lhArray2 = new lh[1];
-        int n4 = ku2.b((short)9, 0);
-        int n5 = 0;
-        while (n5 < 2) {
-            n2 = ku2.a((short)9, n4);
-            lh lh2 = this.b(ku2, n4, n2);
+    
+    private lm[] k(final ku ku) {
+        return a(ku, 0);
+    }
+    
+    private static lm[] a(final ku ku, int b) {
+        final lm[] array = new lm[ku.b((short)114) - b];
+        b = ku.b((short)114, b);
+        for (int i = 0; i < array.length; ++i) {
+            final int a = ku.a((short)114, b);
+            array[i] = new lm(ku.a(b, 0));
+            array[i].b = ku.d((short)26, b, a);
+            array[i].d = ku.d((short)117, b, a);
+            array[i].g = ku.a((short)106, b, a, 0);
+            array[i].e = ku.a((short)122, b, a, (byte)(-1));
+            array[i].f = ku.a((short)123, b, a, (byte)(-1));
+            array[i].j = ku.a((short)4, b, a, 0);
+            array[i].h = ku.a((short)145, b, a, 0);
+            array[i].i = ku.a((short)106, b, a, 0);
+            array[i].l = ku.a((short)82, b, a, -1);
+            array[i].k = ku.a((short)132, b, a, 0L);
+            array[i].m = ku.a((short)85, b, a, (byte)1);
+            b = a;
+        }
+        return array;
+    }
+    
+    private void l(final ku ku) {
+        final int c = ku.c((short)41, 0);
+        final byte[] c2 = ku.c((short)30);
+        final byte[] c3 = ku.c((short)35);
+        final byte[] a = ku.a(ku.b((short)35, 1));
+        final lh[] array = { null };
+        final lh[] array2 = { null };
+        int b = ku.b((short)9, 0);
+        for (int i = 0; i < 2; ++i) {
+            final int a2 = ku.a((short)9, b);
+            final lh b2 = this.b(ku, b, a2);
             if (oq.o != 9) {
-                if (lh2.b.equals(go.e)) {
-                    lhArray[0] = lh2;
-                } else {
-                    lhArray2[0] = lh2;
+                if (b2.b.equals(go.e)) {
+                    array[0] = b2;
                 }
-            } else if (lhArray[0] == null) {
-                lhArray[0] = lh2;
-            } else {
-                lhArray2[0] = lh2;
+                else {
+                    array2[0] = b2;
+                }
             }
-            n4 = n2;
-            ++n5;
+            else if (array[0] == null) {
+                array[0] = b2;
+            }
+            else {
+                array2[0] = b2;
+            }
+            b = a2;
         }
-        ku2.a((short)133, (byte)0);
-        int n6 = n2 = ku2.c((short)32) != null ? 1 : 0;
+        ku.a((short)133, (byte)0);
+        final boolean b3 = ku.c((short)32) != null;
         if (this.c != null) {
-            this.c.a(byArray, byArray2, byArray3, lhArray, lhArray2, n2 != 0, n3);
+            this.c.a(c2, c3, a, array, array2, b3, c);
         }
     }
-
-    private void a(ku ku2, nq nq2) {
+    
+    private void a(final ku ku, final nq nq) {
         if (this.c == null) {
             return;
         }
-        int n2 = ku2.b((short)35);
-        nq2.g = new byte[n2][];
-        int n3 = 0;
-        while (n3 < n2) {
-            byte[] byArray = ku2.a(ku2.b((short)35, n3));
-            if (byArray != null) {
-                nq2.g[n3] = byArray;
+        final int b = ku.b((short)35);
+        nq.g = new byte[b][];
+        for (int i = 0; i < b; ++i) {
+            final byte[] a;
+            if ((a = ku.a(ku.b((short)35, i))) != null) {
+                nq.g[i] = a;
             }
-            ++n3;
         }
-        byte[] byArray = ku2.c((short)30);
-        if (byArray != null) {
-            nq2.h = byArray;
+        final byte[] c;
+        if ((c = ku.c((short)30)) != null) {
+            nq.h = c;
         }
-        ky.b(ku2, nq2);
-        nq2.D = ku2.a((short)52, (byte)0);
-        nq2.F = ku2.a((short)172, (byte)0);
-        nq2.C = ku2.a((short)133, (byte)0);
-        boolean bl = ku2.c((short)32) != null;
-        nq2.a = ku2.d((short)62);
-        byte[] byArray2 = ku2.c((short)39);
-        if (byArray2 != null) {
-            this.c.a(nq2);
-            nq2.E = true;
-            this.a(ku2, byArray2[0], nq2.b);
+        b(ku, nq);
+        nq.D = ku.a((short)52, (byte)0);
+        nq.F = ku.a((short)172, (byte)0);
+        nq.C = ku.a((short)133, (byte)0);
+        final boolean d = ku.c((short)32) != null;
+        nq.a = ku.d((short)62);
+        final byte[] c2;
+        if ((c2 = ku.c((short)39)) != null) {
+            this.c.a(nq);
+            nq.E = true;
+            this.a(ku, c2[0], nq.b);
             return;
         }
-        nq2.d = bl;
-        this.c.a(nq2);
+        nq.d = d;
+        this.c.a(nq);
     }
-
-    private static void b(ku ku2, nq nq2) {
-        int n2 = ku2.b((short)9);
-        int n3 = ku2.b((short)9, 0);
-        nq2.f = new nl[n2];
-        int n4 = 0;
-        while (n4 < n2) {
-            int n5 = ku2.a((short)9, n3);
-            String string = ku2.b(n3);
-            int n6 = ku2.a((short)46, n3, n5, -1);
-            byte by = ku2.a((short)19, n3, n5, (byte)0);
-            int n7 = ku2.a((short)17, n3, n5, -1);
-            int n8 = ku2.a((short)18, n3, n5, -1);
-            n3 = ku2.a((short)45, n3, n5, -1);
-            nq2.f[n4] = new nl(string, n6, n7, n8, n3, by);
-            n3 = n5;
-            ct.a("" + nq2.f[n4]);
-            ++n4;
+    
+    private static void b(final ku ku, final nq nq) {
+        final int b = ku.b((short)9);
+        int b2 = ku.b((short)9, 0);
+        nq.f = new nl[b];
+        for (int i = 0; i < b; ++i) {
+            final int a = ku.a((short)9, b2);
+            nq.f[i] = new nl(ku.b(b2), ku.a((short)46, b2, a, -1), ku.a((short)17, b2, a, -1), ku.a((short)18, b2, a, -1), ku.a((short)45, b2, a, -1), ku.a((short)19, b2, a, (byte)0));
+            b2 = a;
+            ct.a(new StringBuffer().append(nq.f[i]).toString());
         }
     }
-
-    private void m(ku ku2) {
-        int n2;
-        int n3 = ku2.c((short)41, 0);
-        nq nq2 = new nq(n3, 5);
-        new nq(n3, 5).i = ku2.a((short)44, 0L);
-        int n4 = ku2.a(ku2.b((short)64, 0), -1);
-        int n5 = ku2.a(ku2.b((short)75, 0), 0);
-        byte[] byArray = new byte[]{};
-        byte[] byArray2 = new byte[]{};
-        int n6 = ku2.b((short)50);
-        if (n6 > 0) {
-            byArray = new byte[n6];
-            byArray2 = new byte[n6];
-            int n7 = ku2.b((short)50, 0);
-            int n8 = 0;
-            while (n8 < n6) {
-                n2 = ku2.a((short)50, n7);
-                byArray[n8] = (byte)ku2.a(n7, -1);
-                byArray2[n8] = (byte)ku2.a((short)51, n7, n2, -1);
-                n7 = n2;
-                ++n8;
+    
+    private void m(final ku ku) {
+        final nq nq;
+        (nq = new nq(ku.c((short)41, 0), (byte)5)).i = ku.a((short)44, 0L);
+        final int a = ku.a(ku.b((short)64, 0), -1);
+        final int a2 = ku.a(ku.b((short)75, 0), 0);
+        byte[] array = new byte[0];
+        byte[] array2 = new byte[0];
+        final int b;
+        if ((b = ku.b((short)50)) > 0) {
+            array = new byte[b];
+            array2 = new byte[b];
+            int b2 = ku.b((short)50, 0);
+            for (int i = 0; i < b; ++i) {
+                final int a3 = ku.a((short)50, b2);
+                array[i] = (byte)ku.a(b2, -1);
+                array2[i] = (byte)ku.a((short)51, b2, a3, -1);
+                b2 = a3;
             }
         }
-        byte[] byArray3 = new byte[]{};
-        byte[] byArray4 = new byte[]{};
-        n2 = ku2.b((short)33);
-        if (n2 > 0) {
-            byArray3 = new byte[n2];
-            byArray4 = new byte[n2];
-            n6 = ku2.b((short)33, 0);
-            int n9 = 0;
-            while (n9 < n2) {
-                int n10 = ku2.a((short)33, n6);
-                byArray3[n9] = (byte)ku2.a(n6, -1);
-                byArray4[n9] = (byte)ku2.a((short)34, n6, n10, -1);
-                n6 = n10;
-                ++n9;
+        byte[] array3 = new byte[0];
+        byte[] array4 = new byte[0];
+        final int b3;
+        if ((b3 = ku.b((short)33)) > 0) {
+            array3 = new byte[b3];
+            array4 = new byte[b3];
+            int b4 = ku.b((short)33, 0);
+            for (int j = 0; j < b3; ++j) {
+                final int a4 = ku.a((short)33, b4);
+                array3[j] = (byte)ku.a(b4, -1);
+                array4[j] = (byte)ku.a((short)34, b4, a4, -1);
+                b4 = a4;
             }
         }
-        byte[] byArray5 = byArray3;
-        byte[] byArray6 = byArray4;
-        byArray4 = byArray2;
-        byArray3 = byArray;
-        byte[] byArray7 = byArray6;
-        byArray2 = byArray5;
-        int n11 = n5;
-        n5 = n4;
-        nq nq3 = nq2;
-        nq2.n = n5;
-        nq3.r = n11;
-        nq3.s = byArray2;
-        nq3.o = byArray7;
-        nq3.p = byArray4;
-        nq3.q = byArray3;
-        this.a(ku2, nq2);
+        final nq nq2 = nq;
+        final int n = a;
+        final int n2 = a2;
+        final byte[] array5 = array3;
+        final byte[] array6 = array4;
+        final byte[] array7 = array;
+        final byte[] p = array2;
+        final byte[] q = array7;
+        final byte[] o = array6;
+        final byte[] s = array5;
+        final int r = n2;
+        final int n3 = n;
+        final nq nq3 = nq2;
+        nq2.n = n3;
+        nq3.r = r;
+        nq3.s = s;
+        nq3.o = o;
+        nq3.p = p;
+        nq3.q = q;
+        this.a(ku, nq);
     }
-
-    private void a(ku object, byte by, int n2) {
-        nq nq2 = new nq(n2, 8);
-        int n3 = ((ku)object).c((short)42, 0);
-        int n4 = ((ku)object).c((short)43, 0);
-        int n5 = ((ku)object).c((short)110, 0);
-        int[] nArray = new int[((ku)object).b((short)73)];
-        int[] nArray2 = new int[nArray.length];
-        int n6 = 0;
-        while (n6 < nArray2.length) {
-            nArray[n6] = ((ku)object).a(((ku)object).b((short)73, n6), -1);
-            nArray2[n6] = ((ku)object).a(((ku)object).b((short)74, n6), -1);
-            ++n6;
+    
+    private void a(final ku ku, final byte t, final int n) {
+        final nq nq = new nq(n, (byte)8);
+        final int c = ku.c((short)42, 0);
+        final int c2 = ku.c((short)43, 0);
+        final int c3 = ku.c((short)110, 0);
+        final int[] array2;
+        final int[] array = new int[(array2 = new int[ku.b((short)73)]).length];
+        for (int i = 0; i < array.length; ++i) {
+            array2[i] = ku.a(ku.b((short)73, i), -1);
+            array[i] = ku.a(ku.b((short)74, i), -1);
         }
-        ll[] llArray = new ll[((ku)object).b((short)83)];
-        int n7 = ((ku)object).b((short)83, 0);
-        int n8 = 0;
-        while (n8 < llArray.length) {
-            int n9 = ((ku)object).a((short)83, n7);
-            llArray[n8] = ky.a((ku)object, n7, n9, true);
-            n7 = n9;
-            ++n8;
+        final ll[] array3 = new ll[ku.b((short)83)];
+        int b = ku.b((short)83, 0);
+        for (int j = 0; j < array3.length; ++j) {
+            final int a = ku.a((short)83, b);
+            array3[j] = a(ku, b, a, true);
+            b = a;
         }
-        lm[] lmArray = object;
-        object = this;
-        lm[] lmArray2 = ky.a((ku)lmArray, 0);
+        final lm[] a2 = a(ku, 0);
         if (this.c != null) {
-            int n10 = n5;
-            lmArray = lmArray2;
-            boolean bl = false;
-            n5 = n4;
-            n4 = n10;
-            nq nq3 = nq2;
-            nq2.t = by;
-            nq3.A = llArray;
-            nq3.v = n4;
-            nq3.u = n3;
-            nq3.w = n5;
+            final nq nq2 = nq;
+            final int n2 = c;
+            final int n3 = c3;
+            final int n4 = c2;
+            final int[] array4 = array2;
+            final int[] array5 = array;
+            final ll[] array6 = array3;
+            final lm[] b2 = a2;
+            final ll[] a3 = array6;
+            final int[] z = array5;
+            final int[] y = array4;
+            final int w = n4;
+            final int v = n3;
+            final int u = n2;
+            final nq nq3 = nq2;
+            nq2.t = t;
+            nq3.A = a3;
+            nq3.v = v;
+            nq3.u = u;
+            nq3.w = w;
             nq3.x = 0;
-            nq3.y = nArray;
-            nq3.z = nArray2;
-            nq3.B = lmArray;
-            this.c.a(nq2);
+            nq3.y = y;
+            nq3.z = z;
+            nq3.B = b2;
+            this.c.a(nq);
         }
     }
-
-    private void n(ku object) {
-        nt[] ntArray = ((ku)object).d((short)77);
-        Object object2 = ((ku)object).d((short)26);
-        String string = ((ku)object).d((short)79);
-        long l = ((ku)object).a((short)132, 0L);
-        boolean bl = ((ku)object).a((short)100, (byte)0) == 0;
-        object2 = new ns((String)ntArray, (String)object2, string, l);
-        int n2 = ((ku)object).b((short)80);
-        if (n2 > 0) {
-            nt[] ntArray2 = new nt[n2];
-            int n3 = ((ku)object).b((short)80, 0);
-            int n4 = 0;
-            while (n4 < ntArray2.length) {
-                int n5 = ((ku)object).a((short)80, n3);
-                int n6 = ((ku)object).a(n3, -1);
-                String string2 = ((ku)object).d((short)81, n3, n5);
-                ntArray2[n4] = new nt(n6, string2, null, (String)ntArray);
-                n3 = n5;
-                ++n4;
+    
+    private void n(final ku ku) {
+        final String d = ku.d((short)77);
+        final String d2 = ku.d((short)26);
+        final String d3 = ku.d((short)79);
+        final long a = ku.a((short)132, 0L);
+        final boolean b = ku.a((short)100, (byte)0) == 0;
+        final ns ns = new ns(d, d2, d3, a);
+        final int b2;
+        if ((b2 = ku.b((short)80)) > 0) {
+            final nt[] f = new nt[b2];
+            int b3 = ku.b((short)80, 0);
+            for (int i = 0; i < f.length; ++i) {
+                final int a2 = ku.a((short)80, b3);
+                f[i] = new nt(ku.a(b3, -1), ku.d((short)81, b3, a2), null, d);
+                b3 = a2;
             }
-            ntArray = ntArray2;
-            object = object2;
-            ((ns)object2).f = ntArray;
+            ns.f = f;
         }
-        this.b.a((ns)object2, bl);
+        this.b.a(ns, b);
     }
-
-    private static void o(ku object) {
-        nt[] ntArray = ((ku)object).d((short)77);
-        ns ns2 = new ns((String)ntArray, "", "", 0L);
-        int n2 = ((ku)object).b((short)80);
-        if (n2 > 0) {
-            nt[] ntArray2 = new nt[n2];
-            int n3 = ((ku)object).b((short)80, 0);
-            int n4 = 0;
-            while (n4 < ntArray2.length) {
-                int n5 = ((ku)object).a((short)80, n3);
-                int n6 = ((ku)object).a(n3, -1);
-                String string = ((ku)object).d((short)81, n3, n5);
-                ntArray2[n4] = new nt(n6, string, null, (String)ntArray);
-                n3 = n5;
-                ++n4;
+    
+    private static void o(final ku ku) {
+        final String d = ku.d((short)77);
+        final ns ns = new ns(d, "", "", 0L);
+        final int b;
+        if ((b = ku.b((short)80)) > 0) {
+            final nt[] f = new nt[b];
+            int b2 = ku.b((short)80, 0);
+            for (int i = 0; i < f.length; ++i) {
+                final int a = ku.a((short)80, b2);
+                f[i] = new nt(ku.a(b2, -1), ku.d((short)81, b2, a), null, d);
+                b2 = a;
             }
-            ntArray = ntArray2;
-            object = ns2;
-            ns2.f = ntArray;
+            ns.f = f;
         }
-        nu.b(ns2);
+        nu.b(ns);
     }
-
-    private void p(ku ku2) {
-        Object object = ku2.d((short)77);
-        String[] stringArray = ku2.d((short)26);
-        String[] stringArray2 = new String[ku2.b((short)1)];
-        int n2 = ku2.b((short)1, 0);
-        int n3 = 0;
-        while (n3 < stringArray2.length) {
-            int n4 = ku2.a((short)1, n2);
-            stringArray2[n3] = ku2.b(n2);
-            n2 = n4;
-            ++n3;
+    
+    private void p(final ku ku) {
+        final String d = ku.d((short)77);
+        final String d2 = ku.d((short)26);
+        final String[] g = new String[ku.b((short)1)];
+        int b = ku.b((short)1, 0);
+        for (int i = 0; i < g.length; ++i) {
+            final int a = ku.a((short)1, b);
+            g[i] = ku.b(b);
+            b = a;
         }
-        ns ns2 = new ns((String)object, (String)stringArray, "", 0L);
-        stringArray = stringArray2;
-        object = ns2;
-        ns2.g = stringArray;
-        nu.a(ns2);
-        String string = ku2.d((short)149);
-        this.b.a(string, (byte)0);
+        final ns ns;
+        (ns = new ns(d, d2, "", 0L)).g = g;
+        nu.a(ns);
+        this.b.a(ku.d((short)149), (byte)0);
     }
-
-    private void q(ku ku2) {
-        int n2 = ku2.b((short)64);
-        lw[] lwArray = new lw[n2];
-        int n3 = ku2.b((short)64, 0);
-        int n4 = 0;
-        while (n4 < n2) {
-            int n5;
-            int n6 = ku2.a((short)64, n3);
-            lwArray[n4] = new lw(ku2.a(n3, 0));
-            lwArray[n4].b = ku2.d((short)26, n3, n6);
-            lwArray[n4].d = ku2.a((short)136, n3, n6, 0);
-            lx[] lxArray = new lx[ku2.a((short)67, n3, n6)];
-            n3 = ku2.a((short)67, n3);
-            int n7 = 0;
-            while (n7 < lxArray.length) {
-                n5 = ku2.a((short)67, n3);
-                lxArray[n7] = new lx(lwArray[n4].a);
-                lxArray[n7].a = ku2.a(n3, 0);
-                lxArray[n7].e = ku2.d((short)66, n3, n5);
-                lxArray[n7].c = ku2.a((short)76, n3, n5, 0);
-                lxArray[n7].b = ku2.a((short)135, n3, n5, 0);
-                lxArray[n7].d = ku2.a((short)68, n3, n5, 0);
-                n3 = n5;
-                ++n7;
+    
+    private void q(final ku ku) {
+        final int b;
+        final lw[] array = new lw[b = ku.b((short)64)];
+        int b2 = ku.b((short)64, 0);
+        for (int i = 0; i < b; ++i) {
+            final int a = ku.a((short)64, b2);
+            array[i] = new lw(ku.a(b2, 0));
+            array[i].b = ku.d((short)26, b2, a);
+            array[i].d = ku.a((short)136, b2, a, 0);
+            final lx[] c = new lx[ku.a((short)67, b2, a)];
+            int a2 = ku.a((short)67, b2);
+            for (int j = 0; j < c.length; ++j) {
+                final int a3 = ku.a((short)67, a2);
+                c[j] = new lx(array[i].a);
+                c[j].a = ku.a(a2, 0);
+                c[j].e = ku.d((short)66, a2, a3);
+                c[j].c = ku.a((short)76, a2, a3, 0);
+                c[j].b = ku.a((short)135, a2, a3, 0);
+                c[j].d = ku.a((short)68, a2, a3, 0);
+                a2 = a3;
             }
-            n7 = 0;
-            while (n7 < lxArray.length) {
-                n5 = n7 + 1;
-                while (n5 < lxArray.length) {
-                    if (lxArray[n7].a > lxArray[n5].a) {
-                        lx lx2 = lxArray[n7];
-                        lxArray[n7] = lxArray[n5];
-                        lxArray[n5] = lx2;
+            for (int k = 0; k < c.length; ++k) {
+                for (int l = k + 1; l < c.length; ++l) {
+                    if (c[k].a > c[l].a) {
+                        final lx lx = c[k];
+                        c[k] = c[l];
+                        c[l] = lx;
                     }
-                    ++n5;
                 }
-                ++n7;
             }
-            lwArray[n4].c = lxArray;
-            n3 = n6;
-            ++n4;
+            array[i].c = c;
+            b2 = a;
         }
-        this.b.a(lwArray);
+        this.b.a(array);
     }
-
-    private void r(ku ku2) {
-        int n2;
-        ku2.d((short)9);
-        ll[] llArray = new ll[ku2.b((short)83)];
-        if (llArray.length > 0) {
-            int n3 = ku2.b((short)83, 0);
-            int n4 = 0;
-            while (n4 < llArray.length) {
-                n2 = ku2.a((short)83, n3);
-                if (n2 < 0) {
-                    n2 = ku2.a((short)114, n3);
+    
+    private void r(final ku ku) {
+        ku.d((short)9);
+        final ll[] array;
+        if ((array = new ll[ku.b((short)83)]).length > 0) {
+            int b = ku.b((short)83, 0);
+            for (int i = 0; i < array.length; ++i) {
+                int n;
+                if ((n = ku.a((short)83, b)) < 0) {
+                    n = ku.a((short)114, b);
                 }
-                llArray[n4] = ky.a(ku2, n3, n2, true);
-                n3 = n2;
-                ++n4;
+                array[i] = a(ku, b, n, true);
+                b = n;
             }
         }
-        ku ku3 = ku2;
-        lm[] lmArray = this;
-        lmArray = ky.a(ku3, 0);
-        int n5 = ku2.c((short)86, 0);
-        n2 = ku2.c((short)145, 0);
-        this.b.a(llArray, lmArray, n5, n2);
+        this.b.a(array, a(ku, 0), ku.c((short)86, 0), ku.c((short)145, 0));
     }
-
-    private void s(ku ku2) {
-        int n2 = ku2.a((short)147, (byte)-1);
-        switch (n2) {
+    
+    private void s(final ku ku) {
+        switch (ku.a((short)147, (byte)(-1))) {
             case 0: {
-                String string = ku2.d((short)9);
-                String string2 = ku2.d((short)150);
-                ks.a().g.a(string2);
-                this.b.k(string);
+                final String d = ku.d((short)9);
+                ks.a().g.a(ku.d((short)150));
+                this.b.k(d);
                 return;
             }
             case 1: {
-                String string = ku2.d((short)9);
-                String string3 = ku2.d((short)150);
-                byte by = ku2.a((short)31, (byte)-1);
-                if (by == 0) {
-                    this.b.m(string);
+                final String d2 = ku.d((short)9);
+                final String d3 = ku.d((short)150);
+                if (ku.a((short)31, (byte)(-1)) == 0) {
+                    this.b.m(d2);
                     return;
                 }
-                this.b.n(string);
-                ks.a().f = string3;
+                this.b.n(d2);
+                ks.a().f = d3;
                 ks.j = 0;
                 return;
             }
             case 4: {
-                Object object = ku2.d((short)9);
-                ks.j = ku2.c((short)41, 0);
-                if (((String)object).equals(ks.a().c)) {
+                final String d4 = ku.d((short)9);
+                ks.j = ku.c((short)41, 0);
+                if (d4.equals(ks.a().c)) {
                     this.b.K();
                     return;
                 }
-                int n3 = ku2.c((short)106, -1);
-                String string = ku2.d((short)83);
-                if (n3 > 0) {
-                    object = ky.a(ku2, ku2.b((short)83, 0), -1, true);
-                    this.b.b((ll)object);
+                final int c = ku.c((short)106, -1);
+                final String d5 = ku.d((short)83);
+                if (c > 0) {
+                    this.b.b(a(ku, ku.b((short)83, 0), -1, true));
                     return;
                 }
-                this.b.j(string);
+                this.b.j(d5);
                 return;
             }
             case 3: {
-                Object object = ku2.d((short)9);
-                ks.j = ku2.c((short)41, 0);
-                if (((String)object).equals(ks.a().c)) {
+                final String d6 = ku.d((short)9);
+                ks.j = ku.c((short)41, 0);
+                if (d6.equals(ks.a().c)) {
                     this.b.K();
                     return;
                 }
-                ku ku3 = ku2;
-                object = this;
-                lm[] lmArray = ky.a(ku3, 0);
-                int n4 = ku2.c((short)106, -1);
-                if (n4 > 0) {
-                    this.b.a(lmArray[0], n4);
+                final lm[] a = a(ku, 0);
+                final int c2;
+                if ((c2 = ku.c((short)106, -1)) > 0) {
+                    this.b.a(a[0], c2);
                     return;
                 }
-                this.b.a(lmArray[0]);
+                this.b.a(a[0]);
                 return;
             }
             case 2: {
-                String string = ku2.d((short)9);
-                ks.j = ku2.c((short)41, 0);
-                if (string.equals(ks.a().c)) {
+                final String d7 = ku.d((short)9);
+                ks.j = ku.c((short)41, 0);
+                if (d7.equals(ks.a().c)) {
                     this.b.K();
                     return;
                 }
-                long l = ku2.a((short)132, 0L);
-                this.b.l((int)l);
+                this.b.l((int)ku.a((short)132, 0L));
                 return;
             }
             case 5: {
-                String string = ku2.d((short)9);
-                this.b.i(string);
+                this.b.i(ku.d((short)9));
                 return;
             }
             case 6: {
-                int n5 = (int)ku2.a((short)132, -1L);
-                ll[] llArray = new ll[ku2.b((short)83)];
-                if (llArray.length > 0) {
-                    n2 = ku2.b((short)83, 0);
-                    int n6 = 0;
-                    while (n6 < llArray.length) {
-                        int n7 = ku2.a((short)83, n2);
-                        llArray[n6] = ky.a(ku2, n2, n7, true);
-                        n2 = n7;
-                        ++n6;
+                final int n = (int)ku.a((short)132, -1L);
+                final ll[] array;
+                if ((array = new ll[ku.b((short)83)]).length > 0) {
+                    int b = ku.b((short)83, 0);
+                    for (int i = 0; i < array.length; ++i) {
+                        final int a2 = ku.a((short)83, b);
+                        array[i] = a(ku, b, a2, true);
+                        b = a2;
                     }
                 }
-                ku ku4 = ku2;
-                lm[] lmArray = this;
-                lmArray = ky.a(ku4, 0);
-                this.b.a(llArray, lmArray, n5);
+                this.b.a(array, a(ku, 0), n);
                 return;
             }
             case 7: {
@@ -2210,437 +2080,371 @@ kn {
                 return;
             }
             case 9: {
-                String string = ku2.d((short)9);
-                this.b.l(string);
+                this.b.l(ku.d((short)9));
+                break;
             }
         }
     }
-
-    private void t(ku ku2) {
-        int n2 = ku2.b((short)147);
-        if (n2 > 0) {
-            int[] nArray = new int[n2];
-            String[] stringArray = new String[n2];
-            int n3 = ku2.b((short)147, 0);
-            int n4 = 0;
-            while (n4 < nArray.length) {
-                int n5 = ku2.a((short)147, n3);
-                nArray[n4] = ku2.a(n3, (byte)0);
-                stringArray[n4] = ku2.d((short)168, n3, n5);
-                n3 = n5;
-                ++n4;
+    
+    private void t(final ku ku) {
+        final int b;
+        if ((b = ku.b((short)147)) > 0) {
+            final int[] array = new int[b];
+            final String[] array2 = new String[b];
+            int b2 = ku.b((short)147, 0);
+            for (int i = 0; i < array.length; ++i) {
+                final int a = ku.a((short)147, b2);
+                array[i] = ku.a(b2, (byte)0);
+                array2[i] = ku.d((short)168, b2, a);
+                b2 = a;
             }
-            this.b.a(nArray, stringArray);
+            this.b.a(array, array2);
         }
     }
-
-    private static lb e(ku ku2, int n2, int n3) {
-        lb lb2 = new lb();
-        new lb().a = ku2.a((short)118, n2, n3, 0);
-        lb2.b = ku2.a((short)119, n2, n3, 0);
-        lb2.c = ku2.a((short)120, n2, n3, 0);
-        lb2.d = ku2.a((short)121, n2, n3, 0);
-        lb2.e = ku2.a((short)72, n2, n3, 0);
-        lb2.f = ku2.a((short)71, n2, n3, 0);
-        lb2.g = ku2.a((short)126, n2, n3, 0);
-        lb2.h = ku2.a((short)124, n2, n3, 0);
-        lb2.i = ku2.a((short)47, n2, n3, 0);
-        lb2.j = ku2.a((short)200, n2, n3, 0);
-        lb2.k = ku2.a((short)201, n2, n3, 0);
-        lb2.l = ku2.a((short)202, n2, n3, 0);
-        lb2.m = ku2.a((short)203, n2, n3, 0);
-        lb2.n = ku2.a((short)204, n2, n3, 0);
-        lb2.o = ku2.a((short)221, n2, n3, 0);
-        return lb2;
+    
+    private static lb e(final ku ku, final int n, final int n2) {
+        final lb lb;
+        (lb = new lb()).a = ku.a((short)118, n, n2, 0);
+        lb.b = ku.a((short)119, n, n2, 0);
+        lb.c = ku.a((short)120, n, n2, 0);
+        lb.d = ku.a((short)121, n, n2, 0);
+        lb.e = ku.a((short)72, n, n2, 0);
+        lb.f = ku.a((short)71, n, n2, 0);
+        lb.g = ku.a((short)126, n, n2, 0);
+        lb.h = ku.a((short)124, n, n2, 0);
+        lb.i = ku.a((short)47, n, n2, 0);
+        lb.j = ku.a((short)200, n, n2, 0);
+        lb.k = ku.a((short)201, n, n2, 0);
+        lb.l = ku.a((short)202, n, n2, 0);
+        lb.m = ku.a((short)203, n, n2, 0);
+        lb.n = ku.a((short)204, n, n2, 0);
+        lb.o = ku.a((short)221, n, n2, 0);
+        return lb;
     }
-
-    private lq[] u(ku ku2) {
-        lq[] lqArray = new lq[ku2.b((short)175)];
-        int n2 = ku2.b((short)175, 0);
-        int n3 = 0;
-        while (n3 < lqArray.length) {
-            int n4 = ku2.a((short)175, n2);
-            lq lq2 = new lq();
-            new lq().b = ku2.b(n2);
-            lq2.c = ku2.a((short)159, n2, n4, (byte)-1);
-            lq2.f = ku2.d((short)62, n2, n4);
-            lq2.d = ku2.a((short)145, n2, n4, -1);
-            lq2.g = ku2.a((short)157, n2, n4, 0L);
-            switch (lq2.c) {
+    
+    private lq[] u(final ku ku) {
+        final lq[] array = new lq[ku.b((short)175)];
+        int b = ku.b((short)175, 0);
+        for (int i = 0; i < array.length; ++i) {
+            final int a = ku.a((short)175, b);
+            final lq lq;
+            (lq = new lq()).b = ku.b(b);
+            lq.c = ku.a((short)159, b, a, (byte)(-1));
+            lq.f = ku.d((short)62, b, a);
+            lq.d = ku.a((short)145, b, a, -1);
+            lq.g = ku.a((short)157, b, a, 0L);
+            switch (lq.c) {
                 case 0: {
-                    byte by = ku2.a((short)84, n2, n4, (byte)0);
-                    Object object = new ll("", by);
-                    new ll("", by).b = ku2.a(n2, 0);
-                    ((ll)object).n = ku2.a((short)4, n2, n4, 0);
-                    ((ll)object).j = ku2.a((short)27, n2, n4, 0);
-                    ((ll)object).l = ku2.a((short)145, n2, n4, 0);
-                    ((ll)object).d = ku2.d((short)26, n2, n4);
-                    ((ll)object).i = ku2.a((short)135, n2, n4, -1);
-                    ((ll)object).f = ku2.a((short)15, n2, n4, (byte)7);
-                    ((ll)object).h = ku2.a((short)16, n2, n4, (byte)0);
-                    ((ll)object).m = ku2.a((short)138, n2, n4, (byte)0);
-                    ((ll)object).p = ku2.a((short)139, n2, n4, 0);
-                    ((ll)object).q = ku2.a((short)144, n2, n4, 0);
-                    ((ll)object).g = ku2.d((short)117, n2, n4);
-                    ((ll)object).k = ku2.a((short)190, n2, n4, (byte)-1);
-                    ((ll)object).t = ku2.a((short)85, n2, n4, (byte)1);
-                    ((ll)object).r = ky.e(ku2, n2, n4);
-                    lq2.e = object;
+                    final ll e;
+                    (e = new ll("", ku.a((short)84, b, a, (byte)0))).b = ku.a(b, 0);
+                    e.n = ku.a((short)4, b, a, 0);
+                    e.j = ku.a((short)27, b, a, 0);
+                    e.l = ku.a((short)145, b, a, 0);
+                    e.d = ku.d((short)26, b, a);
+                    e.i = ku.a((short)135, b, a, -1);
+                    e.f = ku.a((short)15, b, a, (byte)7);
+                    e.h = ku.a((short)16, b, a, (byte)0);
+                    e.m = ku.a((short)138, b, a, (byte)0);
+                    e.p = ku.a((short)139, b, a, 0);
+                    e.q = ku.a((short)144, b, a, 0);
+                    e.g = ku.d((short)117, b, a);
+                    e.k = ku.a((short)190, b, a, (byte)(-1));
+                    e.t = ku.a((short)85, b, a, (byte)1);
+                    e.r = e(ku, b, a);
+                    lq.e = e;
                     break;
                 }
                 case 1: {
-                    int n5 = ku2.a((short)114, n2, n4, -1);
-                    Object object = new lm(n5);
-                    new lm(n5).b = ku2.d((short)26, n2, n4);
-                    ((ld)object).d = ku2.d((short)117, n2, n4);
-                    ((lm)object).g = ku2.a((short)106, n2, n4, 0);
-                    ((lm)object).e = ku2.a((short)122, n2, n4, (byte)-1);
-                    ((lm)object).f = ku2.a((short)123, n2, n4, (byte)-1);
-                    ((lm)object).j = ku2.a((short)4, n2, n4, 0);
-                    ((lm)object).h = ku2.a((short)145, n2, n4, 0);
-                    ((lm)object).i = ku2.a((short)106, n2, n4, 0);
-                    ((lm)object).l = ku2.a((short)82, n2, n4, -1);
-                    ((lm)object).k = ku2.a((short)132, n2, n4, 0L);
-                    ((lm)object).m = ku2.a((short)85, n2, n4, (byte)1);
-                    lq2.e = object;
+                    final lm e2;
+                    (e2 = new lm(ku.a((short)114, b, a, -1))).b = ku.d((short)26, b, a);
+                    e2.d = ku.d((short)117, b, a);
+                    e2.g = ku.a((short)106, b, a, 0);
+                    e2.e = ku.a((short)122, b, a, (byte)(-1));
+                    e2.f = ku.a((short)123, b, a, (byte)(-1));
+                    e2.j = ku.a((short)4, b, a, 0);
+                    e2.h = ku.a((short)145, b, a, 0);
+                    e2.i = ku.a((short)106, b, a, 0);
+                    e2.l = ku.a((short)82, b, a, -1);
+                    e2.k = ku.a((short)132, b, a, 0L);
+                    e2.m = ku.a((short)85, b, a, (byte)1);
+                    lq.e = e2;
                     break;
                 }
                 case 99: {
-                    int n6 = ku2.a((short)155, n2, n4, -1);
-                    Object object = new lu(n6);
-                    new lu(n6).a = ku2.d((short)26, n2, n4);
-                    ((lu)object).b = ku2.d((short)1, n2, n4);
-                    ((lu)object).c = ku2.a((short)145, n2, n4, 0);
-                    lq2.e = object;
+                    final lu e3;
+                    (e3 = new lu(ku.a((short)155, b, a, -1))).a = ku.d((short)26, b, a);
+                    e3.b = ku.d((short)1, b, a);
+                    e3.c = ku.a((short)145, b, a, 0);
+                    lq.e = e3;
+                    break;
                 }
             }
-            lqArray[n3] = lq2;
-            n2 = n4;
-            ++n3;
+            array[i] = lq;
+            b = a;
         }
-        return lqArray;
+        return array;
     }
-
-    private void v(ku lqArray) {
-        int n2 = lqArray.a((short)147, (byte)-1);
-        switch (n2) {
+    
+    private void v(final ku ku) {
+        switch (ku.a((short)147, (byte)(-1))) {
             case 0: {
-                lf[] lfArray = new lf[lqArray.b((short)152)];
-                if (lfArray.length > 0) {
-                    int n3 = lqArray.b((short)152, 0);
-                    int n4 = 0;
-                    while (n4 < lfArray.length) {
-                        int n5 = lqArray.a((short)152, n3);
-                        byte by = lqArray.a(n3, (byte)-1);
-                        String string = lqArray.d((short)26, n3, n5);
-                        n3 = lqArray.a((short)106, n3, n5, 0);
-                        lfArray[n4] = new lf(by, string, n3);
-                        n3 = n5;
-                        ++n4;
+                final lf[] array;
+                if ((array = new lf[ku.b((short)152)]).length > 0) {
+                    int b = ku.b((short)152, 0);
+                    for (int i = 0; i < array.length; ++i) {
+                        final int a = ku.a((short)152, b);
+                        array[i] = new lf(ku.a(b, (byte)(-1)), ku.d((short)26, b, a), ku.a((short)106, b, a, 0));
+                        b = a;
                     }
                 }
-                this.b.a(lfArray);
+                this.b.a(array);
                 return;
             }
             case 1: {
-                byte by = lqArray.a((short)152, (byte)-1);
-                ku ku2 = lqArray;
-                lqArray = this;
-                lqArray = new lq[ku2.b((short)153)];
-                int n6 = ku2.b((short)153, 0);
-                int n7 = 0;
-                while (n7 < lqArray.length) {
-                    int n8 = ku2.a((short)153, n6);
-                    lq lq2 = new lq();
-                    new lq().a = ku2.a(n6, -1);
-                    lq2.c = ku2.a((short)159, n6, n8, (byte)-1);
-                    lq2.d = ku2.a((short)145, n6, n8, -1);
-                    switch (lq2.c) {
+                final kq b2 = this.b;
+                final byte a2 = ku.a((short)152, (byte)(-1));
+                final lq[] array2 = new lq[ku.b((short)153)];
+                int b3 = ku.b((short)153, 0);
+                for (int j = 0; j < array2.length; ++j) {
+                    final int a3 = ku.a((short)153, b3);
+                    final lq lq;
+                    (lq = new lq()).a = ku.a(b3, -1);
+                    lq.c = ku.a((short)159, b3, a3, (byte)(-1));
+                    lq.d = ku.a((short)145, b3, a3, -1);
+                    switch (lq.c) {
                         case 0: {
-                            byte by2 = ku2.a((short)84, n6, n8, (byte)0);
-                            Object object = new ll("", by2);
-                            new ll("", by2).b = ku2.a(n6, 0);
-                            ((ll)object).n = ku2.a((short)4, n6, n8, 0);
-                            ((ll)object).l = ku2.a((short)145, n6, n8, 0);
-                            ((ll)object).j = ku2.a((short)27, n6, n8, 0);
-                            ((ll)object).d = ku2.d((short)26, n6, n8);
-                            ((ll)object).i = ku2.a((short)135, n6, n8, -1);
-                            ((ll)object).f = ku2.a((short)15, n6, n8, (byte)7);
-                            ((ll)object).h = ku2.a((short)16, n6, n8, (byte)0);
-                            ((ll)object).m = ku2.a((short)138, n6, n8, (byte)0);
-                            ((ll)object).q = ku2.a((short)144, n6, n8, 0);
-                            ((ll)object).g = ku2.d((short)117, n6, n8);
-                            ((ll)object).k = ku2.a((short)190, n6, n8, (byte)-1);
-                            ((ll)object).t = ku2.a((short)85, n6, n8, (byte)1);
-                            ((ll)object).r = ky.e(ku2, n6, n8);
-                            lq2.e = object;
+                            final ll e;
+                            (e = new ll("", ku.a((short)84, b3, a3, (byte)0))).b = ku.a(b3, 0);
+                            e.n = ku.a((short)4, b3, a3, 0);
+                            e.l = ku.a((short)145, b3, a3, 0);
+                            e.j = ku.a((short)27, b3, a3, 0);
+                            e.d = ku.d((short)26, b3, a3);
+                            e.i = ku.a((short)135, b3, a3, -1);
+                            e.f = ku.a((short)15, b3, a3, (byte)7);
+                            e.h = ku.a((short)16, b3, a3, (byte)0);
+                            e.m = ku.a((short)138, b3, a3, (byte)0);
+                            e.q = ku.a((short)144, b3, a3, 0);
+                            e.g = ku.d((short)117, b3, a3);
+                            e.k = ku.a((short)190, b3, a3, (byte)(-1));
+                            e.t = ku.a((short)85, b3, a3, (byte)1);
+                            e.r = e(ku, b3, a3);
+                            lq.e = e;
                             break;
                         }
                         case 1: {
-                            int n9 = ku2.a((short)114, n6, n8, -1);
-                            Object object = new lm(n9);
-                            new lm(n9).b = ku2.d((short)26, n6, n8);
-                            ((ld)object).d = ku2.d((short)117, n6, n8);
-                            ((lm)object).g = ku2.a((short)106, n6, n8, 0);
-                            ((lm)object).e = ku2.a((short)122, n6, n8, (byte)-1);
-                            ((lm)object).f = ku2.a((short)123, n6, n8, (byte)-1);
-                            ((lm)object).j = ku2.a((short)4, n6, n8, 0);
-                            ((lm)object).h = ku2.a((short)145, n6, n8, 0);
-                            ((lm)object).i = ku2.a((short)106, n6, n8, 0);
-                            ((lm)object).l = ku2.a((short)82, n6, n8, -1);
-                            ((lm)object).k = ku2.a((short)132, n6, n8, 0L);
-                            ((lm)object).m = ku2.a((short)85, n6, n8, (byte)1);
-                            lq2.e = object;
+                            final lm e2;
+                            (e2 = new lm(ku.a((short)114, b3, a3, -1))).b = ku.d((short)26, b3, a3);
+                            e2.d = ku.d((short)117, b3, a3);
+                            e2.g = ku.a((short)106, b3, a3, 0);
+                            e2.e = ku.a((short)122, b3, a3, (byte)(-1));
+                            e2.f = ku.a((short)123, b3, a3, (byte)(-1));
+                            e2.j = ku.a((short)4, b3, a3, 0);
+                            e2.h = ku.a((short)145, b3, a3, 0);
+                            e2.i = ku.a((short)106, b3, a3, 0);
+                            e2.l = ku.a((short)82, b3, a3, -1);
+                            e2.k = ku.a((short)132, b3, a3, 0L);
+                            e2.m = ku.a((short)85, b3, a3, (byte)1);
+                            lq.e = e2;
                             break;
                         }
                         case 99: {
-                            int n10 = ku2.a((short)155, n6, n8, -1);
-                            Object object = new lu(n10);
-                            new lu(n10).a = ku2.d((short)26, n6, n8);
-                            ((lu)object).b = ku2.d((short)1, n6, n8);
-                            ((lu)object).c = ku2.a((short)145, n6, n8, 0);
-                            lq2.e = object;
+                            final lu e3;
+                            (e3 = new lu(ku.a((short)155, b3, a3, -1))).a = ku.d((short)26, b3, a3);
+                            e3.b = ku.d((short)1, b3, a3);
+                            e3.c = ku.a((short)145, b3, a3, 0);
+                            lq.e = e3;
+                            break;
                         }
                     }
-                    lqArray[n7] = lq2;
-                    n6 = n8;
-                    ++n7;
+                    array2[j] = lq;
+                    b3 = a3;
                 }
-                this.b.a((int)by, lqArray);
+                b2.a(a2, array2);
                 return;
             }
             case 2: {
-                int n11;
-                int[] nArray;
-                Object[] objectArray;
-                n2 = lqArray.b((short)114);
-                if (n2 > 0) {
-                    objectArray = new int[n2];
-                    nArray = new int[n2];
-                    n11 = 0;
-                    while (n11 < n2) {
-                        objectArray[n11] = lqArray.a(lqArray.b((short)114, n11), -1);
-                        nArray[n11] = lqArray.a(lqArray.b((short)106, n11), -1);
-                        ++n11;
+                final int b4;
+                if ((b4 = ku.b((short)114)) > 0) {
+                    final int[] array3 = new int[b4];
+                    final int[] array4 = new int[b4];
+                    for (int k = 0; k < b4; ++k) {
+                        array3[k] = ku.a(ku.b((short)114, k), -1);
+                        array4[k] = ku.a(ku.b((short)106, k), -1);
                     }
-                    this.b.a((int[])objectArray, nArray);
+                    this.b.a(array3, array4);
                 }
-                if ((n2 = lqArray.b((short)83)) <= 0) break;
-                objectArray = new String[n2];
-                nArray = new int[n2];
-                n11 = 0;
-                while (n11 < n2) {
-                    objectArray[n11] = (int)lqArray.b(lqArray.b((short)83, n11));
-                    nArray[n11] = lqArray.a(lqArray.b((short)146, n11), -1);
-                    ++n11;
+                final int b5;
+                if ((b5 = ku.b((short)83)) > 0) {
+                    final String[] array5 = new String[b5];
+                    final int[] array6 = new int[b5];
+                    for (int l = 0; l < b5; ++l) {
+                        array5[l] = ku.b(ku.b((short)83, l));
+                        array6[l] = ku.a(ku.b((short)146, l), -1);
+                    }
+                    this.b.a(array5, array6);
+                    break;
                 }
-                this.b.a((String[])objectArray, nArray);
+                break;
             }
         }
     }
-
-    private void w(ku ku2) {
-        int n2;
-        int n3;
-        byte by = ku2.a((short)208, (byte)0);
-        int n4 = ku2.b((short)9);
-        dh[] dhArray = new dh[n4];
-        if (n4 > 0) {
-            n3 = ku2.b((short)9, 0);
-            n2 = 0;
-            while (n2 < dhArray.length) {
-                n4 = ku2.a((short)9, n3);
-                String string = ku2.b(n3);
-                int n5 = ku2.a((short)148, n3, n4, 0);
-                String string2 = ku2.d((short)211, n3, n4);
-                String string3 = ku2.d((short)1, n3, n4);
-                dhArray[n2] = new dh(n5, string2, string, string3);
-                n3 = n4;
-                ++n2;
+    
+    private void w(final ku ku) {
+        final byte a = ku.a((short)208, (byte)0);
+        final int b;
+        final dh[] array = new dh[b = ku.b((short)9)];
+        if (b > 0) {
+            int b2 = ku.b((short)9, 0);
+            for (int i = 0; i < array.length; ++i) {
+                final int a2 = ku.a((short)9, b2);
+                array[i] = new dh(ku.a((short)148, b2, a2, 0), ku.d((short)211, b2, a2), ku.b(b2), ku.d((short)1, b2, a2));
+                b2 = a2;
             }
         }
-        n3 = 0;
-        while (n3 < dhArray.length - 1) {
-            n2 = n3 + 1;
-            while (n2 < dhArray.length) {
-                if (dhArray[n3].a > dhArray[n2].a) {
-                    dh dh2 = dhArray[n3];
-                    dhArray[n3] = dhArray[n2];
-                    dhArray[n2] = dh2;
+        for (int j = 0; j < array.length - 1; ++j) {
+            for (int k = j + 1; k < array.length; ++k) {
+                if (array[j].a > array[k].a) {
+                    final dh dh = array[j];
+                    array[j] = array[k];
+                    array[k] = dh;
                 }
-                ++n2;
             }
-            ++n3;
         }
-        this.b.a((int)by, dhArray);
+        this.b.a(a, array);
     }
-
-    private void x(ku object) {
-        String string = ((ku)object).d((short)175);
-        ll[] llArray = new ll[((ku)object).b((short)83)];
-        if (llArray.length > 0) {
-            int n2 = ((ku)object).b((short)83, 0);
-            int n3 = 0;
-            while (n3 < llArray.length) {
-                int n4 = ((ku)object).a((short)83, n2);
-                if (n4 < 0) {
-                    n4 = ((ku)object).a((short)114, n2);
+    
+    private void x(final ku ku) {
+        final String d = ku.d((short)175);
+        final ll[] array;
+        if ((array = new ll[ku.b((short)83)]).length > 0) {
+            int b = ku.b((short)83, 0);
+            for (int i = 0; i < array.length; ++i) {
+                int n;
+                if ((n = ku.a((short)83, b)) < 0) {
+                    n = ku.a((short)114, b);
                 }
-                llArray[n3] = ky.a((ku)object, n2, n4, true);
-                n2 = n4;
-                ++n3;
+                array[i] = a(ku, b, n, true);
+                b = n;
             }
         }
-        lm[] lmArray = object;
-        object = this;
-        lmArray = ky.a((ku)lmArray, 0);
-        this.b.a(string, llArray, lmArray);
+        this.b.a(d, array, a(ku, 0));
     }
-
-    private void y(ku ku2) {
-        lf[] lfArray = new lf[ku2.b((short)152)];
-        if (lfArray.length > 0) {
-            int n2 = ku2.b((short)152, 0);
-            int n3 = 0;
-            while (n3 < lfArray.length) {
-                int n4 = ku2.a((short)152, n2);
-                byte by = ku2.a(n2, (byte)-1);
-                String string = ku2.d((short)26, n2, n4);
-                n2 = ku2.a((short)106, n2, n4, 0);
-                lfArray[n3] = new lf(by, string, n2);
-                n2 = n4;
-                ++n3;
+    
+    private void y(final ku ku) {
+        final lf[] array;
+        if ((array = new lf[ku.b((short)152)]).length > 0) {
+            int b = ku.b((short)152, 0);
+            for (int i = 0; i < array.length; ++i) {
+                final int a = ku.a((short)152, b);
+                array[i] = new lf(ku.a(b, (byte)(-1)), ku.d((short)26, b, a), ku.a((short)106, b, a, 0));
+                b = a;
             }
         }
-        this.b.b(lfArray);
+        this.b.b(array);
     }
-
-    private void z(ku object) {
-        String string = ((ku)object).d((short)175);
-        ll[] llArray = new ll[((ku)object).b((short)83)];
-        if (llArray.length > 0) {
-            int n2 = ((ku)object).b((short)83, 0);
-            int n3 = 0;
-            while (n3 < llArray.length) {
-                int n4 = ((ku)object).a((short)83, n2);
-                if (n4 < 0) {
-                    n4 = ((ku)object).a((short)114, n2);
+    
+    private void z(final ku ku) {
+        final String d = ku.d((short)175);
+        final ll[] array;
+        if ((array = new ll[ku.b((short)83)]).length > 0) {
+            int b = ku.b((short)83, 0);
+            for (int i = 0; i < array.length; ++i) {
+                int n;
+                if ((n = ku.a((short)83, b)) < 0) {
+                    n = ku.a((short)114, b);
                 }
-                llArray[n3] = ky.a((ku)object, n2, n4, true);
-                n2 = n4;
-                ++n3;
+                array[i] = a(ku, b, n, true);
+                b = n;
             }
         }
-        lm[] lmArray = object;
-        object = this;
-        lmArray = ky.a((ku)lmArray, 0);
-        this.b.b(string, llArray, lmArray);
+        this.b.b(d, array, a(ku, 0));
     }
-
-    private void A(ku object) {
-        String string = ((ku)object).d((short)186);
-        byte by = ((ku)object).a((short)189, (byte)-1);
-        ll[] llArray = new ll[((ku)object).b((short)83)];
-        lm[] lmArray = null;
-        if (llArray.length > 0) {
-            int n2 = ((ku)object).b((short)83, 0);
-            int n3 = 0;
-            while (n3 < llArray.length) {
-                int n4 = ((ku)object).a((short)83, n2);
-                llArray[n3] = ky.a((ku)object, n2, n4, true);
-                n2 = n4;
-                ++n3;
+    
+    private void A(final ku ku) {
+        final String d = ku.d((short)186);
+        final byte a = ku.a((short)189, (byte)(-1));
+        final ll[] array = new ll[ku.b((short)83)];
+        if (array.length > 0) {
+            int b = ku.b((short)83, 0);
+            for (int i = 0; i < array.length; ++i) {
+                final int a2 = ku.a((short)83, b);
+                array[i] = a(ku, b, a2, true);
+                b = a2;
             }
         }
-        lmArray = object;
-        object = this;
-        lmArray = ky.a((ku)lmArray, 0);
-        this.b.a(string, llArray, lmArray, by);
+        this.b.a(d, array, a(ku, 0), a);
     }
-
-    private void B(ku object) {
-        String string = ((ku)object).d((short)186);
-        byte by = ((ku)object).a((short)189, (byte)-1);
-        ll[] llArray = new ll[((ku)object).b((short)83)];
-        lm[] lmArray = null;
-        if (llArray.length > 0) {
-            int n2 = ((ku)object).b((short)83, 0);
-            int n3 = 0;
-            while (n3 < llArray.length) {
-                int n4 = ((ku)object).a((short)83, n2);
-                llArray[n3] = ky.a((ku)object, n2, n4, true);
-                n2 = n4;
-                ++n3;
+    
+    private void B(final ku ku) {
+        final String d = ku.d((short)186);
+        final byte a = ku.a((short)189, (byte)(-1));
+        final ll[] array = new ll[ku.b((short)83)];
+        if (array.length > 0) {
+            int b = ku.b((short)83, 0);
+            for (int i = 0; i < array.length; ++i) {
+                final int a2 = ku.a((short)83, b);
+                array[i] = a(ku, b, a2, true);
+                b = a2;
             }
         }
-        lmArray = object;
-        object = this;
-        lmArray = ky.a((ku)lmArray, 0);
-        this.b.b(string, llArray, lmArray, by);
+        this.b.b(d, array, a(ku, 0), a);
     }
-
-    private void C(ku ku2) {
-        int n2;
-        ku2.d((short)9);
-        int n3 = ku2.b((short)83);
-        String[] stringArray = new String[n3];
-        int[] nArray = new int[n3];
-        int[] nArray2 = new int[n3];
-        n3 = ku2.b((short)114);
-        int[] nArray3 = new int[n3];
-        int[] nArray4 = new int[n3];
-        int n4 = ku2.b((short)83, 0);
-        int n5 = 0;
-        while (n5 < stringArray.length) {
-            n2 = ku2.a((short)83, n4);
-            stringArray[n5] = ku2.b(n4);
-            nArray[n5] = ku2.a((short)139, n4, n2, 0);
-            nArray2[n5] = ku2.a((short)144, n4, n2, 0);
-            n4 = n2;
-            ++n5;
+    
+    private void C(final ku ku) {
+        ku.d((short)9);
+        final int b;
+        final String[] array = new String[b = ku.b((short)83)];
+        final int[] array2 = new int[b];
+        final int[] array3 = new int[b];
+        final int b2;
+        final int[] array4 = new int[b2 = ku.b((short)114)];
+        final int[] array5 = new int[b2];
+        int b3 = ku.b((short)83, 0);
+        for (int i = 0; i < array.length; ++i) {
+            final int a = ku.a((short)83, b3);
+            array[i] = ku.b(b3);
+            array2[i] = ku.a((short)139, b3, a, 0);
+            array3[i] = ku.a((short)144, b3, a, 0);
+            b3 = a;
         }
-        n4 = ku2.b((short)114, 0);
-        n5 = 0;
-        while (n5 < nArray3.length) {
-            n2 = ku2.a((short)114, n4);
-            nArray3[n5] = ku2.a(n4, 0);
-            nArray4[n5] = ku2.a((short)106, n4, n2, 0);
-            n4 = n2;
-            ++n5;
+        int b4 = ku.b((short)114, 0);
+        for (int j = 0; j < array4.length; ++j) {
+            final int a2 = ku.a((short)114, b4);
+            array4[j] = ku.a(b4, 0);
+            array5[j] = ku.a((short)106, b4, a2, 0);
+            b4 = a2;
         }
         if (this.b != null) {
-            this.b.a(stringArray, nArray, nArray2, nArray3, nArray4);
+            this.b.a(array, array2, array3, array4, array5);
         }
     }
-
-    private void D(ku object) {
-        String string = ((ku)object).d((short)182);
-        String[] stringArray = ((ku)object).d((short)183);
-        object = ((ku)object).d((short)1);
-        stringArray = i.b((String)stringArray, ";");
-        String[] stringArray2 = null;
-        String[] stringArray3 = null;
-        if (stringArray != null && stringArray.length > 0 && stringArray.length % 2 == 0) {
-            stringArray2 = new String[stringArray.length / 2];
-            stringArray3 = new String[stringArray.length / 2];
-            int n2 = 0;
-            while (n2 < stringArray.length) {
-                stringArray3[n2 / 2] = stringArray[n2];
-                stringArray2[n2 / 2] = stringArray[n2 + 1];
-                n2 += 2;
+    
+    private void D(final ku ku) {
+        final String d = ku.d((short)182);
+        final String d2 = ku.d((short)183);
+        final String d3 = ku.d((short)1);
+        final String[] b = i.b(d2, ";");
+        String[] array = null;
+        String[] array2 = null;
+        if (b != null && b.length > 0 && b.length % 2 == 0) {
+            array = new String[b.length / 2];
+            array2 = new String[b.length / 2];
+            for (int i = 0; i < b.length; i += 2) {
+                array2[i / 2] = b[i];
+                array[i / 2] = b[i + 1];
             }
         }
-        this.b.b((String)object, string, stringArray3, stringArray2);
+        this.b.b(d3, d, array2, array);
     }
-
+    
     public final void a() {
         this.f = true;
         if (this.e != null) {
-            kv kv2 = this.e;
+            final kv e = this.e;
             try {
-                kv2.a.close();
+                e.a.close();
             }
-            catch (Throwable throwable) {}
+            catch (final Throwable t) {}
             this.e = null;
         }
     }

@@ -20,76 +20,74 @@ implements bf {
     private int t = 3;
     private int u = 0;
     private String v;
-    private Image w = f.d("/push");
+    private Image w = com.mg.bas.f.d("/push");
     private int x = 1;
     private int y;
     private a z;
 
-    public ic(int n, int n2, k k2, as as2, String string, String object) {
+    public ic(int g, int n, final k l, final as n2, final String s, final String v) {
         super(1);
-        int n3;
-        this.v = object;
-        object = this;
-        this.f = v.t - 20;
-        ((am)object).g = bx.d.a() * ((ic)object).s + 20;
-        ((al)object).c = v.t - ((am)object).f >> 1;
-        ((ic)object).r = new k(35, 20, ((am)object).f - 35, ((am)object).g);
-        if (((ic)object).v != null) {
-            int n4 = bx.d.a(((ic)object).v) + 20;
-            if (n4 > (n3 = ((am)object).f - 30)) {
-                n4 = n3;
-                com.mg.sq.a.a(((ic)object).v, bx.d, n3);
+        this.l = null;
+        this.o = null;
+        this.s = 3;
+        this.t = 3;
+        this.u = 0;
+        this.w = com.mg.bas.f.d("/push");
+        this.x = 1;
+        this.v = v;
+        super.f = com.mg.bas.v.t - 20;
+        super.g = bx.d.a() * this.s + 20;
+        super.c = com.mg.bas.v.t - super.f >> 1;
+        this.r = new k(35, 20, super.f - 35, super.g);
+        if (this.v != null) {
+            int n3 = bx.d.a(this.v) + 20;
+            final int n4 = super.f - 30;
+            if (n3 > n4) {
+                n3 = n4;
+                com.mg.sq.a.a(this.v, bx.d, n4);
             }
-            ((ic)object).q = new k(5, 0, n4 + 10, 18);
-        } else {
-            ((ic)object).q = new k(5, 0, ((am)object).f - 30, 18);
+            this.q = new k(5, 0, n3 + 10, 18);
         }
-        ((ic)object).p = new cu(5, 10);
-        k k3 = k2;
-        object = this;
-        this.l = k3;
-        if (k3 != null && ((ic)object).k != null) {
-            ((ic)object).m = ((ic)object).k.a - k3.a;
+        else {
+            this.q = new k(5, 0, super.f - 30, 18);
         }
-        n3 = n2;
-        int n5 = n;
-        object = this;
-        this.k = new cu(n5, n3);
-        if (((ic)object).l != null) {
-            ((ic)object).m = ((ic)object).k.a - ((ic)object).l.a;
-            n = ((ic)object).k.b - ((ic)object).l.b;
-            if (((am)object).g > n) {
-                ((am)object).g = n;
-                ((al)object).d = 0;
-                if (((am)object).g < bx.d.a() * ((ic)object).s - 20) {
-                    n2 = (((am)object).g - 20) / bx.d.a();
-                    Object object2 = object;
-                    if (n2 == 0) {
-                        n2 = 1;
+        this.p = new cu(5, 10);
+        this.l = l;
+        if (l != null && this.k != null) {
+            this.m = this.k.a - l.a;
+        }
+        this.k = new cu(g, n);
+        if (this.l != null) {
+            this.m = this.k.a - this.l.a;
+            g = this.k.b - this.l.b;
+            if (super.g > g) {
+                super.g = g;
+                super.d = 0;
+                if (super.g < bx.d.a() * this.s - 20) {
+                    n = (super.g - 20) / bx.d.a();
+                    if (n == 0) {
+                        n = 1;
                     }
-                    ((ic)object2).s = n2;
-                    ((ic)object2).t = n2;
+                    this.s = n;
+                    this.t = n;
                 }
-            } else {
-                ((al)object).d = n - ((am)object).g;
+            }
+            else {
+                super.d = g - super.g;
             }
         }
-        Object object3 = as2;
-        object = this;
-        this.n = object3;
-        if (object3 != null) {
-            ((ic)object).n.i();
-            ((am)object).g = ((at)object3).q() > ((am)object).g ? ((at)object3).q() + 20 : ((am)object).g;
-            ((ic)object).r.a = ((ic)object).p.a + ((at)object3).p() + 3;
-            ((ic)object).r.c = ((am)object).f - ((ic)object).r.a - 5;
-            ((ic)object).p.b = ((am)object).g - ((at)object3).q();
+        if ((this.n = n2) != null) {
+            this.n.i();
+            super.g = ((n2.q() > super.g) ? (n2.q() + 20) : super.g);
+            this.r.a = this.p.a + n2.p() + 3;
+            this.r.c = super.f - this.r.a - 5;
+            this.p.b = super.g - n2.q();
         }
-        object3 = string;
-        object = this;
-        this.o = bx.a((String)object3, ((ic)object).r.c);
-        ((ic)object).t = ((ic)object).o.length < ((ic)object).s ? ((ic)object).o.length : ((ic)object).s;
+        this.o = bx.a(s, this.r.c);
+        this.t = ((this.o.length < this.s) ? this.o.length : this.s);
         this.z = com.mg.sq.a.s();
     }
+    
 
     protected final void g() {
         if (this.n != null) {
@@ -109,31 +107,27 @@ implements bf {
     public final void d(int n, int n2) {
     }
 
-    public final void c(Graphics object) {
-        int n = 0;
-        int n2 = 0;
-        Graphics graphics = object;
-        object = this;
-        n2 = 0 + object.c;
-        n = 0 + object.d;
-        cw.a(graphics, n2, n + 9, object.f, object.g, object.m + n2, false, 14808319, 152707);
-        if (object.n != null) {
-            object.n.a(graphics, n2 + object.p.a, n + object.p.b);
+     public final void c(final Graphics graphics) {
+        final int n = 0 + super.c;
+        final int n2 = 0 + super.d;
+        cw.a(graphics, n, n2 + 9, super.f, super.g, this.m + n, false, 14808319, 152707);
+        if (this.n != null) {
+            this.n.a(graphics, n + this.p.a, n2 + this.p.b);
         }
-        pc.a(graphics, n2 + object.q.a, n + object.q.b, object.q.c, object.q.d, 8023552, 16775619);
-        if (object.v != null) {
+        pc.a(graphics, n + this.q.a, n2 + this.q.b, this.q.c, this.q.d, 8023552, 16775619);
+        if (this.v != null) {
             bx.d.c(true);
-            bx.d.a(graphics, object.v, object.q.a + n2 + 3, object.q.b + n + 2, 0);
+            bx.d.a(graphics, this.v, this.q.a + n + 3, this.q.b + n2 + 2, 0);
             bx.d.c(false);
         }
-        if (object.o != null) {
-            bx.a(graphics, bx.c, object.o, object.u, object.t, object.r.a + n2, object.r.b + n, object.r.c, object.r.d, 0);
+        if (this.o != null) {
+            bx.a(graphics, bx.c, this.o, this.u, this.t, this.r.a + n, this.r.b + n2, this.r.c, this.r.d, 0);
         }
-        int n3 = object.w.getWidth() >> 1;
-        n2 = n2 + object.f - 10;
-        n = n + object.g - 5;
-        graphics.drawRegion(object.w, 0, 0, n3, object.w.getHeight(), 0, n2, n + object.x, 33);
-        graphics.drawRegion(object.w, n3, 0, n3, object.w.getHeight(), 0, n2, n + 10, 33);
+        final int n3 = this.w.getWidth() >> 1;
+        final int n4 = n + super.f - 10;
+        final int n5 = n2 + super.g - 5;
+        graphics.drawRegion(this.w, 0, 0, n3, this.w.getHeight(), 0, n4, n5 + this.x, 33);
+        graphics.drawRegion(this.w, n3, 0, n3, this.w.getHeight(), 0, n4, n5 + 10, 33);
     }
 
     public final void c(int n) {

@@ -30,16 +30,16 @@ implements Runnable {
             if (this.d[n] == null) {
                 this.d[n] = object;
                 try {
-                    object = b;
-                    synchronized (object) {
+                    Object syncObj = b;
+                    synchronized (syncObj) {
                         b.notify();
                         return;
                     }
                 }
                 catch (Exception exception) {
                     try {
-                        object = b;
-                        synchronized (object) {
+                        Object syncObj = b;
+                        synchronized (syncObj) {
                             b.notify();
                             return;
                         }

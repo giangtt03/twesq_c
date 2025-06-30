@@ -51,68 +51,76 @@ extends at {
         j = new byte[]{3, 3, 3, 2, 2, 3, 1, 1, 1};
     }
 
-    public ki(Image object, int n, int n2, jo jo2, lh lh2, Image image) {
-        int n3 = 6;
-        n2 = 1;
-        Object object2 = object;
-        object = this;
-        this.k = object2;
-        object.o = object2.getWidth() / n3;
-        object.p = object2.getHeight() / n2;
-        this.z = lh2;
-        this.f = jo2;
-        this.a(this.m, this.n, this.o - 12, 20);
-        this.w = this.o >> 1;
-        if (image == null) {
-            lh lh3 = lh2;
-            object2 = jo2;
-            object = this;
-            if (object2 != null) {
-                n3 = object2.d - lh3.G;
-                switch (object2.g) {
+     public ki(final Image k, final int n, int n2, final jo f, final lh z, final Image g) {
+        super();
+        this.h = 0;
+        this.k = null;
+        this.s = 0;
+        this.d = 0;
+        this.t = null;
+        this.g = null;
+        this.w = 0;
+        this.x = 0;
+        this.y = 0;
+        this.A = 12;
+        this.B = bx.c;
+        this.C = 0;
+        final int n3 = 1;
+        final int n4 = 6;
+        n2 = n3;
+        this.k = k;
+        super.o = k.getWidth() / n4;
+        super.p = k.getHeight() / n2;
+        this.z = z;
+        this.f = f;
+        this.a(super.m, super.n, super.o - 12, 20);
+        this.w = super.o >> 1;
+        if (g == null) {
+            if (f != null) {
+                final int n5 = f.d - z.G;
+                switch (f.g) {
                     case 1: {
-                        object.C = 0xFF0000;
+                        this.C = 16711680;
                         break;
                     }
                     case 2: {
-                        object.C = 9008914;
+                        this.C = 9008914;
                         break;
                     }
                     default: {
-                        if (n3 >= 5) {
-                            object.C = 1471487;
+                        if (n5 >= 5) {
+                            this.C = 1471487;
                             break;
                         }
-                        if (n3 < -9) {
-                            object.C = 0xAAAAAA;
+                        if (n5 < -9) {
+                            this.C = 11184810;
                             break;
                         }
-                        object.B = bx.c;
-                        object.C = 0xDDDDDD;
+                        this.B = bx.c;
+                        this.C = 14540253;
+                        break;
                     }
                 }
-                object.D = object.B.a(object2.b);
-                object.E = object.B.a();
+                this.D = this.B.a(f.b);
+                this.E = this.B.a();
             }
             return;
         }
-        this.g = image;
+        this.g = g;
     }
-
+    
     public ki() {
         this.a(this.m, this.n, this.o, this.p);
     }
 
-    public final void a(Graphics object, int n, int n2) {
-        this.b((Graphics)object, n, n2);
-        int n3 = n2;
+     public final void a(final Graphics graphics, final int n, int n2) {
+        this.b(graphics, n, n2);
+        final int n3 = n2;
         n2 = n;
-        Graphics graphics = object;
-        object = this;
-        if (object.f.b != null) {
-            graphics.setColor(object.C);
-            graphics.fillRect(object.m + object.w + n2 - object.D / 2, object.n + object.A + n3 - object.E / 2, object.D, object.E);
-            object.B.a(graphics, object.f.b, object.m + object.w + n2 - object.D / 2, object.n + object.A + n3 - object.E / 2, 0);
+        if (this.f.b != null) {
+            graphics.setColor(this.C);
+            graphics.fillRect(super.m + this.w + n2 - this.D / 2, super.n + this.A + n3 - this.E / 2, this.D, this.E);
+            this.B.a(graphics, this.f.b, super.m + this.w + n2 - this.D / 2, super.n + this.A + n3 - this.E / 2, 0);
         }
     }
 

@@ -15,39 +15,37 @@ extends ht {
     private le v = null;
     private d w;
 
-    public hc(String object, String string, int n, String string2, int n2) {
-        this.k = object;
-        n = 7;
-        object = this;
-        if (((am)object).f > ((am)object).g) {
-            if (((am)object).f >= 320) {
-                ((am)object).f = 320;
+    public hc(String k, String string, int n, String string2, int n2) {
+        this.k = k;
+        n = 7; 
+        if (this.f > this.g) {
+            if (this.f >= 320) {
+                this.f = 320;
             }
-        } else if (((am)object).f >= 240) {
-            ((am)object).f = 240;
+        } else if (this.f >= 240) {
+            this.f = 240;
         }
-        ((am)object).f -= 20;
-        ((hc)object).p = bx.a(((hc)object).k, ((am)object).f - 16, bx.b);
-        ((am)object).g = 100 + bx.c.a() * ((hc)object).p.length;
-        ((al)object).c = (v.t - ((am)object).f) / 2;
-        ((al)object).d = (v.u - ((am)object).g - ba.a) / 2;
-        ((hc)object).v = new le();
-        ((hc)object).q = new ex(string, n);
+        this.f -= 20;
+        this.p = bx.a(this.k, this.f - 16, bx.b);
+        this.g = 100 + bx.c.a() * this.p.length;
+        this.c = (com.mg.bas.v.t - this.f) / 2; 
+        this.d = (com.mg.bas.v.u - this.g - ba.a) / 2; 
+        this.v = new le();
+        this.q = new ex(string, n);
         int n3 = bx.d.a("Nâng cấp") + 20;
-        n = (((am)object).f - n3 - n3) / 4;
-        ((hc)object).q.a(((al)object).c + n, ((al)object).d + ((am)object).g - 30, n3, 18);
-        ((hc)object).q.d(true);
-        ((hc)object).r = new ex(string2, n2);
-        ((hc)object).r.a(((al)object).c + ((am)object).f - n - n3, ((al)object).d + ((am)object).g - 30, n3, 18);
-        Object object2 = object;
-        ((hc)object).u = new byte[2][4];
-        ((hc)object2).u[0] = new byte[]{1, 1, -1, -1};
+        n = (this.f - n3 - n3) / 4;
+        this.q.a(this.c + n, this.d + this.g - 30, n3, 18);
+        this.q.d(true);
+        this.r = new ex(string2, n2);
+        this.r.a(this.c + this.f - n - n3, this.d + this.g - 30, n3, 18);
+        this.u = new byte[2][4];
+        this.u[0] = new byte[]{1, 1, -1, -1};
         byte[] byArray = new byte[4];
         byArray[2] = -1;
         byArray[3] = -1;
-        ((hc)object2).u[1] = byArray;
-        ((hc)object).s = new aq[]{((hc)object).q, ((hc)object).r};
-        ((hc)object).w = new by(0xFF0000);
+        this.u[1] = byArray;
+        this.s = new aq[]{this.q, this.r};
+        this.w = new by(0xFF0000);
     }
 
     protected final void s() {
@@ -108,7 +106,7 @@ extends ht {
     }
 
     public final void b(Graphics graphics) {
-        pc.a(graphics, this.c, this.d, this.f, this.g, v.aj, false);
+        pc.a(graphics, this.c, this.d, this.f, this.g, com.mg.bas.v.aj, false); // Adjust ht.aj if needed
         if (this.v != null) {
             this.v.a(graphics, this.c + (this.f - this.v.p()) / 2, this.d + 10);
         }

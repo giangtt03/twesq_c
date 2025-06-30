@@ -1,8 +1,8 @@
 package com.mg.bas;
-// Decompiled with: CFR 0.152
+// Decompiled with: Procyon 0.6.0
 // Class Version: 1
-public final class nj
-implements mr {
+public final class nj implements mr
+{
     private static nj h;
     private static nj i;
     private static nj j;
@@ -29,136 +29,134 @@ implements mr {
     public int e;
     public byte f;
     public byte g;
-
-    private nj(byte by, byte by2, int n, byte by3, byte by4) {
-        this.c = by;
-        this.d = by2;
-        this.e = n;
-        this.f = by3;
-        this.g = by4;
+    
+    private nj(final byte c, final byte d, final int e, final byte f, final byte g) {
+        super();
+        this.c = c;
+        this.d = d;
+        this.e = e;
+        this.f = f;
+        this.g = g;
     }
-
+    
     public static void a() {
-        h = new nj(0, 0, 1, 1, 0);
-        i = new nj(1, 1, 2, 1, 1);
-        j = new nj(2, 2, 4, 1, 2);
-        k = new nj(3, 3, 8, 1, 3);
-        l = new nj(4, 4, 16, 1, 4);
-        m = new nj(5, 5, 32, 1, 5);
-        n = new nj(10, 0, 1, 2, 8);
-        o = new nj(11, 1, 2, 2, 1);
-        p = new nj(12, 2, 4, 2, 2);
-        q = new nj(13, 3, 8, 2, 3);
-        r = new nj(14, 4, 16, 2, 4);
-        s = new nj(15, 5, 32, 2, 5);
-        t = new nj(20, 0, 1, 4, 0);
-        u = new nj(21, 1, 2, 4, 1);
-        v = new nj(22, 2, 4, 4, 2);
-        w = new nj(23, 3, 8, 4, 3);
-        z = new nj(24, 4, 16, 4, 4);
-        A = new nj(25, 5, 32, 4, 5);
-        B = new nj(70, 70, 64, 1, 6);
-        a = new nj(90, 90, 0, 1, -1);
-        b = new nj(99, 99, 0x1000000, 1, -1);
+        nj.h = new nj((byte)0, (byte)0, 1, (byte)1, (byte)0);
+        nj.i = new nj((byte)1, (byte)1, 2, (byte)1, (byte)1);
+        nj.j = new nj((byte)2, (byte)2, 4, (byte)1, (byte)2);
+        nj.k = new nj((byte)3, (byte)3, 8, (byte)1, (byte)3);
+        nj.l = new nj((byte)4, (byte)4, 16, (byte)1, (byte)4);
+        nj.m = new nj((byte)5, (byte)5, 32, (byte)1, (byte)5);
+        nj.n = new nj((byte)10, (byte)0, 1, (byte)2, (byte)8);
+        nj.o = new nj((byte)11, (byte)1, 2, (byte)2, (byte)1);
+        nj.p = new nj((byte)12, (byte)2, 4, (byte)2, (byte)2);
+        nj.q = new nj((byte)13, (byte)3, 8, (byte)2, (byte)3);
+        nj.r = new nj((byte)14, (byte)4, 16, (byte)2, (byte)4);
+        nj.s = new nj((byte)15, (byte)5, 32, (byte)2, (byte)5);
+        nj.t = new nj((byte)20, (byte)0, 1, (byte)4, (byte)0);
+        nj.u = new nj((byte)21, (byte)1, 2, (byte)4, (byte)1);
+        nj.v = new nj((byte)22, (byte)2, 4, (byte)4, (byte)2);
+        nj.w = new nj((byte)23, (byte)3, 8, (byte)4, (byte)3);
+        nj.z = new nj((byte)24, (byte)4, 16, (byte)4, (byte)4);
+        nj.A = new nj((byte)25, (byte)5, 32, (byte)4, (byte)5);
+        nj.B = new nj((byte)70, (byte)70, 64, (byte)1, (byte)6);
+        nj.a = new nj((byte)90, (byte)90, 0, (byte)1, (byte)(-1));
+        nj.b = new nj((byte)99, (byte)99, 16777216, (byte)1, (byte)(-1));
     }
-
+    
     public static void b() {
-        h = null;
-        i = null;
-        j = null;
-        k = null;
-        l = null;
-        m = null;
-        n = null;
-        o = null;
-        p = null;
-        q = null;
-        r = null;
-        s = null;
-        t = null;
-        u = null;
-        v = null;
-        w = null;
-        z = null;
-        A = null;
-        B = null;
-        a = null;
-        b = null;
+        nj.h = null;
+        nj.i = null;
+        nj.j = null;
+        nj.k = null;
+        nj.l = null;
+        nj.m = null;
+        nj.n = null;
+        nj.o = null;
+        nj.p = null;
+        nj.q = null;
+        nj.r = null;
+        nj.s = null;
+        nj.t = null;
+        nj.u = null;
+        nj.v = null;
+        nj.w = null;
+        nj.z = null;
+        nj.A = null;
+        nj.B = null;
+        nj.a = null;
+        nj.b = null;
     }
-
-    public static nj a(int n) {
+    
+    public static nj a(final int n) {
         switch (n) {
             case 0: {
-                return h;
+                return nj.h;
             }
             case 1: {
-                return i;
+                return nj.i;
             }
             case 2: {
-                return j;
+                return nj.j;
             }
             case 3: {
-                return k;
+                return nj.k;
             }
             case 4: {
-                return l;
+                return nj.l;
             }
             case 5: {
-                return m;
+                return nj.m;
             }
             case 10: {
                 return nj.n;
             }
             case 11: {
-                return o;
+                return nj.o;
             }
             case 12: {
-                return p;
+                return nj.p;
             }
             case 13: {
-                return q;
+                return nj.q;
             }
             case 14: {
-                return r;
+                return nj.r;
             }
             case 15: {
-                return s;
+                return nj.s;
             }
             case 20: {
-                return t;
+                return nj.t;
             }
             case 21: {
-                return u;
+                return nj.u;
             }
             case 22: {
-                return v;
+                return nj.v;
             }
             case 23: {
-                return w;
+                return nj.w;
             }
             case 24: {
-                return z;
+                return nj.z;
             }
             case 25: {
-                return A;
+                return nj.A;
             }
             case 70: {
-                return B;
-            }
-            case 71: {
-                break;
+                return nj.B;
             }
             case 90: {
-                return a;
+                return nj.a;
             }
             case 99: {
-                return b;
+                return nj.b;
             }
         }
         ct.a("[NodeChess]==========khoong co id nay " + n);
         return null;
     }
-
+    
     public final String toString() {
         return "Nodechess id = " + this.d + "  indexIma = " + this.g + "  mask = " + this.e + " typoe  " + this.f;
     }

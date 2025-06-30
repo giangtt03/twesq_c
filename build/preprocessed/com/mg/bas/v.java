@@ -120,7 +120,7 @@ public final class v {
         ai = false;
         al = 0;
         am = 200038;
-        v.a(200038);
+        com.mg.bas.v.a(200038);
     }
 
     public static boolean a() {
@@ -134,7 +134,7 @@ public final class v {
     public static void c() {
         int n = 0;
         while (n < 300) {
-            v.c[n] = 0;
+            com.mg.bas.v.c[n] = 0;
             ++n;
         }
     }
@@ -169,8 +169,8 @@ public final class v {
         }
         if ((u < 320 || t < 240) && u >= 240) {
         }
-        v.e();
-        ag.a().d();
+        com.mg.bas.v.e();
+        com.mg.bas.ag.a().d();
     }
 
     public static void e() {

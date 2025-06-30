@@ -19,7 +19,7 @@ extends ak {
         this.e = -100001;
         oc oc2 = this;
         if (oc2.o == null) {
-            oc2.o = f.d("/offline/avatardownloadscreen");
+            oc2.o = com.mg.bas.f.d("/offline/avatardownloadscreen");
         }
         oc2.b = 0;
         oc2.c = pc.b;
@@ -31,8 +31,8 @@ extends ak {
         oc2.m = new int[8];
         int n4 = 0;
         while (n4 < 8) {
-            oc2.l[n4] = n + (25 * l.b(n3) >> 14);
-            oc2.m[n4] = n2 + (25 * l.a(n3) >> 14);
+            oc2.l[n4] = n + (25 * com.mg.bas.l.b(n3) >> 14);
+            oc2.m[n4] = n2 + (25 * com.mg.bas.l.a(n3) >> 14);
             n3 += 45;
             ++n4;
         }

@@ -745,7 +745,7 @@ ik {
 
     private void c(String string) {
         hr hr2 = new hr();
-        hr2.a((Object)this.k);
+        hr2.a(this.k);
         this.w.a(hr2);
         if (string == null) {
             this.o.o();

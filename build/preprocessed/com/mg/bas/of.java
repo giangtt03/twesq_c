@@ -73,24 +73,24 @@ bq {
         super(8);
         this.Y = new ox(null);
         String string = object;
-        object = this;
+//        object = this;
         this.A = string;
         this.a(false);
         this.d(false);
         this.a(new ba());
-        this.a(this);
-        int n = v.t;
-        int n2 = v.u - ba.a;
-        if (v.t >= v.u && v.t == 320) {
+        this.a((bf)this);
+        int n = com.mg.bas.v.t;
+        int n2 = com.mg.bas.v.u - ba.a;
+        if (com.mg.bas.v.t >= com.mg.bas.v.u && com.mg.bas.v.t == 320) {
             n = 320;
-            n2 = v.u - ba.a;
+            n2 = com.mg.bas.v.u - ba.a;
             this.a = true;
         }
-        int n3 = v.t >= n ? (v.t - n) / 2 : 0;
-        int n4 = v.u >= n2 ? (v.u - ba.a - n2) / 2 : 0;
+        int n3 = com.mg.bas.v.t >= n ? (com.mg.bas.v.t - n) / 2 : 0;
+        int n4 = com.mg.bas.v.u >= n2 ? (com.mg.bas.v.u - ba.a - n2) / 2 : 0;
         this.b = new k(n3, n4, n, n2);
         of of2 = this;
-        this.r = f.d("/info/gold");
+        this.r = com.mg.bas.f.d("/info/gold");
         of2.I = new cu(7, 7);
         if (of2.a) {
             of2.K = new cu(of2.b.c / 2 - 7, of2.I.b);
@@ -141,7 +141,7 @@ bq {
             of2.D = new k(7, n2, n3, of2.b.d - n2 - 7);
         }
         of2.d = new fg(false);
-        of2.d.a(of2);
+        of2.d.a((af)of2);
         of2.d.i = new k(of2.m.a, of2.m.b, of2.m.c, of2.m.d);
         of2.d.d(of2.z, 0);
         of2.d.j = true;
@@ -152,7 +152,7 @@ bq {
         of2.c.d(true);
         of2.d.i(0);
         of2.l = new fg(false);
-        of2.l.a(of2);
+        of2.l.a((bq)of2);
         of2.l.i = new k(of2.n.a, of2.n.b, of2.n.c, of2.n.d);
         of2.l.d(of2.z, 0);
         of2.l.j = true;
@@ -172,17 +172,17 @@ bq {
         of3.b(az2, true);
         of2.S = new ff("", 100, 2);
         of2.S.f(true);
-        if (v.z) {
+        if (com.mg.bas.v.z) {
             int n5 = 2;
             if (of2.a) {
-                of2.S.a(0, v.u - ba.a, v.t - 40, ba.a);
+                of2.S.a(0, com.mg.bas.v.u - ba.a, com.mg.bas.v.t - 40, ba.a);
                 n5 = 0;
             } else {
                 of2.S.a(of2.D.a, of2.D.b + of2.D.d - 18, of2.D.c - 45, 18);
             }
             of2.S.a(false);
             of2.ae = new ex("Gửi", -2);
-            of2.ae.a(of2.S.e() + of2.S.c() + n5, of2.a ? v.u - 20 : of2.S.d(), 40, 18);
+            of2.ae.a(of2.S.e() + of2.S.c() + n5, of2.a ? com.mg.bas.v.u - 20 : of2.S.d(), 40, 18);
         } else {
             of2.S.a(of2.D.a, of2.D.b + of2.D.d - 18, of2.D.c, 18);
         }
@@ -217,7 +217,7 @@ bq {
             of4.W[2] = byArray3;
             of4.W[3] = new byte[]{-1, 2, -1, 2};
         }
-        of2.ah = new lz(of2.f, of2.g, 30, 10);
+        of2.ah = new lz(of2.f, of2.g, (byte)30, (byte)10);
     }
 
     protected final void r() {
@@ -235,9 +235,7 @@ bq {
             this.e(true);
             if (this.ag != null && this.ag.c() && this.ag.g() >= 60L) {
                 this.ag.b();
-                al al2 = ag.b().a("", "Xin lỗi! kết nối tạm thời bị gián đoạn! Giao dịch sẽ bị hủy bỏ. Vui lòng thử lại sau!", "Đóng", 15, 1);
-                al2.a(this);
-                ag.b().a(al2, false);
+                com.mg.bas.ag.b().a("", "Xin lỗi! kết nối tạm thời bị gián đoạn! Giao dịch sẽ bị hủy bỏ. Vui lòng thử lại sau!", "Đóng", 15, 1);
             }
             return;
         }
@@ -285,7 +283,7 @@ bq {
         int n;
         int n2;
         if (this.h) {
-            pc.a(object, this.b.a, this.b.b, this.b.c, this.b.d, v.aj, true);
+            pc.a(object, this.b.a, this.b.b, this.b.c, this.b.d, com.mg.bas.v.aj, true);
             bx.d.c(true);
             bx.d.a((Graphics)object, go.e, this.b.a + 7, this.b.b + 7, 0);
             bx.d.c(false);
@@ -304,7 +302,7 @@ bq {
             bx.d.c(true);
             bx.d.a((Graphics)object, this.A, this.J.a + this.b.a, this.J.b + this.b.b, 0);
             bx.d.c(false);
-            pc.b(object, this.D.a + this.b.a, this.D.b + this.b.b, this.D.c, this.D.d, v.aj, true);
+            pc.b(object, this.D.a + this.b.a, this.D.b + this.b.b, this.D.c, this.D.d, com.mg.bas.v.aj, true);
             n2 = 0;
             n = 0;
             while (n < this.T.d()) {
@@ -321,10 +319,10 @@ bq {
                 ++n;
             }
         }
-        String string = "Tiền gửi: " + i.a(this.v, ".");
+        String string = "Tiền gửi: " + com.mg.bas.i.a(this.v, ".");
         string = this.v == 0 ? String.valueOf(string) + " KEN" : String.valueOf(string) + ".000 KEN";
         if (this.ac) {
-            n2 = v.aj;
+            n2 = com.mg.bas.v.aj;
             if (this.ad % 2 == 0) {
                 n2 = 15081495;
             }
@@ -346,7 +344,7 @@ bq {
         } else if (this.k.m()) {
             pc.b(object, this.n.a + this.b.a, this.n.b + this.b.b, this.n.c, this.n.d, 7070703, true);
         } else if (this.aa) {
-            n2 = v.aj;
+            n2 = com.mg.bas.v.aj;
             if (this.ab % 2 == 0) {
                 n2 = 15081495;
             }
@@ -365,10 +363,8 @@ bq {
             this.E.a((Graphics)object, 0, 0);
         }
         if (this.af > 0) {
-            string = object;
-            object = this;
-            if (object.ah != null) {
-                object.ah.a((Graphics)string);
+            if (this.ah != null) {
+                this.ah.a(object);
             }
         }
     }
@@ -378,7 +374,7 @@ bq {
         if (this.S.i()) {
             if (this.a) {
                 graphics.setColor(0xFFFFFF);
-                graphics.fillRect(0, v.u - ba.a, v.t, ba.a);
+                graphics.fillRect(0, com.mg.bas.v.u - ba.a, com.mg.bas.v.t, ba.a);
             }
             this.S.a(graphics, this.b.a, this.b.b);
             if (this.ae != null) {
@@ -416,7 +412,7 @@ bq {
                 bl = false;
             }
             if (bl) {
-                v.c();
+                com.mg.bas.v.c();
                 return;
             }
             if (this.E.f(n)) {
@@ -608,7 +604,7 @@ bq {
         this.e(true);
         if (n2 == 15) {
             ks.a().l();
-            ag.b().l();
+            com.mg.bas.ag.b().l();
             return;
         }
         if (this.af > 0) {
@@ -638,8 +634,8 @@ bq {
                 bs2.a(new br("Hủy giao dịch", 11117));
                 int n3 = bs2.e() > bs2.f() ? bs2.e() : bs2.f();
                 bs2.a_(-n3, of2.j() - bs2.f() + n3);
-                bs2.d(0, v.u - ba.a - bs2.f());
-                bs2.a(of2);
+                bs2.d(0, com.mg.bas.v.u - ba.a - bs2.f());
+                bs2.a((af)of2);
                 of2.b(bs2);
                 az az2 = of2.p;
                 of of3 = of2;
@@ -665,7 +661,7 @@ bq {
                 return;
             }
             case 1235: {
-                ag.b().a(241202, false);
+                com.mg.bas.ag.b().a(241202, false);
                 return;
             }
             case 1234: {
@@ -685,8 +681,8 @@ bq {
                     gu3.b(bd2, true);
                     gu2.b(-7524);
                     gu2.j(true);
-                    ag.b().a(gu2, false);
-                    ag.b().a(241202, false);
+                    com.mg.bas.ag.b().a(gu2, false);
+                    com.mg.bas.ag.b().a(241202, false);
                     return;
                 }
                 if (this.y >= this.z) break;
@@ -694,11 +690,11 @@ bq {
                 if (this.G.t().j != 0 || !((ll)this.G.t().k).a()) break;
                 ks.a().k(((ll)this.G.t().k).c);
                 this.f(this.af + 1);
-                ag.b().a(241202, false);
+                com.mg.bas.ag.b().a(241202, false);
                 return;
             }
             case 7: {
-                ag.b().a(241212, false);
+                com.mg.bas.ag.b().a(241212, false);
                 return;
             }
             case 8: {
@@ -735,22 +731,22 @@ bq {
                 }
                 this.P = true;
                 ks.a().m();
-                ag.b().a(-7894, false);
+                com.mg.bas.ag.b().a(-7894, false);
                 this.f(this.af + 1);
                 return;
             }
             case 9: {
-                ag.b().a(-7894, false);
+                com.mg.bas.ag.b().a(-7894, false);
                 return;
             }
             case 10: {
-                ag.b().l();
+                com.mg.bas.ag.b().l();
                 ks.a().l();
-                ag.b().f(1);
+                com.mg.bas.ag.b().f(1);
                 return;
             }
             case 11: {
-                ag.b().a(-7946, false);
+                com.mg.bas.ag.b().a(-7946, false);
                 return;
             }
             case 12: {
@@ -773,11 +769,11 @@ bq {
                     ks.a().e(this.R.a, n6);
                     this.f(this.af + 1);
                 }
-                ag.b().a(-7524, false);
+                com.mg.bas.ag.b().a(-7524, false);
                 return;
             }
             case 13: {
-                ag.b().a(-7524, false);
+                com.mg.bas.ag.b().a(-7524, false);
                 return;
             }
             case 14: {
@@ -787,22 +783,22 @@ bq {
                 return;
             }
             case 16: {
-                ag.b().a(-7426, false);
+                com.mg.bas.ag.b().a(-7426, false);
                 return;
             }
             case 17: {
-                ag.b().a(false);
-                ag.b().f(1);
+                com.mg.bas.ag.b().a(false);
+                com.mg.bas.ag.b().f(1);
                 return;
             }
             case 1110: {
-                ag.b().a(241209, false);
+                com.mg.bas.ag.b().a(241209, false);
                 hh hh2 = new hh(this.Y, this.al);
-                ag.b().a(hh2);
+                com.mg.bas.ag.b().a(hh2);
                 return;
             }
             case 110: {
-                ag.b().a(241209, false);
+                com.mg.bas.ag.b().a(241209, false);
             }
         }
     }
@@ -830,14 +826,14 @@ bq {
         this.F = false;
     }
 
-    private boolean g(int n) {
+     private boolean g(int n) {
         switch (n) {
             case 11119: {
                 if (this.Z > 0) {
-                    al al2 = ag.b().a("Chú ý", "Vui lòng kiểm tra các món hàng giao dịch trước khi đồng ý! vui lòng chớ hết thơi gian đếm ngược.", "Đóng", 16, 1);
-                    al2.a(this);
-                    al2.b(-7426);
-                    ag.b().a(al2, false);
+                    final al a;
+                    (a = com.mg.bas.ag.b().a("Chú ý", "Vui lòng kiểm tra các món hàng giao dịch trước khi đồng ý! vui lòng chớ hết thơi gian đếm ngược.", "Đóng", 16, 1)).a(this);
+                    a.b(-7426);
+                    com.mg.bas.ag.b().a(a, false);
                     return true;
                 }
                 this.d(-1, 8);
@@ -845,11 +841,10 @@ bq {
             }
             case 11118: {
                 if (this.G == null) {
-                    this.G = new hh(this.Y, this.al);
-                    this.G.a(this);
+                    (this.G = new hh(this.Y, this.al)).a(this);
                     this.G.h(2);
                 }
-                ag.b().a(this.G);
+                com.mg.bas.ag.b().a(this.G);
                 return true;
             }
             case 11117: {
@@ -860,7 +855,8 @@ bq {
                 if (this.H != null && this.H.k != null) {
                     if (this.H.j == 0) {
                         com.mg.sq.a.a((ll)this.H.k, this, "", -23434, "Đóng", 7);
-                    } else {
+                    }
+                    else {
                         com.mg.sq.a.a((lm)this.H.k, null);
                     }
                 }
@@ -871,16 +867,15 @@ bq {
                     if (this.H.j == 0) {
                         ks.a().l(((ll)this.H.k).c);
                         this.M = 0;
-                    } else {
+                    }
+                    else {
                         this.R = (lm)this.H.k;
                         n = 0;
-                        int n2 = 0;
-                        while (n2 < this.d.s()) {
-                            lm lm2;
-                            if ((((dc)this.d.k((int)n2)).j == 1 || ((dc)this.d.k((int)n2)).j == 2) && (lm2 = (lm)((dc)this.d.k((int)n2)).k) != null && lm2.a == this.R.a) {
-                                n += lm2.g;
+                        for (int i = 0; i < this.d.s(); ++i) {
+                            final lm lm;
+                            if ((((dc)this.d.k(i)).j == 1 || ((dc)this.d.k(i)).j == 2) && (lm = (lm)((dc)this.d.k(i)).k) != null && lm.a == this.R.a) {
+                                n += lm.g;
                             }
-                            ++n2;
                         }
                         ks.a().e(this.R.a, n - this.R.g);
                         this.M = 2;
@@ -890,8 +885,10 @@ bq {
                 this.f(this.af + 1);
                 return true;
             }
+            default: {
+                return false;
+            }
         }
-        return false;
     }
 
     public final void d() {
@@ -1034,59 +1031,59 @@ bq {
     /*
      * WARNING - Removed try catching itself - possible behaviour change.
      */
-    public final void a(lm lm2, int n) {
-        Object object = this.ai;
-        synchronized (object) {
-            dc dc2;
+    public final void a(final lm lm, int g) {
+        synchronized (this.ai) {
             this.e(true);
             this.Z = 125;
-            this.a(String.valueOf(this.A) + " vừa cập nhật " + n + " " + lm2.b, (byte)0, com.mg.sq.a.g);
+            this.a(String.valueOf(this.A) + " vừa cập nhật " + g + " " + lm.b, (byte)0, com.mg.sq.a.g);
             this.w();
-            lm[] lmArray = new a();
-            int n2 = 0;
-            while (n2 < this.l.s()) {
-                lm lm3;
-                dc2 = (dc)this.l.k(n2);
-                if (dc2 != null && dc2.j != 0 && (lm3 = (lm)dc2.k) != null && lm3.a == lm2.a) {
-                    lmArray.a(dc2);
+            final a a = new a();
+            for (int i = 0; i < this.l.s(); ++i) {
+                final dc dc;
+                final lm lm2;
+                if ((dc = (dc)this.l.k(i)) != null && dc.j != 0 && (lm2 = (lm)dc.k) != null && lm2.a == lm.a) {
+                    a.a(dc);
                 }
-                ++n2;
             }
-            n2 = 0;
-            while (n2 < lmArray.d()) {
-                this.l.a((dc)lmArray.b(n2));
-                ++n2;
+            for (int j = 0; j < a.d(); ++j) {
+                this.l.a((dc)a.b(j));
             }
-            if (n > 0) {
-                int n3 = n2 = lm2.e == 3 ? 2 : 1;
-                if (lm2.l <= 0 || lm2.l == Integer.MAX_VALUE) {
-                    dc2 = new dc(null, lm2, n2, this.al);
-                    this.l.a((Object)dc2);
+            if (g > 0) {
+                final int n = (lm.e == 3) ? 2 : 1;
+                if (lm.l <= 0 || lm.l == Integer.MAX_VALUE) {
+                    this.l.a((Object)new dc(null, lm, n, this.al));
+//                    monitorexit(this.ai);
                     return;
                 }
-                int n4 = lm2.l == 1 ? n : n / lm2.l + (n % lm2.l > 0 ? 1 : 0);
-                lmArray = new lm[n4];
-                int n5 = 0;
-                while (n5 < n4) {
-                    lmArray[n5] = lm2.b();
-                    if (lm2.l > 1) {
-                        if (n >= lm2.l) {
-                            lmArray[n5].g = lm2.l;
-                            n -= lm2.l;
-                        } else if (n > 0) {
-                            lmArray[n5].g = n;
+                int n2;
+                if (lm.l == 1) {
+                    n2 = g;
+                }
+                else {
+                    n2 = g / lm.l + ((g % lm.l > 0) ? 1 : 0);
+                }
+                final lm[] array = new lm[n2];
+                for (int k = 0; k < n2; ++k) {
+                    array[k] = lm.b();
+                    if (lm.l > 1) {
+                        if (g >= lm.l) {
+                            array[k].g = lm.l;
+                            g -= lm.l;
                         }
-                    } else {
-                        lmArray[n5].g = 1;
+                        else if (g > 0) {
+                            array[k].g = g;
+                        }
                     }
-                    dc2 = new dc(null, lmArray[n5], n2, this.al);
-                    this.l.a((Object)dc2);
-                    ++n5;
+                    else {
+                        array[k].g = 1;
+                    }
+                    this.l.a((Object)new dc(null, array[k], n, this.al));
                 }
             }
             this.ab = 10;
             this.aa = true;
-            return;
+//            monitorexit(this.ai);
+            return; 
         }
     }
 
@@ -1237,66 +1234,62 @@ bq {
     /*
      * WARNING - Removed try catching itself - possible behaviour change.
      */
-    public final void b(String object) {
-        Object object2 = this.ai;
-        synchronized (object2) {
+     public final void b(final String s) {
+        synchronized (this.ai) {
             this.e(true);
-            if (!((String)object).equals(this.A)) {
+            if (!s.equals(this.A)) {
                 ct.a("[TradeScreen ] khac tên ng giao dịch nen huy");
+//                monitorexit(this.ai);
                 return;
             }
-            int n = 0;
-            while (n < this.l.s()) {
-                object = (dc)this.l.k(n);
-                if (((dc)object).k != null) {
-                    if (((dc)object).j == 0) {
-                        go.a((ll)((dc)object).k);
-                    } else {
-                        object = (lm)((dc)object).k;
-                        go.a((lm)object, ((lm)object).g);
+            for (int i = 0; i < this.l.s(); ++i) {
+                final dc dc;
+                if ((dc = (dc)this.l.k(i)).k != null) {
+                    if (dc.j == 0) {
+                        go.a((ll)dc.k);
+                    }
+                    else {
+                        final lm lm = (lm)dc.k;
+                        go.a(lm, lm.g);
                     }
                 }
-                ++n;
             }
-            n = 0;
-            while (n < this.d.s()) {
-                object = (dc)this.d.k(n);
-                if (((dc)object).k != null) {
-                    if (((dc)object).j == 0) {
-                        go.b((ll)((dc)object).k);
-                    } else {
-                        go.a((lm)((dc)object).k);
+            for (int j = 0; j < this.d.s(); ++j) {
+                final dc dc2;
+                if ((dc2 = (dc)this.d.k(j)).k != null) {
+                    if (dc2.j == 0) {
+                        go.b((ll)dc2.k);
+                    }
+                    else {
+                        go.a((lm)dc2.k);
                     }
                 }
-                ++n;
             }
-            ag.b().l();
-            ag.b().f(1);
-            return;
+            com.mg.bas.ag.b().l();
+            com.mg.bas.ag.b().f(1);
+//            monitorexit(this.ai);
         }
     }
-
+    
     private void x() {
-        al al2 = ag.b().a("Chú ý", "Bạn muốn hủy bỏ giao dịch?", "Có", 10, "Không", 11, 1);
-        al2.a(this);
-        al2.b(-7946);
-        ag.b().a(al2, false);
+        final al a;
+        (a = com.mg.bas.ag.b().a("Chú ý", "Bạn muốn hủy bỏ giao dịch?", "Có", 10, "Không", 11, 1)).a(this);
+        a.b(-7946);
+        com.mg.bas.ag.b().a(a, false);
     }
 
-    public final void a(String stringArray, byte by, d d2) {
+    public final void a(final String s, final byte b, final d d) {
         this.e(true);
-        stringArray = bx.a((String)stringArray, this.D.c - 10, d2);
-        int n = 0;
-        while (n < stringArray.length) {
+        final String[] a = bx.a(s, this.D.c - 10, d);
+        for (int i = 0; i < a.length; ++i) {
             if (this.T.d() >= this.U) {
                 this.T.a(0);
             }
-            hf hf2 = new hf(stringArray[n], by, d2);
-            hf2.a(-5);
-            hf2.h(this.D.c - 3);
-            hf2.i(d2.a());
-            this.T.a(hf2);
-            ++n;
+            final hf hf;
+            (hf = new hf(a[i], b, d)).a(-5);
+            hf.h(this.D.c - 3);
+            hf.i(d.a());
+            this.T.a(hf);
         }
     }
 
@@ -1342,49 +1335,42 @@ bq {
         }
     }
 
-    public final void b(aq object, int n) {
-        if (object == null && n >= 6) {
-            object = new dc(this.l.k, null, 3, this.al);
+    public final void b(aq aq, int n) {
+        if (aq == null && n >= 6) {
+            aq = new dc(this.l.k, null, 3, this.al);
         }
-        Object object2 = object;
-        object = this;
-        this.H = (dc)object2;
+        this.H = (dc)aq;
         if (this.V[this.X] instanceof ay) {
-            object2 = ((fg)((ay)this.V[this.X]).w()).u();
-            object = this;
-            bs bs2 = new bs();
-            if (((of)object).H != null && ((of)object).H.j != 3) {
-                bs2.a(new br("Chi Tiết", 11116));
+            final k u = ((fg)((ay)this.V[this.X]).w()).u();
+            final bs bs = new bs();
+            if (this.H != null && this.H.j != 3) {
+                bs.a(new br("Chi Tiết", 11116));
             }
-            if (((of)object).c.m()) {
-                if (((of)object).H != null) {
-                    if (((of)object).H.j != 3) {
-                        bs2.a(new br("Bỏ ra", 11115));
+            if (this.c.m()) {
+                if (this.H != null) {
+                    if (this.H.j != 3) {
+                        bs.a(new br("Bỏ ra", 11115));
                     }
-                } else {
-                    bs2.a(new br[]{new br("Rương Đồ", 11118)});
+                }
+                else {
+                    bs.a(new br[] { new br("Rương Đồ", 11118) });
                 }
             }
-            if (bs2.s() == null || bs2.s().length == 0) {
+            if (bs.s() == null || bs.s().length == 0) {
                 return;
             }
-            int n2 = ((k)object2).a + ((of)object).b.a + (((k)object2).c - bs2.e()) / 2;
-            int n3 = ((k)object2).b + ((of)object).b.b + ((k)object2).d;
-            if (n3 + bs2.f() > v.u - ba.a) {
-                n3 = v.u - ba.a - bs2.f();
+            final int n2 = u.a + this.b.a + (u.c - bs.e()) / 2;
+            if ((n = u.b + this.b.b + u.d) + bs.f() > com.mg.bas.v.u - ba.a) {
+                n = com.mg.bas.v.u - ba.a - bs.f();
             }
-            bs2.a_(((of)object).b.a + ((of)object).b.c + bs2.e(), n3);
-            bs2.d(n2 < ((of)object).b.a ? ((of)object).b.a : (n2 + bs2.e() > ((of)object).b.a + ((of)object).b.c ? ((of)object).b.a + ((of)object).b.c - bs2.e() : n2), n3);
-            bs2.a((bf)object);
-            az az2 = ((of)object).p;
-            Object object3 = object;
-            ((am)object3).b(az2, true);
-            az2 = ((of)object).q;
-            object3 = object;
-            ((am)object3).a(az2, true);
-            bs2.a_(1);
-            super.b(bs2);
-            ((of)object).F = true;
+            bs.a_(this.b.a + this.b.c + bs.e(), n);
+            bs.d((n2 < this.b.a) ? this.b.a : ((n2 + bs.e() > this.b.a + this.b.c) ? (this.b.a + this.b.c - bs.e()) : n2), n);
+            bs.a((bf)this);
+            this.b(this.p, true);
+            this.a(this.q, true);
+            bs.a_(1);
+            this.b(bs);
+            this.F = true;
         }
     }
 
@@ -1394,24 +1380,23 @@ bq {
     public final void a(aq aq2, int n, int n2) {
     }
 
-    public final void c(String object) {
+    public final void c(final String s) {
         this.af = 0;
-        if (object == null) {
-            ag.b().l();
-            object = ag.b().a("", "Giao dịch đã bị hủy bởi hệ thống!", "Đóng", 17, 1);
-            ((am)object).a(this);
-            ag.b().a((al)object, false);
+        if (s == null) {
+            com.mg.bas.ag.b().l();
+            final al a;
+            (a = com.mg.bas.ag.b().a("", "Giao dịch đã bị hủy bởi hệ thống!", "Đóng", 17, 1)).a(this);
+            com.mg.bas.ag.b().a(a, false);
             return;
         }
-        of of2 = this;
-        if (((String)object).equals(of2.A)) {
-            ag.b().l();
-            object = ag.b().a("", String.valueOf(object) + " đã hủy giao dịch!", "Đóng", 17, 1);
-            ((am)object).a(this);
-            ag.b().a((al)object, false);
+        if (s.equals(this.A)) {
+            com.mg.bas.ag.b().l();
+            final al a2;
+            (a2 = com.mg.bas.ag.b().a("", String.valueOf(s) + " đã hủy giao dịch!", "Đóng", 17, 1)).a(this);
+            com.mg.bas.ag.b().a(a2, false);
             return;
         }
-        ag.b().l();
-        ag.b().f(1);
+        com.mg.bas.ag.b().l();
+        com.mg.bas.ag.b().f(1);
     }
 }

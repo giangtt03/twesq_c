@@ -15,18 +15,20 @@ extends kb {
     private int h = 0;
     private int i = 0;
 
-    public kf(Image image, byte[][] byArray, byte by, byte by2) {
-        Object object = image;
-        kf kf2 = this;
-        this.b = object;
-        object = byArray;
-        kf2 = this;
-        this.c = (byte[][])object;
-        kf2.g = ((Image)object).length;
-        kf2.h = ((Image)object[0]).length;
-        this.i = image.getWidth() / 32;
-        this.p = byArray.length * this.e;
-        this.o = byArray[0].length * this.e;
+    public kf(final Image b, final byte[][] c, final byte b2, final byte b3) {
+        super();
+        this.g = 0;
+        this.h = 0;
+        this.i = 0;
+        this.e = 32;
+        this.f = 32;
+        this.b = b;
+        this.c = c;
+        this.g = c.length;
+        this.h = c[0].length;
+        this.i = b.getWidth() / 32;
+        super.p = c.length * this.e;
+        super.o = c[0].length * this.e;
     }
 
     public final void a(k k2) {

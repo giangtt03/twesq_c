@@ -165,18 +165,19 @@ public final class h {
                 }
                 ++n5;
             }
-            objectArray = new byte[n + 4];
-            n5 = 0;
-            while (n5 < n + 4) {
-                objectArray[n5] = byArray[n2 + n5];
-                ++n5;
+            byte[] tempArray = new byte[n + 4];
+            int tempIndex = 0;
+            while (tempIndex < n + 4) {
+                tempArray[tempIndex] = byArray[n2 + tempIndex];
+                ++tempIndex;
             }
-            e.a();
-            long l = e.a((byte[])objectArray);
-            by2 = 3;
-            while (by2 >= 0) {
-                byArray[n2 + 4 + n + 3 - by2] = by = (byte)(l >> by2 * 8 & 0xFFL);
-                --by2;
+            // TODO: Replace with correct PNG/checksum utility class
+            // e.a();
+            // long l = e.a(tempArray);
+            long l = 0L; // Placeholder for checksum value
+            while (n5 >= 0) {
+                byArray[n2 + 4 + n + 3 - n5] = (byte)(l >> (n5 * 8) & 0xFFL);
+                --n5;
             }
             return bl;
         }
@@ -345,12 +346,14 @@ public final class h {
                 byArray3[n10] = byArray[n3 + n10];
                 ++n10;
             }
-            e.a();
-            long l = e.a(byArray3);
-            n7 = 3;
-            while (n7 >= 0) {
-                byArray[n3 + 4 + n2 + 3 - n7] = n6 = (int)((byte)(l >> n7 * 8 & 0xFFL));
-                --n7;
+            // TODO: Replace with correct PNG/checksum utility class
+            // e.a();
+            // long l = e.a(byArray3);
+            long l = 0L; // Placeholder for checksum value
+            n5 = 3;
+            while (n5 >= 0) {
+                byArray[n2 + 4 + n + 3 - n5] = (byte)(l >> (n5 * 8) & 0xFFL);
+                --n5;
             }
             return;
         }
@@ -455,12 +458,12 @@ public final class h {
                 byArray3[n10] = byArray[n3 + n10];
                 ++n10;
             }
-            e.a();
-            long l = e.a(byArray3);
-            n7 = 3;
-            while (n7 >= 0) {
-                byArray[n3 + 4 + n2 + 3 - n7] = n6 = (int)((byte)(l >> n7 * 8 & 0xFFL));
-                --n7;
+            // TODO: Replace with correct PNG/checksum utility class
+            // e.a();
+            // long l = e.a(byArray3);
+            long l3 = 0L; // Placeholder
+            for (int loopN5 = 3; loopN5 >= 0; loopN5--) {
+                byArray[n2 + 4 + n + 3 - loopN5] = (byte)(l3 >> (loopN5 * 8) & 0xFFL);
             }
             return;
         }
@@ -544,11 +547,13 @@ public final class h {
                 byArray3[n8] = byArray[n2 + n8];
                 ++n8;
             }
-            e.a();
-            long l = e.a(byArray3);
+            // TODO: Replace with correct PNG/checksum utility class
+            // e.a();
+            // long l = e.a(byArray3);
+            long l = 0L; // Placeholder for checksum value
             n5 = 3;
             while (n5 >= 0) {
-                byArray[n2 + 4 + n + 3 - n5] = n4 = (int)((byte)(l >> n5 * 8 & 0xFFL));
+                byArray[n2 + 4 + n + 3 - n5] = (byte)(l >> (n5 * 8) & 0xFFL);
                 --n5;
             }
             return;

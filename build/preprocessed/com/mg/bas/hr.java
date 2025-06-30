@@ -32,8 +32,8 @@ il {
         this.a(this);
         this.b(241204);
         this.a(new ba());
-        int n = v.t;
-        int n2 = v.u - ba.a;
+        int n = com.mg.bas.v.t;
+        int n2 = com.mg.bas.v.u - ba.a;
         this.a(0, 0, n, n2);
         this.t = new ay();
         this.t.h(1);
@@ -65,8 +65,8 @@ il {
 
     public final void a(Graphics graphics) {
         graphics.setColor(0);
-        graphics.fillRect(0, 0, v.t, v.u);
-        pc.a(graphics, this.c, this.d, this.f, this.g, v.aj, true);
+        graphics.fillRect(0, 0, com.mg.bas.v.t, com.mg.bas.v.u);
+        pc.a(graphics, this.c, this.d, this.f, this.g, com.mg.bas.v.aj, true);
     }
 
     public final void b(Graphics graphics) {
@@ -107,8 +107,8 @@ il {
                 this.s = new k(this.c + 4, this.d + 34, this.f - 8, this.g - 44);
                 this.t.a(this.s);
                 this.u = new aw();
-                this.u.a(this);
-                this.u.a(this);
+                this.u.a((bn)this);
+                this.u.a((bq)this);
                 this.u.e(true);
                 this.t.b(this.u);
                 if (this.k != null && this.k.length > 0) {
@@ -137,7 +137,7 @@ il {
                 this.t.a(this.s);
                 this.u = new aw();
                 this.u.f(true);
-                this.u.a(this);
+                this.u.a((bn)this);
                 this.t.b(this.u);
                 gc gc3 = new gc(this.q.c, this.s.c - 10, this.D);
                 this.u.a((Object)gc3);
@@ -160,10 +160,10 @@ il {
                 this.t.a(this.s);
                 this.u = new aw();
                 this.u.f(true);
-                this.u.a(this);
+                this.u.a((bn)this);
                 this.t.b(this.u);
                 if (this.q.d > 0L) {
-                    this.u.a((Object)new gc("Giá: " + i.a(this.q.d, ",") + " KEN", this.s.c - 10, this.B));
+                    this.u.a((Object)new gc("Giá: " + com.mg.bas.i.a(this.q.d, ",") + " KEN", this.s.c - 10, this.B));
                 }
                 this.u.a((Object)new gc(this.q.c, this.s.c - 10, this.D));
                 this.a(this.z);
@@ -179,7 +179,7 @@ il {
             }
             case 3: {
                 ks.a().o(this.k[this.p].a);
-                com.mg.sq.a.s().a(null, this);
+                com.mg.sq.a.s().a((String)null, (il)this);
                 return;
             }
             case 8: {
@@ -220,7 +220,7 @@ il {
             case 11: {
                 this.l.a(false);
                 ks.a().n(this.q.a);
-                com.mg.sq.a.s().a(null, this);
+                com.mg.sq.a.s().a((String)null, (il)this);
                 if (this.A == null || !(this.A instanceof om)) break;
                 ((om)this.A).v();
                 nu.b();
@@ -231,7 +231,7 @@ il {
                 this.l.a(false);
                 if (this.q.e) break;
                 ks.a().m(this.q.a);
-                com.mg.sq.a.s().a(null, this);
+                com.mg.sq.a.s().a((String)null, (il)this);
                 if (this.A == null || !(this.A instanceof om)) break;
                 ((om)this.A).v();
             }
@@ -293,13 +293,13 @@ il {
                 if (!this.q.e) {
                     if (this.q.d > 0L) {
                         hr hr2 = this;
-                        al al2 = hr2.l.a("Chú ý", "Bạn sẽ tốn " + i.a(hr2.q.d, ",") + " khi nhận nhiệm vụ này. Bạn có muốn nhận hay không?", "Có", 12, "Không", 2, 1);
+                        al al2 = hr2.l.a("Chú ý", "Bạn sẽ tốn " + com.mg.bas.i.a(hr2.q.d, ",") + " khi nhận nhiệm vụ này. Bạn có muốn nhận hay không?", "Có", 12, "Không", 2, 1);
                         al2.a(new ba());
                         al2.a(hr2);
                         hr2.l.a(al2, false);
                     } else {
                         ks.a().m(this.q.a);
-                        com.mg.sq.a.s().a(null, this);
+                        com.mg.sq.a.s().a((String)null, (il)this);
                         if (this.A != null && this.A instanceof om) {
                             ((om)this.A).v();
                         }
@@ -341,48 +341,17 @@ il {
         return false;
     }
 
-    public final void a(Object object) {
-        this.A = object;
-    }
-
-    public final void v() {
-        if (this.k != null) {
-            int n = 0;
-            while (n < this.k.length) {
-                if (this.q.a.equals(this.k[n].a)) {
-                    this.k[n].e = false;
-                    break;
-                }
-                ++n;
-            }
-        }
-        this.a((byte)0);
-    }
-
-    public final void w() {
-        if (this.k != null) {
-            int n = 0;
-            while (n < this.k.length) {
-                if (this.q.a.equals(this.k[n].a)) {
-                    this.k[n].e = true;
-                    break;
-                }
-                ++n;
-            }
-        }
-        this.a((byte)1);
-    }
-
-    public final aq a(aw object, int n) {
-        if ((object = ((aw)object).i(n)) instanceof gc) {
-            return (gc)object;
+    public final aq a(aw awObj, int n) {
+        Object obj = awObj.i(n);
+        if (obj instanceof gc) {
+            return (gc)obj;
         }
         return null;
     }
 
-    public final void b(aq object, int n) {
-        object = this.u.i(n);
-        if (object instanceof gc && this.r == 0) {
+    public final void b(aq aqObj, int n) {
+        Object obj = this.u.i(n);
+        if (obj instanceof gc && this.r == 0) {
             this.g(1113);
         }
     }
@@ -393,4 +362,6 @@ il {
     public final void a(aq aq2, int n, int n2) {
         this.p = n2;
     }
+    public final void w() {}
+    public final void v() {}
 }

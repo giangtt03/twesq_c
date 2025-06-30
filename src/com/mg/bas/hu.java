@@ -16,13 +16,12 @@ implements af {
     public String k;
 
     public hu(dc dc2, String string, int n, String string2, int n2) {
-        Object object = dc2;
+        this.p = dc2;
         hu hu2 = this;
-        this.p = object;
         this.b(241234);
         int n3 = 1111120;
         int n4 = 1111119;
-        object = string;
+        Object object = string;
         hu2 = this;
         if (hu2.f > hu2.g) {
             if (hu2.f >= 320) {
@@ -33,8 +32,8 @@ implements af {
         }
         hu2.f -= 20;
         hu2.g = 120;
-        hu2.c = (v.t - hu2.f) / 2;
-        hu2.d = (v.u - hu2.g - ba.a) / 2;
+        hu2.c = (com.mg.bas.v.t - hu2.f) / 2;
+        hu2.d = (com.mg.bas.v.u - hu2.g - ba.a) / 2;
         hu2.u = new ff(null, 15, 4);
         hu hu3 = hu2;
         hu2.u.a(15 + bx.d.a("Giá bán: ") + 4, hu2.d + hu3.p.f() + 30, 75, 18);
@@ -148,7 +147,7 @@ implements af {
     }
 
     public final void b(Graphics graphics) {
-        pc.a(graphics, this.c, this.d, this.f, this.g, v.aj, false);
+        pc.a(graphics, this.c, this.d, this.f, this.g, com.mg.bas.v.aj, false);
         hu hu2 = this;
         hu hu3 = hu2;
         hu3 = this;

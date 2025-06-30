@@ -19,28 +19,49 @@ implements b {
     }
 
     public final void a(int[][] nArray) {
+        if (nArray == null) {
+            System.out.println("[DEBUG] a(int[][]): nArray is null");
+            return;
+        }
         this.o = nArray;
     }
 
     public final void a(aq aq2) {
+        if (aq2 == null) {
+            System.out.println("[DEBUG] a(aq): aq2 is null");
+            return;
+        }
         this.a(new aq[]{aq2});
     }
 
     public final void a(aq[] arr) {
+        if (arr == null) {
+            System.out.println("[DEBUG] a(aq[]): arr is null");
+            return;
+        }
         for (int n2 = 0; n2 < arr.length; ++n2) {
+            if (arr[n2] == null) {
+                System.out.println("[DEBUG] a(aq[]): arr[" + n2 + "] is null");
+                continue;
+            }
             this.k.a(arr[n2]);
         }
         a aObj = this.k;
         int n3 = aObj.d();
         if (n3 > 0) {
-            Object[] objArr = aObj.e(); 
+            Object[] objArr = aObj.e();
             if (objArr != null) {
-
                 for (int i = 1; i < objArr.length; ++i) {
+                    if (objArr[i] == null) continue;
                     int left = 0;
                     int right = i - 1;
                     int mid = (left + right) / 2;
                     while (left <= right) {
+                        if (objArr[mid] == null) {
+                            left++;
+                            mid = (left + right) / 2;
+                            continue;
+                        }
                         int cmp = this.a(objArr[mid], objArr[i]);
                         if (cmp < 0) {
                             left = mid + 1;
@@ -59,7 +80,7 @@ implements b {
                             --j;
                         }
                         objArr[mid] = temp;
-                    } else if (this.a(objArr[i - 1], objArr[i]) > 0) {
+                    } else if (i > 0 && objArr[i - 1] != null && this.a(objArr[i - 1], objArr[i]) > 0) {
                         com.mg.bas.g.a(objArr, i, i - 1);
                     }
                 }
@@ -68,6 +89,10 @@ implements b {
         }
         for (int i = 0; i < this.k.d(); ++i) {
             aq aq2 = this.h(i);
+            if (aq2 == null) {
+                System.out.println("[DEBUG] a(aq[]): this.h(" + i + ") is null");
+                continue;
+            }
             if (aq2.m()) {
                 this.l = i;
                 return;
@@ -168,7 +193,16 @@ implements b {
     }
 
     protected void a(Graphics graphics) {
-        pc.a(graphics, this.c, this.d, this.f, this.g, v.aj, true);
+        if (graphics == null) {
+            System.out.println("[DEBUG] a(Graphics): graphics is null");
+            return;
+        }
+        try {
+            pc.a(graphics, this.c, this.d, this.f, this.g, v.aj, true);
+        } catch (Throwable t) {
+            System.out.println("[DEBUG] Exception in a(Graphics): " + t);
+            t.printStackTrace();
+        }
     }
 
     protected void g() {
@@ -207,26 +241,34 @@ implements b {
     }
 
     public final void b(int n2, int n3) {
-        this.h(this.l).f(n2, n3);
+        // Thêm kiểm tra null để tránh NPE
+        if (this.l < 0) return;
+        aq aqObj = this.h(this.l);
+        if (aqObj != null) {
+            aqObj.f(n2, n3);
+        }
     }
 
     public final void c(int n2, int n3) {
-        this.h(this.l).e(n2, n3);
+        // Thêm kiểm tra null để tránh NPE
+        if (this.l < 0) return;
+        aq aqObj = this.h(this.l);
+        if (aqObj != null) {
+            aqObj.e(n2, n3);
+        }
     }
 
     public final void g(int n2) {
         this.g = n2;
     }
 
-    /*
-     * Enabled force condition propagation
-     * Lifted jumps to return sites
-     */
     public void c(int n2) {
         if (this.l < 0) {
             return;
         }
-        boolean ok = this.t().f(n2);
+        aq tObj = this.t();
+        if (tObj == null) return;
+        boolean ok = tObj.f(n2);
         if (!ok) {
             return;
         }
@@ -372,7 +414,10 @@ implements b {
         if (this.l < 0) {
             return;
         }
-        this.t().g(n2);
+        aq tObj = this.t();
+        if (tObj != null) {
+            tObj.g(n2);
+        }
     }
 
     private void b(az az2) {
@@ -399,15 +444,37 @@ implements b {
 
     private void i(int n2) {
         if (n2 != this.l) {
-            if (this.l >= 0) {
-                this.h(this.l).d(false);
+            if (this.l >= 0 && this.k != null && this.l < this.k.d()) {
+                aq old = this.h(this.l);
+                if (old != null) {
+                    try {
+                        old.d(false);
+                    } catch (Throwable t) {
+                        System.out.println("[DEBUG] Exception in old.d(false): " + t);
+                        t.printStackTrace();
+                    }
+                }
             }
             this.l = n2;
-            this.h(this.l).d(true);
+            aq cur = (this.k != null && this.l >= 0 && this.l < this.k.d()) ? this.h(this.l) : null;
+            if (cur != null) {
+                try {
+                    System.out.println("[DEBUG] cur=" + cur + ", class=" + cur.getClass().getName());
+                    cur.d(true);
+                } catch (Throwable t) {
+                    System.out.println("[DEBUG] Exception in cur.d(true): " + t);
+                    t.printStackTrace();
+                }
+            } else {
+                System.out.println("[DEBUG] cur is null at l=" + this.l + ", k.d()=" + (this.k != null ? this.k.d() : -1));
+            }
         }
     }
 
     public final int a(Object object, Object object2) {
+        if (object == null && object2 == null) return 0;
+        if (object == null) return -1;
+        if (object2 == null) return 1;
         object = (aq)object;
         object2 = (aq)object2;
         if (((aq)object).d() > ((aq)object2).d()) {

@@ -16,8 +16,32 @@ public final class f {
      */
     public static Image a(String string) {
         string = String.valueOf(string) + b;
+        InputStream inputStream = null;
+        // Danh sách các thư mục phổ biến trong project
+        String[] folders = {
+            "", // cùng package
+            "/", // gốc JAR
+            "/bas/",
+            "/com/mg/bas/",
+            "/m/",
+            "/info/",
+            "/play/",
+            "/corner/",
+            "/dialog/",
+            "/offline/",
+            "/audio/",
+            "/f/",
+        };
+        for (int i = 0; i < folders.length; i++) {
+            String path = folders[i].endsWith("/") ? folders[i] + string : folders[i] + string;
+            inputStream = f.class.getResourceAsStream(path);
+            if (inputStream != null) break;
+        }
+        if (inputStream == null) {
+            System.out.println("[ERROR] Resource not found (tried): " + string);
+            return null;
+        }
         try {
-            InputStream inputStream = "".getClass().getResourceAsStream(string);
             byte[] byArray = new byte[4];
             inputStream.read(byArray, 0, 4);
             int n2 = m.c(byArray);
@@ -32,8 +56,7 @@ public final class f {
                 byArray2[n3] = c[n3];
                 ++n3;
             }
-        }
-        catch (Exception exception) {
+        } catch (Exception exception) {
             System.out.println("[ERROR] Create image: " + string);
             exception.printStackTrace();
             return null;

@@ -45,7 +45,7 @@ Runnable {
 
     protected pa() {
         this.e = pd.F();
-        if (v.ah || gr.j) {
+        if (com.mg.bas.v.ah || gr.j) {
             this.r = 180000;
             a = 1;
         } else {
@@ -61,38 +61,37 @@ Runnable {
     }
 
     private boolean f() {
-        long l = System.currentTimeMillis();
-        int n2 = 0;
-        while (n2 < this.d.d()) {
-            u u2 = (u)this.d.b(n2);
-            int n3 = u2.a();
-            if (n3 < 0) {
-                if (!gr.j && n3 == -2) {
+        final long currentTimeMillis = System.currentTimeMillis();
+        int i = 0;
+        while (i < this.d.d()) {
+            final int a;
+            if ((a = ((u)this.d.b(i)).a()) < 0) {
+                if (!gr.j && a == -2) {
                     this.b();
-                    Object object = RecordStore.listRecordStores();
-                    if (object != null) {
-                        int n4 = 0;
-                        while (n4 < ((String[])object).length) {
-                            if (object[n4] != null && (n2 = object[n4].indexOf("installcacher")) >= 0) {
-                                g.b(object[n4]);
+                    final String[] listRecordStores;
+                    if ((listRecordStores = RecordStore.listRecordStores()) != null) {
+                        for (int j = 0; j < listRecordStores.length; ++j) {
+                            final int index;
+                            if (listRecordStores[j] != null && (index = listRecordStores[j].indexOf("installcacher")) >= 0) {
+                                com.mg.bas.g.b(listRecordStores[j]);
                             }
-                            ++n4;
                         }
                     }
                     pd.d(0);
                     pd.h(0);
                     pd.o();
                     pd.s();
-                    object = MGMIDlet.d();
-                    object.notifyDestroyed();
+                    MGMIDlet.d().notifyDestroyed();
                     return false;
                 }
-                pa.a(n3);
+                a(a);
                 return false;
             }
-            ++n2;
+            else {
+                ++i;
+            }
         }
-        this.u += System.currentTimeMillis() - l;
+        this.u += System.currentTimeMillis() - currentTimeMillis;
         return true;
     }
 
@@ -128,7 +127,7 @@ Runnable {
         while (n2 < this.d.d()) {
             u u2 = (u)this.d.b(n2);
             if (u2 != null) {
-                u.a(u2);
+                com.mg.bas.u.a(u2);
             }
             ++n2;
         }
@@ -169,7 +168,7 @@ Runnable {
     }
 
     private u a(String string) {
-        return u.a(string, 512, 15360, 0, 0, this.r, false);
+        return com.mg.bas.u.a(string, 512, 15360, 0, 0, this.r, false);
     }
 
     private void h() {
@@ -204,14 +203,14 @@ Runnable {
     }
 
     private static u b(String string) {
-        return u.a("map" + string, 512, 5120);
+        return com.mg.bas.u.a("map" + string, 512, 5120);
     }
 
     public final Image a(int n2, boolean bl) {
         boolean bl2 = false;
         int n3 = n2;
         pa pa2 = this;
-        return f.a(pa2.a(n3, bl2, false));
+        return com.mg.bas.f.a(pa2.a(n3, bl2, false));
     }
 
     public final byte[] b(int n2, boolean bl) {
@@ -232,15 +231,14 @@ Runnable {
         }
         if (!bl) {
             if (bl2) {
-                return f.a("/offline/" + n2 + ".meta", false);
+                return com.mg.bas.f.a("/offline/" + n2 + ".meta", false);
             }
-            return f.b("/offline/" + n2);
+            return com.mg.bas.f.b("/offline/" + n2);
         }
         return null;
     }
 
-    public final void a(String string, ik ik2) {
-        Object object;
+    public final void a(final String s, final ik g) {
         ct.b("[SQDataCacher] getMapResource");
         if (this.o) {
             return;
@@ -248,27 +246,27 @@ Runnable {
         this.o = true;
         if (com.mg.sq.a.s().d(11111) != null) {
             com.mg.sq.a.s().v();
-            com.mg.sq.a.s().a((String)null, (il)null);
+            com.mg.sq.a.s().a(null, (il)null);
         }
-        int n2 = -1;
-        if (!string.toUpperCase().equals("M99") && g.a("map" + (String)(object = string))) {
-            int n3;
-            object = pa.b(string);
-            n2 = -1;
-            if (object == null) {
-                n3 = -1;
-            } else {
-                byte[] byArray = ((u)object).a(-1987);
-                object = byArray;
-                if (byArray != null) {
-                    n2 = m.a((byte[])object, 0);
-                }
-                n3 = n2;
+        int n = -1;
+        if (!s.toUpperCase().equals("M99") && com.mg.bas.g.a("map" + s)) {
+            final u b = b(s);
+            int a = -1;
+            int n2;
+            if (b == null) {
+                n2 = -1;
             }
-            n2 = n3;
+            else {
+                final byte[] a2;
+                if ((a2 = b.a(-1987)) != null) {
+                    a = com.mg.bas.m.a(a2, 0);
+                }
+                n2 = a;
+            }
+            n = n2;
         }
-        this.g = ik2;
-        ks.a().a(string, n2);
+        this.g = g;
+        ks.a().a(s, n);
     }
 
     public final void a(int n2, int[] nArray, int n3, ij ij2) {
@@ -351,7 +349,7 @@ Runnable {
                         if (inputStream != null) {
                             byte[] byArray = new byte[4];
                             inputStream.read(byArray, 0, 4);
-                            int n7 = m.c(byArray);
+                            int n7 = com.mg.bas.m.c(byArray);
                             n5 += n7;
                             inputStream.close();
                         }
@@ -374,7 +372,7 @@ Runnable {
                 nArray2 = new int[a2.d()];
                 n4 = 0;
                 while (n4 < nArray2.length) {
-                    nArray2[n4] = (Integer)a2.b(n4);
+                    nArray2[n4] = ((Integer)a2.b(n4)).intValue();
                     ++n4;
                 }
             }
@@ -389,122 +387,121 @@ Runnable {
         ct.a("[SQDataCache] receiveMapInfo()");
         pa.a(n2, n3);
         String string = this.i.a;
-        g.b("map" + string);
+        com.mg.bas.g.b("map" + string);
         this.p = this.i.c;
         this.k = new byte[nArray.length][];
         this.i();
         this.c = pa.b(this.i.a);
         this.c.a(-1988, this.i.a());
-        this.c.a(-1989, m.a(System.currentTimeMillis()));
+        this.c.a(-1989, com.mg.bas.m.a(System.currentTimeMillis()));
         int n4 = this.c.a();
         pa.a(n4);
         this.a(1, nArray);
     }
 
-    public final void a(String string, jm[] object) {
+    public final void a(final String s, final jm[] array) {
         ct.a("[SQDataCache] receiveMapUpToDate()");
         this.i = new jn();
-        if (!string.toUpperCase().equals("M99")) {
-            u u2 = pa.b(string);
-            u2.a(-1989, m.a(System.currentTimeMillis()));
-            int n2 = u2.a();
-            pa.a(n2);
-            byte[] byArray = u2.a(-1988);
-            jn jn2 = this.i;
-            if (byArray != null) {
-                jn2.f = m.a(byArray, 0);
-                jn2.e = m.a(byArray, 4);
-                jn2.g = m.a(byArray, 8);
-                jn2.c = m.a(byArray, 12);
-                jn2.d = m.a(byArray, 16);
-                jn2.k = m.a(byArray, 20);
-                int n3 = m.a(byArray, 24);
-                byte[] byArray2 = new byte[n3];
-                System.arraycopy(byArray, 28, byArray2, 0, n3);
-                jn2.a = i.a(byArray2);
-                int n4 = n3 + 28;
-                n3 = m.a(byArray, n4);
-                byArray2 = new byte[n3];
-                System.arraycopy(byArray, n4 += 4, byArray2, 0, n3);
-                jn2.b = i.a(byArray2);
-                n4 += n3;
-                n3 = m.a(byArray, n4);
-                jn2.h = new byte[n3];
-                System.arraycopy(byArray, n4 += 4, jn2.h, 0, n3);
-                n4 += n3;
-                n3 = m.a(byArray, n4);
-                jn2.i = new byte[n3];
-                System.arraycopy(byArray, n4 += 4, jn2.i, 0, n3);
-                n4 += n3;
-                n3 = m.a(byArray, n4);
-                jn2.j = new byte[n3];
-                System.arraycopy(byArray, n4 += 4, jn2.j, 0, n3);
-                n4 += n3;
-                n3 = m.a(byArray, n4);
-                byArray2 = new byte[n3];
-                System.arraycopy(byArray, n4 += 4, byArray2, 0, n3);
-                jn2.m = new int[n3 / 4];
-                int n5 = 0;
-                while (n5 < jn2.m.length) {
-                    jn2.m[n5] = m.a(byArray2, n5 << 2);
-                    ++n5;
+        if (!s.toUpperCase().equals("M99")) {
+            final u b;
+            (b = b(s)).a(-1989, com.mg.bas.m.a(System.currentTimeMillis()));
+            a(b.a());
+            final jn i = this.i;
+            final byte[] a = b.a(-1988);
+            final jn jn = i;
+            if (a != null) {
+                jn.f = com.mg.bas.m.a(a, 0);
+                jn.e = com.mg.bas.m.a(a, 4);
+                jn.g = com.mg.bas.m.a(a, 8);
+                jn.c = com.mg.bas.m.a(a, 12);
+                jn.d = com.mg.bas.m.a(a, 16);
+                jn.k = com.mg.bas.m.a(a, 20);
+                final int a2;
+                final byte[] array2 = new byte[a2 = com.mg.bas.m.a(a, 24)];
+                System.arraycopy(a, 28, array2, 0, a2);
+                jn.a = com.mg.bas.i.a(array2);
+                int n = a2 + 28;
+                final int a3 = com.mg.bas.m.a(a, n);
+                n += 4;
+                final byte[] array3 = new byte[a3];
+                System.arraycopy(a, n, array3, 0, a3);
+                jn.b = com.mg.bas.i.a(array3);
+                int n2 = n + a3;
+                final int a4 = com.mg.bas.m.a(a, n2);
+                n2 += 4;
+                System.arraycopy(a, n2, jn.h = new byte[a4], 0, a4);
+                int n3 = n2 + a4;
+                final int a5 = com.mg.bas.m.a(a, n3);
+                n3 += 4;
+                System.arraycopy(a, n3, jn.i = new byte[a5], 0, a5);
+                int n4 = n3 + a5;
+                final int a6 = com.mg.bas.m.a(a, n4);
+                n4 += 4;
+                System.arraycopy(a, n4, jn.j = new byte[a6], 0, a6);
+                int n5 = n4 + a6;
+                final int a7 = com.mg.bas.m.a(a, n5);
+                n5 += 4;
+                final byte[] array4 = new byte[a7];
+                System.arraycopy(a, n5, array4, 0, a7);
+                jn.m = new int[a7 / 4];
+                for (int j = 0; j < jn.m.length; ++j) {
+                    jn.m[j] = com.mg.bas.m.a(array4, j << 2);
                 }
-                n4 += n3;
-                n3 = m.a(byArray, n4);
-                byArray2 = new byte[n3];
-                System.arraycopy(byArray, n4 += 4, byArray2, 0, n3);
-                n5 = 0;
-                a a2 = new a();
-                while (n5 < byArray2.length - 1) {
-                    int n6 = m.a(byArray2, n5);
-                    byte[] byArray3 = new byte[n6];
-                    System.arraycopy(byArray2, n5 += 4, byArray3, 0, n6);
-                    a2.a((Object)byArray3);
-                    n5 += n6;
+                int n6 = n5 + a7;
+                final int a8 = com.mg.bas.m.a(a, n6);
+                n6 += 4;
+                final byte[] array5 = new byte[a8];
+                System.arraycopy(a, n6, array5, 0, a8);
+                int k = 0;
+                final a a9 = new a();
+                while (k < array5.length - 1) {
+                    final int a10 = com.mg.bas.m.a(array5, k);
+                    k += 4;
+                    final byte[] array6 = new byte[a10];
+                    System.arraycopy(array5, k, array6, 0, a10);
+                    a9.a(array6);
+                    k += a10;
                 }
-                jn2.l = new jm[a2.d()];
-                int n7 = 0;
-                while (n7 < jn2.l.length) {
-                    jn2.l[n7] = new jm();
-                    byArray2 = (byte[])a2.b(n7);
-                    jm jm2 = jn2.l[n7];
-                    jn2.l[n7].a = m.a(byArray2, 0);
-                    jm2.c = m.a(byArray2, 4);
-                    jm2.d = m.a(byArray2, 8);
-                    jm2.e = m.a(byArray2, 12);
-                    jm2.f = m.a(byArray2, 16);
-                    jm2.g = m.a(byArray2, 20);
-                    n5 = m.a(byArray2, 24);
-                    byte[] byArray4 = new byte[n5];
-                    System.arraycopy(byArray2, 28, byArray4, 0, n5);
-                    jm2.b = i.a(byArray4);
-                    ++n7;
+                jn.l = new jm[a9.d()];
+                for (int l = 0; l < jn.l.length; ++l) {
+                    jn.l[l] = new jm();
+                    final jm jm = jn.l[l];
+                    final byte[] array7 = (byte[])a9.b(l);
+                    final jm jm2 = jm;
+                    jm.a = com.mg.bas.m.a(array7, 0);
+                    jm2.c = com.mg.bas.m.a(array7, 4);
+                    jm2.d = com.mg.bas.m.a(array7, 8);
+                    jm2.e = com.mg.bas.m.a(array7, 12);
+                    jm2.f = com.mg.bas.m.a(array7, 16);
+                    jm2.g = com.mg.bas.m.a(array7, 20);
+                    final int a11;
+                    final byte[] array8 = new byte[a11 = com.mg.bas.m.a(array7, 24)];
+                    System.arraycopy(array7, 28, array8, 0, a11);
+                    jm2.b = com.mg.bas.i.a(array8);
                 }
             }
-            this.i.l = object;
-            pa.a(this.i.l);
+            a(this.i.l = array);
             this.j = this.i.m;
             this.k = new byte[this.j.length][];
-            int n8 = this.k.length;
-            pa.a(0, n8);
-            n8 = 0;
-            while (n8 < this.j.length) {
-                object = com.mg.sq.a.s().d(11111);
-                if (object != null) {
-                    ((al)object).a(al.a);
+            a(0, this.k.length);
+            for (int n7 = 0; n7 < this.j.length; ++n7) {
+                final al d;
+                if ((d = com.mg.sq.a.s().d(11111)) != null) {
+                    d.a(al.a);
                 }
-                this.k[n8] = u2.a(this.j[n8]);
+                this.k[n7] = b.a(this.j[n7]);
                 ++nx.b;
-                ++n8;
             }
-        } else {
-            this.i.l = object;
+        }
+        else {
+            this.i.l = array;
         }
         if (this.g != null) {
             this.g.a(this.i, this.k);
         }
         this.l();
     }
+    
 
     private void i() {
         String[] stringArray = RecordStore.listRecordStores();
@@ -529,7 +526,7 @@ Runnable {
                 if ((object = pa.b(((String)object).substring(3))) != null && ((u)object).c(-1989)) {
                     byte[] byArray = ((u)object).a(-1989);
                     object = byArray;
-                    long l2 = m.d(byArray);
+                    long l2 = com.mg.bas.m.d(byArray);
                     if (l2 < l) {
                         l = l2;
                         n4 = n5;
@@ -538,7 +535,7 @@ Runnable {
                 ++n5;
             }
             if (n4 >= 0) {
-                g.b((String)a2.b(n4));
+                com.mg.bas.g.b((String)a2.b(n4));
             }
         }
     }
@@ -670,7 +667,7 @@ Runnable {
                     }
                     n2 = this.c.a();
                     pa.a(n2);
-                    this.c.a(-1987, m.a(this.i.c));
+                    this.c.a(-1987, com.mg.bas.m.a(this.i.c));
                     n2 = this.c.a();
                     pa.a(n2);
                     if (this.g != null) {
@@ -709,16 +706,16 @@ Runnable {
         b = null;
     }
 
-    public final void e() {
-        int n2;
+      public final void e() {
         this.q = true;
         this.w = true;
-        if (this.j != null && (n2 = this.f()) != 0) {
-            n2 = this.l;
-            if (n2 > this.j.length) {
-                n2 = this.j.length;
+        final boolean f;
+        if (this.j != null && (f = this.f())) {
+            int n;
+            if ((n = this.l) > this.j.length) {
+                n = this.j.length;
             }
-            pd.a(this.t + n2);
+            pd.a(this.t + n);
         }
     }
 
