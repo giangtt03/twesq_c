@@ -15,8 +15,11 @@ implements bf {
     private boolean l;
     private cc[] m;
 
-    public final void d() {
-        az az2;
+    public cd(int n) {
+        super(n);
+    }
+
+    public final void dinit() {
         this.c = cs.h();
         this.a = cs.f();
         this.b = 0;
@@ -28,56 +31,44 @@ implements bf {
             }
             --n;
         }
-        Object object = this;
-        byte[] byArray = cs.e();
-        this.d = byArray == null;
-        ((cd)object).m = new cc[(null).length];
+        this.m = new cc[this.a.length];
         int n2 = 0;
-        while (n2 < ((cd)object).m.length) {
-            if (((cd)object).a[n2] != -1 && ((cd)object).a[n2] != 0) {
-                int[] cfr_ignored_0 = ((cd)object).a;
+        while (n2 < this.m.length) {
+            if (this.a[n2] != -1 && this.a[n2] != 0) {
+                int[] cfr_ignored_0 = this.a;
             }
-            ((cd)object).m[n2] = new cc(null, (int)null[n2], (int)null[n2]);
-            ((cd)object).m[n2].k(0);
+            this.m[n2] = new cc(null, this.a[n2], this.a[n2]);
+            this.m[n2].k(0);
             ++n2;
         }
-        if (!((cd)object).d) {
-            cd cd2 = object;
-            cd cd3 = cd2;
-            az2 = cd.a("Trở về", 5);
-            cd3 = cd2;
-            cd2.b(az2, true);
+        this.d = cs.e() == null;
+        if (!this.d) {
+            az az2 = cd.a("Trở về", 5);
+            this.b(az2, true);
         }
-        cd cd4 = object;
-        Object object2 = cd4;
-        az2 = cd.a("Cần biết", 6);
-        object2 = cd4;
-        cd4.a(az2, true);
-        ((cd)object).k = cd.a("Mở", 1);
-        ((am)object).a((az)null);
-        if (((cd)object).a[((cd)object).b] < 0) {
-            ((am)object).a(((cd)object).k);
+        az az2 = cd.a("Cần biết", 6);
+        this.a(az2, true);
+        this.k = cd.a("Mở", 1);
+        ((am)this).a((az)null);
+        if (this.a[this.b] < 0) {
+            ((am)this).a(this.k);
         }
         this.l = cs.a(this.a);
         if (this.l) {
             byte[] byArray2 = cs.g();
-            object = byArray2;
             if (byArray2 == null) {
                 cs.i();
-                object2 = MGMIDlet.d();
-                object2.notifyDestroyed();
+                MGMIDlet.d().notifyDestroyed();
                 return;
             }
             if (this.c != null) {
                 bx.a("Chúc mừng bạn đã sưu tập đủ bộ Vật phẩm. Hãy bấm nút gửi để nhận phần thưởng: " + this.c, this.f - 10);
             }
             az2 = null;
-            object2 = this;
-            object2.b(az2, true);
+            this.b(az2, true);
             this.a((az)null);
             az2 = null;
-            object2 = this;
-            object2.a(az2, true);
+            this.a(az2, true);
             this.a(cd.a("Gửi", 2));
         }
     }

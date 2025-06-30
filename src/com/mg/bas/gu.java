@@ -11,18 +11,17 @@ implements bf {
     private dc k;
     private int l = 1;
     private k m;
-    private Image n = f.d("/info/increase");
-    private Image o = f.d("/info/decrease");
+    private Image n = com.mg.bas.f.d("/info/increase");
+    private Image o = com.mg.bas.f.d("/info/decrease");
     private int p = 0;
     private int q = 0;
     private int r = 50;
     private boolean s = false;
 
-    public gu(dc object) {
+    public gu(dc dcObj) {
         super(1);
-        bd bd2;
-        this.k = object;
-        object = (lm)((dc)object).k;
+        this.k = dcObj;
+        lm lmObj = (lm)dcObj.k;
         this.a(this);
         this.f = 200;
         this.g = 100;
@@ -31,19 +30,16 @@ implements bf {
         this.b(241213);
         this.a(new ba());
         this.m = new k(bx.d.a("Số lượng:   "), 0, 20, 18);
-        this.q = this.p = (int)(((lm)object).h / 1000L);
-        if (go.s < ((lm)object).h) {
-            bd2 = null;
-            object = this;
-            ((am)object).a(bd2, true);
+        this.q = this.p = (int)(lmObj.h / 1000L);
+        if (go.s < lmObj.h) {
+            bd bd2 = null;
+            ((am)this).a(bd2, true);
         } else {
-            bd2 = new bd("Mua", 0);
-            object = this;
-            ((am)object).a(bd2, true);
+            bd bd2 = new bd("Mua", 0);
+            ((am)this).a(bd2, true);
         }
-        bd2 = new bd("Hủy", 0);
-        object = this;
-        ((am)object).b(bd2, true);
+        bd bd2 = new bd("Hủy", 0);
+        ((am)this).b(bd2, true);
     }
 
     public final void c(Graphics graphics) {

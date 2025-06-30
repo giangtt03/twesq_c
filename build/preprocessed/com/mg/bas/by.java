@@ -7,13 +7,13 @@ import javax.microedition.lcdui.Image;
 public final class by
 extends c {
     public by() {
-        this(f.a("/_blackfont"));
+        this(com.mg.bas.f.a("/_blackfont"));
     }
 
     public by(int n) {
-        byte[] byArray = f.c("/_blackfont");
-        h.a(byArray, new int[]{65793}, new int[]{n});
-        this.a = f.a(byArray);
+        byte[] byArray = com.mg.bas.f.c("/_blackfont");
+        com.mg.bas.h.a(byArray, new int[]{65793}, new int[]{n});
+        this.a = com.mg.bas.f.a(byArray);
         this.d();
     }
 

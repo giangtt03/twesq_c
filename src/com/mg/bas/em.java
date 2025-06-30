@@ -1,2000 +1,1886 @@
 package com.mg.bas;
-// Decompiled with: CFR 0.152
+
+// Decompiled with: Procyon 0.6.0
 // Class Version: 1
 import java.io.InputStream;
 
-final class em
-implements Runnable {
+final class em implements Runnable
+{
     private dv a;
     private ed b;
-    private boolean c = false;
+    private boolean c;
     private byte[] d;
-
-    public em(InputStream inputStream) {
+    
+    public em(final InputStream inputStream) {
+        super();
+        this.c = false;
         this.b = new ed(inputStream);
         this.c = false;
         new Thread(this).start();
     }
-
+    
     public final void run() {
         int n = 10;
         this.c = false;
-        block80: while (!this.c) {
-            Object object;
+        while (!this.c) {
+            dy dy;
             try {
-                object = this;
-                object = ((em)object).b == null ? null : ((em)object).b.a();
-                if (object == null) {
+                if ((dy = ((this.b == null) ? null : this.b.a())) == null) {
                     if (--n <= 0) {
                         this.c = true;
                         if (du.a().c) {
                             du.a().d();
                         }
-                    } else {
+                    }
+                    else {
                         try {
                             Thread.sleep(3000L);
                         }
-                        catch (Throwable throwable) {}
+                        catch (final Throwable t) {}
                     }
-                } else {
+                }
+                else {
                     n = 10;
                 }
             }
-            catch (Throwable throwable) {
+            catch (final Throwable t2) {
                 if (--n <= 0) {
                     this.c = true;
                     if (du.a().c) {
                         du.a().d();
                     }
-                } else {
+                }
+                else {
                     try {
                         Thread.sleep(3000L);
                     }
-                    catch (Throwable throwable2) {}
+                    catch (final Throwable t3) {}
                 }
-                object = null;
+                dy = null;
             }
-            Object object2 = object;
-            object = this;
-            if (object2 == null) continue;
+            final dy dy2 = dy;
+            if (dy2 == null) {
+                continue;
+            }
             try {
-                if (((em)object).a == null) continue;
-                int n2 = ((dy)object2).b;
-                switch (n2) {
+                if (this.a == null) {
+                    continue;
+                }
+                switch ((short)dy2.b) {
                     case 0: {
-                        byte by = ((dy)object2).a(((dy)object2).b((short)0, 0), (short)0);
-                        n2 = by;
-                        if (by == 9) continue block80;
-                        String string = ((dy)object2).b((short)8);
-                        byte by2 = ((dy)object2).a(((dy)object2).b((short)255, 0), (short)0);
-                        String string2 = ((dy)object2).b((short)30);
-                        if (!i.a(string2)) {
-                            em.a(string2);
+                        final dy dy3 = dy2;
+                        final byte a;
+                        if ((a = dy3.a(dy3.b((short)0, 0), (short)0)) == 9) {
+                            continue;
                         }
-                        ((em)object).a.a(n2, string, by2);
-                        break;
+                        final String b = dy3.b((short)8);
+                        final byte a2 = dy3.a(dy3.b((short)255, 0), (short)0);
+                        final String b2;
+                        if (!i.a(b2 = dy3.b((short)30))) {
+                            a(b2);
+                        }
+                        this.a.a(a, b, a2);
+                        continue;
                     }
                     case 95: {
-                        object = object2;
-                        byte[] byArray = ((dy)object).a((short)42);
-                        if (byArray != null) {
-                            String string = "";
-                            int n3 = m.a(byArray[0]);
-                            string = String.valueOf(string) + String.valueOf(n3);
-                            n3 = m.a(byArray[1]);
-                            string = String.valueOf(string) + ".";
-                            string = String.valueOf(string) + String.valueOf(n3);
-                            n3 = m.a(byArray[2]);
-                            string = String.valueOf(string) + ".";
-                            string = String.valueOf(string) + String.valueOf(n3);
-                            n3 = m.a(byArray[3]);
-                            string = String.valueOf(string) + ".";
-                            string = String.valueOf(string) + String.valueOf(n3);
-                            du.a().a(string);
-                            break;
+                        final byte[] a3;
+                        if ((a3 = dy2.a((short)42)) != null) {
+                            du.a().a(String.valueOf(new StringBuffer(String.valueOf(new StringBuffer(String.valueOf(new StringBuffer(String.valueOf(new StringBuffer(String.valueOf(new StringBuffer(String.valueOf(new StringBuffer(String.valueOf("")).append(String.valueOf(m.a(a3[0]))).toString())).append(".").toString())).append(String.valueOf(m.a(a3[1]))).toString())).append(".").toString())).append(String.valueOf(m.a(a3[2]))).toString())).append(".").toString()) + String.valueOf(m.a(a3[3])));
+                            continue;
                         }
                         du.a().a((String)null);
-                        break;
+                        continue;
                     }
                     case 96: {
-                        byte[] byArray = ((dy)object2).a((short)11);
-                        du.a().m = byArray;
+                        du.a().m = dy2.a((short)11);
                         du.a().a = true;
                         if (du.a().b) {
                             du.a().e();
-                            break;
+                            continue;
                         }
-                        if (((em)object).a == null) continue block80;
-                        ((em)object).a.h_();
-                        break;
+                        if (this.a == null) {
+                            continue;
+                        }
+                        this.a.h_();
+                        continue;
                     }
                     case 97: {
-                        ((dy)object2).b((short)4);
-                        ((dy)object2).b((short)22);
-                        ((dy)object2).a(((dy)object2).b((short)12, 0), (short)0);
-                        ((dy)object2).a(((dy)object2).b((short)9, 0), 0L);
-                        ((dy)object2).b((short)13);
+                        final dy dy4 = dy2;
+                        dy4.b((short)4);
+                        dy4.b((short)22);
+                        dy4.a(dy4.b((short)12, 0), (short)0);
+                        dy4.a(dy4.b((short)9, 0), 0L);
+                        dy4.b((short)13);
                         du.a().f();
                         du.a().c = true;
                         if (du.a().b) {
                             du.a().b = false;
-                            dv cfr_ignored_0 = ((em)object).a;
+                            final dv a4 = this.a;
                             du.a().j();
-                            if (du.a().i != 2 || i.a(du.a().h)) continue block80;
+                            if (du.a().i != 2 || i.a(du.a().h)) {
+                                continue;
+                            }
                             du.a().c(du.a().h);
-                            break;
                         }
-                        ((em)object).a.g_();
-                        break;
+                        else {
+                            this.a.g_();
+                        }
+                        continue;
                     }
                     case 9: {
-                        n2 = ((dy)object2).a(((dy)object2).b((short)39, 0), 0);
-                        byte by = ((dy)object2).a(((dy)object2).b((short)53, 0), (byte)0);
-                        dt[] dtArray = em.a((dy)object2, null, true, by);
-                        ((em)object).a.a(dtArray, n2);
-                        break;
+                        final dy dy5 = dy2;
+                        this.a.a(a(dy5, null, true, dy5.a(dy5.b((short)53, 0), (byte)0)), dy5.a(dy5.b((short)39, 0), 0));
+                        continue;
                     }
                     case 10: {
-                        super.C((dy)object2);
-                        break;
+                        this.C(dy2);
+                        continue;
                     }
                     case 11: {
-                        ((dy)object2).a(((dy)object2).b((short)255, 0), (short)0);
-                        eo eo2 = new eo();
-                        ((dy)object2).b((short)7);
-                        ((dy)object2).b((short)22);
-                        eo2.a = ((dy)object2).b((short)13);
-                        if (i.a(eo2.a)) {
-                            eo2.a = null;
+                        final dy dy6 = dy2;
+                        dy6.a(dy6.b((short)255, 0), (short)0);
+                        final eo eo = new eo();
+                        dy6.b((short)7);
+                        dy6.b((short)22);
+                        eo.a = dy6.b((short)13);
+                        if (i.a(eo.a)) {
+                            eo.a = null;
                         }
-                        ((dy)object2).a((short)23);
-                        ((dy)object2).a(((dy)object2).b((short)45, 0), (short)0);
-                        ((dy)object2).a(((dy)object2).b((short)119, 0), 0);
-                        eo2.b = ((dy)object2).b((short)109);
-                        if (eo2.b != null) {
-                            ((dy)object2).a(((dy)object2).b((short)114, 0), (short)0);
-                        } else {
-                            ((dy)object2).b((short)110);
+                        dy6.a((short)23);
+                        dy6.a(dy6.b((short)45, 0), (short)0);
+                        dy6.a(dy6.b((short)119, 0), 0);
+                        eo.b = dy6.b((short)109);
+                        if (eo.b != null) {
+                            dy6.a(dy6.b((short)114, 0), (short)0);
                         }
-                        ((dy)object2).b((short)111);
-                        ((dy)object2).b((short)4);
-                        ((dy)object2).a(((dy)object2).b((short)58, 0), 0L);
-                        ((dy)object2).a(((dy)object2).b((short)124, 0), 0);
-                        ((dy)object2).a(((dy)object2).b((short)125, 0), 0);
-                        ((dy)object2).b((short)112);
-                        ((dy)object2).b((short)113);
-                        ((dy)object2).a(((dy)object2).b((short)126, 0), 0);
-                        ((dy)object2).a(((dy)object2).b((short)127, 0), 0);
-                        ((dy)object2).a(((dy)object2).b((short)128, 0), 0);
-                        ((dy)object2).a(((dy)object2).b((short)219, 0), (byte)0);
-                        ((dy)object2).a(((dy)object2).b((short)12, 0), (byte)0);
-                        dv cfr_ignored_1 = ((em)object).a;
-                        break;
+                        else {
+                            dy6.b((short)110);
+                        }
+                        dy6.b((short)111);
+                        dy6.b((short)4);
+                        dy6.a(dy6.b((short)58, 0), 0L);
+                        dy6.a(dy6.b((short)124, 0), 0);
+                        dy6.a(dy6.b((short)125, 0), 0);
+                        dy6.b((short)112);
+                        dy6.b((short)113);
+                        dy6.a(dy6.b((short)126, 0), 0);
+                        dy6.a(dy6.b((short)127, 0), 0);
+                        dy6.a(dy6.b((short)128, 0), 0);
+                        dy6.a(dy6.b((short)219, 0), (byte)0);
+                        dy6.a(dy6.b((short)12, 0), (byte)0);
+                        final dv a5 = this.a;
+                        continue;
                     }
                     case 12: {
-                        dv cfr_ignored_2 = ((em)object).a;
-                        break;
+                        final dv a6 = this.a;
+                        continue;
                     }
                     case 77: {
-                        n2 = ((dy)object2).a(((dy)object2).b((short)45, 0), (short)0);
-                        long l = ((dy)object2).a(((dy)object2).b((short)9, 0), 0L);
-                        int n4 = (int)(l / 3600000L);
-                        int n5 = n4 / 24;
-                        if (n4 % 24 != 0) {
-                            // empty if block
+                        final dy dy7 = dy2;
+                        final byte a7 = dy7.a(dy7.b((short)45, 0), (short)0);
+                        final int n2;
+                        int k = (n2 = (int)(dy7.a(dy7.b((short)9, 0), 0L) / 3600000L)) / 24;
+                        if (n2 % 24 != 0) {
+                            ++k;
                         }
-                        du.a().j = (short)n2;
-                        du.a().k = ++n5;
-                        dv cfr_ignored_3 = ((em)object).a;
-                        break;
+                        du.a().j = a7;
+                        du.a().k = k;
+                        final dv a8 = this.a;
+                        continue;
                     }
                     case 79: {
-                        boolean bl;
-                        String string = ((dy)object2).b((short)7);
-                        String string3 = ((dy)object2).b((short)109);
-                        boolean bl2 = bl = ((dy)object2).a(((dy)object2).b((short)114, 0), (byte)0) == 1;
-                        if (string == null) continue block80;
-                        if (string3 != null) {
-                            if (bl) {
-                                dv cfr_ignored_4 = ((em)object).a;
-                                break;
+                        final dy dy8 = dy2;
+                        final String b3 = dy8.b((short)7);
+                        final String b4 = dy8.b((short)109);
+                        final boolean b5 = dy8.a(dy8.b((short)114, 0), (byte)0) == 1;
+                        if (b3 == null) {
+                            continue;
+                        }
+                        if (b4 != null) {
+                            if (b5) {
+                                final dv a9 = this.a;
                             }
-                            dv cfr_ignored_5 = ((em)object).a;
-                            break;
+                            else {
+                                final dv a10 = this.a;
+                            }
                         }
-                        if (bl) {
-                            dv cfr_ignored_6 = ((em)object).a;
-                            break;
+                        else if (b5) {
+                            final dv a11 = this.a;
                         }
-                        dv cfr_ignored_7 = ((em)object).a;
-                        break;
+                        else {
+                            final dv a12 = this.a;
+                        }
+                        continue;
                     }
                     case 14: {
-                        super.a((dy)object2);
-                        break;
+                        this.a(dy2);
+                        continue;
                     }
                     case 21: {
-                        super.b((dy)object2);
-                        break;
+                        this.b(dy2);
+                        continue;
                     }
                     case 23: {
-                        super.c((dy)object2);
-                        break;
+                        this.c(dy2);
+                        continue;
                     }
                     case 25: {
-                        object2 = du.a();
-                        du.a().g = null;
-                        ((du)object2).l = j.a(((du)object2).m, ((du)object2).g);
-                        dv cfr_ignored_8 = ((em)object).a;
-                        break;
+                        final du a13;
+                        (a13 = du.a()).g = null;
+                        a13.l = j.a(a13.m, a13.g);
+                        final dv a14 = this.a;
+                        continue;
                     }
                     case 6: {
-                        super.d((dy)object2);
-                        break;
+                        this.d(dy2);
+                        continue;
                     }
                     case 115: {
-                        ep[] epArray;
-                        byte[] byArray = ((dy)object2).a((short)214);
-                        if (byArray == null) {
-                            ((em)object).d = null;
-                            dv cfr_ignored_9 = ((em)object).a;
-                            break;
+                        final dy dy9 = dy2;
+                        final byte[] a15;
+                        if ((a15 = dy9.a((short)214)) == null) {
+                            this.d = null;
+                            final dv a16 = this.a;
+                            continue;
                         }
-                        int n6 = m.a(byArray[0], byArray[1]);
-                        if (du.a().t != n6) continue block80;
-                        byArray = ((dy)object2).a((short)213);
-                        if (byArray != null) {
-                            du.a().s = m.a(byArray);
+                        final int a17 = m.a(a15[0], a15[1]);
+                        if (du.a().t != a17) {
+                            continue;
+                        }
+                        final byte[] a18;
+                        if ((a18 = dy9.a((short)213)) != null) {
+                            du.a().s = m.a(a18);
                             if (du.a().s <= 0) {
                                 du.a().s = 1;
                             }
-                            byArray = ((dy)object2).a((short)37);
-                            int n7 = m.c(byArray);
-                            ((em)object).d = new byte[n7];
-                            du.a().r = n7;
+                            final int c = m.c(dy9.a((short)37));
+                            this.d = new byte[c];
+                            du.a().r = c;
                         }
-                        int n8 = du.a().s;
-                        byte[] byArray2 = ((dy)object2).a((short)23);
-                        System.arraycopy(byArray2, 0, ((em)object).d, du.a().q, byArray2.length);
-                        du.a().q += byArray2.length;
-                        if (n6 >= n8 - 1) {
-                            int n9 = ((dy)object2).a(((dy)object2).b((short)218, 0), 0);
-                            epArray = ep.a(((em)object).d);
-                            ((em)object).a.a(n9, epArray, ((em)object).d);
-                            ((em)object).d = null;
-                            break;
+                        final int s = du.a().s;
+                        final byte[] a19;
+                        System.arraycopy(a19 = dy9.a((short)23), 0, this.d, du.a().q, a19.length);
+                        final du a20 = du.a();
+                        a20.q += a19.length;
+                        if (a17 >= s - 1) {
+                            this.a.a(dy9.a(dy9.b((short)218, 0), 0), ep.a(this.d), this.d);
+                            this.d = null;
                         }
-                        du.a().c(n6);
-                        break;
+                        else {
+                            du.a().c(a17);
+                        }
+                        continue;
                     }
                     case 22: {
                         du.a().b();
-                        ((em)object).a.f_();
-                        break;
+                        this.a.f_();
+                        continue;
                     }
                     case 42: {
                         du.a().h();
-                        break;
+                        continue;
                     }
                     case 50: {
-                        ((dy)object2).a(((dy)object2).b((short)255, 0), (short)0);
-                        String string = ((dy)object2).b((short)7);
-                        if (i.a(string)) {
-                            ((dy)object2).b((short)109);
-                            dv cfr_ignored_10 = ((em)object).a;
-                            break;
+                        final dy dy10 = dy2;
+                        dy10.a(dy10.b((short)255, 0), (short)0);
+                        if (i.a(dy10.b((short)7))) {
+                            dy10.b((short)109);
+                            final dv a21 = this.a;
+                            continue;
                         }
-                        ((dy)object2).b((short)109);
-                        ((dy)object2).b((short)110);
-                        ((dy)object2).b((short)111);
-                        ((dy)object2).a(((dy)object2).b((short)66, 0), (short)4);
-                        ((dy)object2).a(((dy)object2).b((short)124, 0), 0);
-                        ((dy)object2).a(((dy)object2).b((short)125, 0), 0);
-                        ((dy)object2).a(((dy)object2).b((short)126, 0), 0);
-                        ((dy)object2).a(((dy)object2).b((short)130, 0), 0L);
-                        dv cfr_ignored_11 = ((em)object).a;
-                        break;
+                        dy10.b((short)109);
+                        dy10.b((short)110);
+                        dy10.b((short)111);
+                        dy10.a(dy10.b((short)66, 0), (short)4);
+                        dy10.a(dy10.b((short)124, 0), 0);
+                        dy10.a(dy10.b((short)125, 0), 0);
+                        dy10.a(dy10.b((short)126, 0), 0);
+                        dy10.a(dy10.b((short)130, 0), 0L);
+                        final dv a22 = this.a;
+                        continue;
                     }
                     case 67: {
-                        super.e((dy)object2);
-                        break;
+                        this.e(dy2);
+                        continue;
                     }
                     case 15: {
-                        super.f((dy)object2);
-                        break;
+                        this.f(dy2);
+                        continue;
                     }
                     case 17: {
-                        ((dy)object2).b((short)21);
-                        dv cfr_ignored_12 = ((em)object).a;
-                        break;
+                        dy2.b((short)21);
+                        final dv a23 = this.a;
+                        continue;
                     }
                     case 54: {
-                        super.g((dy)object2);
-                        break;
+                        this.g(dy2);
+                        continue;
                     }
                     case 103: {
-                        super.h((dy)object2);
-                        break;
+                        this.h(dy2);
+                        continue;
                     }
                     case 116: {
-                        super.i((dy)object2);
-                        break;
+                        this.i(dy2);
+                        continue;
                     }
                     case 124: {
-                        super.j((dy)object2);
-                        break;
+                        this.j(dy2);
+                        continue;
                     }
                     case 125: {
-                        String string = ((dy)object2).b((short)7);
-                        byte by = ((dy)object2).a(((dy)object2).b((short)45, 0), (byte)0);
-                        long l = ((dy)object2).a(((dy)object2).b((short)9, 0), 0L);
-                        long l2 = ((dy)object2).a(((dy)object2).b((short)59, 0), -1L);
-                        if (string.toLowerCase().equals(du.a().f.toLowerCase())) {
-                            ((em)object).a.a(by, l, l2);
-                            break;
+                        final dy dy11 = dy2;
+                        final String b6 = dy11.b((short)7);
+                        final byte a24 = dy11.a(dy11.b((short)45, 0), (byte)0);
+                        final long a25 = dy11.a(dy11.b((short)9, 0), 0L);
+                        final long a26 = dy11.a(dy11.b((short)59, 0), -1L);
+                        if (b6.toLowerCase().equals(du.a().f.toLowerCase())) {
+                            this.a.a(a24, a25, a26);
+                            continue;
                         }
-                        if (l2 >= 0L) {
-                            dv cfr_ignored_13 = ((em)object).a;
-                            break;
+                        if (a26 >= 0L) {
+                            final dv a27 = this.a;
+                            continue;
                         }
-                        ((em)object).a.a(string, (short)by, l);
-                        break;
+                        this.a.a(b6, a24, a25);
+                        continue;
                     }
                     case 109: {
-                        super.k((dy)object2);
-                        break;
+                        this.k(dy2);
+                        continue;
                     }
                     case 117: {
-                        super.l((dy)object2);
-                        break;
+                        this.l(dy2);
+                        continue;
                     }
                     case 114: {
-                        super.m((dy)object2);
-                        break;
+                        this.m(dy2);
+                        continue;
                     }
                     case 39: {
-                        String string = ((dy)object2).b((short)7);
-                        String string4 = ((dy)object2).b((short)24);
-                        ((dy)object2).a(((dy)object2).b((short)45, 0), (short)0);
-                        long l = ((dy)object2).a(((dy)object2).b((short)9, 0), 0L);
-                        if (l == 0L) {
-                            l = System.currentTimeMillis();
+                        final dy dy12 = dy2;
+                        final String b7 = dy12.b((short)7);
+                        final String b8 = dy12.b((short)24);
+                        dy12.a(dy12.b((short)45, 0), (short)0);
+                        long d;
+                        if ((d = dy12.a(dy12.b((short)9, 0), 0L)) == 0L) {
+                            d = System.currentTimeMillis();
                         }
-                        ee ee2 = new ee();
-                        new ee().a = string;
-                        ee2.a(string4);
-                        ee2.d = l;
-                        if (du.a().i == 2 && (object2 = ((dy)object2).b((short)109)) != null) {
-                            du.a().b(string, (String)object2);
+                        final ee ee;
+                        (ee = new ee()).a = b7;
+                        ee.a(b8);
+                        ee.d = d;
+                        final String b9;
+                        if (du.a().i == 2 && (b9 = dy12.b((short)109)) != null) {
+                            du.a().b(b7, b9);
                         }
-                        ((em)object).a.a(string, ee2);
-                        break;
+                        this.a.a(b7, ee);
+                        continue;
                     }
                     case 104: {
-                        ((dy)object2).b((short)7);
-                        ((dy)object2).b((short)8);
-                        dv cfr_ignored_14 = ((em)object).a;
-                        break;
+                        final dy dy13 = dy2;
+                        dy13.b((short)7);
+                        dy13.b((short)8);
+                        final dv a28 = this.a;
+                        continue;
                     }
                     case 105: {
-                        ((dy)object2).b((short)7);
-                        ((dy)object2).a((short)66);
-                        dv cfr_ignored_15 = ((em)object).a;
-                        break;
+                        final dy dy14 = dy2;
+                        dy14.b((short)7);
+                        dy14.a((short)66);
+                        final dv a29 = this.a;
+                        continue;
                     }
                     case 65: {
-                        ((dy)object2).b((short)7);
-                        String string = ((dy)object2).b((short)30);
-                        ((em)object).a.a(string);
-                        break;
+                        final dy dy15 = dy2;
+                        dy15.b((short)7);
+                        this.a.a(dy15.b((short)30));
+                        continue;
                     }
                     case 66: {
-                        String string = ((dy)object2).b((short)28);
-                        long l = ((dy)object2).a(((dy)object2).b((short)130, 0), 0L);
-                        int n10 = ((dy)object2).a(((dy)object2).b((short)124, 0), 0);
-                        ((em)object).a.a(string, l, n10);
-                        break;
+                        final dy dy16 = dy2;
+                        this.a.a(dy16.b((short)28), dy16.a(dy16.b((short)130, 0), 0L), dy16.a(dy16.b((short)124, 0), 0));
+                        continue;
                     }
                     case 129: {
-                        ((dy)object2).a(((dy)object2).b((short)20, 0), (byte)0);
-                        dv cfr_ignored_16 = ((em)object).a;
-                        break;
+                        final dy dy17 = dy2;
+                        dy17.a(dy17.b((short)20, 0), (byte)0);
+                        final dv a30 = this.a;
+                        continue;
                     }
                     case 133: {
-                        super.n((dy)object2);
-                        break;
+                        this.n(dy2);
+                        continue;
                     }
                     case 136: {
-                        String string = ((dy)object2).b((short)4);
-                        String[] stringArray = i.b(string, ";");
-                        ((em)object).a.a(stringArray);
-                        break;
+                        this.a.a(i.b(dy2.b((short)4), ";"));
+                        continue;
                     }
                     case 137: {
-                        super.o((dy)object2);
-                        break;
+                        this.o(dy2);
+                        continue;
                     }
                     case 138: {
-                        super.p((dy)object2);
-                        break;
+                        this.p(dy2);
+                        continue;
                     }
                     case 140: {
-                        dt[] dtArray = em.a((dy)object2, null, true, (short)0);
-                        ((em)object).a.a(dtArray);
-                        break;
+                        this.a.a(a(dy2, null, true, (short)0));
+                        continue;
                     }
                     case 193: {
-                        super.q((dy)object2);
-                        break;
+                        this.q(dy2);
+                        continue;
                     }
                     case 194: {
-                        ((dy)object2).a(((dy)object2).b((short)255, 0), (short)0);
-                        ((dy)object2).a(((dy)object2).b((short)72, 0), 0L);
-                        String string = ((dy)object2).b((short)29);
-                        if (string != null) {
-                            i.b(string, ";");
+                        final dy dy18 = dy2;
+                        dy18.a(dy18.b((short)255, 0), (short)0);
+                        dy18.a(dy18.b((short)72, 0), 0L);
+                        final String b10;
+                        if ((b10 = dy18.b((short)29)) != null) {
+                            i.b(b10, ";");
                         }
-                        dv cfr_ignored_17 = ((em)object).a;
-                        break;
+                        final dv a31 = this.a;
+                        continue;
                     }
                     case 199: {
-                        ((dy)object2).a(((dy)object2).b((short)255, 0), (short)0);
-                        ((dy)object2).b((short)109);
-                        ((dy)object2).b((short)110);
-                        ((dy)object2).a((short)23);
-                        dv cfr_ignored_18 = ((em)object).a;
-                        break;
+                        final dy dy19 = dy2;
+                        dy19.a(dy19.b((short)255, 0), (short)0);
+                        dy19.b((short)109);
+                        dy19.b((short)110);
+                        dy19.a((short)23);
+                        final dv a32 = this.a;
+                        continue;
                     }
                     case 147: {
-                        super.r((dy)object2);
-                        break;
+                        this.r(dy2);
+                        continue;
                     }
                     case 148: {
-                        ((dy)object2).a(((dy)object2).b((short)114, 0), (short)0);
-                        dv cfr_ignored_19 = ((em)object).a;
-                        break;
+                        final dy dy20 = dy2;
+                        dy20.a(dy20.b((short)114, 0), (short)0);
+                        final dv a33 = this.a;
+                        continue;
                     }
                     case 158: {
-                        ((dy)object2).a(((dy)object2).b((short)255, 0), (short)0);
-                        ((dy)object2).b((short)129);
-                        ((dy)object2).b((short)22);
-                        ((dy)object2).b((short)13);
-                        ((dy)object2).b((short)24);
-                        dv cfr_ignored_20 = ((em)object).a;
-                        break;
+                        final dy dy21 = dy2;
+                        dy21.a(dy21.b((short)255, 0), (short)0);
+                        dy21.b((short)129);
+                        dy21.b((short)22);
+                        dy21.b((short)13);
+                        dy21.b((short)24);
+                        final dv a34 = this.a;
+                        continue;
                     }
                     case 159: {
-                        ((dy)object2).b((short)129);
-                        ((dy)object2).b((short)7);
-                        dv cfr_ignored_21 = ((em)object).a;
-                        break;
+                        final dy dy22 = dy2;
+                        dy22.b((short)129);
+                        dy22.b((short)7);
+                        final dv a35 = this.a;
+                        continue;
                     }
                     case 160: {
-                        ((dy)object2).b((short)129);
-                        ((dy)object2).b((short)22);
-                        ((dy)object2).b((short)13);
-                        ((dy)object2).b((short)24);
-                        dv cfr_ignored_22 = ((em)object).a;
-                        break;
+                        final dy dy23 = dy2;
+                        dy23.b((short)129);
+                        dy23.b((short)22);
+                        dy23.b((short)13);
+                        dy23.b((short)24);
+                        final dv a36 = this.a;
+                        continue;
                     }
                     case 162: {
-                        ((dy)object2).b((short)129);
-                        String string = ((dy)object2).b((short)7);
-                        String string5 = ((dy)object2).b((short)8);
-                        byte by = ((dy)object2).a(((dy)object2).b((short)220, 0), (short)0);
-                        ((dy)object2).a(((dy)object2).b((short)45, 0), (short)0);
-                        ep[] epArray = new ef();
-                        epArray.a(string);
-                        epArray.b(string5);
-                        epArray.a(by);
-                        if (du.a().i == 2 && (object2 = ((dy)object2).b((short)109)) != null) {
-                            du.a().b(string, (String)object2);
+                        final dy dy24 = dy2;
+                        dy24.b((short)129);
+                        final String b11 = dy24.b((short)7);
+                        final String b12 = dy24.b((short)8);
+                        final byte a37 = dy24.a(dy24.b((short)220, 0), (short)0);
+                        dy24.a(dy24.b((short)45, 0), (short)0);
+                        final ef ef;
+                        (ef = new ef()).a(b11);
+                        ef.b(b12);
+                        ef.a(a37);
+                        final String b13;
+                        if (du.a().i == 2 && (b13 = dy24.b((short)109)) != null) {
+                            du.a().b(b11, b13);
                         }
-                        dv cfr_ignored_23 = ((em)object).a;
-                        break;
+                        final dv a38 = this.a;
+                        continue;
                     }
                     case 163: {
-                        String string;
-                        ((dy)object2).b((short)129);
-                        String string6 = ((dy)object2).b((short)7);
-                        ((dy)object2).b((short)24);
-                        if (du.a().i == 2 && (string = ((dy)object2).b((short)109)) != null) {
-                            du.a().b(string6, string);
+                        final dy dy25 = dy2;
+                        dy25.b((short)129);
+                        final String b14 = dy25.b((short)7);
+                        dy25.b((short)24);
+                        final String b15;
+                        if (du.a().i == 2 && (b15 = dy25.b((short)109)) != null) {
+                            du.a().b(b14, b15);
                         }
-                        dv cfr_ignored_24 = ((em)object).a;
-                        break;
+                        final dv a39 = this.a;
+                        continue;
                     }
                     case 164: {
-                        super.s((dy)object2);
-                        break;
+                        this.s(dy2);
+                        continue;
                     }
                     case 165: {
-                        super.t((dy)object2);
-                        break;
+                        this.t(dy2);
+                        continue;
                     }
                     case 166: {
-                        ((dy)object2).b((short)111);
-                        ((dy)object2).b((short)7);
-                        ((dy)object2).b((short)110);
-                        ((dy)object2).a(((dy)object2).b((short)45, 0), (short)0);
-                        ((dy)object2).a(((dy)object2).b((short)114, 0), (short)0);
-                        ((dy)object2).a(((dy)object2).b((short)130, 0), 0L);
-                        ((dy)object2).a(((dy)object2).b((short)59, 0), 0L);
-                        dv cfr_ignored_25 = ((em)object).a;
-                        break;
+                        final dy dy26 = dy2;
+                        dy26.b((short)111);
+                        dy26.b((short)7);
+                        dy26.b((short)110);
+                        dy26.a(dy26.b((short)45, 0), (short)0);
+                        dy26.a(dy26.b((short)114, 0), (short)0);
+                        dy26.a(dy26.b((short)130, 0), 0L);
+                        dy26.a(dy26.b((short)59, 0), 0L);
+                        final dv a40 = this.a;
+                        continue;
                     }
                     case 167: {
-                        ((dy)object2).b((short)7);
-                        byte by = ((dy)object2).a(((dy)object2).b((short)114, 0), (short)0);
-                        if (by == 1) {
-                            dv cfr_ignored_26 = ((em)object).a;
-                            break;
+                        final dy dy27 = dy2;
+                        dy27.b((short)7);
+                        if (dy27.a(dy27.b((short)114, 0), (short)0) == 1) {
+                            final dv a41 = this.a;
+                            continue;
                         }
-                        dv cfr_ignored_27 = ((em)object).a;
-                        break;
+                        final dv a42 = this.a;
+                        continue;
                     }
                     case 168: {
-                        ((dy)object2).a(((dy)object2).b((short)124, 0), 0);
-                        dv cfr_ignored_28 = ((em)object).a;
-                        break;
+                        final dy dy28 = dy2;
+                        dy28.a(dy28.b((short)124, 0), 0);
+                        final dv a43 = this.a;
+                        continue;
                     }
                     case 169: {
-                        super.u((dy)object2);
-                        break;
+                        this.u(dy2);
+                        continue;
                     }
                     case 171: {
-                        super.v((dy)object2);
-                        break;
+                        this.v(dy2);
+                        continue;
                     }
                     case 175: {
-                        ((dy)object2).a(((dy)object2).b((short)255, 0), (short)0);
-                        ((dy)object2).b((short)110);
-                        ((dy)object2).b((short)28);
-                        ((dy)object2).b((short)8);
-                        dv cfr_ignored_29 = ((em)object).a;
-                        break;
+                        final dy dy29 = dy2;
+                        dy29.a(dy29.b((short)255, 0), (short)0);
+                        dy29.b((short)110);
+                        dy29.b((short)28);
+                        dy29.b((short)8);
+                        final dv a44 = this.a;
+                        continue;
                     }
                     case 35: {
-                        super.w((dy)object2);
-                        break;
+                        this.w(dy2);
+                        continue;
                     }
                     case 113: {
                         du.a();
-                        break;
+                        continue;
                     }
                     case 100: {
-                        super.x((dy)object2);
-                        break;
+                        this.x(dy2);
+                        continue;
                     }
                     case 101: {
-                        super.y((dy)object2);
-                        break;
+                        this.y(dy2);
+                        continue;
                     }
                     case 102: {
-                        super.z((dy)object2);
-                        break;
+                        this.z(dy2);
+                        continue;
                     }
                     case 20: {
-                        ((dy)object2).b((short)21);
-                        ((dy)object2).b((short)26);
-                        dv cfr_ignored_30 = ((em)object).a;
-                        break;
+                        final dy dy30 = dy2;
+                        dy30.b((short)21);
+                        dy30.b((short)26);
+                        final dv a45 = this.a;
+                        continue;
                     }
                     case 18: {
-                        ((dy)object2).b((short)21);
-                        dv cfr_ignored_31 = ((em)object).a;
-                        break;
+                        dy2.b((short)21);
+                        final dv a46 = this.a;
+                        continue;
                     }
                     case 19: {
-                        ((dy)object2).b((short)7);
-                        ((dy)object2).b((short)21);
-                        dv cfr_ignored_32 = ((em)object).a;
-                        break;
+                        final dy dy31 = dy2;
+                        dy31.b((short)7);
+                        dy31.b((short)21);
+                        final dv a47 = this.a;
+                        continue;
                     }
                     case 92: {
-                        super.A((dy)object2);
-                        break;
+                        this.A(dy2);
+                        continue;
                     }
                     case 82: {
-                        super.B((dy)object2);
-                        break;
+                        this.B(dy2);
+                        continue;
                     }
                     case 128: {
-                        super.D((dy)object2);
-                        break;
+                        this.D(dy2);
+                        continue;
+                    }
+                    default: {
+                        continue;
                     }
                 }
             }
-            catch (Exception exception) {
-                Exception exception2 = exception;
-                exception.printStackTrace();
+            catch (final Exception ex) {
+                ex.printStackTrace();
             }
         }
     }
-
-    /*
-     * Unable to fully structure code
-     * Could not resolve type clashes
-     */
-    private void a(dy var1_1) {
-        block72: {
-            block71: {
-                var2_2 = var1_1.a((short)53);
-                var3_3 = 0;
-                if (var2_2 != null) {
-                    var3_3 = var2_2[0];
+    
+    private void a(final dy dy) {
+        final byte[] a = dy.a((short)53);
+        short n = 0;
+        if (a != null) {
+            n = a[0];
+        }
+        final String b = dy.b((short)7);
+        String b2 = dy.b((short)8);
+        final byte a2 = dy.a(dy.b((short)220, 0), (short)0);
+        dy.a(dy.b((short)45, 0), (short)0);
+        if (b2 == null) {
+            b2 = "";
+        }
+        final ef ef = new ef();
+        boolean b3 = false;
+        Label_0233: {
+            if (b.toLowerCase().equals("ola".toLowerCase())) {
+                b3 = true;
+                final String[] a3;
+                if ((a3 = i.a(b2, " ", 3, false)) == null || a3.length != 3 || !a3[0].toLowerCase().equals("LOCK".toLowerCase())) {
+                    break Label_0233;
                 }
-                var2_2 = var1_1.b((short)7);
-                var4_4 /* !! */  = var1_1.b((short)8);
-                var5_5 = var1_1.a(var1_1.b((short)220, 0), (short)0);
-                var1_1.a(var1_1.b((short)45, 0), (short)0);
-                if (var4_4 /* !! */  == null) {
-                    var4_4 /* !! */  = "";
-                }
-                var6_6 = new ef();
-                var7_7 = false;
-                if (var2_2.toLowerCase().equals("ola".toLowerCase())) {
-                    var7_7 = true;
-                    var8_8 = i.a((String)var4_4 /* !! */ , " ", 3, false);
-                    if (var8_8 != null && var8_8.length == 3 && var8_8[0].toLowerCase().equals("LOCK".toLowerCase())) {
-                        try {
-                            Long.parseLong(var8_8[1]);
-                            if (this.a != null) {
-                            }
-                            return;
-                        }
-                        catch (Exception v0) {}
+                try {
+                    Long.parseLong(a3[1]);
+                    if (this.a != null) {
+                        final dv a4 = this.a;
                     }
-                } else if (var2_2.length() <= 3) {
-                    var7_7 = true;
-                    var8_8 = i.a((String)var4_4 /* !! */ , "|", 2, false);
-                    if (var8_8 != null && var8_8.length == 2 && (var9_13 = em.a(var8_8[1])) != null && ((eb[])var9_13).length > 0) {
-                        var4_4 /* !! */  = var8_8[0];
-                        var6_6.a((eb[])var9_13);
-                    }
+                    return;
                 }
-                var8_9 = true;
-                var8_10 = null;
-                var8_10 = var4_4 /* !! */ ;
-                var12_14 = true;
-                var8_11 = false;
-                var19_15 = 0L;
-                var11_21 = null;
-                var10_23 = var8_10;
-                var9_13 = du.a().f;
-                var8_12 = null;
-                if (!i.b((String)var10_23)) break block71;
-                v1 = null;
-                break block72;
+                catch (final Exception ex) {
+                    break Label_0233;
+                }
             }
-            var8_12 = i.b((String)var10_23, " ");
-            var10_23 = null;
-            var13_24 = 0;
-            if (var11_21 != null) {
-                var10_23 = new eb[30];
-                var14_25 /* !! */  = new ee();
-                var14_25 /* !! */ .a(var11_21);
-                switch (var14_25 /* !! */ .f) {
+            if (b.length() <= 3) {
+                b3 = true;
+                final String[] a5;
+                final eb[] a6;
+                if ((a5 = i.a(b2, "|", 2, false)) != null && a5.length == 2 && (a6 = a(a5[1])) != null && a6.length > 0) {
+                    b2 = a5[0];
+                    ef.a(a6);
+                }
+            }
+        }
+        final String s = b2;
+        final String f = du.a().f;
+        final String s2 = s;
+        final String s3 = null;
+        final boolean b4 = true;
+        final String s4 = s3;
+        final String s5 = s2;
+        final String s6 = f;
+        eb[] array2;
+        eb[] array;
+        if (i.b(s5)) {
+            array = (array2 = null);
+        }
+        else {
+            final String[] b5 = i.b(s5, " ");
+            eb[] array3 = null;
+            int n2 = 0;
+            if (s4 != null) {
+                array3 = new eb[30];
+                final ee ee;
+                (ee = new ee()).a(s4);
+                switch (ee.f) {
                     case 1: {
-                        var10_23[0] = new eb("openphoto");
-                        var10_23[0].e("Xem ảnh");
-                        ++var13_24;
+                        (array3[0] = new eb("openphoto")).e("Xem ảnh");
+                        ++n2;
                         break;
                     }
                     case 3: {
-                        var10_23[0] = new eb("openaudio");
-                        var10_23[0].e("Mở âm thanh");
-                        ++var13_24;
+                        (array3[0] = new eb("openaudio")).e("Mở âm thanh");
+                        ++n2;
                         break;
                     }
                     case 2: {
-                        var10_23[0] = new eb("openvideo");
-                        var10_23[0].e("Mở Video");
-                        ++var13_24;
+                        (array3[0] = new eb("openvideo")).e("Mở Video");
+                        ++n2;
                         break;
                     }
                     default: {
-                        var10_23[0] = new eb("wap");
-                        var10_23[0].e("Xem WAP");
-                        var10_23[0].a(var14_25 /* !! */ .b);
-                        ++var13_24;
+                        (array3[0] = new eb("wap")).e("Xem WAP");
+                        array3[0].a(ee.b);
+                        ++n2;
+                        break;
                     }
                 }
             }
-            if (!var9_13.equals(du.a().f.toLowerCase())) {
-                if (var10_23 == null) {
-                    var10_23 = new eb[30];
+            if (!s6.equals(du.a().f.toLowerCase())) {
+                if (array3 == null) {
+                    array3 = new eb[30];
                 }
-                var10_23[var13_24] = new eb("chatto");
-                var14_25 /* !! */  = var9_13;
-                if (var9_13.length() >= 14) {
-                    var14_25 /* !! */  = var14_25 /* !! */ .substring(0, 11);
-                    var14_25 /* !! */  = String.valueOf(var14_25 /* !! */ ) + "...";
+                array3[n2] = new eb("chatto");
+                String string;
+                if ((string = s6).length() >= 14) {
+                    string = String.valueOf(string.substring(0, 11)) + "...";
                 }
-                var10_23[var13_24].e("Chat \"" + (String)var14_25 /* !! */  + "\"");
-                var10_23[var13_24].a((String)var9_13);
-                var10_23[++var13_24] = new eb("replyto");
-                var10_23[var13_24].e("Trả lời \"" + (String)var14_25 /* !! */  + "\"");
-                var10_23[var13_24].a((String)var9_13);
-                var10_23[++var13_24] = new eb("viewme");
-                var10_23[var13_24].e("Xem \"" + (String)var14_25 /* !! */  + "\"");
-                var10_23[var13_24].a((String)var9_13);
-                ++var13_24;
-            }
-            var14_26 = 1;
-            var15_27 = 1;
-            var16_28 = 0;
-            while (var16_28 < var8_12.length && var13_24 < 30) {
-                block74: {
-                    block77: {
-                        block76: {
-                            block75: {
-                                block73: {
-                                    if (!var8_12[var16_28].startsWith("@") || var8_12[var16_28].length() <= 1 || var8_12[var16_28].toLowerCase().equals("@" + (String)var9_13)) break block73;
-                                    var17_30 = var8_12[var16_28].substring(1);
-                                    var17_30 = var17_30.trim();
-                                    var18_31 = 0;
-                                    var19_16 = var17_30.length();
-                                    while (var18_31 < var19_16) {
-                                        if (!(var17_30.charAt(var18_31) >= 'a' && var17_30.charAt(var18_31) <= 'z' || var17_30.charAt(var18_31) >= 'A' && var17_30.charAt(var18_31) <= 'Z' || var17_30.charAt(var18_31) >= '0' && var17_30.charAt(var18_31) <= '9' || var17_30.charAt(var18_31) == '.' || var17_30.charAt(var18_31) == '_')) {
-                                            var17_30 = var17_30.substring(0, var18_31);
-                                            break;
-                                        }
-                                        ++var18_31;
-                                    }
-                                    if (var17_30.length() > 0 && !var17_30.toLowerCase().equals(var9_13.toLowerCase())) {
-                                        if (var10_23 == null) {
-                                            var10_23 = new eb[30];
-                                        }
-                                        if (!(var18_32 = var17_30.toLowerCase()).equals(du.a().f.toLowerCase())) {
-                                            var19_16 = 0;
-                                            while (var19_16 < var13_24) {
-                                                if (var10_23[var19_16] != null && var10_23[var19_16].a().equals("viewme") && var10_23[var19_16].b().toLowerCase().equals(var18_32)) break;
-                                                ++var19_16;
-                                            }
-                                            if (var19_16 >= var13_24) {
-                                                var21_37 = var20_36 = var18_32.length() - 1;
-                                                while (var21_37 > 0) {
-                                                    if (var18_32.charAt(var21_37) != '.') break;
-                                                    --var21_37;
-                                                }
-                                                if (var21_37 < var20_36) {
-                                                    var18_32 = var18_32.substring(0, var21_37 + 1);
-                                                }
-                                                if ((var11_21 = var18_32).length() >= 14) {
-                                                    var11_21 = var11_21.substring(0, 11);
-                                                    var11_21 = String.valueOf(var11_21) + "...";
-                                                }
-                                                if (var12_14) {
-                                                    var10_23[var13_24] = new eb("chatto");
-                                                    var10_23[var13_24].e("Chat \"" + var11_21 + "\"");
-                                                    var10_23[var13_24].a(var18_32);
-                                                    ++var13_24;
-                                                }
-                                                var10_23[var13_24] = new eb("viewme");
-                                                var10_23[var13_24].e("Xem \"" + var11_21 + "\"");
-                                                var10_23[var13_24].a(var18_32);
-                                                ++var13_24;
-                                              
-                                            }
-                                        }
-                                    }
-                                    break block74;
-                                }
-                                if (!var8_12[var16_28].startsWith("#") || var8_12[var16_28].length() <= 1 || var8_12[var16_28].toLowerCase().equals("#" + (String)var9_13)) break block75;
-                                var17_30 = var8_12[var16_28].substring(1);
-                                if (var17_30.charAt(0) >= 'a' && var17_30.charAt(0) <= 'z' || var17_30.charAt(0) >= 'A' && var17_30.charAt(0) <= 'Z' || var17_30.charAt(0) >= '0' && var17_30.charAt(0) <= '9') {
-                                    var17_30 = var17_30.trim();
-                                    var18_33 = 0;
-                                    var19_17 = var17_30.length();
-                                    while (var18_33 < var19_17) {
-                                        if (!(var17_30.charAt(var18_33) >= 'a' && var17_30.charAt(var18_33) <= 'z' || var17_30.charAt(var18_33) >= 'A' && var17_30.charAt(var18_33) <= 'Z' || var17_30.charAt(var18_33) >= '0' && var17_30.charAt(var18_33) <= '9' || var17_30.charAt(var18_33) == '.' || var17_30.charAt(var18_33) == '_')) {
-                                            var17_30 = var17_30.substring(0, var18_33);
-                                            break;
-                                        }
-                                        ++var18_33;
-                                    }
-                                    if (var17_30 != null && var17_30.length() > 0) {
-                                        if (var10_23 == null) {
-                                            var10_23 = new eb[30];
-                                        }
-                                        var18_34 = var17_30.toLowerCase();
-                                        var19_17 = 0;
-                                        while (var19_17 < var13_24) {
-                                            if (var10_23[var19_17] != null && var10_23[var19_17].a().equals("viewme") && var10_23[var19_17].b().toLowerCase().equals("#" + var18_34)) break;
-                                            ++var19_17;
-                                        }
-                                        if (var19_17 >= var13_24) {
-                                            var10_23[var13_24] = new eb("viewme");
-                                            var21_38 = var20_36 = var18_34.length() - 1;
-                                            while (var21_38 > 0) {
-                                                if (var18_34.charAt(var21_38) != '.') break;
-                                                --var21_38;
-                                            }
-                                            if (var21_38 < var20_36) {
-                                                var18_34 = var18_34.substring(0, var21_38 + 1);
-                                            }
-                                            if ((var11_21 = var18_34).length() >= 14) {
-                                                var11_21 = var11_21.substring(0, 11);
-                                                var11_21 = String.valueOf(var11_21) + "...";
-                                            }
-                                            var10_23[var13_24].e("Xem nhóm \"" + var11_21 + "\"");
-                                            var10_23[var13_24].a("#" + var18_34);
-                                            ++var13_24;
-                                     
-                                        }
-                                    }
-                                }
-                                break block74;
-                            }
-                            var11_22 = var8_12[var16_28].toLowerCase().indexOf("http://");
-                            if (var11_22 < 0) break block76;
-                            if (var10_23 == null) {
-                                var10_23 = new eb[30];
-                            }
-                            var17_30 = "Xem WAP " + var14_26;
-                            var18_35 = var8_12[var16_28].indexOf(10);
-                            if (var11_22 > var18_35 && var16_28 + 1 < var8_12.length && var8_12[var16_28 + 1].startsWith("<")) {
-                                var19_18 = var16_28 + 2;
-                                while (var19_18 < var8_12.length) {
-                                    if (var8_12[var19_18].endsWith(">")) {
-                                        var17_30 = var8_12[var16_28 + 1].substring(1);
-                                        var20_36 = var16_28 + 2;
-                                        while (var20_36 <= var19_18) {
-                                            var21_39 = var8_12[var20_36];
-                                            if (var20_36 == var19_18) {
-                                                var21_39 = var21_39.substring(0, var21_39.length() - 1);
-                                            }
-                                            if ((var17_30 = String.valueOf(var17_30) + " " + (String)var21_39).length() >= 16) {
-                                                var17_30 = var17_30.substring(0, 13);
-                                                var17_30 = String.valueOf(var17_30) + "...";
-                                            }
-                                            --var14_26;
-                                            ++var20_36;
-                                        }
-                                    }
-                                    ++var19_18;
-                                }
-                            }
-                            var10_23[var13_24] = new eb("wap");
-                            var19_19 = var11_22 > var18_35 ? var8_12[var16_28].substring(var8_12[var16_28].toLowerCase().indexOf("http://")) : var8_12[var16_28].substring(var8_12[var16_28].toLowerCase().indexOf("http://"), var18_35);
-                            ++var14_26;
-                            var10_23[var13_24].e(var17_30);
-                            break block77;
-                        }
-                        var11_22 = var8_12[var16_28].toLowerCase().indexOf("rss://");
-                        if (var11_22 < 0) break block74;
-                        if (var10_23 == null) {
-                            var10_23 = new eb[30];
-                        }
-                        var17_30 = "Xem tin " + var15_27;
-                        var18_35 = var8_12[var16_28].indexOf(10);
-                        if (var11_22 > var18_35 && var16_28 + 1 < var8_12.length && var8_12[var16_28 + 1].startsWith("<")) {
-                            var19_20 = var16_28 + 2;
-                            while (var19_20 < var8_12.length) {
-                                if (var8_12[var19_20].endsWith(">")) {
-                                    var17_30 = var8_12[var16_28 + 1].substring(1);
-                                    var20_36 = var16_28 + 2;
-                                    while (var20_36 <= var19_20) {
-                                        var21_40 = var8_12[var20_36];
-                                        if (var20_36 == var19_20) {
-                                            var21_40 = var21_40.substring(0, var21_40.length() - 1);
-                                        }
-                                        if ((var17_30 = String.valueOf(var17_30) + " " + (String)var21_40).length() >= 16) {
-                                            var17_30 = var17_30.substring(0, 13);
-                                            var17_30 = String.valueOf(var17_30) + "...";
-                                        }
-                                        --var15_27;
-                                        ++var20_36;
-                                    }
-                                }
-                                ++var19_20;
-                            }
-                        }
-                        var10_23[var13_24] = new eb("rss");
-                        var19_19 = var11_22 > var18_35 ? var8_12[var16_28].substring(var8_12[var16_28].toLowerCase().indexOf("rss://") + 6) : var8_12[var16_28].substring(var8_12[var16_28].toLowerCase().indexOf("rss://") + 6, var18_35);
-                        ++var15_27;
-                        var10_23[var13_24].e(var17_30);
-                        if (var19_19.toLowerCase().equals("null")) {
-                            var19_19 = null;
-                        }
-                    }
-                    var10_23[var13_24].a(var19_19);
-                    ++var13_24;
-                }
-                ++var16_28;
-            }
-            if (var10_23 == null) {
-                var10_23 = new eb[30];
-            }
-            if (0L != 0L) {
-                var10_23[var13_24] = new eb("delme");
-                var10_23[var13_24].e("Xóa");
-                ++var13_24;
-            }
-            if (var13_24 <= 0) {
-                v1 = null;
-            } else {
-                var16_29 = new eb[var13_24];
-                System.arraycopy(var10_23, 0, var16_29, 0, var16_29.length);
-                var10_23 = var16_29;
-                v1 = var8_12 = var10_23;
-            }
-        }
-        if (v1 != null) {
-            var9_13 = var6_6.a();
-            if (var9_13 != null) {
-                var10_23 = new eb[var8_12.length + ((eb[])var9_13).length];
-                System.arraycopy(var9_13, 0, var10_23, 0, ((eb[])var9_13).length);
-                System.arraycopy(var8_12, 0, var10_23, ((eb[])var9_13).length, var8_12.length);
-                var8_12 = var10_23;
-            }
-            var6_6.a((eb[])var8_12);
-        }
-        if (var7_7) {
-            var6_6.a();
-        }
-        var6_6.a((String)var2_2);
-        if (var4_4 /* !! */ .toLowerCase().equals("ola")) {
-            var4_4 /* !! */  = "Ola!!!";
-        }
-        var6_6.b((String)var4_4 /* !! */ );
-        var6_6.a(System.currentTimeMillis());
-        var6_6.a(var5_5);
-        if (du.a().i == 2 && (var9_13 = var1_1.b((short)109)) != null) {
-            du.a().b((String)var2_2, (String)var9_13);
-        }
-        if (this.a != null) {
-            this.a.a(var6_6, (short)var3_3);
-        }
-    }
-
-    private void b(dy dy2) {
-        int n = dy2.c((short)7);
-        if (n == 0) {
-            return;
-        }
-        ds[] dsArray = new ds[n];
-        int n2 = dy2.b((short)7, 0);
-        boolean bl = false;
-        int n3 = 0;
-        while (!bl) {
-            int n4 = n2;
-            if ((n2 = dy2.a((short)7, n4)) <= 0) {
-                bl = true;
-            }
-            byte by = 0;
-            byte by2 = 0;
-            byte by3 = 0;
-            String string = dy2.b(n4);
-            String string2 = null;
-            String string3 = null;
-            int n5 = dy2.a((short)12, n4, n2);
-            if (n5 >= 0) {
-                by3 = dy2.a(n5, (short)0);
-                by = dy2.a((short)45, n4, n2, (short)0);
-                by2 = dy2.a((short)38, n4, n2, (short)0);
-                string2 = dy2.b((short)13, n4, n2);
-                if (i.a(string2)) {
-                    string2 = null;
-                }
-                string3 = dy2.b((short)86, n4, n2);
-            }
-            dy2.a((short)58, n4, n2, 0L);
-            dsArray[n3] = new ds();
-            dsArray[n3].a(string);
-            dsArray[n3].a(by);
-            dsArray[n3].b(by2);
-            dsArray[n3].d(string3);
-            dsArray[n3].c(by3);
-            dsArray[n3].c(string2);
-            ++n3;
-        }
-        this.a.a(dsArray);
-    }
-
-    private void c(dy dy2) {
-        dy2.a(dy2.b((short)200, 0), 0L);
-        int n = dy2.c((short)24);
-        if (n > 0) {
-            ee[] eeArray = new ee[n];
-            int n2 = dy2.b((short)24, 0);
-            int n3 = dy2.b((short)7, 0);
-            int n4 = 0;
-            while (n4 < n) {
-                int n5 = dy2.a((short)24, n2);
-                int n6 = dy2.a((short)7, n3);
-                String string = dy2.b(n2);
-                String string2 = dy2.b((short)22, n2, n5);
-                String string3 = dy2.b(n3);
-                int n7 = dy2.a((short)206, n2, n5, 0);
-                long l = dy2.a((short)9, n3, n6, 0L);
-                n2 = n5;
-                n3 = n6;
-                eeArray[n4] = new ee();
-                eeArray[n4].a(string);
-                eeArray[n4].a = string3;
-                eeArray[n4].c = string2;
-                eeArray[n4].e = n7;
-                eeArray[n4].d = l;
-                ++n4;
-            }
-        }
-    }
-
-    private void d(dy dy2) {
-        byte[] byArray = dy2.a((short)53);
-        byte by = 0;
-        if (byArray != null) {
-            by = byArray[0];
-        }
-        int s = dy2.c((short)7);
-        ef[] efArray = null;
-        if (s > 0) {
-            efArray = new ef[s];
-            int n = dy2.b((short)7, 0);
-            boolean bl = false;
-            int n2 = 0;
-            while (!bl) {
-                String[] stringArray;
-                int n3;
-                boolean bl2 = false;
-                efArray[n2] = new ef();
-                int n4 = n3;
-                if ((n3 = dy2.a((short)7, n4)) < 0) {
-                    bl = true;
-                }
-                String string = dy2.b(n4);
-                String string2 = dy2.b((short)8, n4, n3);
-                long l = dy2.a((short)9, n4, n3, 0L);
-                n4 = dy2.a((short)220, n4, n3, (short)0);
-                dy2.a(dy2.b((short)45, 0), (short)0);
-                if (string.toLowerCase().equals("ola".toLowerCase())) {
-                    bl2 = true;
-                    stringArray = i.a(string2, " ", 3, false);
-                    if (stringArray != null && stringArray.length == 3 && stringArray[0].toLowerCase().equals("LOCK".toLowerCase())) {
-                        try {
-                            Long.parseLong(stringArray[1]);
-                            return;
-                        }
-                        catch (Exception exception) {}
-                    }
-                } else if (string.length() <= 3) {
-                    eb[] ebArray;
-                    bl2 = true;
-                    stringArray = i.a(string2, "|", 2, false);
-                    if (stringArray != null && stringArray.length == 2 && (ebArray = em.a(stringArray[1])) != null && ebArray.length > 0) {
-                        string2 = stringArray[0];
-                        efArray[n2].a(ebArray);
-                    }
-                }
-                if (bl2) {
-                    efArray[n2].a();
-                }
-                efArray[n2].a(string);
-                efArray[n2].a(l);
-                efArray[n2].b(string2);
-                efArray[n2].a((short)n4);
+                array3[n2].e("Chat \"" + string + "\"");
+                array3[n2].a(s6);
+                ++n2;
+                (array3[n2] = new eb("replyto")).e("Trả lời \"" + string + "\"");
+                array3[n2].a(s6);
+                ++n2;
+                (array3[n2] = new eb("viewme")).e("Xem \"" + string + "\"");
+                array3[n2].a(s6);
                 ++n2;
             }
-        }
-        this.a.a(efArray, (short)by);
-    }
-
-    private void e(dy dy2) {
-        int n = dy2.c((short)200);
-        if (n > 0) {
-            dr[] drArray = new dr[n];
-            int n2 = dy2.b((short)200, 0);
-            int n3 = dy2.b((short)207, 0);
-            int n4 = 0;
-            while (n4 < n) {
-                dy2.a(n2, 0L);
-                int n5 = dy2.a((short)200, n2);
-                dy2.b(n3);
-                dy2.a((short)69, n2, n5, (short)0);
-                dy2.a((short)62, n2, n5, (short)0);
-                dy2.a((short)9, n2, n5, 0L);
-                dy2.a((short)205, n2, n5, 0);
-                dy2.a((short)206, n2, n5, 0);
-                drArray[n4] = new dr();
-                n3 = dy2.a((short)207, n3);
-                n2 = n5;
-                ++n4;
-            }
-        }
-    }
-
-    private void f(dy dy2) {
-        String string = dy2.b((short)21);
-        int n = dy2.c((short)7);
-        ds[] dsArray = null;
-        if (n > 0) {
-            dsArray = new ds[n];
-            n = dy2.b((short)7, 0);
-            boolean bl = false;
-            int n2 = 0;
-            while (!bl) {
-                int n3 = n;
-                if ((n = dy2.a((short)7, n3)) <= 0) {
-                    bl = true;
-                }
-                byte by = 0;
-                byte by2 = 0;
-                byte by3 = 0;
-                String string2 = dy2.b(n3);
-                String string3 = null;
-                String string4 = null;
-                int n4 = dy2.a((short)12, n3, n);
-                if (n4 >= 0) {
-                    by3 = dy2.a(n4, (short)0);
-                    by = dy2.a((short)45, n3, n, (short)0);
-                    by2 = dy2.a((short)38, n3, n, (short)0);
-                    string3 = dy2.b((short)13, n3, n);
-                    if (i.a(string3)) {
-                        string3 = null;
-                    }
-                    string4 = dy2.b((short)86, n3, n);
-                }
-                dsArray[n2] = new ds();
-                dsArray[n2].a(string2);
-                dsArray[n2].b(dy2.b((short)22, n3, n));
-                dsArray[n2].a(by);
-                dsArray[n2].b(by2);
-                dsArray[n2].d(string4);
-                dsArray[n2].c(by3);
-                dsArray[n2].c(string3);
-                ++n2;
-            }
-        }
-        this.a.a(dsArray, string);
-    }
-
-    private void g(dy dy2) {
-        int n = dy2.c((short)7);
-        if (n > 0) {
-            ds[] dsArray = new ds[n];
-            int n2 = dy2.b((short)7, 0);
-            int n3 = dy2.b((short)22, 0);
-            int n4 = 0;
-            while (n4 < n) {
-                String string = dy2.b(n2);
-                String string2 = dy2.b(n3);
-                dsArray[n4] = new ds();
-                dsArray[n4].a(string);
-                dsArray[n4].b(string2);
-                n2 = dy2.a((short)7, n2);
-                n3 = dy2.a((short)22, n3);
-                ++n4;
-            }
-        }
-    }
-
-    private void h(dy dy2) {
-        Object object;
-        ef[] efArray;
-        byte by = dy2.a(dy2.b((short)255, 0), (short)0);
-        if (du.a().z != by) {
-            return;
-        }
-        String string = dy2.b((short)7);
-        short s = 0;
-        if (string != null) {
-            string = string.toLowerCase();
-            if (dy2.c((short)67) <= 0) {
-                try {
-                    byte[] byArray = string.getBytes("UTF-8");
-                    if (byArray == null || byArray.length == 0) {
-                        byArray = string.getBytes();
-                    }
-                    dy dy3 = dy2;
-                    efArray = (ef[])byArray;
-                    int n2 = 67;
-                    object = dy3;
-                    if (dy3.c == null) {
-                        object.c = new dx[1];
-                        object.c[0] = new dx();
-                        object.c[0].a = (short)67;
-                        object.c[0].b = (byte[])efArray;
-                    } else {
-                        dx[] dxArray = new dx[object.c.length + 1];
-                        dx[] dxArray2 = dxArray;
-                        dxArray[0] = new dx();
-                        dxArray2[0].a = (short)67;
-                        dxArray2[0].b = (byte[])efArray;
-                        System.arraycopy(object.c, 0, dxArray2, 1, object.c.length);
-                        object.c = dxArray2;
-                    }
-                }
-                catch (Throwable throwable) {}
-            }
-        }
-        if ((object = dy2.a((short)66)) != null) {
-            s = object[0];
-        }
-        if (s == 3) {
-            this.a.a(string, s, null);
-            return;
-        }
-        int n3 = dy2.c((short)8);
-        efArray = null;
-        if (n3 > 0) {
-            efArray = new ef[n3];
-            n3 = 0;
-            int s2 = dy2.a((short)67, -1);
-            boolean bl = false;
-            while (!bl) {
-                int n2;
-                int n4 = n2;
-                if ((n2 = dy2.a((short)67, n4)) < 0) {
-                    bl = true;
-                }
-                String string2 = dy2.b(n4);
-                string2 = string2.toLowerCase();
-                dy2.b((short)109, n4, n2);
-                int n5 = dy2.a((short)72, n4);
-                boolean bl2 = false;
-                while (!bl2) {
-                    int n6 = n5;
-                    if ((n5 = dy2.a((short)72, n6, n2)) < 0) {
-                        n5 = n2;
-                        bl2 = true;
-                    }
-                    long l = dy2.a(n6, 0L);
-                    n4 = dy2.a((short)221, n6, n5, (byte)0);
-                    byte by2 = dy2.a((short)220, n6, n5, (byte)0);
-                    int n7 = dy2.a((short)125, n6, n5, 0);
-                    int n8 = dy2.a((short)124, n6, n5, 0);
-                    byte by3 = dy2.a((short)90, n6, n5, (byte)0);
-                    long l2 = dy2.a((short)9, n6, n5, 0L);
-                    String string3 = dy2.b((short)8, n6, n5);
-                    String string4 = dy2.b((short)24, n6, n5);
-                    byte by4 = dy2.a((short)12, n6, n5, (short)0);
-                    dy2.a((short)114, n6, n5, (byte)0);
-                    String[] stringArray = dy2.b((short)110, n6, n5);
-                    if (!i.b((String)stringArray)) {
-                        stringArray = i.b((String)stringArray, ";");
-                        int n9 = 0;
-                        while (n9 < stringArray.length) {
-                            String[] stringArray2 = i.b(stringArray[n9], ":");
-                            if (i.a(stringArray2[0], "border")) {
-                                Short.parseShort(stringArray2[1]);
-                            } else if (i.a(stringArray2[0], "color")) {
-                                Short.parseShort(stringArray2[1]);
-                            }
-                            ++n9;
+            int n3 = 1;
+            int n4 = 1;
+            for (int n5 = 0; n5 < b5.length && n2 < 30; ++n5) {
+                if (b5[n5].startsWith("@") && b5[n5].length() > 1 && !b5[n5].toLowerCase().equals("@" + s6)) {
+                    String s7 = b5[n5].substring(1).trim();
+                    for (int i = 0; i < s7.length(); ++i) {
+                        if ((s7.charAt(i) < 'a' || s7.charAt(i) > 'z') && (s7.charAt(i) < 'A' || s7.charAt(i) > 'Z') && (s7.charAt(i) < '0' || s7.charAt(i) > '9') && s7.charAt(i) != '.' && s7.charAt(i) != '_') {
+                            s7 = s7.substring(0, i);
+                            break;
                         }
                     }
-                    String n52 = dy2.b((short)29, n6, n5);
-                    efArray[n3] = new ef();
-                    efArray[n3].b(l);
-                    efArray[n3].a(string2);
-                    efArray[n3].a(n7);
-                    efArray[n3].b(n8);
-                    efArray[n3].c(by3);
-                    efArray[n3].d(n52);
-                    efArray[n3].b((short)n4);
-                    efArray[n3].a(by2);
-                    efArray[n3].a(l2);
-                    efArray[n3].b(string3);
-                    efArray[n3].c(string4);
-                    efArray[n3].d(by4);
-                    ++n3;
+                    if (s7.length() > 0 && !s7.toLowerCase().equals(s6.toLowerCase())) {
+                        if (array3 == null) {
+                            array3 = new eb[30];
+                        }
+                        String s8;
+                        if (!(s8 = s7.toLowerCase()).equals(du.a().f.toLowerCase())) {
+                            int n6;
+                            for (n6 = 0; n6 < n2 && (array3[n6] == null || !array3[n6].a().equals("viewme") || !array3[n6].b().toLowerCase().equals(s8)); ++n6) {}
+                            if (n6 >= n2) {
+                                int n8;
+                                int n7;
+                                for (n7 = (n8 = s8.length() - 1); n8 > 0 && s8.charAt(n8) == '.'; --n8) {}
+                                if (n8 < n7) {
+                                    s8 = s8.substring(0, n8 + 1);
+                                }
+                                String string2;
+                                if ((string2 = s8).length() >= 14) {
+                                    string2 = String.valueOf(string2.substring(0, 11)) + "...";
+                                }
+                                if (b4) {
+                                    (array3[n2] = new eb("chatto")).e("Chat \"" + string2 + "\"");
+                                    array3[n2].a(s8);
+                                    ++n2;
+                                }
+                                (array3[n2] = new eb("viewme")).e("Xem \"" + string2 + "\"");
+                                array3[n2].a(s8);
+                                ++n2;
+                            }
+                        }
+                    }
                 }
-            }
-            efArray = (ef[])g.a(efArray, new ek(true));
-        }
-        this.a.a(string, s, efArray);
-    }
-
-    private void i(dy dy2) {
-        byte by = dy2.a(dy2.b((short)255, 0), (short)0);
-        if (du.a().A != by) {
-            return;
-        }
-        by = dy2.a(dy2.b((short)31, 0), (byte)0);
-        int n2 = dy2.c((short)29);
-        String[] stringArray = null;
-        String[] stringArray2 = null;
-        String string = dy2.b((short)207);
-        dy2.b((short)109);
-        if (n2 > 0) {
-            int n3 = 0;
-            stringArray = new String[n2];
-            stringArray2 = new String[n2];
-            n2 = 0;
-            int n4 = 0;
-            while (n3 < stringArray.length) {
-                n2 = dy2.a((short)29, n2);
-                n4 = dy2.a((short)30, n4);
-                stringArray[n3] = dy2.b(n2);
-                stringArray2[n3] = dy2.b(n4);
-                ++n3;
-            }
-        }
-        switch (by) {
-            case 0: {
-                this.a.a(string, stringArray, stringArray2);
-                return;
-            }
-            case 1: {
-                this.a.b(string, stringArray, stringArray2);
-                return;
-            }
-        }
-        this.a.c(string, stringArray, stringArray2);
-    }
-
-    private void j(dy stringArray) {
-        stringArray.a(stringArray.b((short)255, 0), (short)0);
-        Object[] objectArray = stringArray.b((short)8);
-        if (objectArray != null) {
-            String[] stringArray2;
-            int[] nArray = null;
-            long[] lArray = null;
-            if ((objectArray = i.b((String)objectArray, ";")) != null) {
-                nArray = new int[objectArray.length];
-                lArray = new long[objectArray.length];
-                int n2 = 0;
-                while (n2 < objectArray.length) {
-                    stringArray2 = i.b(objectArray[n2], ":");
-                    nArray[n2] = Integer.parseInt(stringArray2[0]);
-                    lArray[n2] = Long.parseLong(stringArray2[1]);
+                else if (b5[n5].startsWith("#") && b5[n5].length() > 1 && !b5[n5].toLowerCase().equals("#" + s6)) {
+                    final String substring;
+                    if (((substring = b5[n5].substring(1)).charAt(0) >= 'a' && substring.charAt(0) <= 'z') || (substring.charAt(0) >= 'A' && substring.charAt(0) <= 'Z') || (substring.charAt(0) >= '0' && substring.charAt(0) <= '9')) {
+                        String s9 = substring.trim();
+                        for (int j = 0; j < s9.length(); ++j) {
+                            if ((s9.charAt(j) < 'a' || s9.charAt(j) > 'z') && (s9.charAt(j) < 'A' || s9.charAt(j) > 'Z') && (s9.charAt(j) < '0' || s9.charAt(j) > '9') && s9.charAt(j) != '.' && s9.charAt(j) != '_') {
+                                s9 = s9.substring(0, j);
+                                break;
+                            }
+                        }
+                        if (s9 != null && s9.length() > 0) {
+                            if (array3 == null) {
+                                array3 = new eb[30];
+                            }
+                            String s10;
+                            int n9;
+                            for (s10 = s9.toLowerCase(), n9 = 0; n9 < n2 && (array3[n9] == null || !array3[n9].a().equals("viewme") || !array3[n9].b().toLowerCase().equals("#" + s10)); ++n9) {}
+                            if (n9 >= n2) {
+                                array3[n2] = new eb("viewme");
+                                int n11;
+                                int n10;
+                                for (n10 = (n11 = s10.length() - 1); n11 > 0 && s10.charAt(n11) == '.'; --n11) {}
+                                if (n11 < n10) {
+                                    s10 = s10.substring(0, n11 + 1);
+                                }
+                                String string3;
+                                if ((string3 = s10).length() >= 14) {
+                                    string3 = String.valueOf(string3.substring(0, 11)) + "...";
+                                }
+                                array3[n2].e("Xem nhóm \"" + string3 + "\"");
+                                array3[n2].a("#" + s10);
+                                ++n2;
+                            }
+                        }
+                    }
+                }
+                else {
+                    final int index;
+                    String s12;
+                    if ((index = b5[n5].toLowerCase().indexOf("http://")) >= 0) {
+                        if (array3 == null) {
+                            array3 = new eb[30];
+                        }
+                        String s11 = "Xem WAP " + n3;
+                        final int index2 = b5[n5].indexOf(10);
+                        if (index > index2 && n5 + 1 < b5.length && b5[n5 + 1].startsWith("<")) {
+                            for (int k = n5 + 2; k < b5.length; ++k) {
+                                if (b5[k].endsWith(">")) {
+                                    s11 = b5[n5 + 1].substring(1);
+                                    for (int l = n5 + 2; l <= k; ++l) {
+                                        String substring2 = b5[l];
+                                        if (l == k) {
+                                            substring2 = substring2.substring(0, substring2.length() - 1);
+                                        }
+                                        if ((s11 = String.valueOf(s11) + " " + substring2).length() >= 16) {
+                                            s11 = String.valueOf(s11.substring(0, 13)) + "...";
+                                        }
+                                        --n3;
+                                    }
+                                }
+                            }
+                        }
+                        array3[n2] = new eb("wap");
+                        if (index > index2) {
+                            s12 = b5[n5].substring(b5[n5].toLowerCase().indexOf("http://"));
+                        }
+                        else {
+                            s12 = b5[n5].substring(b5[n5].toLowerCase().indexOf("http://"), index2);
+                        }
+                        ++n3;
+                        array3[n2].e(s11);
+                    }
+                    else {
+                        final int index3;
+                        if ((index3 = b5[n5].toLowerCase().indexOf("rss://")) < 0) {
+                            continue;
+                        }
+                        if (array3 == null) {
+                            array3 = new eb[30];
+                        }
+                        String s13 = "Xem tin " + n4;
+                        final int index4 = b5[n5].indexOf(10);
+                        if (index3 > index4 && n5 + 1 < b5.length && b5[n5 + 1].startsWith("<")) {
+                            for (int n12 = n5 + 2; n12 < b5.length; ++n12) {
+                                if (b5[n12].endsWith(">")) {
+                                    s13 = b5[n5 + 1].substring(1);
+                                    for (int n13 = n5 + 2; n13 <= n12; ++n13) {
+                                        String substring3 = b5[n13];
+                                        if (n13 == n12) {
+                                            substring3 = substring3.substring(0, substring3.length() - 1);
+                                        }
+                                        if ((s13 = String.valueOf(s13) + " " + substring3).length() >= 16) {
+                                            s13 = String.valueOf(s13.substring(0, 13)) + "...";
+                                        }
+                                        --n4;
+                                    }
+                                }
+                            }
+                        }
+                        array3[n2] = new eb("rss");
+                        if (index3 > index4) {
+                            s12 = b5[n5].substring(b5[n5].toLowerCase().indexOf("rss://") + 6);
+                        }
+                        else {
+                            s12 = b5[n5].substring(b5[n5].toLowerCase().indexOf("rss://") + 6, index4);
+                        }
+                        ++n4;
+                        array3[n2].e(s13);
+                        if (s12.toLowerCase().equals("null")) {
+                            s12 = null;
+                        }
+                    }
+                    array3[n2].a(s12);
                     ++n2;
                 }
             }
-            String string = stringArray.b((short)109);
-            stringArray2 = stringArray.b((short)110);
-            if (stringArray2 != null) {
-                i.b((String)stringArray2, ";");
+            if (array3 == null) {
+                array3 = new eb[30];
             }
-            stringArray = i.b(string, ";");
-            objectArray = new short[stringArray.length];
-            int n3 = 0;
-            while (n3 < objectArray.length) {
-                objectArray[n3] = (String)((short)Integer.parseInt(stringArray[n3]));
-                ++n3;
+            if (0L != 0L) {
+                (array3[n2] = new eb("delme")).e("Xóa");
+                ++n2;
             }
-            this.a.a(nArray, lArray, (short[])objectArray);
+            if (n2 > 0) {
+                final eb[] array4 = new eb[n2];
+                System.arraycopy(array3, 0, array4, 0, array4.length);
+                array = (array2 = array4);
+            }
+            else {
+                array = (array2 = null);
+            }
+        }
+        eb[] array5 = array2;
+        if (array != null) {
+            final eb[] a7;
+            if ((a7 = ef.a()) != null) {
+                final eb[] array6 = new eb[array5.length + a7.length];
+                System.arraycopy(a7, 0, array6, 0, a7.length);
+                System.arraycopy(array5, 0, array6, a7.length, array5.length);
+                array5 = array6;
+            }
+            ef.a(array5);
+        }
+        if (b3) {
+            ef.a();
+        }
+        ef.a(b);
+        if (b2.toLowerCase().equals("ola")) {
+            b2 = "Ola!!!";
+        }
+        ef.b(b2);
+        ef.a(System.currentTimeMillis());
+        ef.a(a2);
+        final String b6;
+        if (du.a().i == 2 && (b6 = dy.b((short)109)) != null) {
+            du.a().b(b, b6);
+        }
+        if (this.a != null) {
+            this.a.a(ef, n);
         }
     }
-
-    private void k(dy stringArray) {
-        stringArray.b((short)7);
-        Object object = stringArray.a((short)209);
-        byte by = object[0];
-        switch (by) {
+    
+    private void b(final dy dy) {
+        final int c;
+        if ((c = dy.c((short)7)) == 0) {
+            return;
+        }
+        final ds[] array = new ds[c];
+        int n = dy.b((short)7, 0);
+        boolean b = false;
+        int n2 = 0;
+        while (!b) {
+            final int n3 = n;
+            if ((n = dy.a((short)7, n3)) <= 0) {
+                b = true;
+            }
+            short a = 0;
+            short a2 = 0;
+            short a3 = 0;
+            final String b2 = dy.b(n3);
+            String b3 = null;
+            String b4 = null;
+            final int a4;
+            if ((a4 = dy.a((short)12, n3, n)) >= 0) {
+                a3 = dy.a(a4, (short)0);
+                a = dy.a((short)45, n3, n, (short)0);
+                a2 = dy.a((short)38, n3, n, (short)0);
+                if (i.a(b3 = dy.b((short)13, n3, n))) {
+                    b3 = null;
+                }
+                b4 = dy.b((short)86, n3, n);
+            }
+            dy.a((short)58, n3, n, 0L);
+            (array[n2] = new ds()).a(b2);
+            array[n2].a(a);
+            array[n2].b(a2);
+            array[n2].d(b4);
+            array[n2].c(a3);
+            array[n2].c(b3);
+            ++n2;
+        }
+        this.a.a(array);
+    }
+    
+    private void c(final dy dy) {
+        dy.a(dy.b((short)200, 0), 0L);
+        final int c;
+        if ((c = dy.c((short)24)) > 0) {
+            final ee[] array = new ee[c];
+            int b = dy.b((short)24, 0);
+            int b2 = dy.b((short)7, 0);
+            for (int i = 0; i < c; ++i) {
+                final int a = dy.a((short)24, b);
+                final int a2 = dy.a((short)7, b2);
+                final String b3 = dy.b(b);
+                final String b4 = dy.b((short)22, b, a);
+                final String b5 = dy.b(b2);
+                final int a3 = dy.a((short)206, b, a, 0);
+                final long a4 = dy.a((short)9, b2, a2, 0L);
+                b = a;
+                b2 = a2;
+                (array[i] = new ee()).a(b3);
+                array[i].a = b5;
+                array[i].c = b4;
+                array[i].e = a3;
+                array[i].d = a4;
+            }
+        }
+        final dv a5 = this.a;
+    }
+    
+    private void d(final dy dy) {
+        final byte[] a = dy.a((short)53);
+        short n = 0;
+        if (a != null) {
+            n = a[0];
+        }
+        final int c = dy.c((short)7);
+        ef[] array = null;
+        if (c > 0) {
+            array = new ef[c];
+            int n2 = dy.b((short)7, 0);
+            boolean b = false;
+            int n3 = 0;
+            while (!b) {
+                boolean b2 = false;
+                array[n3] = new ef();
+                final int n4 = n2;
+                if ((n2 = dy.a((short)7, n4)) < 0) {
+                    b = true;
+                }
+                final String b3 = dy.b(n4);
+                String b4 = dy.b((short)8, n4, n2);
+                final long a2 = dy.a((short)9, n4, n2, 0L);
+                final byte a3 = dy.a((short)220, n4, n2, (short)0);
+                dy.a(dy.b((short)45, 0), (short)0);
+                Label_0295: {
+                    if (b3.toLowerCase().equals("ola".toLowerCase())) {
+                        b2 = true;
+                        final String[] a4;
+                        if ((a4 = i.a(b4, " ", 3, false)) == null || a4.length != 3 || !a4[0].toLowerCase().equals("LOCK".toLowerCase())) {
+                            break Label_0295;
+                        }
+                        try {
+                            Long.parseLong(a4[1]);
+                            final dv a5 = this.a;
+                            return;
+                        }
+                        catch (final Exception ex) {
+                            break Label_0295;
+                        }
+                    }
+                    if (b3.length() <= 3) {
+                        b2 = true;
+                        final String[] a6;
+                        final eb[] a7;
+                        if ((a6 = i.a(b4, "|", 2, false)) != null && a6.length == 2 && (a7 = a(a6[1])) != null && a7.length > 0) {
+                            b4 = a6[0];
+                            array[n3].a(a7);
+                        }
+                    }
+                }
+                if (b2) {
+                    array[n3].a();
+                }
+                array[n3].a(b3);
+                array[n3].a(a2);
+                array[n3].b(b4);
+                array[n3].a(a3);
+                ++n3;
+            }
+        }
+        this.a.a(array, n);
+    }
+    
+    private void e(final dy dy) {
+        final int c;
+        if ((c = dy.c((short)200)) > 0) {
+            final dr[] array = new dr[c];
+            int b = dy.b((short)200, 0);
+            int n = dy.b((short)207, 0);
+            for (int i = 0; i < c; ++i) {
+                dy.a(b, 0L);
+                final int a = dy.a((short)200, b);
+                dy.b(n);
+                dy.a((short)69, b, a, (short)0);
+                dy.a((short)62, b, a, (short)0);
+                dy.a((short)9, b, a, 0L);
+                dy.a((short)205, b, a, 0);
+                dy.a((short)206, b, a, 0);
+                array[i] = new dr();
+                n = dy.a((short)207, n);
+                b = a;
+            }
+        }
+        final dv a2 = this.a;
+    }
+    
+    private void f(final dy dy) {
+        final String b = dy.b((short)21);
+        final int c = dy.c((short)7);
+        ds[] array = null;
+        if (c > 0) {
+            array = new ds[c];
+            int n = dy.b((short)7, 0);
+            boolean b2 = false;
+            int n2 = 0;
+            while (!b2) {
+                final int n3 = n;
+                if ((n = dy.a((short)7, n3)) <= 0) {
+                    b2 = true;
+                }
+                short a = 0;
+                short a2 = 0;
+                short a3 = 0;
+                final String b3 = dy.b(n3);
+                String b4 = null;
+                String b5 = null;
+                final int a4;
+                if ((a4 = dy.a((short)12, n3, n)) >= 0) {
+                    a3 = dy.a(a4, (short)0);
+                    a = dy.a((short)45, n3, n, (short)0);
+                    a2 = dy.a((short)38, n3, n, (short)0);
+                    if (i.a(b4 = dy.b((short)13, n3, n))) {
+                        b4 = null;
+                    }
+                    b5 = dy.b((short)86, n3, n);
+                }
+                (array[n2] = new ds()).a(b3);
+                array[n2].b(dy.b((short)22, n3, n));
+                array[n2].a(a);
+                array[n2].b(a2);
+                array[n2].d(b5);
+                array[n2].c(a3);
+                array[n2].c(b4);
+                ++n2;
+            }
+        }
+        this.a.a(array, b);
+    }
+    
+    private void g(final dy dy) {
+        final int c;
+        if ((c = dy.c((short)7)) > 0) {
+            final ds[] array = new ds[c];
+            int n = dy.b((short)7, 0);
+            int n2 = dy.b((short)22, 0);
+            for (int i = 0; i < c; ++i) {
+                final String b = dy.b(n);
+                final String b2 = dy.b(n2);
+                (array[i] = new ds()).a(b);
+                array[i].b(b2);
+                n = dy.a((short)7, n);
+                n2 = dy.a((short)22, n2);
+            }
+            final dv a = this.a;
+        }
+    }
+    
+    private void h(final dy dy) {
+        if (du.a().z != dy.a(dy.b((short)255, 0), (short)0)) {
+            return;
+        }
+        String s = dy.b((short)7);
+        short n = 0;
+        if (s != null) {
+            s = s.toLowerCase();
+            if (dy.c((short)67) <= 0) {
+                try {
+                    byte[] array;
+                    if ((array = s.getBytes("UTF-8")) == null || array.length == 0) {
+                        array = s.getBytes();
+                    }
+                    final byte[] array2 = array;
+                    if (dy.c == null) {
+                        (dy.c = new dx[1])[0] = new dx();
+                        dy.c[0].a = 67;
+                        dy.c[0].b = array2;
+                    }
+                    else {
+                        final dx[] c;
+                        (c = new dx[dy.c.length + 1])[0] = new dx();
+                        c[0].a = 67;
+                        c[0].b = array2;
+                        System.arraycopy(dy.c, 0, c, 1, dy.c.length);
+                        dy.c = c;
+                    }
+                }
+                catch (final Throwable t) {}
+            }
+        }
+        final byte[] a;
+        if ((a = dy.a((short)66)) != null) {
+            n = a[0];
+        }
+        if (n == 3) {
+            this.a.a(s, n, null);
+            return;
+        }
+        final int c2 = dy.c((short)8);
+        ef[] array3 = null;
+        if (c2 > 0) {
+            final ef[] array4 = new ef[c2];
+            int n2 = 0;
+            int n3 = dy.a((short)67, -1);
+            boolean b = false;
+            while (!b) {
+                final int n4 = n3;
+                if ((n3 = dy.a((short)67, n4)) < 0) {
+                    b = true;
+                }
+                final String lowerCase = dy.b(n4).toLowerCase();
+                dy.b((short)109, n4, n3);
+                int n5 = dy.a((short)72, n4);
+                boolean b2 = false;
+                while (!b2) {
+                    final int n6 = n5;
+                    if ((n5 = dy.a((short)72, n6, n3)) < 0) {
+                        n5 = n3;
+                        b2 = true;
+                    }
+                    final long a2 = dy.a(n6, 0L);
+                    final byte a3 = dy.a((short)221, n6, n5, (byte)0);
+                    final byte a4 = dy.a((short)220, n6, n5, (byte)0);
+                    final int a5 = dy.a((short)125, n6, n5, 0);
+                    final int a6 = dy.a((short)124, n6, n5, 0);
+                    final byte a7 = dy.a((short)90, n6, n5, (byte)0);
+                    final long a8 = dy.a((short)9, n6, n5, 0L);
+                    final String b3 = dy.b((short)8, n6, n5);
+                    final String b4 = dy.b((short)24, n6, n5);
+                    final byte a9 = dy.a((short)12, n6, n5, (short)0);
+                    dy.a((short)114, n6, n5, (byte)0);
+                    final String b5;
+                    if (!i.b(b5 = dy.b((short)110, n6, n5))) {
+                        final String[] b6 = i.b(b5, ";");
+                        for (int j = 0; j < b6.length; ++j) {
+                            final String[] b7;
+                            if (i.a((b7 = i.b(b6[j], ":"))[0], "border")) {
+                                Short.parseShort(b7[1]);
+                            }
+                            else if (i.a(b7[0], "color")) {
+                                Short.parseShort(b7[1]);
+                            }
+                        }
+                    }
+                    final String b8 = dy.b((short)29, n6, n5);
+                    (array4[n2] = new ef()).b(a2);
+                    array4[n2].a(lowerCase);
+                    array4[n2].a(a5);
+                    array4[n2].b(a6);
+                    array4[n2].c(a7);
+                    array4[n2].d(b8);
+                    array4[n2].b(a3);
+                    array4[n2].a(a4);
+                    array4[n2].a(a8);
+                    array4[n2].b(b3);
+                    array4[n2].c(b4);
+                    array4[n2].d(a9);
+                    ++n2;
+                }
+            }
+            array3 = (ef[])g.a(array4, new ek(true));
+        }
+        this.a.a(s, n, array3);
+    }
+    
+    private void j(final dy dy) {
+        dy.a(dy.b((short)255, 0), (short)0);
+        final String b;
+            if ((b = dy.b((short)8)) != null) {
+                int[] array = null;
+                long[] array2 = null;
+                final String[] b2;
+                if ((b2 = i.b(b, ";")) != null) {
+                    array = new int[b2.length];
+                    array2 = new long[b2.length];
+                    for (int j = 0; j < b2.length; ++j) {
+                        final String[] b3 = i.b(b2[j], ":");
+                        array[j] = Integer.parseInt(b3[0]);
+                        array2[j] = Long.parseLong(b3[1]);
+                    }
+                }
+            final String b4 = dy.b((short)109);
+            final String b5;
+            if ((b5 = dy.b((short)110)) != null) {
+                i.b(b5, ";");
+            }
+            final String[] b6;
+            final short[] array3 = new short[(b6 = i.b(b4, ";")).length];
+            for (int j = 0; j < array3.length; ++j) {
+                array3[j] = (short)Integer.parseInt(b6[j]);
+            }
+            this.a.a(array, array2, array3);
+        }
+    }
+    
+    private void k(final dy dy) {
+        dy.b((short)7);
+        final byte[] a;
+        switch ((a = dy.a((short)209))[0]) {
             case 3: {
-                byte[] byArray = new byte[((byte[])object).length - 3];
-                System.arraycopy(object, 3, byArray, 0, byArray.length);
-                stringArray.a(stringArray.b((short)45, 0), (short)0);
+                final byte[] array = new byte[a.length - 3];
+                System.arraycopy(a, 3, array, 0, array.length);
+                dy.a(dy.b((short)45, 0), (short)0);
+                final dv a2 = this.a;
                 return;
             }
             case 5: {
-                Object object2 = new byte[((byte[])object).length - 1];
-                System.arraycopy(object, 1, object2, 0, ((byte[])object2).length);
-                stringArray = i.a(object2);
-                if (i.a((String)stringArray)) break;
-                stringArray = i.b((String)stringArray, ";");
-                object = null;
-                object2 = null;
-                if (stringArray != null && stringArray.length > 0) {
-                    int n2 = 0;
-                    while (n2 < stringArray.length) {
-                        if (stringArray[n2].startsWith("id=")) {
-                            object = stringArray[n2].substring(3);
+                final byte[] array2 = new byte[a.length - 1];
+                System.arraycopy(a, 1, array2, 0, array2.length);
+                final String a3;
+                if (i.a(a3 = i.a(array2))) {
+                    break;
+                }
+                final String[] b = i.b(a3, ";");
+                String substring = null;
+                String substring2 = null;
+                if (b != null && b.length > 0) {
+                    for (int i = 0; i < b.length; ++i) {
+                        if (b[i].startsWith("id=")) {
+                            substring = b[i].substring(3);
                         }
-                        if (stringArray[n2].startsWith("chatgroupId=")) {
-                            object2 = stringArray[n2].substring(12);
+                        if (b[i].startsWith("chatgroupId=")) {
+                            substring2 = b[i].substring(12);
                         }
-                        ++n2;
                     }
                 }
-                if (i.a((String)object2) && i.a((String)object)) {
+                if (i.a(substring2) && i.a(substring)) {
                     return;
                 }
-                if (!i.a((String)object2)) break;
-                return;
+                if (i.a(substring2)) {
+                    final dv a4 = this.a;
+                    return;
+                }
+                final dv a5 = this.a;
+                break;
             }
         }
     }
-
-    private void l(dy stringArray) {
-        byte by = stringArray.a(stringArray.b((short)255, 0), (short)0);
-        if (du.a().A != by) {
+    
+    private void l(final dy dy) {
+        if (du.a().A != dy.a(dy.b((short)255, 0), (short)0)) {
             return;
         }
-        ef[] efArray = stringArray.b((short)8);
-        String string = stringArray.b((short)207);
-        stringArray.b((short)109);
-        stringArray.b((short)29);
-        stringArray.a(stringArray.b((short)90, 0), (short)0);
-        stringArray.a(stringArray.b((short)72, 0), 0L);
-        stringArray.a(stringArray.b((short)124, 0), 0);
-        stringArray.a(stringArray.b((short)125, 0), 0);
-        if (efArray != null && (stringArray = i.b((String)efArray, "\n")) != null && stringArray.length > 0) {
-            efArray = new ef[stringArray.length];
-            int n2 = 0;
-            while (n2 < efArray.length) {
-                efArray[n2] = new ef();
-                efArray[n2].b(stringArray[n2]);
-                ++n2;
+        final String b = dy.b((short)8);
+        final String b2 = dy.b((short)207);
+        dy.b((short)109);
+        dy.b((short)29);
+        dy.a(dy.b((short)90, 0), (short)0);
+        dy.a(dy.b((short)72, 0), 0L);
+        dy.a(dy.b((short)124, 0), 0);
+        dy.a(dy.b((short)125, 0), 0);
+        final String[] b3;
+        if (b != null && (b3 = i.b(b, "\n")) != null && b3.length > 0) {
+            final ef[] array = new ef[b3.length];
+            for (int i = 0; i < array.length; ++i) {
+                (array[i] = new ef()).b(b3[i]);
             }
-            this.a.a(string, efArray);
+            this.a.a(b2, array);
         }
     }
-
-    private void m(dy object) {
-        ((dy)object).a(((dy)object).b((short)255, 0), (short)0);
+    
+    private void m(final dy dy) {
+        dy.a(dy.b((short)255, 0), (short)0);
         try {
             if (du.a().d) {
-                byte[] byArray = ((dy)object).a((short)214);
-                int n2 = m.a(byArray[0], byArray[1]);
-                int n3 = 0;
-                if (du.a().v == n2) {
-                    byArray = ((dy)object).a((short)213);
-                    if (byArray != null) {
-                        du.a().x = m.a(byArray);
+                final byte[] a = dy.a((short)214);
+                final int a2 = m.a(a[0], a[1]);
+                int c = 0;
+                if (du.a().v == a2) {
+                    final byte[] a3;
+                    if ((a3 = dy.a((short)213)) != null) {
+                        du.a().x = m.a(a3);
                         if (du.a().x <= 0) {
                             du.a().x = 1;
                         }
-                        byArray = ((dy)object).a((short)37);
-                        n3 = m.c(byArray);
-                        du.a().n = new byte[n3];
-                        du.a().w = n3;
+                        c = m.c(dy.a((short)37));
+                        du.a().n = new byte[c];
+                        du.a().w = c;
                     }
-                    int n4 = du.a().x;
-                    byte[] byArray2 = ((dy)object).a((short)23);
-                    System.arraycopy(byArray2, 0, du.a().n, du.a().u, byArray2.length);
-                    du.a().u += byArray2.length;
-                    if (n2 >= n4 - 1) {
+                    final int x = du.a().x;
+                    final byte[] a4;
+                    System.arraycopy(a4 = dy.a((short)23), 0, du.a().n, du.a().u, a4.length);
+                    final du a5 = du.a();
+                    a5.u += a4.length;
+                    if (a2 >= x - 1) {
                         du.a().d = false;
-                        int cfr_ignored_0 = du.a().x;
-                        int cfr_ignored_1 = du.a().x;
-                        this.a.a(du.a().u, du.a().w);
-                        ee ee2 = new ee();
-                        Object object2 = ((dy)object).b((short)7);
-                        object = ((dy)object).b((short)24);
-                        if (object == null) {
-                            object = du.a().y;
+                        final dv a6 = this.a;
+                        final int x2 = du.a().x;
+                        final int x3 = du.a().x;
+                        a6.a(du.a().u, du.a().w);
+                        final ee ee = new ee();
+                        final String b = dy.b((short)7);
+                        String s;
+                        if ((s = dy.b((short)24)) == null) {
+                            s = du.a().y;
                         }
-                        ee2.a = object2;
-                        ee2.a((String)object);
-                        object2 = du.a().n;
-                        object = ee2;
-                        ee2.h = (byte[])object2;
-                        this.a.a(ee2);
+                        ee.a = b;
+                        ee.a(s);
+                        ee.h = du.a().n;
+                        this.a.a(ee);
                         du.a().n = null;
                         return;
                     }
-                    if (n2 == 0 && n3 >= 204800) {
+                    if (a2 == 0 && c >= 204800) {
                         this.a.d_();
                         return;
                     }
-                    du.a().d(n2);
-                    return;
+                    du.a().d(a2);
                 }
             }
         }
-        catch (OutOfMemoryError outOfMemoryError) {
+        catch (final OutOfMemoryError outOfMemoryError) {
             du.a().l();
             this.a.e_();
         }
     }
-
-    private void n(dy dy2) {
-        dy2.a(dy2.b((short)20, 0), (byte)0);
-        int n2 = dy2.c((short)7);
-        if (n2 > 0) {
-            String[] stringArray = new String[n2];
-            int n3 = dy2.b((short)7, 0);
-            int n4 = 0;
-            while (n4 < stringArray.length) {
-                stringArray[n4] = dy2.b(n3);
-                n3 = dy2.a((short)7, n3);
-                ++n4;
+    
+    private void n(final dy dy) {
+        dy.a(dy.b((short)20, 0), (byte)0);
+        final int c;
+        if ((c = dy.c((short)7)) > 0) {
+            final String[] array = new String[c];
+            int n = dy.b((short)7, 0);
+            for (int i = 0; i < array.length; ++i) {
+                array[i] = dy.b(n);
+                n = dy.a((short)7, n);
             }
         }
+        final dv a = this.a;
     }
-
-    private void o(dy ebArray) {
+    
+    private void o(final dy dy) {
         try {
-            String string = ebArray.b((short)28);
-            ebArray = ebArray.b((short)30);
-            if (ebArray != null) {
-                ebArray = em.a((String)ebArray);
-                this.a.a(string, ebArray);
-                return;
+            final String b = dy.b((short)28);
+            final String b2;
+            if ((b2 = dy.b((short)30)) != null) {
+                this.a.a(b, a(b2));
             }
         }
-        catch (Throwable throwable) {}
+        catch (final Throwable t) {}
     }
-
-    private void p(dy stringArray) {
+    
+    private void p(final dy dy) {
         try {
-            stringArray = stringArray.b((short)83);
-            if (stringArray != null) {
-                stringArray = i.b((String)stringArray, "|");
-                String[] stringArray2 = new String[stringArray.length / 2];
-                String[] stringArray3 = new String[stringArray2.length];
-                int n2 = 0;
-                while (n2 < stringArray2.length) {
-                    stringArray2[n2] = stringArray[n2 << 1];
-                    stringArray3[n2] = stringArray[(n2 << 1) + 1];
-                    ++n2;
+            final String b;
+            if ((b = dy.b((short)83)) != null) {
+                final String[] b2;
+                final String[] array2;
+                final String[] array = new String[(array2 = new String[(b2 = i.b(b, "|")).length / 2]).length];
+                for (int i = 0; i < array2.length; ++i) {
+                    array2[i] = b2[i << 1];
+                    array[i] = b2[(i << 1) + 1];
                 }
-                this.a.a(stringArray2, stringArray3);
-                return;
+                this.a.a(array2, array);
             }
         }
-        catch (Throwable throwable) {}
+        catch (final Throwable t) {}
     }
-
-    private void q(dy dy2) {
-        dy2.a(dy2.b((short)255, 0), (short)0);
-        int n2 = dy2.c((short)7);
-        if (n2 > 0) {
-            ds[] dsArray = new ds[n2];
-            int n3 = dy2.b((short)7, 0);
-            int n4 = dy2.b((short)4, 0);
-            int n5 = 0;
-            while (n5 < dsArray.length) {
-                dsArray[n5] = new ds(dy2.b(n3));
-                dy2.b(n4);
-                ++n5;
+    
+    private void q(final dy dy) {
+        dy.a(dy.b((short)255, 0), (short)0);
+        final int c;
+        if ((c = dy.c((short)7)) > 0) {
+            final ds[] array = new ds[c];
+            final int b = dy.b((short)7, 0);
+            final int b2 = dy.b((short)4, 0);
+            for (int i = 0; i < array.length; ++i) {
+                array[i] = new ds(dy.b(b));
+                dy.b(b2);
             }
         }
+        final dv a = this.a;
     }
-
-    private void r(dy object) {
-        ((dy)object).b((short)7);
-        ((dy)object).a(((dy)object).b((short)114, 0), (short)0);
-        ((dy)object).b((short)111);
-        ((dy)object).a(((dy)object).b((short)130, 0), 0L);
-        ((dy)object).a(((dy)object).b((short)9, 0), 0L);
-        String[] stringArray = ((dy)object).b((short)109);
-        String[] stringArray2 = ((dy)object).b((short)110);
-        object = ((dy)object).b((short)112);
-        stringArray = i.b((String)stringArray, ";");
-        stringArray2 = i.b((String)stringArray2, ";");
-        String[] stringArray3 = null;
-        if (object != null) {
-            stringArray3 = i.b((String)object, ";");
+    
+    private void r(final dy dy) {
+        dy.b((short)7);
+        dy.a(dy.b((short)114, 0), (short)0);
+        dy.b((short)111);
+        dy.a(dy.b((short)130, 0), 0L);
+        dy.a(dy.b((short)9, 0), 0L);
+        final String b = dy.b((short)109);
+        final String b2 = dy.b((short)110);
+        final String b3 = dy.b((short)112);
+        final String[] b4 = i.b(b, ";");
+        final String[] b5 = i.b(b2, ";");
+        String[] b6 = null;
+        if (b3 != null) {
+            b6 = i.b(b3, ";");
         }
-        if (stringArray != null && stringArray.length > 0) {
-            object = new short[stringArray.length];
-            String[] stringArray4 = new String[stringArray.length];
-            boolean[] blArray = new boolean[stringArray.length];
-            int n2 = 0;
-            while (n2 < stringArray.length) {
-                object[n2] = Short.parseShort(stringArray[n2]);
-                stringArray4[n2] = stringArray2[n2];
-                blArray[n2] = stringArray3 != null && stringArray3[n2] != null ? stringArray3[n2].equals("1") : false;
-                ++n2;
-            }
-        }
-    }
-
-    private void s(dy dy2) {
-        int n2 = dy2.c((short)129);
-        dy2.b((short)21);
-        dy2.a(dy2.b((short)39, 0), 0);
-        if (n2 > 0) {
-            dw[] dwArray = new dw[n2];
-            int n3 = dy2.b((short)129, 0);
-            int n4 = 0;
-            while (n4 < n2) {
-                int n5 = dy2.a((short)129, n3);
-                dy2.b(n3);
-                dy2.b((short)22, n3, n5);
-                dy2.b((short)13, n3, n5);
-                dy2.b((short)24, n3, n5);
-                dwArray[n4] = new dw();
-                n3 = n5;
-                ++n4;
-            }
-        }
-    }
-
-    private void t(dy dy2) {
-        dy2.b((short)129);
-        int n2 = dy2.c((short)7);
-        if (n2 > 0) {
-            ds[] dsArray = new ds[n2];
-            int n3 = dy2.b((short)7, 0);
-            int n4 = 0;
-            while (n4 < n2) {
-                int n5 = dy2.a((short)7, n3);
-                String string = dy2.b(n3);
-                String string2 = dy2.b((short)22, n3, n5);
-                n3 = dy2.a((short)45, n3, n5, (short)0);
-                dsArray[n4] = new ds();
-                dsArray[n4].a(string);
-                dsArray[n4].b(string2);
-                dsArray[n4].a((short)n3);
-                n3 = n5;
-                ++n4;
-            }
-        }
-    }
-
-    private void u(dy dy2) {
-        dy2.a(dy2.b((short)255, 0), (short)0);
-        int n2 = dy2.c((short)109);
-        if (n2 > 0) {
-            ej[] ejArray = new ej[n2];
-            int n3 = dy2.b((short)109, 0);
-            int n4 = 0;
-            while (n4 < n2) {
-                String string;
-                int n5 = dy2.a((short)109, n3);
-                ejArray[n4] = new ej();
-                dy2.b(n3);
-                dy2.b((short)112, n3, n5);
-                dy2.a((short)9, n3, n5, 0L);
-                dy2.a(dy2.a((short)23, n3, n5));
-                dy2.b((short)110, n3, n5);
-                String string2 = dy2.b((short)113, n3, n5);
-                if (string2 != null) {
-                    i.b(string2, ".");
+        if (b4 != null && b4.length > 0) {
+            final short[] array = new short[b4.length];
+            final String[] array2 = new String[b4.length];
+            final boolean[] array3 = new boolean[b4.length];
+            for (int i = 0; i < b4.length; ++i) {
+                array[i] = Short.parseShort(b4[i]);
+                array2[i] = b5[i];
+                if (b6 != null && b6[i] != null) {
+                    array3[i] = b6[i].equals("1");
                 }
-                if (!i.a(string = dy2.b((short)111, n3, n5))) {
-                    em.a(string);
+                else {
+                    array3[i] = false;
                 }
-                n3 = n5;
-                ++n4;
             }
-            dy2.a(dy2.b((short)124, 0), 0);
+        }
+        final dv a = this.a;
+    }
+    
+    private void s(final dy dy) {
+        final int c = dy.c((short)129);
+        dy.b((short)21);
+        dy.a(dy.b((short)39, 0), 0);
+        if (c > 0) {
+            final dw[] array = new dw[c];
+            int b = dy.b((short)129, 0);
+            for (int i = 0; i < c; ++i) {
+                final int a = dy.a((short)129, b);
+                dy.b(b);
+                dy.b((short)22, b, a);
+                dy.b((short)13, b, a);
+                dy.b((short)24, b, a);
+                array[i] = new dw();
+                b = a;
+            }
+        }
+        final dv a2 = this.a;
+    }
+    
+    private void t(final dy dy) {
+        dy.b((short)129);
+        final int c;
+        if ((c = dy.c((short)7)) > 0) {
+            final ds[] array = new ds[c];
+            int b = dy.b((short)7, 0);
+            for (int i = 0; i < c; ++i) {
+                final int a = dy.a((short)7, b);
+                final String b2 = dy.b(b);
+                final String b3 = dy.b((short)22, b, a);
+                final byte a2 = dy.a((short)45, b, a, (short)0);
+                (array[i] = new ds()).a(b2);
+                array[i].b(b3);
+                array[i].a(a2);
+                b = a;
+            }
+        }
+        final dv a3 = this.a;
+    }
+    
+    private void u(final dy dy) {
+        dy.a(dy.b((short)255, 0), (short)0);
+        final int c;
+        if ((c = dy.c((short)109)) > 0) {
+            final ej[] array = new ej[c];
+            int b = dy.b((short)109, 0);
+            for (int j = 0; j < c; ++j) {
+                final int a = dy.a((short)109, b);
+                array[j] = new ej();
+                dy.b(b);
+                dy.b((short)112, b, a);
+                dy.a((short)9, b, a, 0L);
+                dy.a(dy.a((short)23, b, a));
+                dy.b((short)110, b, a);
+                final String b2;
+                if ((b2 = dy.b((short)113, b, a)) != null) {
+                    i.b(b2, ".");
+                }
+                final String b3;
+                if (!i.a(b3 = dy.b((short)111, b, a))) {
+                    a(b3);
+                }
+                b = a;
+            }
+            dy.a(dy.b((short)124, 0), 0);
+            final dv a2 = this.a;
         }
     }
-
-    private void v(dy dy2) {
-        dy2.a(dy2.b((short)255, 0), (short)0);
-        dy2.b((short)7);
-        int n2 = dy2.c((short)110);
-        if (n2 > 0) {
-            ei[] eiArray = new ei[n2];
-            int n3 = dy2.b((short)110, 0);
-            int n4 = 0;
-            while (n4 < n2) {
-                int n5 = dy2.a((short)110, n3);
-                eiArray[n4] = new ei();
-                dy2.b(n3);
-                dy2.a(dy2.a((short)115, n3, n5), (byte)0);
-                dy2.a(dy2.a((short)115, n3, n5), (byte)0);
-                dy2.b((short)28, n3, n5);
-                dy2.b((short)30, n3, n5);
-                dy2.b((short)109, n3, n5);
-                dy2.a((short)9, n3, n5, 0L);
-                n3 = n5;
-                ++n4;
+    
+    private void v(final dy dy) {
+        dy.a(dy.b((short)255, 0), (short)0);
+        dy.b((short)7);
+        final int c;
+        if ((c = dy.c((short)110)) > 0) {
+            final ei[] array = new ei[c];
+            int b = dy.b((short)110, 0);
+            for (int i = 0; i < c; ++i) {
+                final int a = dy.a((short)110, b);
+                array[i] = new ei();
+                dy.b(b);
+                dy.a(dy.a((short)115, b, a), (byte)0);
+                dy.a(dy.a((short)115, b, a), (byte)0);
+                dy.b((short)28, b, a);
+                dy.b((short)30, b, a);
+                dy.b((short)109, b, a);
+                dy.a((short)9, b, a, 0L);
+                b = a;
             }
+            final dv a2 = this.a;
             return;
         }
+        final dv a3 = this.a;
     }
-
-    private void w(dy dy2) {
-        int n2;
-        int n3 = 0;
-        byte[] byArray = dy2.a((short)31);
-        short s = 3;
-        if (byArray != null) {
-            s = byArray[0];
+    
+    private void w(final dy dy) {
+        int n = 0;
+        final byte[] a = dy.a((short)31);
+        short n2 = 3;
+        if (a != null) {
+            n2 = a[0];
         }
-        if ((n2 = dy2.c((short)29)) <= 0) {
+        final int c;
+        if ((c = dy.c((short)29)) <= 0) {
             return;
         }
-        dq[] dqArray = new dq[n2];
-        int n4 = dy2.b((short)29, 0);
-        boolean bl = false;
-        int n5 = 0;
-        while (!bl) {
-            int n6 = n4;
-            if ((n4 = dy2.a((short)29, n6)) < 0) {
-                bl = true;
+        final dq[] array = new dq[c];
+        int n3 = dy.b((short)29, 0);
+        boolean b = false;
+        int n4 = 0;
+        while (!b) {
+            final int n5 = n3;
+            if ((n3 = dy.a((short)29, n5)) < 0) {
+                b = true;
             }
-            String string = dy2.b(n6);
-            String string2 = dy2.b((short)28, n6, n4);
-            byte by = dy2.a((short)70, n6, n4, (short)1);
-            n3 += by;
-            eb[] ebArray = new eb[]{};
-            String string3 = dy2.b((short)30, n6, n4);
-            if (string3 != null) {
-                ebArray = em.a(string3);
+            final String b2 = dy.b(n5);
+            final String b3 = dy.b((short)28, n5, n3);
+            final byte a2 = dy.a((short)70, n5, n3, (short)1);
+            n += a2;
+            eb[] a3 = new eb[0];
+            final String b4;
+            if ((b4 = dy.b((short)30, n5, n3)) != null) {
+                a3 = a(b4);
             }
-            dqArray[n5] = new dq(string2, string, s, by, ebArray);
-            ++n5;
+            array[n4] = new dq(b3, b2, n2, a2, a3);
+            ++n4;
         }
-        this.a.a(n3, dqArray);
+        this.a.a(n, array);
     }
-
-    private void x(dy dy2) {
-        int n2 = dy2.c((short)207);
-        ea[] eaArray = null;
-        if (n2 > 0) {
-            eaArray = new ea[n2];
-            n2 = dy2.b((short)207, 0);
-            int n3 = dy2.b((short)200, 0);
-            int n4 = dy2.b((short)205, 0);
-            int n5 = 0;
-            while (n2 >= 0) {
-                String string = dy2.b(n2);
-                byte[] byArray = dy2.a(n3);
-                long l = m.d(byArray);
-                byArray = dy2.a(n4);
-                int n6 = m.c(byArray);
-                eaArray[n5] = new ea();
-                eaArray[n5].b(string);
-                eaArray[n5].b(l);
-                eaArray[n5].a(n6);
-                n2 = dy2.a((short)207, n2);
-                n3 = dy2.a((short)200, n3);
-                n4 = dy2.a((short)205, n4);
-                ++n5;
+    
+    private void x(final dy dy) {
+        final int c = dy.c((short)207);
+        ea[] array = null;
+        if (c > 0) {
+            array = new ea[c];
+            for (int i = dy.b((short)207, 0), n = dy.b((short)200, 0), n2 = dy.b((short)205, 0), n3 = 0; i >= 0; i = dy.a((short)207, i), n = dy.a((short)200, n), n2 = dy.a((short)205, n2), ++n3) {
+                final String b = dy.b(i);
+                final long d = m.d(dy.a(n));
+                final int c2 = m.c(dy.a(n2));
+                (array[n3] = new ea()).b(b);
+                array[n3].b(d);
+                array[n3].a(c2);
             }
         }
-        this.a.a(eaArray);
+        this.a.a(array);
     }
-
-    private void y(dy dy2) {
-        int n2 = dy2.c((short)28);
-        byte[] byArray = dy2.a((short)200);
-        long l = m.d(byArray);
-        ea[] eaArray = null;
-        if (n2 > 0) {
-            eaArray = new ea[n2];
-            n2 = dy2.b((short)28, 0);
-            int n3 = dy2.b((short)65, 0);
-            int n4 = 0;
-            while (n2 >= 0) {
-                eaArray[n4] = new ea();
-                String string = dy2.b(n2);
-                byArray = dy2.a(n3);
-                long l2 = m.d(byArray);
-                eaArray[n4].a(string);
-                eaArray[n4].a(l2);
-                n2 = dy2.a((short)28, n2);
-                n3 = dy2.a((short)65, n3);
-                ++n4;
+    
+    private void y(final dy dy) {
+        final int c = dy.c((short)28);
+        final long d = m.d(dy.a((short)200));
+        ea[] array = null;
+        if (c > 0) {
+            array = new ea[c];
+            for (int i = dy.b((short)28, 0), n = dy.b((short)65, 0), n2 = 0; i >= 0; i = dy.a((short)28, i), n = dy.a((short)65, n), ++n2) {
+                array[n2] = new ea();
+                final String b = dy.b(i);
+                final long d2 = m.d(dy.a(n));
+                array[n2].a(b);
+                array[n2].a(d2);
             }
         }
-        this.a.a(l, eaArray);
+        this.a.a(d, array);
     }
-
-    private void z(dy stringArray) {
-        Object object;
-        String[] stringArray2;
-        Object object2;
-        ee[] eeArray = null;
-        eb[] ebArray = null;
-        String string = stringArray.b((short)28);
-        String string2 = stringArray.b((short)29);
-        int n2 = stringArray.c((short)23);
-        if (n2 > 0) {
-            eeArray = new ee[n2];
-            n2 = stringArray.b((short)23, 0);
-            int n3 = 0;
-            while (n2 >= 0) {
-                eeArray[n3] = new ee();
-                object2 = stringArray.a(n2);
-                stringArray2 = eeArray[n3];
-                eeArray[n3].h = object2;
-                n2 = stringArray.b((short)23, n2);
-                ++n3;
+    
+    private void z(final dy dy) {
+        ee[] array = null;
+        eb[] array2 = null;
+        final String b = dy.b((short)28);
+        final String b2 = dy.b((short)29);
+        final int c;
+        if ((c = dy.c((short)23)) > 0) {
+            array = new ee[c];
+            for (int i = dy.b((short)23, 0), n = 0; i >= 0; i = dy.b((short)23, i), ++n) {
+                array[n] = new ee();
+                array[n].h = dy.a(i);
             }
         }
-        if ((object = stringArray.b((short)30)) != null) {
-            String[] stringArray3 = object;
-            stringArray = i.b((String)object, "^");
-            ebArray = new eb[stringArray.length];
-            int n4 = 0;
-            while (n4 < stringArray.length) {
-                object = stringArray[n4];
-                stringArray2 = i.a((String)object, "|", 2, true);
-                object = stringArray2[0];
-                object = i.a((String)object, ":", 3, true);
-                object2 = object[0];
-                String string3 = null;
-                if (((String[])object).length == 3) {
-                    string3 = object[1];
+        final String b3;
+        if ((b3 = dy.b((short)30)) != null) {
+            final String[] b4;
+            array2 = new eb[(b4 = i.b(b3, "^")).length];
+            for (int j = 0; j < b4.length; ++j) {
+                final String[] a2;
+                final String[] a;
+                final String s = (a = i.a((a2 = i.a(b4[j], "|", 2, (boolean)(1 != 0)))[0], ":", 3, (boolean)(1 != 0)))[0];
+                String s2 = null;
+                if (a.length == 3) {
+                    s2 = a[1];
                 }
-                Object object3 = ((String[])object).length == 3 ? object[2] : object[1];
-                int n5 = object3.indexOf(32);
-                String[] stringArray4 = object3.substring(n5 + 1);
-                object = object3.substring(0, n5);
-                if (((String)object2).toLowerCase().equals("wap".toLowerCase())) {
-                    ebArray[n4] = new eb("wap");
-                    ebArray[n4].a((String)object);
-                    ebArray[n4].d((String)stringArray4);
-                    ebArray[n4].e(string3);
-                } else if (((String)object2).toLowerCase().equals("call".toLowerCase())) {
-                    ebArray[n4] = new eb("call");
-                    ebArray[n4].b((String)object);
-                    ebArray[n4].d((String)stringArray4);
-                    ebArray[n4].e(string3);
-                } else if (((String)object2).toLowerCase().equals("sms".toLowerCase())) {
-                    ebArray[n4] = new eb("sms");
-                    ebArray[n4].c((String)object);
-                    ebArray[n4].d((String)stringArray4);
-                    ebArray[n4].e(string3);
-                    object = stringArray2[1];
-                    stringArray2 = i.b((String)object, "#");
-                    object = stringArray2[0];
-                    if (stringArray2.length > 1) {
-                        object2 = new ec[stringArray2.length - 1];
-                        int n6 = 1;
-                        while (n6 < stringArray2.length) {
-                            object3 = stringArray2[n6];
-                            object3 = i.b((String)object3, "|");
-                            stringArray4 = object3[0];
-                            int n7 = Integer.parseInt(object3[1]);
-                            object2[n6 - 1] = new ec();
-                            ((ec)object2[n6 - 1]).a = n7;
-                            ((ec)object2[n6 - 1]).b = stringArray4;
-                            if (((String[])object3).length > 2) {
-                                stringArray4 = new String[(((String[])object3).length - 2) / 2];
-                                String[] stringArray5 = new String[(((String[])object3).length - 2) / 2];
-                                int n8 = 0;
-                                int n9 = 2;
-                                while (n9 < ((String[])object3).length) {
-                                    stringArray4[n8] = object3[n9];
-                                    stringArray5[n8] = object3[++n9];
-                                    ++n8;
-                                    ++n9;
+                String s3;
+                if (a.length == 3) {
+                    s3 = a[2];
+                }
+                else {
+                    s3 = a[1];
+                }
+                final int index = s3.indexOf(32);
+                final String substring = s3.substring(index + 1);
+                final String substring2 = s3.substring(0, index);
+                if (s.toLowerCase().equals("wap".toLowerCase())) {
+                    (array2[j] = new eb("wap")).a(substring2);
+                    array2[j].d(substring);
+                    array2[j].e(s2);
+                }
+                else if (s.toLowerCase().equals("call".toLowerCase())) {
+                    (array2[j] = new eb("call")).b(substring2);
+                    array2[j].d(substring);
+                    array2[j].e(s2);
+                }
+                else if (s.toLowerCase().equals("sms".toLowerCase())) {
+                    (array2[j] = new eb("sms")).c(substring2);
+                    array2[j].d(substring);
+                    array2[j].e(s2);
+                    final String[] b5;
+                    final String s4 = (b5 = i.b(a2[1], "#"))[0];
+                    if (b5.length > 1) {
+                        final ec[] array3 = new ec[b5.length - 1];
+                        for (int k = 1; k < b5.length; ++k) {
+                            final String[] b7;
+                            final String b6 = (b7 = i.b(b5[k], "|"))[0];
+                            final int int1 = Integer.parseInt(b7[1]);
+                            array3[k - 1] = new ec();
+                            array3[k - 1].a = int1;
+                            array3[k - 1].b = b6;
+                            if (b7.length > 2) {
+                                final String[] d = new String[(b7.length - 2) / 2];
+                                final String[] e = new String[(b7.length - 2) / 2];
+                                for (int n2 = 0, l = 2; l < b7.length; ++l, e[n2] = b7[l], ++n2, ++l) {
+                                    d[n2] = b7[l];
                                 }
-                                ((ec)object2[n6 - 1]).d = stringArray4;
-                                ((ec)object2[n6 - 1]).e = stringArray5;
+                                array3[k - 1].d = d;
+                                array3[k - 1].e = e;
                             }
-                            ++n6;
                         }
-                        ebArray[n4].f((String)object);
-                        ebArray[n4].a((ec[])object2);
+                        array2[j].f(s4);
+                        array2[j].a(array3);
                     }
                 }
-                ++n4;
             }
         }
-        this.a.a(string, string2, eeArray, ebArray);
+        this.a.a(b, b2, array, array2);
     }
-
-    private void A(dy dy2) {
-        int n2 = dy2.a(dy2.b((short)255, 0), (short)0);
-        if (du.a().z != n2) {
+    
+    private void A(final dy dy) {
+        if (du.a().z != dy.a(dy.b((short)255, 0), (short)0)) {
             return;
         }
-        n2 = dy2.c((short)8);
-        Object[] objectArray = null;
-        if (n2 > 0) {
-            objectArray = new ef[n2];
-            n2 = 0;
-            int s = dy2.a((short)67, -1);
-            boolean bl = false;
-            while (!bl) {
-                int ef2;
-                int n3 = ef2;
-                if ((ef2 = dy2.a((short)67, n3)) < 0) {
-                    bl = true;
+        final int c = dy.c((short)8);
+        Object o = null;
+        if (c > 0) {
+            final ef[] array = new ef[c];
+            int n = 0;
+            int n2 = dy.a((short)67, -1);
+            boolean b = false;
+            while (!b) {
+                final int n3 = n2;
+                if ((n2 = dy.a((short)67, n3)) < 0) {
+                    b = true;
                 }
-                String string = dy2.b(n3);
-                string = string.toLowerCase();
-                int n4 = dy2.a((short)72, n3);
-                boolean bl2 = false;
-                while (!bl2) {
-                    int n5 = n4;
-                    if ((n4 = dy2.a((short)72, n5, ef2)) < 0) {
-                        n4 = ef2;
-                        bl2 = true;
+                final String lowerCase = dy.b(n3).toLowerCase();
+                int n4 = dy.a((short)72, n3);
+                boolean b2 = false;
+                while (!b2) {
+                    final int n5 = n4;
+                    if ((n4 = dy.a((short)72, n5, n2)) < 0) {
+                        n4 = n2;
+                        b2 = true;
                     }
-                    long l = dy2.a(n5, 0L);
-                    n3 = dy2.a((short)221, n5, n4, (byte)0);
-                    byte by = dy2.a((short)220, n5, n4, (byte)0);
-                    int n6 = dy2.a((short)125, n5, n4, 0);
-                    int n7 = dy2.a((short)124, n5, n4, 0);
-                    byte by2 = dy2.a((short)90, n5, n4, (byte)0);
-                    long l2 = dy2.a((short)9, n5, n4, 0L);
-                    String string2 = dy2.b((short)8, n5, n4);
-                    String string3 = dy2.b((short)24, n5, n4);
-                    dy2.a((short)114, n5, n4, (byte)0);
-                    String[] stringArray = dy2.b((short)110, n5, n4);
-                    if (!i.b((String)stringArray)) {
-                        stringArray = i.b((String)stringArray, ";");
-                        int n8 = 0;
-                        while (n8 < stringArray.length) {
-                            String[] stringArray2 = i.b(stringArray[n8], ":");
-                            if (i.a(stringArray2[0], "border")) {
-                                Short.parseShort(stringArray2[1]);
-                            } else if (i.a(stringArray2[0], "color")) {
-                                Short.parseShort(stringArray2[1]);
-                            }
-                            ++n8;
+                    final long a = dy.a(n5, 0L);
+                    final byte a2 = dy.a((short)221, n5, n4, (byte)0);
+                    final byte a3 = dy.a((short)220, n5, n4, (byte)0);
+                    final int a4 = dy.a((short)125, n5, n4, 0);
+                    final int a5 = dy.a((short)124, n5, n4, 0);
+                    final byte a6 = dy.a((short)90, n5, n4, (byte)0);
+                    final long a7 = dy.a((short)9, n5, n4, 0L);
+                    final String b3 = dy.b((short)8, n5, n4);
+                    final String b4 = dy.b((short)24, n5, n4);
+                    dy.a((short)114, n5, n4, (byte)0);
+                    final String b5;
+                    if (!i.b(b5 = dy.b((short)110, n5, n4))) {
+                        final String[] b6 = i.b(b5, ";");
+                        for (int j = 0; j < b6.length; ++j) {
+                        final String[] b7;
+                        if (i.a((b7 = i.b(b6[j], ":"))[0], "border")) {
+                            Short.parseShort(b7[1]);
+                        }
+                        else if (i.a(b7[0], "color")) {
+                            Short.parseShort(b7[1]);
                         }
                     }
-                    String n42 = dy2.b((short)29, n5, n4);
-                    objectArray[n2] = new ef();
-                    ((ef)objectArray[n2]).b(l);
-                    ((ef)objectArray[n2]).a(string);
-                    ((ef)objectArray[n2]).a(n6);
-                    ((ef)objectArray[n2]).b(n7);
-                    ((ef)objectArray[n2]).c(by2);
-                    ((ef)objectArray[n2]).d(n42);
-                    ((ef)objectArray[n2]).b((short)n3);
-                    ((ef)objectArray[n2]).a(by);
-                    ((ef)objectArray[n2]).a(l2);
-                    ((ef)objectArray[n2]).b(string2);
-                    ((ef)objectArray[n2]).c(string3);
-                    long cfr_ignored_0 = du.a().p;
-                    ++n2;
+                    }
+                    final String b8 = dy.b((short)29, n5, n4);
+                    (array[n] = new ef()).b(a);
+                    array[n].a(lowerCase);
+                    array[n].a(a4);
+                    array[n].b(a5);
+                    array[n].c(a6);
+                    array[n].d(b8);
+                    array[n].b(a2);
+                    array[n].a(a3);
+                    array[n].a(a7);
+                    array[n].b(b3);
+                    array[n].c(b4);
+                    final long p = du.a().p;
+                    ++n;
                 }
             }
-            objectArray = (ef[])g.a(objectArray, new ek(true));
+            o = g.a(array, new ek(true));
         }
-        if (objectArray != null && objectArray.length > 0) {
-            ef[] efArray = null;
-            ef ef2 = objectArray[objectArray.length - 1];
-            if (objectArray.length > 1) {
-                efArray = new ef[objectArray.length - 1];
-                System.arraycopy(objectArray, 0, efArray, 0, efArray.length);
+        if (o != null && ((ef[])o).length > 0) {
+            ef[] efArray = (ef[]) o;
+            ef ef = efArray[efArray.length - 1];
+            ef[] array2 = null;
+            if (efArray.length > 1) {
+                array2 = new ef[efArray.length - 1];
+                System.arraycopy(efArray, 0, array2, 0, array2.length);
             }
-            this.a.a(ef2, efArray);
+            this.a.a(ef, array2);
         }
     }
-
-    private void B(dy dy2) {
-        dy2.a(dy2.b((short)255, 0), (short)0);
-        dy2.b((short)109);
-        int n2 = dy2.c((short)110);
-        if (n2 > 0) {
-            ee[] eeArray = new ee[n2];
-            int n3 = dy2.b((short)110, 0);
-            int n4 = dy2.b((short)23, 0);
-            int n5 = 0;
-            while (n5 < n2) {
-                eeArray[n5] = new ee();
-                eeArray[n5].a = dy2.b(n3);
-                eeArray[n5].h = dy2.a(n4);
-                n3 = dy2.a((short)110, n3);
-                n4 = dy2.a((short)23, n4);
-                ++n5;
+    
+    private void B(final dy dy) {
+        dy.a(dy.b((short)255, 0), (short)0);
+        dy.b((short)109);
+        final int c;
+        if ((c = dy.c((short)110)) > 0) {
+            final ee[] array = new ee[c];
+            int n = dy.b((short)110, 0);
+            int n2 = dy.b((short)23, 0);
+            for (int i = 0; i < c; ++i) {
+                array[i] = new ee();
+                array[i].a = dy.b(n);
+                array[i].h = dy.a(n2);
+                n = dy.a((short)110, n);
+                n2 = dy.a((short)23, n2);
             }
         }
+        final dv a = this.a;
     }
-
-    private void C(dy dy2) {
-        int n2 = dy2.c((short)7);
-        if (n2 > 0) {
-            ds[] dsArray = new ds[n2];
-            int n3 = dy2.a((short)7, -1);
-            int n4 = dy2.a((short)58, -1);
-            int n5 = 0;
-            while (n5 < n2) {
-                String string = dy2.b(n3);
-                dy2.a(n4, 0L);
-                n3 = dy2.a((short)7, n3);
-                n4 = dy2.a((short)58, n4);
-                dsArray[n5] = new ds();
-                dsArray[n5].a(string);
-                ++n5;
+    
+    private void C(final dy dy) {
+        final int c;
+        if ((c = dy.c((short)7)) > 0) {
+            final ds[] array = new ds[c];
+            int n = dy.a((short)7, -1);
+            int n2 = dy.a((short)58, -1);
+            for (int i = 0; i < c; ++i) {
+                final String b = dy.b(n);
+                dy.a(n2, 0L);
+                n = dy.a((short)7, n);
+                n2 = dy.a((short)58, n2);
+                (array[i] = new ds()).a(b);
             }
+            final dv a = this.a;
         }
     }
-
-    private void D(dy stringArray) {
-        String string = stringArray.b((short)5);
-        String string2 = stringArray.b((short)29);
-        stringArray = stringArray.b((short)8);
-        if ((stringArray = i.b((String)stringArray, ";")) != null && stringArray.length > 0 && stringArray.length % 2 == 0) {
-            String[] stringArray2 = new String[stringArray.length / 2];
-            String[] stringArray3 = new String[stringArray.length / 2];
-            int n2 = 0;
-            while (n2 < stringArray.length) {
-                stringArray3[n2 / 2] = stringArray[n2];
-                stringArray2[n2 / 2] = stringArray[n2 + 1];
-                n2 += 2;
+    
+    private void D(final dy dy) {
+        final String b = dy.b((short)5);
+        final String b2 = dy.b((short)29);
+        final String[] b3;
+        if ((b3 = i.b(dy.b((short)8), ";")) != null && b3.length > 0 && b3.length % 2 == 0) {
+            final String[] array = new String[b3.length / 2];
+            final String[] array2 = new String[b3.length / 2];
+            for (int i = 0; i < b3.length; i += 2) {
+                array2[i / 2] = b3[i];
+                array[i / 2] = b3[i + 1];
             }
-            this.a.a(string2, string, stringArray3, stringArray2);
+            this.a.a(b2, b, array2, array);
         }
     }
-
+    
     public final void a() {
         this.c = true;
         if (this.b != null) {
@@ -2002,271 +1888,270 @@ implements Runnable {
             this.b = null;
         }
     }
-
-    public final void a(dv dv2) {
-        this.a = dv2;
+    
+    public final void a(final dv a) {
+        this.a = a;
         if (this.b != null) {
             this.b.a(this.a);
         }
     }
-
-    private static eb[] a(String stringArray) {
-        if ((stringArray = i.b((String)stringArray, "^")) == null || stringArray.length == 0) {
+    
+    private static eb[] a(String s) {
+        final String[] b;
+        if ((b = i.b(s = s, "^")) == null || b.length == 0) {
             return null;
         }
-        eb[] ebArray = new eb[stringArray.length];
-        int n2 = 0;
-        int n3 = 0;
-        while (n3 < stringArray.length) {
-            Object object = stringArray[n3];
-            String[] stringArray2 = i.a((String)object, "|", 2, false);
-            object = stringArray2[0];
-            object = i.a((String)object, ":", 3, false);
-            ec[] ecArray = object[0];
-            String string = null;
-            if (((String[])object).length == 3) {
-                string = object[1];
+        eb[] array = new eb[b.length];
+        int n = 0;
+        for (int j = 0; j < b.length; ++j) {
+            final String[] a2;
+            final String[] a;
+            final String s2 = (a = i.a((a2 = i.a(b[j], "|", 2, (boolean)(0 != 0)))[0], ":", 3, (boolean)(0 != 0)))[0];
+            String s3 = null;
+            if (a.length == 3) {
+                s3 = a[1];
             }
-            Object object2 = ((String[])object).length == 3 ? object[2] : object[1];
-            int n4 = object2.indexOf(32);
-            Object object3 = n4 < 0 ? object2 : object2.substring(n4 + 1);
-            object = n4 <= 0 ? "" : object2.substring(0, n4);
-            object2 = ecArray.toLowerCase();
-            if (object2.equals("wap".toLowerCase())) {
-                ebArray[n2] = new eb("wap");
-                ebArray[n2].a((String)object);
-                ebArray[n2].d((String)object3);
-                ebArray[n2].e(string);
-                ++n2;
-            } else if (object2.equals("viewme".toLowerCase())) {
-                ebArray[n2] = new eb("viewme");
-                ebArray[n2].a((String)object);
-                ebArray[n2].d((String)object3);
-                ebArray[n2].e(string);
-                ++n2;
-            } else if (object2.equals("viewbox".toLowerCase())) {
-                ebArray[n2] = new eb("viewbox");
-                ebArray[n2].a((String)object);
-                ebArray[n2].d((String)object3);
-                ebArray[n2].e(string);
-                ++n2;
-            } else if (object2.equals("viewproposalrequest".toLowerCase())) {
-                ebArray[n2] = new eb("viewproposalrequest");
-                ebArray[n2].a((String)object);
-                ebArray[n2].d((String)object3);
-                ebArray[n2].e(string);
-                ++n2;
-            } else if (object2.equals("viewproposallist".toLowerCase())) {
-                ebArray[n2] = new eb("viewproposallist");
-                ebArray[n2].a((String)object);
-                ebArray[n2].d((String)object3);
-                ebArray[n2].e(string);
-                ++n2;
-            } else if (object2.equals("viewmedia".toLowerCase())) {
-                ebArray[n2] = new eb("viewmedia");
-                object = new ee();
-                ((ee)object).a((String)object3);
-                ebArray[n2].e(string);
-                ++n2;
-            } else if (object2.equals("xt".toLowerCase())) {
-                ebArray[n2] = new eb("xt");
-                ebArray[n2].a((String)object);
-                ebArray[n2].d((String)object3);
-                ebArray[n2].e(string);
-                ++n2;
-            } else if (object2.equals("app".toLowerCase())) {
-                ebArray[n2] = new eb("app");
-                ebArray[n2].a((String)object);
-                ebArray[n2].d((String)object3);
-                ebArray[n2].e(string);
-                ++n2;
-            } else if (object2.equals("dpk".toLowerCase())) {
-                ebArray[n2] = new eb("dpk");
-                ebArray[n2].a((String)object);
-                ebArray[n2].d((String)object3);
-                ebArray[n2].e(string);
-                ++n2;
-            } else if (object2.equals("rss".toLowerCase())) {
-                ebArray[n2] = new eb("rss");
-                ebArray[n2].a((String)object);
-                ebArray[n2].d((String)object3);
-                ebArray[n2].e(string);
-                ++n2;
-            } else if (object2.equals("vip".toLowerCase())) {
-                ebArray[n2] = new eb("vip");
-                if (object == null || ((String)object).length() == 0) {
-                    object = du.a().f;
+            String s4;
+            if (a.length == 3) {
+                s4 = a[2];
+            }
+            else {
+                s4 = a[1];
+            }
+            final int index;
+            String substring;
+            if ((index = s4.indexOf(32)) < 0) {
+                substring = s4;
+            }
+            else {
+                substring = s4.substring(index + 1);
+            }
+            String s5;
+            if (index <= 0) {
+                s5 = "";
+            }
+            else {
+                s5 = s4.substring(0, index);
+            }
+            final String lowerCase;
+            if ((lowerCase = s2.toLowerCase()).equals("wap".toLowerCase())) {
+                (array[n] = new eb("wap")).a(s5);
+                array[n].d(substring);
+                array[n].e(s3);
+                ++n;
+            }
+            else if (lowerCase.equals("viewme".toLowerCase())) {
+                (array[n] = new eb("viewme")).a(s5);
+                array[n].d(substring);
+                array[n].e(s3);
+                ++n;
+            }
+            else if (lowerCase.equals("viewbox".toLowerCase())) {
+                (array[n] = new eb("viewbox")).a(s5);
+                array[n].d(substring);
+                array[n].e(s3);
+                ++n;
+            }
+            else if (lowerCase.equals("viewproposalrequest".toLowerCase())) {
+                (array[n] = new eb("viewproposalrequest")).a(s5);
+                array[n].d(substring);
+                array[n].e(s3);
+                ++n;
+            }
+            else if (lowerCase.equals("viewproposallist".toLowerCase())) {
+                (array[n] = new eb("viewproposallist")).a(s5);
+                array[n].d(substring);
+                array[n].e(s3);
+                ++n;
+            }
+            else if (lowerCase.equals("viewmedia".toLowerCase())) {
+                array[n] = new eb("viewmedia");
+                new ee().a(substring);
+                array[n].e(s3);
+                ++n;
+            }
+            else if (lowerCase.equals("xt".toLowerCase())) {
+                (array[n] = new eb("xt")).a(s5);
+                array[n].d(substring);
+                array[n].e(s3);
+                ++n;
+            }
+            else if (lowerCase.equals("app".toLowerCase())) {
+                (array[n] = new eb("app")).a(s5);
+                array[n].d(substring);
+                array[n].e(s3);
+                ++n;
+            }
+            else if (lowerCase.equals("dpk".toLowerCase())) {
+                (array[n] = new eb("dpk")).a(s5);
+                array[n].d(substring);
+                array[n].e(s3);
+                ++n;
+            }
+            else if (lowerCase.equals("rss".toLowerCase())) {
+                (array[n] = new eb("rss")).a(s5);
+                array[n].d(substring);
+                array[n].e(s3);
+                ++n;
+            }
+            else if (lowerCase.equals("vip".toLowerCase())) {
+                array[n] = new eb("vip");
+                if (s5 == null || s5.length() == 0) {
+                    s5 = du.a().f;
                 }
-                ebArray[n2].a((String)object);
-                ebArray[n2].d((String)object3);
-                ebArray[n2].e(string);
-                ++n2;
-            } else if (object2.equals("call".toLowerCase())) {
-                ebArray[n2] = new eb("call");
-                ebArray[n2].b((String)object);
-                ebArray[n2].d((String)object3);
-                ebArray[n2].e(string);
-                ++n2;
-            } else if (object2.equals("sms".toLowerCase()) || object2.equals("msg".toLowerCase())) {
-                ebArray[n2] = new eb((String)ecArray);
-                ebArray[n2].c((String)object);
-                ebArray[n2].d((String)object3);
-                ebArray[n2].e(string);
-                object = stringArray2[1];
-                stringArray2 = i.b((String)object, "#");
-                object = stringArray2[0];
-                if (stringArray2.length > 1) {
-                    ecArray = new ec[stringArray2.length - 1];
-                    int n5 = 1;
-                    while (n5 < stringArray2.length) {
-                        object2 = stringArray2[n5];
-                        object2 = i.b((String)object2, "|");
-                        object3 = object2[0];
-                        int n6 = Integer.parseInt(object2[1]);
-                        ecArray[n5 - 1] = new ec();
-                        ecArray[n5 - 1].a = n6;
-                        ecArray[n5 - 1].b = object3;
-                        if (n6 == 10) {
-                            ecArray[n5 - 1].c = ((String[])object2).length > 2 ? object2[2] : du.a().f;
-                        } else if ((n6 == 4 || n6 == 5 || n6 == 6) && ((String[])object2).length > 2) {
-                            object3 = new String[(((String[])object2).length - 2) / 2];
-                            String[] stringArray3 = new String[(((String[])object2).length - 2) / 2];
-                            int n7 = 0;
-                            int n8 = 2;
-                            while (n8 < ((String[])object2).length) {
-                                object3[n7] = object2[n8];
-                                stringArray3[n7] = object2[++n8];
-                                ++n7;
-                                ++n8;
+                array[n].a(s5);
+                array[n].d(substring);
+                array[n].e(s3);
+                ++n;
+            }
+            else if (lowerCase.equals("call".toLowerCase())) {
+                (array[n] = new eb("call")).b(s5);
+                array[n].d(substring);
+                array[n].e(s3);
+                ++n;
+            }
+            else if (lowerCase.equals("sms".toLowerCase()) || lowerCase.equals("msg".toLowerCase())) {
+                (array[n] = new eb(s2)).c(s5);
+                array[n].d(substring);
+                array[n].e(s3);
+                final String[] b2;
+                final String s6 = (b2 = i.b(a2[1], "#"))[0];
+                if (b2.length > 1) {
+                    final ec[] array2 = new ec[b2.length - 1];
+                     for (int k = 1; k < b2.length; ++k) {
+                        final String[] b4;
+                        final String b3 = (b4 = i.b(b2[k], "|"))[0];
+                        final int int1 = Integer.parseInt(b4[1]);
+                        array2[k - 1] = new ec();
+                        array2[k - 1].a = int1;
+                        array2[k - 1].b = b3;
+                        if (int1 == 10) {
+                            if (b4.length > 2) {
+                                array2[k - 1].c = b4[2];
+                            } else {
+                                array2[k - 1].c = du.a().f;
                             }
-                            ecArray[n5 - 1].d = object3;
-                            ecArray[n5 - 1].e = stringArray3;
+                        } else if ((int1 == 4 || int1 == 5 || int1 == 6) && b4.length > 2) {
+                            final String[] d = new String[(b4.length - 2) / 2];
+                            final String[] e = new String[(b4.length - 2) / 2];
+                            for (int n2 = 0, l = 2; l < b4.length; ++l, e[n2] = b4[l], ++n2, ++l) {
+                                d[n2] = b4[l];
+                            }
+                            array2[k - 1].d = d;
+                            array2[k - 1].e = e;
                         }
-                        ++n5;
                     }
-                    ebArray[n2].a(ecArray);
+                    array[n].a(array2);
                 }
-                ebArray[n2].f((String)object);
-                ++n2;
+                array[n].f(s6);
+                ++n;
             }
-            ++n3;
         }
-        if (n2 < ebArray.length) {
-            eb[] ebArray2 = new eb[n2];
-            System.arraycopy(ebArray, 0, ebArray2, 0, n2);
-            ebArray = ebArray2;
+        if (n < array.length) {
+            final eb[] array3 = new eb[n];
+            System.arraycopy(array, 0, array3, 0, n);
+            array = array3;
         }
-        return ebArray;
+        return array;
     }
-
-    private static dt[] a(dy dy2, dt[] dtArray, boolean bl, short s) {
-        int n2 = dy2.c((short)21);
-        dt[] dtArray2 = null;
-        if (n2 > 0) {
-            short s2;
-            short s3;
-            short s4;
-            dtArray2 = new dt[n2];
-            short s5 = dy2.b((short)21, 0);
-            int n3 = 0;
-            while (n3 < n2) {
-                int n4;
-                int n5;
-                short s6 = s5;
-                s5 = dy2.a((short)21, (int)s6);
-                String string = dy2.b((int)s6);
-                dtArray2[n3] = new dt(string);
-                byte by = dy2.a((short)20, (int)s6, (int)s5, (short)0);
-                dtArray2[n3].a(by);
-                s4 = s5;
-                s3 = s6;
-                s2 = 7;
-                Object object = dy2;
-                int n6 = 0;
-                if (((dy)object).c == null) {
-                    n5 = 0;
-                } else {
-                    s2 = s3;
-                    s3 = s4;
-                    if (s2 < 0) {
-                        s2 = -1;
-                    } else if (s2 >= ((dy)object).c.length) {
-                        s2 = ((dy)object).c.length - 1;
+    
+    private static dt[] a(final dy dy, final dt[] array, final boolean b, final short n) {
+        final int c = dy.c((short)21);
+        dt[] array2 = null;
+        if (c > 0) {
+            array2 = new dt[c];
+            int n2 = dy.b((short)21, 0);
+            for (int i = 0; i < c; ++i) {
+                final int n3 = n2;
+                n2 = dy.a((short)21, n3);
+                (array2[i] = new dt(dy.b(n3))).a(dy.a((short)20, n3, n2, (short)0));
+                final int n4 = n3;
+                final int n5 = n2;
+                final int n6 = n4;
+                int n7 = 0;
+                int n9;
+                int n8;
+                if (dy.c == null) {
+                    n8 = (n9 = 0);
+                }
+                else {
+                    int n10 = n6;
+                    int length = n5;
+                    if (n10 < 0) {
+                        n10 = -1;
                     }
-                    if (s3 < 0) {
-                        s3 = ((dy)object).c.length;
+                    else if (n10 >= dy.c.length) {
+                        n10 = dy.c.length - 1;
                     }
-                    if (s2 + 1 >= s3) {
-                        n5 = 0;
-                    } else {
-                        ++s2;
-                        while (s2 < ((dy)object).c.length && s2 < s3) {
-                            if (((dy)object).c[s2].a == 7) {
-                                ++n6;
+                    if (length < 0) {
+                        length = dy.c.length;
+                    }
+                    if (n10 + 1 >= length) {
+                        n8 = (n9 = 0);
+                    }
+                    else {
+                        for (int n11 = n10 + 1; n11 < dy.c.length && n11 < length; ++n11) {
+                            if (dy.c[n11].a == 7) {
+                                ++n7;
                             }
-                            ++s2;
                         }
-                        n5 = n4 = n6;
+                        n8 = (n9 = n7);
                     }
                 }
-                if (n5 > 0) {
-                    ds[] dsArray = new ds[n4];
-                    s3 = dy2.a((short)7, (int)s6);
-                    int n7 = 0;
-                    while (n7 < n4) {
-                        s2 = s3;
-                        s3 = dy2.a((short)7, (int)s2);
-                        object = dy2.b((int)s2);
-                        object = ((String)object).toLowerCase();
-                        dsArray[n7] = new ds();
-                        dsArray[n7].a((String)object);
-                        Object object2 = dy2.b((short)22, s2, s3);
-                        if (object2 == null) {
-                            object2 = object;
+                final int n12 = n9;
+                if (n8 > 0) {
+                    final ds[] array3 = new ds[n12];
+                    int n13 = dy.a((short)7, n3);
+                    for (int j = 0; j < n12; ++j) {
+                        final int n14 = n13;
+                        n13 = dy.a((short)7, n14);
+                        final String lowerCase = dy.b(n14).toLowerCase();
+                        (array3[j] = new ds()).a(lowerCase);
+                        String b2;
+                        if ((b2 = dy.b((short)22, n14, n13)) == null) {
+                            b2 = lowerCase;
                         }
-                        dsArray[n7].b((String)object2);
-                        s4 = 0;
-                        n6 = 0;
-                        byte by2 = 0;
-                        object = null;
-                        object2 = null;
-                        int n8 = dy2.a((short)12, s2, s3);
-                        if (n8 >= 0) {
-                            by2 = dy2.a(n8, (short)0);
-                            s4 = dy2.a((short)45, (int)s2, (int)s3, (short)0);
-                            n6 = dy2.a((short)38, (int)s2, (int)s3, (short)0);
+                        array3[j].b(b2);
+                        short a = 0;
+                        short a2 = 0;
+                        short a3 = 0;
+                        final int a4;
+                        if ((a4 = dy.a((short)12, n14, n13)) >= 0) {
+                            a3 = dy.a(a4, (short)0);
+                            a = dy.a((short)45, n14, n13, (short)0);
+                            a2 = dy.a((short)38, n14, n13, (short)0);
                         }
-                        object = dy2.b((short)13, s2, s3);
-                        object2 = dy2.b((short)86, s2, s3);
-                        dsArray[n7].a(s4);
-                        dsArray[n7].b((short)n6);
-                        dsArray[n7].d((String)object2);
-                        dsArray[n7].c(by2);
-                        dsArray[n7].c((String)object);
-                        ++n7;
+                        final String b3 = dy.b((short)13, n14, n13);
+                        final String b4 = dy.b((short)86, n14, n13);
+                        array3[j].a(a);
+                        array3[j].b(a2);
+                        array3[j].d(b4);
+                        array3[j].c(a3);
+                        array3[j].c(b3);
                     }
-                    dtArray2[n3].a(dsArray);
+                    array2[i].a(array3);
                 }
-                ++n3;
             }
-            dt[] dtArray3 = dtArray2;
-            s2 = 0;
-            s3 = 1;
-            while (s3 < dtArray3.length) {
-                if (dtArray3[s3 - 1].a() == 1) {
-                    ++s2;
-                } else {
-                    s4 = s3;
-                    while (s4 > s2 && dtArray3[s4].b().compareTo(dtArray3[s4 - 1].b()) < 0) {
-                        dt dt2 = dtArray3[s4 - 1];
-                        dtArray3[s4 - 1] = dtArray3[s4];
-                        dtArray3[s4] = dt2;
-                        --s4;
+            final dt[] array4 = array2;
+            int n15 = 0;
+            for (int k = 1; k < array4.length; ++k) {
+                if (array4[k - 1].a() == 1) {
+                    ++n15;
+                }
+                else {
+                    for (int n16 = k; n16 > n15 && array4[n16].b().compareTo(array4[n16 - 1].b()) < 0; --n16) {
+                        final dt dt = array4[n16 - 1];
+                        array4[n16 - 1] = array4[n16];
+                        array4[n16] = dt;
                     }
                 }
-                ++s3;
             }
         }
-        return dtArray2;
+        return array2;
+    }
+    
+    // Stub method to fix 'cannot find symbol: method i(dy)'
+    private void i(dy dy) {
+        // TODO: implement logic for case 116 
     }
 }

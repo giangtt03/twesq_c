@@ -30,7 +30,7 @@ bq {
         ff ff2 = new ff("", 20, 4);
         ff2.d(true);
         ff2.a(10, n2, n / 2, 20);
-        this.a(ff2);
+        this.a((bf)ff2);
         int n3 = bx.d.a("Thêm") + 30;
         ex ex2 = new ex("Thêm", 1);
         ex2.a(ff2.c() + ff2.e() + 10, n2, n3, 20);
@@ -40,7 +40,7 @@ bq {
         this.m.a(this.f - n >> 1, n2 += ex2.f() + 10 + 3, n, this.g - n2 - 10);
         this.m.e(false);
         this.n = new aw();
-        this.n.a(this);
+        this.n.a((af)this);
         this.m.b(this.n);
         this.a((String[])object);
         this.a(this.m);
@@ -51,12 +51,8 @@ bq {
         this.r = new gb(3, 2);
         this.q = new gb(0, 3);
         this.a(com.mg.sq.a.n);
-        az az2 = this.p;
-        object = this;
-        object.a(az2, true);
-        az2 = this.q;
-        object = this;
-        object.b(az2, true);
+        this.a(this.p, true);
+        this.b(this.q, true);
         this.f(1);
     }
 
@@ -112,7 +108,7 @@ bq {
                 int n5 = bs2.e() > bs2.f() ? bs2.e() : bs2.f();
                 bs2.a_(-n5, hm2.j() - bs2.f() + n5);
                 bs2.d(0, v.u - ba.a - bs2.f());
-                bs2.a(hm2);
+                bs2.a((af)hm2);
                 hm2.a(bs2);
                 az az2 = hm2.q;
                 hm hm4 = hm2;
@@ -183,27 +179,21 @@ bq {
 
     public final void b(aq object, int n2) {
         object = ((aw)object).o(n2);
-        Object object2 = this.m.q();
-        object2 = object = new k(this.m.c() - ((k)object2).a + this.c, ((aq)object).d() - ((k)object2).b + this.m.d() + this.d, this.m.e(), ((aq)object).f());
-        object = this;
+        k kObj = new k(this.m.c() - ((k)this.m.q()).a + this.c, ((aq)object).d() - ((k)this.m.q()).b + this.m.d() + this.d, this.m.e(), ((aq)object).f());
         bs bs2 = new bs();
         bs2.a(new br("Bỏ ra", 111));
-        int n3 = ((k)object2).a + ((al)object).c + (((k)object2).c - bs2.e()) / 2;
-        int n4 = ((k)object2).b + ((al)object).d + ((k)object2).d;
+        int n3 = kObj.a + kObj.c + (kObj.c - bs2.e()) / 2;
+        int n4 = kObj.b + kObj.d + kObj.d;
         if (n4 + bs2.f() > v.u - ba.a) {
             n4 = v.u - ba.a - bs2.f();
         }
-        bs2.a_(((al)object).c + ((am)object).f + bs2.e(), n4);
-        bs2.d(n3 < ((al)object).c ? ((al)object).c : (n3 + bs2.e() > ((al)object).c + ((am)object).f ? ((al)object).c + ((am)object).f - bs2.e() : n3), n4);
-        bs2.a((bf)object);
-        az az2 = ((hm)object).q;
-        Object object3 = object;
-        ((am)object3).b(az2, true);
-        az2 = ((hm)object).r;
-        object3 = object;
-        ((am)object3).a(az2, true);
+        bs2.a_(kObj.c + this.f + bs2.e(), n4);
+        bs2.d(n3 < kObj.c ? kObj.c : (n3 + bs2.e() > kObj.c + this.f ? kObj.c + this.f - bs2.e() : n3), n4);
+        bs2.a((bf)this);
         bs2.a_(1);
         super.a(bs2);
+        this.b(this.q, true);
+        this.a(this.r, true);
     }
 
     public final void a(aq aq2, int n2) {

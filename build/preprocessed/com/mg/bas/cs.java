@@ -98,77 +98,70 @@ public class cs {
   }
 
   public static void a(int n, int n2, String string, String string2) {
-    if (Math.abs(n) >= b) {
-      return;
-    }
-    byte[] byArray = a.a(-1);
-    if (byArray == null) {
-      return;
-    }
-    Object[] objectArray = new int[b + 1];
-    int[] nArray = new int[4];
-    int n3 = 0;
-    while (n3 < objectArray.length) {
-      objectArray[n3] = m.a(byArray, n3 << 2);
-      if (n3 < objectArray.length - 1 && objectArray[n3] > 0) {
-        int n4 = objectArray[n3] - 1;
-        nArray[n4] = nArray[n4] + 1;
-      }
-      ++n3;
-    }
-    n3 = -1;
-    if (n2 != 1) {
-      int n5 = Math.abs(objectArray[objectArray.length - 1]) - 1;
-      int n6 = nArray[0] + nArray[1] + nArray[2] + nArray[3];
-      if (n6 >= 10) {
-        return;
-      }
-      if (n6 >= 7) {
-        n6 = 0;
-        while (n6 < 4) {
-          if (n6 != n5 && nArray[n6] <= 0) {
-            n3 = n6;
-            break;
-          }
-          ++n6;
+        if (Math.abs(n) >= b) {
+            return;
         }
-        if (n3 == -1) {
-          while ((n3 = cv.a(4)) == n5) {
-          }
-        }
-      } else {
-        while ((n3 = cv.a(4)) == n5) {
-        }
-      }
-      ++n3;
-    } else {
-      if (string == null) {
-        return;
-      }
-      n3 = Math.abs(objectArray[objectArray.length - 1]);
-      objectArray = string.getBytes();
-      a.a(-2, (byte[]) objectArray, 0, objectArray.length);
-    }
-    ct.a("index=" + n + ",luckyNum=" + n2 + ",codeWin=" + string + "recordChoose=" + n3);
-    byte[] byArray2 = m.a(n3);
-    System.arraycopy(byArray2, 0, byArray, n << 2, 4);
-    a.a(-1, byArray, 0, byArray.length);
-    if (string2 != null) {
-      if (n2 == 1 && string != null) {
-        byArray = string2.trim().getBytes();
-        a.a(-3, byArray, 0, byArray.length);
-        byArray = string.trim().getBytes();
-        a.a(-2, byArray, 0, byArray.length);
-      } else {
-        byArray = a.a(-2);
+        byte[] byArray = a.a(-1);
         if (byArray == null) {
-          byArray = string2.trim().getBytes();
-          a.a(-3, byArray, 0, byArray.length);
+            return;
         }
-      }
+        int[] objectArray = new int[b + 1];
+        int[] nArray = new int[4];
+        int n3 = 0;
+        while (n3 < objectArray.length) {
+            objectArray[n3] = m.a(byArray, n3 << 2);
+            if (n3 < objectArray.length - 1 && objectArray[n3] > 0) {
+                int n4 = objectArray[n3] - 1;
+                nArray[n4] = nArray[n4] + 1;
+            }
+            ++n3;
+        }
+        n3 = -1;
+        if (n2 != 1) {
+            int n5 = Math.abs(objectArray[objectArray.length - 1]) - 1;
+            int n6 = nArray[0] + nArray[1] + nArray[2] + nArray[3];
+            if (n6 >= 10) {
+                return;
+            }
+            if (n6 >= 7) {
+                n6 = 0;
+                while (n6 < 4) {
+                    if (n6 != n5 && nArray[n6] <= 0) {
+                        n3 = n6;
+                        break;
+                    }
+                    ++n6;
+                }
+                if (n3 == -1) {
+                    while ((n3 = cv.a(4)) == n5) {
+                    }
+                }
+            } else {
+                while ((n3 = cv.a(4)) == n5) {
+                }
+            }
+            ++n3;
+        } else {
+            if (string == null) {
+                return;
+            }
+            n3 = Math.abs(objectArray[objectArray.length - 1]);
+            byte[] bytes = string.getBytes();
+            a.a(-2, bytes, 0, bytes.length);
+        }
+        ct.a("index=" + n + ",luckyNum=" + n2 + ",codeWin=" + string + "recordChoose=" + n3);
+        byte[] byArray2 = m.a(n3);
+        System.arraycopy(byArray2, 0, byArray, n << 2, 4);
+        a.a(-1, byArray, 0, byArray.length);
+        if (string2 != null) {
+            if (n2 == 1 && string != null) {
+                byArray = string2.trim().getBytes();
+                a.a(-3, byArray, 0, byArray.length);
+                byArray = string.trim().getBytes();
+                a.a(-4, byArray, 0, byArray.length);
+            }
+        }
     }
-    a.a();
-  }
 
   public static byte[] g() {
     return a.a(-2);

@@ -193,7 +193,7 @@ public final class a {
     }
 
     public final Object[] e() {
-        Object[] objectArray = this;
+        Object[] objectArray = new Object[] { this };
         objectArray = new Object[this.b];
         System.arraycopy(this.a, 0, objectArray, 0, objectArray.length);
         return this.a;

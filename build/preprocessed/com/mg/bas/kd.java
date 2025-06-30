@@ -29,8 +29,8 @@ extends ke {
             n4 = 0;
             n3 = this.d.d();
             while (n4 < n3) {
-                ka ka2;
-                ka2.a(graphics, n, n2 + ((ka2 = (ka)this.d.b(n4)).r() == 1 ? 5 : 7));
+                ka ka2 = (ka)this.d.b(n4);
+                ka2.a(graphics, n, n2 + (ka2.r() == 1 ? 5 : 7));
                 ++n4;
             }
         }

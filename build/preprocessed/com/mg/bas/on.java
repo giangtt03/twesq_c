@@ -4,6 +4,7 @@ package com.mg.bas;
 import com.mg.smsgame.MGMIDlet;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
+import com.mg.bas.hp;
 
 public final class on
 extends fb
@@ -42,10 +43,10 @@ bq {
 
     public on(int n, int n2, String string) {
         super(107, 5, string, false);
-        this.a(0, 0, v.t, v.u);
-        this.v = bx.a("Ola Me - Loan tin tức thời. Bạn có thể lắng nghe và chia sẻ tâm sự với những người được quan tâm. Phiên bản web tại http://me.ola.vn ", v.t, bx.d);
+        this.a(0, 0, com.mg.bas.v.t, com.mg.bas.v.u);
+        this.v = bx.a("Ola Me - Loan tin tức thời. Bạn có thể lắng nghe và chia sẻ tâm sự với những người được quan tâm. Phiên bản web tại http://me.ola.vn ", com.mg.bas.v.t, bx.d);
         this.u = new ex("Xem ME", -2);
-        this.u.a((v.t - 100) / 2, 10 + bx.d.a() + 10 + 10 + bx.d.a() * this.v.length, 100, 20);
+        this.u.a((com.mg.bas.v.t - 100) / 2, 10 + bx.d.a() + 10 + 10 + bx.d.a() * this.v.length, 100, 20);
         this.a();
         this.a(new ba());
         this.j(0);
@@ -54,24 +55,24 @@ bq {
         this.a(new gb(-1, 0));
         this.c(com.mg.sq.a.n);
         this.b(new gb(-2, 1));
-        this.a(this);
+        this.a((aq)this);
     }
 
     private void a() {
         this.r = new aw();
-        this.r.a(this);
-        this.r.a(this);
+        this.r.a((bn)this);
+        this.r.a((bq)this);
         this.r.h(5);
         this.s = new ay(0);
-        this.s.a(1, 0, v.t - 2, v.u - ba.a);
+        this.s.a(1, 0, com.mg.bas.v.t - 2, com.mg.bas.v.u - ba.a);
         this.s.b(this.r);
     }
 
-    private he a(String object) {
-        object = com.mg.sq.a.a((String)object, null, "Xong", -5, "Hủy", -3, -9, this);
-        ((am)object).b(-989858);
-        this.N = (fu)((he)object).e(4);
-        return object;
+    private he a(String str) {
+        he dialog = com.mg.sq.a.a(str, null, "Xong", -5, "Hủy", -3, -9, this);
+        ((am)dialog).b(-989858);
+        this.N = (fu)dialog.e(4);
+        return dialog;
     }
 
     private void v() {
@@ -99,29 +100,27 @@ bq {
     }
 
     public final void a(ef ef2, ef[] efArray) {
-        ef[] efArray2;
         if (!this.z()) {
-            efArray2 = this;
-            this.F = efArray2.r;
-            efArray2.G = efArray2.s;
-            efArray2.K = efArray2.z;
-            efArray2.I = efArray2.w;
-            efArray2.J = efArray2.x;
-            efArray2.H = efArray2.p;
-            super.a();
+            this.F = this.r;
+            this.G = this.s;
+            this.K = this.z;
+            this.I = this.w;
+            this.J = this.x;
+            this.H = this.p;
+            // super.a(); // 
         }
         if (this.w == null || !this.w.equals("Bình luận") || this.A) {
             this.p = new a();
             if (efArray == null) {
                 efArray = new ef[]{ef2};
             } else {
-                efArray2 = new ef[efArray.length + 1];
+                ef[] efArray2 = new ef[efArray.length + 1];
                 System.arraycopy(efArray, 0, efArray2, 1, efArray.length);
                 efArray2[0] = ef2;
                 efArray = efArray2;
             }
         }
-        super.a("Bình luận", (short)3, efArray, true);
+        this.a("Bình luận", (short)3, efArray, true);
     }
 
     public final void a(String string, short s, ef[] efArray) {
@@ -149,7 +148,7 @@ bq {
         }
     }
 
-    private void a(String object, short s, ef[] efArray, boolean bl) {
+    private void a(String title, short s, ef[] efArray, boolean bl) {
         com.mg.sq.a.s().v();
         if (efArray == null || efArray.length == 0) {
             return;
@@ -157,84 +156,77 @@ bq {
         if (!bl) {
             this.v();
         }
-        Object object2 = new dl[efArray.length];
-        int n2 = 0;
-        while (n2 < ((dl[])object2).length) {
+        dl[] object2 = new dl[efArray.length];
+        for (int n2 = 0; n2 < object2.length; n2++) {
             object2[n2] = new dl(efArray[n2], this.r.e() - 4);
             object2[n2].a(efArray[n2].d());
-            ++n2;
         }
         short s2 = s;
-        String string = object;
-        object = this;
+        String string = title;
         try {
-            Object object3;
-            int n3;
-            n2 = ((on)object).r.s();
-            ((on)object).z = s2;
+            int n2 = this.r.s();
+            this.z = s2;
             try {
-                if (((on)object).w == null && string != null || ((on)object).w != null && string == null || ((on)object).w != null && !((on)object).w.equals(string) || ((on)object).A) {
-                    ((on)object).r.q();
-                    ((on)object).p.a();
+                if ((this.w == null && string != null) || (this.w != null && string == null) || (this.w != null && !this.w.equals(string)) || this.A) {
+                    this.r.q();
+                    this.p.a();
                     if (com.mg.sq.a.m != null) {
                         com.mg.sq.a.m.q.a();
                     }
                     n2 = 1;
-                    ((on)object).A = false;
+                    this.A = false;
                 }
-            }
-            catch (Exception exception) {
-                Exception exception2 = exception;
+            } catch (Exception exception) {
                 exception.printStackTrace();
             }
-            ((on)object).w = string;
-            if (((on)object).w == null) {
-                ((on)object).x = "Trang chủ";
+            this.w = string;
+            if (this.w == null) {
+                this.x = "Trang chủ";
             } else {
-                ((on)object).x = string;
+                this.x = string;
                 oi oi2 = com.mg.sq.a.m;
                 if (oi2 != null && oi2.s != null) {
-                    n3 = 0;
+                    int n3 = 0;
                     while (n3 < oi2.s.length) {
                         if (oi2.s[n3].equals(string)) {
-                            ((on)object).x = oi2.t[n3];
+                            this.x = oi2.t[n3];
                             break;
                         }
                         ++n3;
                     }
                 }
             }
-            if (((on)object).x != null) {
+            if (this.x != null) {
                 bx.d.c(true);
-                ((on)object).y = bx.d.a(((on)object).x) + 6;
+                this.y = bx.d.a(this.x) + 6;
                 bx.d.c();
             }
-            boolean bl2 = super.z();
-            if (((on)object).r.a() > 0) {
-                if (((on)object).L) {
+            boolean bl2 = this.z();
+            if (this.r.a() > 0) {
+                if (this.L) {
                     if (bl2) {
-                        ((on)object).r.a((Object[])object2, 2);
+                        this.r.a(object2, 2);
                     } else {
-                        ((on)object).r.a((Object[])object2, 1);
+                        this.r.a(object2, 1);
                     }
                 } else {
-                    ((on)object).r.a((Object[])object2, ((on)object).r.a() - 1);
+                    this.r.a(object2, this.r.a() - 1);
                 }
             } else {
                 if (bl2) {
                     object2[0].n = true;
                 }
-                ((on)object).r.a(new dp("Xem mới nhất", null));
-                ((on)object).r.a((Object[])object2);
-                ((on)object).r.a(new dp("Xem thêm", null));
+                this.r.a(new dp("Xem mới nhất", null));
+                this.r.a(object2);
+                this.r.a(new dp("Xem thêm", null));
             }
-            n3 = 0;
-            while (n3 < ((Object[])object2).length) {
-                if (bl2 && ((on)object).E >= 0L && ((dl)object2[n3]).e == ((on)object).E && !((dl)object2[n3]).n) {
-                    ((dl)object2[n3]).o = true;
+            int n3 = 0;
+            while (n3 < object2.length) {
+                if (bl2 && this.E >= 0L && object2[n3].e == this.E && !object2[n3].n) {
+                    object2[n3].o = true;
                 }
-                a a2 = ((on)object).p;
-                object3 = object2[n3];
+                a a2 = this.p;
+                Object object3 = object2[n3];
                 a a3 = ((dl)object3).a.d();
                 if (((dl)object3).d != null && ((dl)object3).d.j == -10) {
                     a2.a(((dl)object3).d.i);
@@ -252,27 +244,25 @@ bq {
                 }
                 ++n3;
             }
-            dp dp2 = (dp)((on)object).r.i(((on)object).r.a() - 1);
-            object2 = (dl)((on)object).r.i(1);
-            object3 = (dl)((on)object).r.i(((on)object).r.a() - 2);
-            dp2.b = new long[]{((dl)object3).e, ((dl)object3).e};
-            dp2 = (dp)((on)object).r.i(0);
-            if (bl2 && ((on)object).r.a() >= 4) {
-                object2 = (dl)((on)object).r.i(2);
+            dp dp2 = (dp)this.r.i(this.r.a() - 1);
+            dl dl2 = (dl)this.r.i(1);
+            dl dl3 = (dl)this.r.i(this.r.a() - 2);
+            dp2.b = new long[]{dl3.e, dl3.e};
+            dp2 = (dp)this.r.i(0);
+            if (bl2 && this.r.a() >= 4) {
+                dl2 = (dl)this.r.i(2);
             }
-            dp2.b = new long[]{object2.e, -object2.e};
+            dp2.b = new long[]{dl2.e, -dl2.e};
             if (n2 > 1) {
                 --n2;
             }
-            ((on)object).r.k(n2);
-            super.j(4);
+            this.r.k(n2);
+            this.j(4);
             if (!bl2) {
-                ((on)object).C = pd.a(((on)object).C, ((on)object).x, string);
+                this.C = pd.a(this.C, this.x, string);
                 return;
             }
-        }
-        catch (Exception exception) {
-            Exception exception3 = exception;
+        } catch (Exception exception) {
             exception.printStackTrace();
         }
     }
@@ -392,8 +382,8 @@ bq {
     }
 
     private static void a(Graphics graphics) {
-        graphics.setColor(v.am);
-        graphics.fillRect(0, 0, v.t, v.u - ba.a);
+        graphics.setColor(com.mg.bas.v.am);
+        graphics.fillRect(0, 0, com.mg.bas.v.t, com.mg.bas.v.u - ba.a);
     }
 
     public final void a(Graphics graphics, int n2, int n3) {
@@ -401,10 +391,10 @@ bq {
             if (this.c) {
                 on.a(graphics);
                 bx.d.c(true);
-                bx.d.a(graphics, "Giới thiệu", v.t >>> 1, 10, 1);
+                bx.d.a(graphics, "Giới thiệu", com.mg.bas.v.t >>> 1, 10, 1);
                 bx.d.c();
                 n2 = 10 + (10 + bx.d.a());
-                bx.a(graphics, bx.d, this.v, 0, n2, v.t, v.u, 1);
+                bx.a(graphics, bx.d, this.v, 0, n2, com.mg.bas.v.t, com.mg.bas.v.u, 1);
                 this.u.a(graphics, this.c(), this.d());
                 this.c(false);
                 return;
@@ -413,7 +403,7 @@ bq {
             on.a(graphics);
             this.s.a(graphics, this.c(), this.d());
             if (this.x != null) {
-                n2 = v.t - this.y;
+                n2 = com.mg.bas.v.t - this.y;
                 pc.a(graphics, n2, 0, this.y, 18, 0xEF0000, 16177368);
                 bx.d.c(true);
                 bx.d.a(graphics, this.x, n2 + 3, 2, 0);
@@ -462,33 +452,33 @@ bq {
                                 objectArray = new br[5];
                                 System.arraycopy(objectArray2, 0, objectArray, 0, 2);
                                 objectArray[2] = new br("Nhật ký", 1070011);
-                                objectArray3 = new br[on2.C.length];
+                                br[] brArray3 = new br[on2.C.length];
                                 n5 = 0;
-                                while (n5 < objectArray3.length) {
-                                    objectArray3[n5] = (int)new br(on2.C[n5][0], 1070011);
+                                while (n5 < brArray3.length) {
+                                    brArray3[n5] = new br(on2.C[n5][0], 1070011);
                                     ++n5;
                                 }
-                                ((br)objectArray[2]).a((br[])objectArray3);
+                                ((br)objectArray[2]).a(brArray3);
                                 System.arraycopy(objectArray2, 2, objectArray, 3, 2);
                                 objectArray2 = objectArray;
                             }
                             objectArray = new String[2 + (oi2.s != null ? oi2.s.length : 0)];
-                            objectArray3 = new int[objectArray.length];
+                            int[] intArray = new int[objectArray.length];
                             objectArray[0] = "Trang chủ";
-                            objectArray3[0] = 1070013;
+                            intArray[0] = 1070013;
                             objectArray[objectArray.length - 1] = "Trang khác";
-                            objectArray3[objectArray3.length - 1] = 1070014;
+                            intArray[intArray.length - 1] = 1070014;
                             if (oi2.s != null) {
                                 n5 = 0;
                                 int n6 = 1;
                                 while (n6 < objectArray.length - 1) {
                                     objectArray[n6] = oi2.t[n5++];
-                                    objectArray3[n6] = 1070019;
+                                    intArray[n6] = 1070019;
                                     ++n6;
                                 }
                             }
                             String[] stringArray = new String[objectArray.length - 1];
-                            int[] nArray = new int[objectArray3.length - 1];
+                            int[] nArray = new int[intArray.length - 1];
                             int n7 = -1;
                             if (on2.w == null) {
                                 n7 = 0;
@@ -506,15 +496,15 @@ bq {
                             if (n7 >= 0) {
                                 System.arraycopy(objectArray, 0, stringArray, 0, n7);
                                 System.arraycopy(objectArray, n7 + 1, stringArray, n7, stringArray.length - n7);
-                                System.arraycopy(objectArray3, 0, nArray, 0, n7);
-                                System.arraycopy(objectArray3, n7 + 1, nArray, n7, nArray.length - n7);
+                                System.arraycopy(intArray, 0, nArray, 0, n7);
+                                System.arraycopy(intArray, n7 + 1, nArray, n7, nArray.length - n7);
                                 objectArray = stringArray;
-                                objectArray3 = nArray;
+                                intArray = nArray;
                             }
                             br[] brArray = new br[objectArray.length];
                             n4 = 0;
                             while (n4 < brArray.length) {
-                                brArray[n4] = new br((String)objectArray[n4], objectArray3[n4]);
+                                brArray[n4] = new br((String)objectArray[n4], intArray[n4]);
                                 ++n4;
                             }
                             ((br)objectArray2[1]).a(brArray);
@@ -562,9 +552,9 @@ bq {
                         bs2.a(brArray);
                     }
                     int n11 = bs2.e() > bs2.f() ? bs2.e() : bs2.f();
-                    bs2.a_(-n11, v.u);
-                    bs2.d(0, v.u - ba.a - bs2.f());
-                    bs2.a(on2);
+                    bs2.a_(-n11, com.mg.bas.v.u);
+                    bs2.d(0, com.mg.bas.v.u - ba.a - bs2.f());
+                    bs2.a((bf)on2);
                     on2.a(bs2);
                 }
                 return;
@@ -579,9 +569,9 @@ bq {
             }
             case -4: {
                 Object object = com.mg.sq.a.k(241220).trim();
-                if (!i.b((String)object)) {
+                if (!com.mg.bas.i.b((String)object)) {
                     long l = 0L;
-                    String string = object;
+                    String string = (String)object;
                     object = this;
                     ((on)object).a(string, l, true);
                 }
@@ -591,9 +581,9 @@ bq {
             case -5: {
                 Object object = com.mg.sq.a.k(-989858);
                 n3 = this.N.r() + 1;
-                if (!i.b((String)object)) {
+                if (!com.mg.bas.i.b((String)object)) {
                     short s = (short)n3;
-                    String string = object;
+                    String string = (String)object;
                     object = this;
                     ((on)object).a(string, ((on)object).B, (int)s);
                     ((on)object).B = 0L;
@@ -617,7 +607,7 @@ bq {
                 return;
             }
             case -9: {
-                hp hp2 = new hp(2);
+                hp hp2 = new hp((byte)2);
                 hp2.e(this.N.r());
                 hp2.f(this.O);
                 hp2.w();
@@ -657,7 +647,7 @@ bq {
     }
 
     public final void a(String string, long l, int n2) {
-        if (this.t != 0 && this.r.a() > 0 && (this.w == null || i.a(this.w, go.e) || l > 0L && this.w.equals("Bình luận"))) {
+        if (this.t != 0 && this.r.a() > 0 && (this.w == null || com.mg.bas.i.a(this.w, go.e) || l > 0L && this.w.equals("Bình luận"))) {
             Object object = new ef();
             ((ef)object).b(-1L);
             ((ef)object).b(string);
@@ -701,31 +691,28 @@ bq {
         du.a().a(dl2.e);
     }
 
-    private void e(boolean n2) {
+    private void e(boolean replyAll) {
         Object object;
         dl dl2 = (dl)this.r.t();
         he he2 = this.a("Trả lời");
         String string = "@" + dl2.c + " ";
         int n3 = string.length() - 1;
-        if (n2 != 0) {
-            n2 = 0;
-            while (n2 < dl2.m.length) {
-                object = dl2.a.a(dl2.m[n2]);
-                string = String.valueOf(string) + dl2.a.b(((n)object).b(), dl2.m[n2]) + " ";
-                ++n2;
+        if (replyAll) {
+            for (int i = 0; i < dl2.m.length; i++) {
+                object = dl2.a.a(dl2.m[i]);
+                string = String.valueOf(string) + dl2.a.b(((n)object).b(), dl2.m[i]) + " ";
             }
         }
         if (this.w != null && this.w.charAt(0) == '#') {
             string = String.valueOf(string) + this.w + " ";
         }
-        n2 = string.length() - n3;
+        int n2 = string.length() - n3;
         this.B = dl2.e;
         object = (ff)he2.e(1);
         ((ff)object).c(string);
         ((ff)object).g(n3, n2);
         ag.b().a(he2);
     }
-
     public final void a(int n2, int n3, Object object) {
         if (object == null) {
             return;
@@ -811,7 +798,7 @@ bq {
             case 1070007: {
                 he he2 = this.a(this.Q[cv.a(this.Q.length)]);
                 ff ff2 = (ff)he2.e(1);
-                if (!i.b(this.w)) {
+                if (!com.mg.bas.i.b(this.w)) {
                     if (this.w.charAt(0) == '#') {
                         ff2.c(String.valueOf(this.w) + " ");
                     } else if (!this.z() && this.w.length() > 3) {
@@ -857,8 +844,8 @@ bq {
             case 1070014: {
                 ah ah2 = ag.b();
                 on on2 = this;
-                he he3 = com.mg.sq.a.a("Nhập nick bạn muốn xem Me", null, "Xong", -4, "Hủy", -3);
-                he3.a(on2);
+                he he3 = com.mg.sq.a.a("Nhập nick bạn muốn xem Me", null, "Xong", -4, "Hủy", -3, (bf)this);
+                he3.a((bf)on2);
                 ah2.a(he3);
                 break;
             }
@@ -951,12 +938,10 @@ bq {
 
     private void C() {
         if (this.z()) {
-            Object object = (dp)this.r.i(this.r.a() - 1);
-            object = (long[])((dp)object).b;
-            long l = 0L;
-            Object object2 = object[0];
-            object = this;
-            ((on)object).a((long)object2, 0L, true);
+            dp dpObj = (dp)this.r.i(this.r.a() - 1);
+            long[] arr = (long[])dpObj.b;
+            long l = arr[0];
+            this.a(l, 0L, true);
             return;
         }
         long l = 0L;
@@ -965,222 +950,195 @@ bq {
         on2.a(string, l, true);
     }
 
-    public final aq a(aw object, int n2) {
-        if ((object = ((aw)object).i(n2)) instanceof dp) {
-            object = new fm(((dp)object).a, -10);
-            ((aq)object).a(0, 0, this.e() - 2, 20);
-            return object;
+    public final aq a(final aw aw, final int n) {
+        final Object i;
+        if ((i = aw.i(n)) instanceof dp) {
+            final fm fm;
+            (fm = new fm(((dp)i).a, -10)).a(0, 0, this.e() - 2, 20);
+            return fm;
         }
-        return new fp((dl)object, this.r.e(), (n2 & 1) == 1);
+        return new fp((dl)i, this.r.e(), (n & 0x1) == 0x1);
     }
-
-    /*
-     * Unable to fully structure code
-     * Could not resolve type clashes
-     */
-    public final void b(aq var1_1, int var2_2) {
-        block34: {
-            block38: {
-                block37: {
-                    block35: {
-                        block36: {
-                            if (this.r.a() <= 0) break block34;
-                            if (var2_2 != this.r.a() - 1) break block35;
-                            this.L = false;
-                            if (!this.z()) break block36;
-                            var1_1 = this;
-                            if (var1_1.r.a() > 0) {
-                                var2_3 = (dp)var1_1.r.i(var1_1.r.a() - 1);
-                                var3_6 = (long[])var2_3.b;
-                                super.a(var3_6[0], var3_6[1], false);
-                                return;
-                            }
-                            break block34;
-                        }
-                        var1_1 = this;
-                        var2_4 = (dp)var1_1.r.i(var1_1.r.a() - 1);
-                        var3_7 = (long[])var2_4.b;
-                        super.a(var1_1.w, var3_7[1], false);
-                        return;
-                    }
-                    if (var2_2 == 0) {
-                        this.L = true;
-                        this.C();
-                        return;
-                    }
-                    var1_1 = this;
-                    var3_8 = (dl)var1_1.r.i(var2_2);
-                    var4_10 = var3_8.a();
-                    var5_16 = var3_8;
-                    var5_17 = dl.b(var5_16.h);
-                    var6_20 = new bs();
-                    var6_20.a(new gb(0, 2));
-                    var6_20.b(new gb(1, 3));
-                    if (var3_8.h < 0) break block37;
-                    var7_21 /* !! */  = new String[]{"Chép nội dung"};
-                    var8_22 /* !! */  = new int[]{1070006};
-                    var9_23 = var4_10.a(var5_17);
-                    var10_25 = null;
-                    var11_28 /* !! */  = null;
-                    switch (var9_23.c()) {
-                        case 5: {
-                            var10_25 = new String[]{"Xem Bang"};
-                            var11_28 /* !! */  = new int[]{1070000};
-                            break;
-                        }
-                        case 4: {
-                            var9_23 = var4_10.b(var9_23.b(), var5_17);
-                            if (var9_23 == null || var9_23.length() <= 0) {
-                                var9_23 = var3_8.c;
-                            }
-                            if (var9_23.charAt(0) == '@') {
-                                if (!(var9_23 = var9_23.substring(1)).equals(go.e)) {
-                                    var10_25 = new String[]{"Chat!", "Xem ME"};
-                                    var11_28 /* !! */  = new int[]{1070001, 1070002};
-                                    break;
+    
+    public final void b(final aq aq, int n) {
+        if (this.r.a() > 0) {
+            if (n == this.r.a() - 1) {
+                this.L = false;
+                if (!this.z()) {
+                    this.a(this.w, ((long[])((dp)this.r.i(this.r.a() - 1)).b)[1], false);
+                    return;
+                }
+                if (this.r.a() > 0) {
+                    final long[] array = (long[])((dp)this.r.i(this.r.a() - 1)).b;
+                    this.a(array[0], array[1], false);
+                }
+            }
+            else {
+                if (n == 0) {
+                    this.L = true;
+                    this.C();
+                    return;
+                }
+                n = n;
+                final dl dl;
+                final ls a = (dl = (dl)this.r.i(n)).a();
+                final int b = dl.b(dl.h);
+                final bs bs;
+                (bs = new bs()).a(new gb(0, 2));
+                bs.b(new gb(1, 3));
+                if (dl.h < 0) {
+                    final dl dl2 = dl;
+                    final int n2 = n;
+                    final dl dl3 = dl2;
+                    switch (dl3.h + 6) {
+                        case 0: {
+                            final lo d;
+                            if ((d = dl3.d) != null && d.i != null) {
+                                if (d.j == -10) {
+                                    if (com.mg.sq.a.m != null) {
+                                        com.mg.sq.a.m.q.a(d.i.a());
+                                    }
                                 }
-                                var10_25 = new String[]{"Xem ME"};
-                                var11_28 /* !! */  = new int[]{1070002};
-                                break;
+                                else {
+                                    com.mg.sq.a.s().C();
+                                }
                             }
-                            if (!var9_23.equals(go.e)) {
-                                var10_25 = new String[]{"Chat!", "Xem ME"};
-                                var11_28 /* !! */  = new int[]{1070001, 1070002};
-                                break;
-                            }
-                            var10_25 = new String[]{"Xem ME"};
-                            var11_28 /* !! */  = new int[]{1070002};
-                            break;
-                        }
-                        case 3: {
-                            var10_25 = new String[]{"Xem tin", "Chép link"};
-                            var11_28 /* !! */  = new int[]{1070004, 1070003};
                             break;
                         }
                         case 1: {
-                            var12_29 = lo.a(((lo)var9_23).i);
-                            if (var12_29 == null) break;
-                            var10_25 = new String[]{var12_29, "Gửi tiếp"};
-                            var11_28 /* !! */  = new int[]{1070020, 1070005};
-                        }
-                    }
-                    if (var10_25 != null && var10_25.length > 0) {
-                        var9_23 = new String[1 + var10_25.length];
-                        var12_29 = new int[1 + var11_28 /* !! */ .length];
-                        System.arraycopy(var10_25, 0, var9_23, 0, var10_25.length);
-                        System.arraycopy(var11_28 /* !! */ , 0, var12_29, 0, var11_28 /* !! */ .length);
-                        var13_31 = var10_25.length;
-                        while (var13_31 < ((Object)var9_23).length) {
-                            var9_23[var13_31] = var7_21 /* !! */ [var13_31 - var10_25.length];
-                            var12_29[var13_31] = var8_22 /* !! */ [var13_31 - var11_28 /* !! */ .length];
-                            ++var13_31;
-                        }
-                        var7_21 /* !! */  = var9_23;
-                        var8_22 /* !! */  = (int[])var12_29;
-                    }
-                    break block38;
-                }
-                var3_9 = var2_2;
-                var2_5 = var3_8;
-                var4_11 = var2_5.h + 6;
-                switch (var4_11) {
-                    case 0: {
-                        var4_12 = var2_5.d;
-                        if (var4_12 != null && var4_12.i != null) {
-                            if (var4_12.j == -10) {
-                                if (com.mg.sq.a.m != null) {
-                                    var5_18 = com.mg.sq.a.m;
-                                    var1_1 = var4_12;
-                                    var5_18.q.a(var1_1.i.a());
-                                }
-                            } else {
-                                com.mg.sq.a.s().C();
+                            if (dl3.m.length > 0) {
+                                this.e(true);
+                                break;
                             }
+                            this.e(false);
+                            break;
                         }
-                        v0 = true;
+                        case 5: {
+                            if (this.D >= 2) {
+                                this.B();
+                            }
+                            else {
+                                final al a2;
+                                (a2 = ag.b().a("Thông tin", "Bạn muốn xóa nội dung ME này?", "Có", -7, "Không", -8, 1)).a(this);
+                                ag.b().a(a2, false);
+                            }
+                            break;
+                        }
+                        case 2: {
+                            this.E = dl3.e;
+                            this.a(dl3.e, 0L, true);
+                            break;
+                        }
+                        case 3: {
+                            final dl dl4;
+                            (dl4 = dl3).h = -2;
+                            final dl dl5 = dl4;
+                            --dl5.j;
+//                            dl4.i = 0;
+                            this.r.b(dl3, n2);
+                            du.a().a(dl3.e, (short)0);
+                            break;
+                        }
+                        case 4: {
+                            final dl dl6;
+                            (dl6 = dl3).h = -3;
+                            final dl dl7 = dl6;
+                            ++dl7.j;
+//                            dl6.i = 1;
+                            this.r.b(dl3, n2);
+                            du.a().a(dl3.e, (short)1);
+                            break;
+                        }
+                    }
+                    return;
+                }
+                String[] array2 = { "Chép nội dung" };
+                int[] array3 = { 1070006 };
+                final n a3 = a.a(b);
+                String[] o = null;
+                int[] o2 = null;
+                switch (a3.c()) {
+                    case 5: {
+                        o = new String[] { "Xem Bang" };
+                        o2 = new int[] { 1070000 };
+                        break;
+                    }
+                    case 4: {
+                        String s;
+                        if ((s = a.b(a3.b(), b)) == null || s.length() <= 0) {
+                            s = dl.c;
+                        }
+                        if (s.charAt(0) == '@') {
+                            if (!s.substring(1).equals(go.e)) {
+                                o = new String[] { "Chat!", "Xem ME" };
+                                o2 = new int[] { 1070001, 1070002 };
+                                break;
+                            }
+                            o = new String[] { "Xem ME" };
+                            o2 = new int[] { 1070002 };
+                            break;
+                        } else {
+                            if (!s.equals(go.e)) {
+                                o = new String[] { "Chat!", "Xem ME" };
+                                o2 = new int[] { 1070001, 1070002 };
+                                break;
+                            }
+                            o = new String[] { "Xem ME" };
+                            o2 = new int[] { 1070002 };
+                            break;
+                        }
+                    }
+                    case 3: {
+                        o = new String[] { "Xem tin", "Chép link" };
+                        o2 = new int[] { 1070004, 1070003 };
                         break;
                     }
                     case 1: {
-    if (var2_5.m.length > 0) {
-        super.e(true);
-        v0 = false;
-    } else {
-        super.e(false);
-    }
-    break;
-}
-                    case 5: {
-                        var4_13 = var1_1;
-                        if (var4_13.D >= 2) {
-                            super.B();
-                        } else {
-                            var1_1 = ag.b().a("Thông tin", "Bạn muốn xóa nội dung ME này?", "Có", -7, "Không", -8, 1);
-                            var1_1.a((bf)var4_13);
-                            ag.b().a((al)var1_1, false);
+                        final String a4;
+                        if ((a4 = lo.a(((lo)a3).i)) != null) {
+                            o = new String[] { a4, "Gửi tiếp" };
+                            o2 = new int[] { 1070020, 1070005 };
+                            break;
                         }
-                        v0 = true;
                         break;
                     }
-                   case 2: {
-    var1_1.E = var2_5.e;
-    long var26_32 = 0L;
-    int var24_33 = var2_5.e;
-    var5_19 = var1_1;
-    super.a(var24_33, 0L, true);
-    v0 = true;
-    break;
-}
-case 3: {
-    var4_14 = var2_5;
-    var2_5.h = -2;
-    --var4_14.j;
-    var4_14.i = 0;
-    var1_1.r.b(var2_5, var3_9);
-    du.a().a(var2_5.e, (short)0);
-    v0 = true;
-    break;
-}
-case 4: {
-    var4_15 = var2_5;
-    var2_5.h = -3;
-    ++var4_15.j;
-    var4_15.i = 1;
-    var1_1.r.b(var2_5, var3_9);
-    du.a().a(var2_5.e, (short)1);
-    v0 = true;
-    break;
-}
-default: {
-    v0 = true;
-    break;
-}
                 }
-                return;
+                if (o != null && o.length > 0) {
+                    final String[] array4 = new String[1 + o.length];
+                    final int[] array5 = new int[1 + o2.length];
+                    System.arraycopy(o, 0, array4, 0, o.length);
+                    System.arraycopy(o2, 0, array5, 0, o2.length);
+                    for (int i = o.length; i < array4.length; ++i) {
+                        array4[i] = array2[i - o.length];
+                        array5[i] = array3[i - o2.length];
+                    }
+                    array2 = array4;
+                    array3 = array5;
+                }
+                final br[] array6 = new br[array2.length];
+                for (int j = 0; j < array6.length; ++j) {
+                    array6[j] = new br(array2[j], array3[j]);
+                }
+                bs.a(array6);
+                final k r = this.s.r();
+                final aq o3 = this.r.o(n);
+                final int n3 = this.r.c() + (this.r.e() - bs.e()) / 2;
+                int d2 = this.r.d() + o3.d() - r.b;
+                if (dl.h >= 0) {
+                    d2 += a.f() + a.a(b).e();
+                }
+                if (d2 + bs.f() > this.r.d() + this.r.f()) {
+                    d2 = this.r.d() + this.r.f() - bs.f();
+                }
+                else if (d2 < this.r.d()) {
+                    d2 = this.r.d();
+                }
+                bs.a_(com.mg.bas.v.t, d2);
+                bs.d(n3, d2);
+                bs.a((bg)this);
+                bs.a_(1);
+                this.a(bs);
             }
-            var9_23 = new br[var7_21 /* !! */ .length];
-            var10_26 = 0;
-            while (var10_26 < ((Object)var9_23).length) {
-                var9_23[var10_26] = new br(var7_21 /* !! */ [var10_26], var8_22 /* !! */ [var10_26]);
-                ++var10_26;
-            }
-            var6_20.a((br[])var9_23);
-            var10_27 = var1_1.s.r();
-            var11_28 /* !! */  = (int[])var1_1.r.o(var2_2);
-            var9_24 = var1_1.r.c() + (var1_1.r.e() - var6_20.e()) / 2;
-            var12_30 = var1_1.r.d() + var11_28 /* !! */ .d() - var10_27.b;
-            if (var3_8.h >= 0) {
-                var12_30 += var4_10.f() + var4_10.a(var5_17).e();
-            }
-            if (var12_30 + var6_20.f() > var1_1.r.d() + var1_1.r.f()) {
-                var12_30 = var1_1.r.d() + var1_1.r.f() - var6_20.f();
-            } else if (var12_30 < var1_1.r.d()) {
-                var12_30 = var1_1.r.d();
-            }
-            var6_20.a_(v.t, var12_30);
-            var6_20.d(var9_24, var12_30);
-            var6_20.a((bg)var1_1);
-            var6_20.a_(1);
-            var1_1.a(var6_20);
         }
     }
 }

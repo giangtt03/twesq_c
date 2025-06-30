@@ -26,7 +26,7 @@ implements bf {
     private boolean A;
 
     public gt(lh lh2, String string, boolean bl, boolean bl2) {
-        this(lh2, 0, bl, bl2);
+        this(lh2, (byte)0, bl, bl2);
         this.x = string;
         this.z = bl;
     }
@@ -75,7 +75,7 @@ implements bf {
                 height += 4 + bx.d.a() + 4;
             }
             if (lh2.X > 0L) {
-                gt2.m = i.a(lh2.X, ".");
+                gt2.m = com.mg.bas.i.a(lh2.X, ".");
                 height += 4;
                 gt2.s = new cu(gt2.o.a, height);
                 int labelWidth = bx.c.a("Đặt Cược:");
@@ -105,7 +105,7 @@ implements bf {
     }
 
     public final void c(Graphics graphics) {
-        pc.d(graphics, this.n.a, this.n.b, this.n.c, this.n.d, v.aj);
+        pc.d(graphics, this.n.a, this.n.b, this.n.c, this.n.d, com.mg.bas.v.aj);
         int n = this.o.a + this.n.a;
         int n2 = this.n.b + this.o.b;
         pc.c(graphics, n, n2, this.o.c, this.o.d);

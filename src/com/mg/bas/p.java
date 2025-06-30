@@ -110,7 +110,7 @@ extends n {
 
     public static void h() {
         if (p == null) {
-            p = f.d("/smileys");
+            p = com.mg.bas.f.d("/smileys");
         }
     }
 
@@ -126,7 +126,7 @@ extends n {
         this.b = n5;
         this.c = n6;
         this.d = n7;
-        p.h();
+        com.mg.bas.p.h();
     }
 
     public final void a(Graphics graphics, int n2, int n3) {

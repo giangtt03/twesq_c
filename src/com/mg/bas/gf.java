@@ -6,7 +6,7 @@ import javax.microedition.lcdui.Image;
 
 public class gf
 extends aq {
-    private Image j = f.d("/info/btinscrease");
+    private Image j = com.mg.bas.f.d("/info/btinscrease");
     private int k;
     private int l = 0;
     private k m;

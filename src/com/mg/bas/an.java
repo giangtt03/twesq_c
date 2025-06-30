@@ -10,8 +10,11 @@ extends am {
     private boolean b;
     private bs c;
     private boolean d;
-    private boolean k;
+    boolean k;
+    private ol olRef;
     private az[] l;
+    public String u;
+    public String[] v;
 
     public an(int n) {
         this.b(n);
@@ -44,39 +47,39 @@ extends am {
         object2 = null;
         object2 = null;
         bs bs2 = object;
-        object = this;
-        Object object3 = new ao((an)object, 0);
+        an anObj = this;
+        ao aoObj = new ao(anObj, (byte) 0);
         object2 = ag.c().b(-90001);
         ((az)object2).a(-90001);
-        ((az)object2).a((bf)object3);
+        ((az)object2).a((bf)aoObj);
         bs2.a((az)object2);
         object2 = ag.c().c(-90002);
         ((az)object2).a(-90002);
-        ((az)object2).a((bf)object3);
+        ((az)object2).a((bf)aoObj);
         bs2.b((az)object2);
         object2 = ag.c().a(-90000);
         ((az)object2).a(-90000);
-        ((az)object2).a((bf)object3);
-        object3 = object2;
-        object2 = object;
-        ((am)object2).a((az)object3, true);
-        ((an)object).c = bs2;
-        ((an)object).d = false;
+        ((az)object2).a((bf)aoObj);
+        Object object3 = object2;
+        Object object4 = anObj;
+        ((am)object4).a((az)object3, true);
+        ((an)anObj).c = bs2;
+        ((an)anObj).d = false;
     }
 
     public final void b(boolean bl) {
         this.k = true;
     }
 
-    protected final void c(boolean n) {
-        v.c();
+    protected final void c(boolean flag) {
+        com.mg.bas.v.c();
         if (this.c != null) {
-            this.d = n;
-            if (n != 0) {
-                n = 0;
-                while (n < this.j.length) {
-                    this.l[n] = this.j[n];
-                    ++n;
+            this.d = flag;
+            if (flag) {
+                int i = 0;
+                while (i < this.j.length) {
+                    this.l[i] = this.j[i];
+                    ++i;
                 }
                 az az2 = this.c.a()[0];
                 an an2 = this;
@@ -86,11 +89,11 @@ extends am {
                 an2 = this;
                 an2.b(az2, true);
                 int n2 = this.c.e() > this.c.f() ? this.c.e() : this.c.f();
-                this.c.a_(-n2, v.u);
-                this.c.d(0, v.u - ba.a - this.c.f());
+                this.c.a_(-n2, com.mg.bas.v.u);
+                this.c.d(0, com.mg.bas.v.u - ba.a - this.c.f());
                 return;
             }
-            n = 0;
+            int n = 0;
             while (n < this.j.length) {
                 this.j[n] = this.l[n];
                 ++n;
@@ -193,5 +196,18 @@ extends am {
 
     static bs a(an an2) {
         return an2.c;
+    }
+
+    public int dInt() {
+        // No dynamic array, so return 0 by default
+        return 0;
+    }
+
+    public boolean getK() {
+        return this.k;
+    }
+
+    public ol getOl() {
+        return this.olRef;
     }
 }

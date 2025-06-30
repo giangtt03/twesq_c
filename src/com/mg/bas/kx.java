@@ -43,9 +43,9 @@ public final class kx {
         }
         catch (Throwable throwable) {
             byte[] byArray = ((String)object).getBytes();
-            object = m.a(byArray.length);
+            byte[] byArray2 = m.a(byArray.length);
             try {
-                ((kx)object2).a.write((byte[])object, 0, 4);
+                ((kx)object2).a.write(byArray2, 0, 4);
                 ((kx)object2).a.write(byArray, 0, byArray.length);
                 return;
             }

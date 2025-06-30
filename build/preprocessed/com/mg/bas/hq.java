@@ -22,18 +22,18 @@ bq {
     private lq y;
     private d z = new iff(new int[]{0xFF0000, 0xFFFF00});
 
-    public hq(lq[] object) {
+    public hq(lq[] lqArray) {
         this.s = new ox(null);
         this.b(241235);
-        this.a(0, 0, v.t, v.u);
+        this.a(0, 0, com.mg.bas.v.t, com.mg.bas.v.u);
         this.k = new ay(0);
         this.k.a(this.a(), this.c(), this.i(), this.j() - ba.a);
         this.p = new aw();
-        this.p.a(this);
-        this.p.a(this);
+        this.p.a((bn)this);
+        this.p.a((bq)this);
         this.p.e(true);
         this.k.b(this.p);
-        this.r = new lf(999, "Đang bán", ((lq[])object).length);
+        this.r = new lf(999, "Đang bán", lqArray.length);
         this.q = new dk[1];
         int n = 0;
         while (n < this.q.length) {
@@ -41,9 +41,9 @@ bq {
             ++n;
         }
         if (0 < this.q.length) {
-            this.q[0].a((lq[])object);
+            this.q[0].a(lqArray);
             this.q[0].a = true;
-            this.q[0].c = ((lq[])object).length;
+            this.q[0].c = lqArray.length;
             this.v();
         }
         this.z = new iff(new int[]{0xFF0000, 0xFFFF00});
@@ -52,8 +52,7 @@ bq {
         this.u = new ft(go.s / 2L);
         this.u.a(go.s);
         az az2 = this.v = new gb(1, 0);
-        object = this;
-        object.a(az2, true);
+        this.a(az2, true);
         this.w = new gb(2, 2);
         this.x = new gb(3, 3);
     }
@@ -78,19 +77,19 @@ bq {
             }
             ++n3;
         }
-        Object object = new Object[n2];
+        Object[] objArr = new Object[n2];
         n2 = 0;
         int n4 = 0;
         while (n4 < this.q.length) {
-            object[n2++] = this.q[n4];
+            objArr[n2++] = this.q[n4];
             if (this.q[n4].a && !this.q[n4].e()) {
                 n = 0;
                 while (n < this.q[n4].b.length) {
-                    object[n2++] = this.q[n4].b[n];
+                    objArr[n2++] = this.q[n4].b[n];
                     ++n;
                 }
                 if (this.q[n4].b.length < this.q[n4].d()) {
-                    object[n2++] = new dp("Xem thêm", this.q[n4]);
+                    objArr[n2++] = new dp("Xem thêm", this.q[n4]);
                 }
             }
             ++n4;
@@ -100,20 +99,19 @@ bq {
         aw aw2 = this.p;
         synchronized (aw2) {
             this.p.q();
-            this.p.a((Object[])object);
+            this.p.a(objArr);
             this.p.k(n4);
-            n4 = n;
-            object = this;
-            aq aq2 = object.p.o(object.p.s());
+            int scrollY = n;
+            aq aq2 = this.p.o(this.p.s());
             if (aq2 != null) {
                 aq aq3;
-                if (object.p.s() < object.p.a() - 1 && (aq3 = object.p.o(object.p.s() + 1)).d() + aq3.f() - n4 > object.p.f()) {
-                    n4 = aq3.d() + aq3.f() - object.p.f();
+                if (this.p.s() < this.p.a() - 1 && (aq3 = this.p.o(this.p.s() + 1)).d() + aq3.f() - scrollY > this.p.f()) {
+                    scrollY = aq3.d() + aq3.f() - this.p.f();
                 }
-                if (aq2.d() + aq2.f() - n4 > object.p.f()) {
-                    n4 = aq2.d() + aq2.f() - object.p.f();
+                if (aq2.d() + aq2.f() - scrollY > this.p.f()) {
+                    scrollY = aq2.d() + aq2.f() - this.p.f();
                 }
-                object.k.k(n4);
+                this.k.k(scrollY);
             }
             this.e(true);
             return;
@@ -163,13 +161,13 @@ bq {
             this.k.c(true);
         }
         if (this.k.k()) {
-            graphics.setColor(v.am);
+            graphics.setColor(com.mg.bas.v.am);
             graphics.fillRect(0, 0, this.i(), this.j());
             graphics.drawImage(pc.d, this.a() + this.i(), this.c() + this.j() - ba.a, 40);
         }
         this.k.a(graphics, this.a(), this.c());
         this.k.c(true);
-        graphics.setColor(v.am);
+        graphics.setColor(com.mg.bas.v.am);
         if (this.u != null) {
             this.u.a(graphics, 0, 0);
         }
@@ -178,56 +176,53 @@ bq {
     public final void b(Graphics graphics) {
     }
 
-    public final void b(aq object, int n) {
-        object = this.p.i(n);
-        if (object instanceof dk) {
-            object = (dk)object;
-            if (((dk)object).a) {
-                ((dk)object).a = false;
+    public final void b(aq cell, int n) {
+        Object obj = this.p.i(n);
+        if (obj instanceof dk) {
+            dk dkObj = (dk)obj;
+            if (dkObj.a) {
+                dkObj.a = false;
                 this.v();
                 return;
             }
             hq.t();
             return;
         }
-        if (object instanceof dp) {
-            object = (dp)object;
-            object = (dk)((dp)object).b;
-            n = ((dk)object).b == null ? 0 : ((dk)object).b.length;
-            ks.a().b(((dk)object).b(), 10, n);
+        if (obj instanceof dp) {
+            dp dpObj = (dp)obj;
+            dk dkObj = (dk)dpObj.b;
+            int len = (dkObj.b == null ? 0 : dkObj.b.length);
+            ks.a().b(dkObj.b(), 10, len);
             com.mg.sq.a.s().a((String)null, (il)null);
             return;
         }
-        if (object instanceof lq) {
-            Object object2 = (lq)object;
-            object = this;
-            this.y = object2;
-            object2 = new bs();
-            Object object3 = null;
-            Object object4 = null;
-            object3 = new String[]{"Ngưng bán", "C.Tiết", "Gia hạn"};
-            object4 = new int[]{11111, 11112, 11114};
+        if (obj instanceof lq) {
+            lq lqObj = (lq)obj;
+            this.y = lqObj;
+            bs bsObj = new bs();
+            String[] options = new String[]{"Ngưng bán", "C.Tiết", "Gia hạn"};
+            int[] codes = new int[]{11111, 11112, 11114};
             br[] brArray = new br[3];
-            int n2 = 0;
-            while (n2 < 3) {
-                brArray[n2] = new br(object3[n2], object4[n2]);
-                ++n2;
+            int i = 0;
+            while (i < 3) {
+                brArray[i] = new br(options[i], codes[i]);
+                ++i;
             }
-            ((bs)object2).a(brArray);
-            n2 = ((hq)object).p.s();
-            object3 = ((hq)object).p.o(n2);
-            object4 = ((hq)object).k.r();
-            int n3 = (v.t - ((aq)object2).e()) / 2;
-            int n4 = ((hq)object).k.d() + ((aq)object3).d() - object4.b;
-            if (n4 + ((aq)object2).f() > v.u - ba.a) {
-                n4 = v.u - ba.a - ((aq)object2).f();
+            bsObj.a(brArray);
+            int selIdx = this.p.s();
+            aq aqObj = this.p.o(selIdx);
+            k kRect = this.k.r();
+            int n3 = (com.mg.bas.v.t - bsObj.e()) / 2;
+            int n4 = this.k.d() + aqObj.d() - kRect.b;
+            if (n4 + bsObj.f() > com.mg.bas.v.u - ba.a) {
+                n4 = com.mg.bas.v.u - ba.a - bsObj.f();
             }
-            ((bs)object2).a_(v.t + ((aq)object2).e(), n4);
-            ((bs)object2).d(n3, n4);
-            ((aq)object2).a_(1);
-            ((bs)object2).a((bf)object);
-            ((ht)object).a((bs)object2, ((hq)object).w, com.mg.sq.a.n, ((hq)object).x);
-            ((ht)object).n = true;
+            bsObj.a_(com.mg.bas.v.t + bsObj.e(), n4);
+            bsObj.d(n3, n4);
+            bsObj.a_(1);
+            bsObj.a((bf)this);
+            ((ht)this).a(bsObj, this.w, com.mg.sq.a.n, this.x);
+            ((ht)this).n = true;
         }
     }
 
@@ -242,31 +237,32 @@ bq {
     public final void a(aq aq2, int n, int n2) {
     }
 
-    public final aq a(aw object, int n) {
-        if ((object = ((aw)object).i(n)) == null) {
+    public final aq a(aw awObj, int n) {
+        Object obj = awObj.i(n);
+        if (obj == null) {
             return null;
         }
-        if (object instanceof dk) {
-            return new fi((dk)object);
+        if (obj instanceof dk) {
+            return new fi((dk)obj);
         }
-        if (object instanceof dp) {
+        if (obj instanceof dp) {
             return new gl(37);
         }
         ct.a("[getListCellRenderer]========================");
         Image image = null;
-        if (object instanceof lq) {
-            object = (lq)object;
-            if (((lq)object).e instanceof lm) {
-                lm lm2 = (lm)((lq)object).e;
-                return new fj(lm2.b, lm2.a, lm2.j, lm2.g, lm2.h, -1, false, null, null, ((lq)object).g);
+        if (obj instanceof lq) {
+            lq lqObj = (lq)obj;
+            if (lqObj.e instanceof lm) {
+                lm lm2 = (lm)lqObj.e;
+                return new fj(lm2.b, lm2.a, lm2.j, lm2.g, lm2.h, -1, false, null, null, lqObj.g);
             }
-            if (((lq)object).e instanceof ll) {
-                ll ll2 = (ll)((lq)object).e;
+            if (lqObj.e instanceof ll) {
+                ll ll2 = (ll)lqObj.e;
                 try {
                     image = this.s.a(mb.a(ll2.n), true);
                 }
                 catch (Throwable throwable) {}
-                return new fj(ll2.d, ll2.b, ll2.l, ll2.m, false, image, ll2.f, ll2.j, this.z, null, ((lq)object).g);
+                return new fj(ll2.d, ll2.b, ll2.l, ll2.m, false, image, ll2.f, ll2.j, this.z, null, lqObj.g);
             }
         }
         return null;

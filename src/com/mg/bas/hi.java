@@ -6,7 +6,7 @@ import javax.microedition.lcdui.Image;
 
 public final class hi
 extends at {
-    private Image a = f.d("/m/fsw");
+    private Image a = com.mg.bas.f.d("/m/fsw");
     private Image b = pc.b;
     private int c;
     private int d = this.b.getWidth() / 3;

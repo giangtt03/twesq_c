@@ -7,7 +7,7 @@ import javax.microedition.lcdui.Image;
 public final class hh
 extends ht
 implements bq {
-    private Image k = f.d("/info/hidenobj");
+    private Image k = com.mg.bas.f.d("/info/hidenobj");
     private int p = 32;
     private cu q = null;
     private cu r = null;
@@ -47,13 +47,7 @@ implements bq {
     private d Z;
     private boolean aa = false;
 
-    public hh(ox object, d d2) {
-        k k2;
-        k k3;
-        k k4;
-        k k5;
-        k k6;
-        Object object2;
+    public hh(ox oxObj, d d2) {
         this.b(241202);
         this.a(new ba());
         this.a(this);
@@ -65,67 +59,64 @@ implements bq {
         int n2 = 320 - ba.a;
         if (hh.B()) {
             n = 320;
-            n2 = v.u - ba.a;
+            n2 = com.mg.bas.v.u - ba.a;
         }
-        int n3 = v.t >= n ? (v.t - n) / 2 : 0;
-        int n4 = v.u >= n2 ? (v.u - ba.a - n2) / 2 : 0;
+        int n3 = com.mg.bas.v.t >= n ? (com.mg.bas.v.t - n) / 2 : 0;
+        int n4 = com.mg.bas.v.u >= n2 ? (com.mg.bas.v.u - ba.a - n2) / 2 : 0;
         this.a(n3, n4, n, n2);
-        this.N = new ox((ox)object);
-        object = this;
+        this.N = new ox(oxObj);
         this.q = new cu(6, 4);
-        ((hh)object).r = new cu(22, 6);
+        this.r = new cu(22, 6);
+        k object2, k6, k5, k4, k3, k2;
         if (hh.B()) {
-            ((hh)object).s = new k(13, 24, 54, 60);
+            this.s = new k(13, 24, 54, 60);
             object2 = new k(6, 90, 32, 32);
             k6 = new k(6, 126, 32, 32);
             k5 = new k(42, 90, 32, 32);
             k4 = new k(42, 126, 32, 32);
             k3 = new k(6, 162, 32, 32);
             k2 = new k(42, 162, 32, 32);
-            ((hh)object).t = new k(79, 23, 226, ((am)object).g - 33);
+            this.t = new k(79, 23, 226, this.g - 33);
         } else {
-            ((hh)object).s = new k(95, 21, 54, 60);
+            this.s = new k(95, 21, 54, 60);
             object2 = new k(60, 18, 32, 32);
             k6 = new k(60, 53, 32, 32);
             k5 = new k(153, 18, 32, 32);
             k4 = new k(153, 53, 32, 32);
             k3 = new k(189, 18, 32, 32);
             k2 = new k(189, 53, 32, 32);
-            ((hh)object).t = new k(9, 88, 220, ((am)object).g - 96);
+            this.t = new k(9, 88, 220, this.g - 96);
         }
-        ((hh)object).v = new fg(hh.B());
-        ((hh)object).v.e(true);
-        ((hh)object).v.i = new k(((hh)object).t.a, ((hh)object).t.b, ((hh)object).t.c, ((hh)object).t.d);
-        ((hh)object).M = go.k.a();
-        Object object3 = ((hh)object).M;
-        int n5 = go.l.length - object3.D.length;
+        this.v = new fg(hh.B());
+        this.v.e(true);
+        this.v.i = new k(this.t.a, this.t.b, this.t.c, this.t.d);
+        this.M = go.k.a();
+        int n5 = go.l.length - this.M.D.length;
         int n6 = 0;
         while (n6 < go.m.length) {
             n5 = go.m[n6].l == 1 ? (n5 += go.m[n6].g) : (go.m[n6].l > 1 ? (n5 += go.m[n6].g / go.m[n6].l + (go.m[n6].g % go.m[n6].l > 0 ? 1 : 0)) : ++n5);
             ++n6;
         }
-        ((hh)object).Y = n5;
-        if (((hh)object).Y < go.n) {
-            ((hh)object).Y = go.n;
+        this.Y = n5;
+        if (this.Y < go.n) {
+            this.Y = go.n;
         }
-        ((hh)object).v.d(((hh)object).Y, 2);
-        ((hh)object).v.a((bq)object);
-        ((hh)object).h(0);
+        this.v.d(this.Y, 2);
+        this.v.a((bq)this);
+        this.h(0);
         ll[] llArray = go.l;
-        object3 = object;
-        n6 = object3.M.D.length;
-        object3.v.t();
+        n6 = this.M.D.length;
+        this.v.t();
         int n7 = 0;
         while (n7 < llArray.length) {
             if (llArray[n7] != null) {
                 boolean bl = false;
                 if (n6 > 0) {
                     int n8 = 0;
-                    while (n8 < object3.M.D.length) {
-                        if (llArray[n7].c.equals(object3.M.D[n8].c)) {
+                    while (n8 < this.M.D.length) {
+                        if (llArray[n7].c.equals(this.M.D[n8].c)) {
                             if (llArray[n7].e != 8) {
-                                lm[] lmArray = object3;
-                                object3.F[llArray[n7].e] = new dc(object3.N.a(mb.a(llArray[n7]) + 98, true), llArray[n7], 0, object3.Z);
+                                this.F[llArray[n7].e] = new dc(this.N.a(mb.a(llArray[n7]) + 98, true), llArray[n7], 0, this.Z);
                             }
                             --n6;
                             bl = true;
@@ -135,74 +126,68 @@ implements bq {
                     }
                 }
                 if (!bl) {
-                    lm[] lmArray = object3;
-                    dc dc2 = new dc(object3.N.a(mb.a(llArray[n7]) + 98, true), llArray[n7], 0, object3.Z);
-                    object3.v.a((Object)dc2);
+                    dc dc2 = new dc(this.N.a(mb.a(llArray[n7]) + 98, true), llArray[n7], 0, this.Z);
+                    this.v.a((Object)dc2);
                 }
             }
             ++n7;
         }
-        object3 = new lm[go.m.length];
+        lm[] lmArray = new lm[go.m.length];
         int n9 = 0;
-        while (n9 < ((lm[])object3).length) {
-            object3[n9] = go.m[n9].b();
+        while (n9 < lmArray.length) {
+            lmArray[n9] = go.m[n9].b();
             ++n9;
         }
-        super.a((lm[])object3);
-        ((hh)object).D = new ay();
-        ((hh)object).D.a(new k(((hh)object).t.a, ((hh)object).t.b, ((hh)object).t.c, ((hh)object).t.d));
-        ((hh)object).D.b(((hh)object).v);
-        ((hh)object).D.h(1);
-        ((hh)object).u = new k[]{object2, k6, k5, k4, k3, k2, ((hh)object).t};
-        object3 = object;
-        ((hh)object).x = new byte[6][4];
+        this.a(lmArray);
+        this.D = new ay();
+        this.D.a(new k(this.t.a, this.t.b, this.t.c, this.t.d));
+        this.D.b(this.v);
+        this.D.h(1);
+        this.u = new k[]{object2, k6, k5, k4, k3, k2, this.t};
+        this.x = new byte[6][4];
         if (hh.B()) {
             byte[] byArray = new byte[4];
             byArray[0] = 2;
             byArray[2] = 1;
-            object3.x[0] = byArray;
+            this.x[0] = byArray;
             byte[] byArray2 = new byte[4];
             byArray2[0] = 3;
             byArray2[1] = 1;
             byArray2[2] = 4;
-            object3.x[1] = byArray2;
+            this.x[1] = byArray2;
             byte[] byArray3 = new byte[4];
             byArray3[0] = -3;
             byArray3[2] = 3;
             byArray3[3] = 2;
-            object3.x[2] = byArray3;
-            object3.x[3] = new byte[]{-3, 1, 5, 2};
-            object3.x[4] = new byte[]{5, 4, 4, 1};
-            object3.x[5] = new byte[]{-3, 4, 5, 3};
+            this.x[2] = byArray3;
+            this.x[3] = new byte[]{-3, 1, 5, 2};
+            this.x[4] = new byte[]{5, 4, 4, 1};
+            this.x[5] = new byte[]{-3, 4, 5, 3};
         } else {
-            object3.x[0] = new byte[]{2, -2, 1, -2};
+            this.x[0] = new byte[]{2, -2, 1, -2};
             byte[] byArray = new byte[4];
             byArray[0] = 3;
             byArray[1] = -1;
             byArray[2] = -3;
-            object3.x[1] = byArray;
+            this.x[1] = byArray;
             byte[] byArray4 = new byte[4];
             byArray4[0] = 4;
             byArray4[2] = 3;
             byArray4[3] = -1;
-            object3.x[2] = byArray4;
-            object3.x[3] = new byte[]{5, 1, -3, 2};
-            object3.x[4] = new byte[]{4, 2, 5, 4};
-            object3.x[5] = new byte[]{5, 3, -3, 4};
+            this.x[2] = byArray4;
+            this.x[3] = new byte[]{5, 1, -3, 2};
+            this.x[4] = new byte[]{4, 2, 5, 4};
+            this.x[5] = new byte[]{5, 3, -3, 4};
         }
-        super.a(((hh)object).M, null);
-        ((hh)object).A = new gb(0, 0);
-        ((hh)object).C = new gb(3, 2);
-        ((hh)object).B = new gb(4, 3);
-        ((am)object).a(com.mg.sq.a.n);
-        object2 = ((hh)object).A;
-        Object object4 = object;
-        ((am)object4).a((az)object2, true);
-        object2 = ((hh)object).B;
-        object4 = object;
-        ((am)object4).b((az)object2, true);
-        ((hh)object).i(((hh)object).w);
-        ((hh)object).U = com.mg.sq.a.a(((hh)object).M.b, ((am)object).i() - 85);
+        this.a(this.M, null);
+        this.A = new gb(0, 0);
+        this.C = new gb(3, 2);
+        this.B = new gb(4, 3);
+        this.a(com.mg.sq.a.n);
+        this.a(this.A, true);
+        this.b(this.B, true);
+        this.i(this.w);
+        this.U = com.mg.sq.a.a(this.M.b, this.i() - 85);
         this.a((az)null);
         this.h(0);
         if (!cs.a.c(143)) {
@@ -823,7 +808,7 @@ implements bq {
             n2 = this.d + k2.b - bs2.f();
         }
         n = n < this.c ? this.c : (n + bs2.e() > this.c + this.f ? this.c + this.f - bs2.e() : n);
-        bs2.a_(v.t + bs2.e(), n2);
+        bs2.a_(com.mg.bas.v.t + bs2.e(), n2);
         bs2.d(n, n2);
         bs2.a(this);
         bs2.a_(1);
@@ -885,7 +870,7 @@ implements bq {
             case 1111119: {
                 al al2 = (hu)com.mg.sq.a.s().d(241234);
                 long l = ((hu)al2).t() * 1000L;
-                al2 = com.mg.sq.a.s().a("Chú ý", "Bạn có muốn bán " + ((hu)al2).k + " giá: " + i.a(l, ",") + " Ken không?", "Có", 28, "Không", 29, 1);
+                al2 = com.mg.sq.a.s().a("Chú ý", "Bạn có muốn bán " + ((hu)al2).k + " giá: " + com.mg.bas.i.a(l, ",") + " Ken không?", "Có", 28, "Không", 29, 1);
                 al2.b(-446456);
                 al2.a(this);
                 com.mg.sq.a.s().a(al2);
@@ -1094,10 +1079,10 @@ implements bq {
         return false;
     }
 
-    private void c(dc object) {
-        object = new hu((dc)object, "Rao bán", 1111119, "Hủy", 1111120);
-        ((am)object).a(this);
-        ag.b().a((al)object, false);
+    private void c(dc dcObj) {
+        hu huObj = new hu(dcObj, "Rao bán", 1111119, "Hủy", 1111120);
+        huObj.a(this);
+        ag.b().a(huObj, false);
     }
 
     protected final void s() {
@@ -1186,8 +1171,8 @@ implements bq {
                     object = this;
                     ((am)object).a(az3, true);
                 }
+                return;
             }
-            return;
         }
         switch (this.L) {
             case 1: {
@@ -1203,28 +1188,25 @@ implements bq {
         }
     }
 
-    public final void a(ll object) {
-        if (object == null) {
+    public final void a(ll llObj) {
+        if (llObj == null) {
             this.a((az)null);
             az az2 = null;
-            object = this;
-            ((am)object).a(az2, true);
+            ((am)this).a(az2, true);
             return;
         }
         if (this.L != 0) {
-            if (((ll)object).b()) {
-                if (((ll)object).c()) {
+            if (llObj.b()) {
+                if (llObj.c()) {
                     this.a(new bd("", 22));
                     bd bd2 = new bd("Sửa chữa", 22);
-                    object = this;
-                    ((am)object).a(bd2, true);
+                    ((am)this).a(bd2, true);
                     return;
                 }
             } else {
                 this.a((az)null);
                 az az3 = null;
-                object = this;
-                ((am)object).a(az3, true);
+                ((am)this).a(az3, true);
             }
         }
     }
@@ -1243,15 +1225,15 @@ implements bq {
         }
     }
 
-    private void c(ll object) {
-        if (((hl)(object = com.mg.sq.a.a((bf)this, new bd("Chọn", 21), new bd("Đóng", 20), new bd("", 21), (ll)object))).u() <= 0) {
-            ((hl)object).a("Hiện tại bạn không còn cây búa nào để sữa chữa! Bạn có muốn vào cửa hàng mua không?");
+    private void c(ll llObj) {
+        hl hlObj = com.mg.sq.a.a((bf)this, new bd("Chọn", 21), new bd("Đóng", 20), new bd("", 21), llObj);
+        if (hlObj.u() <= 0) {
+            hlObj.a("Hiện tại bạn không còn cây búa nào để sữa chữa! Bạn có muốn vào cửa hàng mua không?");
             bd bd2 = new bd("C.Hàng", 26);
-            Object object2 = object;
-            ((am)object2).a(bd2, true);
-            ((hl)object).a(new bd("", 26));
+            ((am)hlObj).a(bd2, true);
+            hlObj.a(new bd("", 26));
         }
-        ((hl)object).e(2);
+        hlObj.e(2);
         this.A();
     }
 
@@ -1283,12 +1265,12 @@ implements bq {
         this.a(this.v.u());
     }
 
-    public final void a(aq object, int n) {
-        if (object == null && n > this.Y - 1) {
-            object = this;
-            object = new dc(this.v.k, null, 3, ((hh)object).Z);
+    public final void a(aq aqObj, int n) {
+        if (aqObj == null && n > this.Y - 1) {
+            this.a((Object)new dc(this.v.k, null, 3, this.Z));
+            return;
         }
-        this.a(object);
+        this.a(aqObj);
     }
 
     public final void a(aq aq2, int n, int n2) {
@@ -1324,29 +1306,25 @@ implements bq {
             ++n2;
         }
         if (lm2.l <= 0) {
-            object = lm2.b();
-            lm2.b().g = n;
-            lm lm3 = object;
-            object = this;
-            dc dc2 = new dc(null, lm3, lm2.e == 3 ? 2 : 1, ((hh)object).Z);
+            lm lm3 = lm2.b();
+            lm3.g = n;
+            dc dc2 = new dc(null, lm3, lm2.e == 3 ? 2 : 1, this.Z);
             this.v.a((Object)dc2);
             return;
         }
         n2 = n / lm2.l + (n % lm2.l > 0 ? 1 : 0);
         int n3 = 0;
         while (n3 < n2) {
-            object = lm2.b();
+            lm lmObj = lm2.b();
             if (n >= lm2.l) {
-                ((lm)object).g = lm2.l;
+                lmObj.g = lm2.l;
                 n -= lm2.l;
             } else if (n > 0) {
-                ((lm)object).g = n;
+                lmObj.g = n;
                 n = 0;
             }
-            Object object2 = object;
-            object = this;
-            object = new dc(null, object2, lm2.e == 3 ? 2 : 1, ((hh)object).Z);
-            this.v.a(object);
+            dc dcObj = new dc(null, lmObj, lm2.e == 3 ? 2 : 1, this.Z);
+            this.v.a(dcObj);
             ++n3;
         }
     }
@@ -1381,13 +1359,12 @@ implements bq {
                 int n3 = this.d;
                 int n4 = this.c;
                 k k2 = this.u[ll3.e];
-                ll3 = graphics;
-                ll3.setColor(0xFEFF77);
-                ll3.drawRect(k2.a + n4, k2.b + n3, k2.c, k2.d);
-                ll3.setColor(16776624);
-                ll3.drawRect(k2.a - 1 + n4, k2.b - 1 + n3, k2.c + 2, k2.d + 2);
-                ll3.setColor(0xFFFDD3);
-                ll3.drawRect(k2.a - 2 + n4, k2.b - 2 + n3, k2.c + 4, k2.d + 4);
+                graphics.setColor(0xFEFF77);
+                graphics.drawRect(k2.a + n4, k2.b + n3, k2.c, k2.d);
+                graphics.setColor(16776624);
+                graphics.drawRect(k2.a - 1 + n4, k2.b - 1 + n3, k2.c + 2, k2.d + 2);
+                graphics.setColor(0xFFFDD3);
+                graphics.drawRect(k2.a - 2 + n4, k2.b - 2 + n3, k2.c + 4, k2.d + 4);
             }
         }
         if (!this.v.m()) {
@@ -1417,15 +1394,13 @@ implements bq {
     }
 
     public final void a(Graphics graphics) {
-        pc.a(graphics, this.c, this.d, this.f, this.g, v.aj, true);
+        pc.a(graphics, this.c, this.d, this.f, this.g, com.mg.bas.v.aj, true);
     }
 
-    public final void b(ll object) {
-        Image image = this.N.a(mb.a((ll)object) + 98, true);
-        ll ll2 = object;
-        object = this;
-        object = new dc(image, ll2, 0, ((hh)object).Z);
-        this.b((dc)object);
+    public final void b(ll llObj) {
+        Image image = this.N.a(mb.a(llObj) + 98, true);
+        dc dcObj = new dc(image, llObj, 0, this.Z);
+        this.b(dcObj);
         this.a(this.v.r());
         this.v.h(this.v.a() + 1);
         com.mg.sq.a.s().v();

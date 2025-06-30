@@ -79,11 +79,8 @@ extends as {
 
     public mg(Image[] object, int[][] nArray, int[][] nArray2, g g2) {
         this.s = object;
-        object = this;
         this.t = nArray;
-        nArray = nArray2;
-        object = this;
-        this.A = nArray;
+        this.A = nArray2;
         this.h(g2.a);
         this.i(g2.b);
     }

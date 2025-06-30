@@ -19,82 +19,94 @@ implements b {
     }
 
     public final void a(int[][] nArray) {
+        if (nArray == null) {
+            System.out.println("[DEBUG] a(int[][]): nArray is null");
+            return;
+        }
         this.o = nArray;
     }
 
     public final void a(aq aq2) {
+        if (aq2 == null) {
+            System.out.println("[DEBUG] a(aq): aq2 is null");
+            return;
+        }
         this.a(new aq[]{aq2});
     }
 
-    public final void a(aq[] object) {
-        int n2 = 0;
-        while (n2 < ((aq[])object).length) {
-            this.k.a(object[n2]);
-            ++n2;
+    public final void a(aq[] arr) {
+        if (arr == null) {
+            System.out.println("[DEBUG] a(aq[]): arr is null");
+            return;
         }
-        he he2 = this;
-        object = this.k;
-        he he3 = he2;
-        int n3 = ((a)object).d();
-        boolean bl = false;
-        Object object2 = this.k;
-        if (n3 > 0) {
-            Object[] objectArray = object2;
-            he he4 = he3;
-            int n4 = n3;
-            n3 = 0;
-            if ((object2 = object2.e()) != null) {
-                n4 = n3 + n4;
-                ++n3;
-                while (n3 < n4) {
-                    int n5 = 0;
-                    int n6 = n3 - 1;
-                    int n7 = n6 / 2;
-                    do {
-                        int n8;
-                        if ((n8 = he4.a(object2[n7], object2[n3])) < 0) {
-                            n5 = n7 + 1;
-                        } else if (n8 > 0) {
-                            n6 = n7;
-                        } else {
-                            n5 = n6 = n7 + 1;
-                        }
-                        n7 = (n6 + n5) / 2;
-                    } while (n6 > n5);
-                    if (n7 < n3 - 1) {
-                        Object object3 = object2[n3];
-                        n5 = n3;
-                        while (n5 > n7) {
-                            g.a(object2, n5, n5 - 1);
-                            --n5;
-                        }
-                        object2[n7] = object3;
-                    } else if (he4.a(object2[n3 - 1], object2[n3]) > 0) {
-                        g.a(object2, n3, n3 - 1);
-                    }
-                    ++n3;
-                }
+        for (int n2 = 0; n2 < arr.length; ++n2) {
+            if (arr[n2] == null) {
+                System.out.println("[DEBUG] a(aq[]): arr[" + n2 + "] is null");
+                continue;
             }
-            objectArray.a((Object[])object2);
+            this.k.a(arr[n2]);
         }
-        n3 = 0;
-        while (n3 < this.k.d()) {
-            object2 = this.h(n3);
-            if (object2.m()) {
-                this.l = n3;
+        a aObj = this.k;
+        int n3 = aObj.d();
+        if (n3 > 0) {
+            Object[] objArr = aObj.e();
+            if (objArr != null) {
+                for (int i = 1; i < objArr.length; ++i) {
+                    if (objArr[i] == null) continue;
+                    int left = 0;
+                    int right = i - 1;
+                    int mid = (left + right) / 2;
+                    while (left <= right) {
+                        if (objArr[mid] == null) {
+                            left++;
+                            mid = (left + right) / 2;
+                            continue;
+                        }
+                        int cmp = this.a(objArr[mid], objArr[i]);
+                        if (cmp < 0) {
+                            left = mid + 1;
+                        } else if (cmp > 0) {
+                            right = mid - 1;
+                        } else {
+                            left = right = mid + 1;
+                        }
+                        mid = (left + right) / 2;
+                    }
+                    if (mid < i - 1) {
+                        Object temp = objArr[i];
+                        int j = i;
+                        while (j > mid) {
+                            com.mg.bas.g.a(objArr, j, j - 1);
+                            --j;
+                        }
+                        objArr[mid] = temp;
+                    } else if (i > 0 && objArr[i - 1] != null && this.a(objArr[i - 1], objArr[i]) > 0) {
+                        com.mg.bas.g.a(objArr, i, i - 1);
+                    }
+                }
+                aObj.a(objArr); // cập nhật lại mảng
+            }
+        }
+        for (int i = 0; i < this.k.d(); ++i) {
+            aq aq2 = this.h(i);
+            if (aq2 == null) {
+                System.out.println("[DEBUG] a(aq[]): this.h(" + i + ") is null");
+                continue;
+            }
+            if (aq2.m()) {
+                this.l = i;
                 return;
             }
-            ++n3;
         }
     }
 
     public final void e(boolean n2) {
-        super.e(n2 != 0);
-        if (n2 != 0) {
-            n2 = 0;
-            while (n2 < this.k.d()) {
-                this.h(n2).c(true);
-                ++n2;
+        super.e(n2);
+        if (n2) {
+            int i = 0;
+            while (i < this.k.d()) {
+                this.h(i).c(true);
+                ++i;
             }
         }
     }
@@ -106,7 +118,7 @@ implements b {
             this.m = null;
             return;
         }
-        if (az2 instanceof bd && i.b((bd2 = (bd)az2).d())) {
+        if (az2 instanceof bd && com.mg.bas.i.b((bd2 = (bd)az2).d())) {
             this.m = az2;
             return;
         }
@@ -120,7 +132,7 @@ implements b {
             this.n = null;
             return;
         }
-        if (az2 instanceof bd && i.b((bd2 = (bd)az2).d())) {
+        if (az2 instanceof bd && com.mg.bas.i.b((bd2 = (bd)az2).d())) {
             this.n = az2;
             return;
         }
@@ -181,7 +193,16 @@ implements b {
     }
 
     protected void a(Graphics graphics) {
-        pc.a(graphics, this.c, this.d, this.f, this.g, v.aj, true);
+        if (graphics == null) {
+            System.out.println("[DEBUG] a(Graphics): graphics is null");
+            return;
+        }
+        try {
+            pc.a(graphics, this.c, this.d, this.f, this.g, v.aj, true);
+        } catch (Throwable t) {
+            System.out.println("[DEBUG] Exception in a(Graphics): " + t);
+            t.printStackTrace();
+        }
     }
 
     protected void g() {
@@ -220,41 +241,49 @@ implements b {
     }
 
     public final void b(int n2, int n3) {
-        this.h(this.l).f(n2, n3);
+        // Thêm kiểm tra null để tránh NPE
+        if (this.l < 0) return;
+        aq aqObj = this.h(this.l);
+        if (aqObj != null) {
+            aqObj.f(n2, n3);
+        }
     }
 
     public final void c(int n2, int n3) {
-        this.h(this.l).e(n2, n3);
+        // Thêm kiểm tra null để tránh NPE
+        if (this.l < 0) return;
+        aq aqObj = this.h(this.l);
+        if (aqObj != null) {
+            aqObj.e(n2, n3);
+        }
     }
 
     public final void g(int n2) {
         this.g = n2;
     }
 
-    /*
-     * Enabled force condition propagation
-     * Lifted jumps to return sites
-     */
     public void c(int n2) {
         if (this.l < 0) {
             return;
         }
-        int n3 = this.t().f(n2);
-        if (n3 != 0) {
+        aq tObj = this.t();
+        if (tObj == null) return;
+        boolean ok = tObj.f(n2);
+        if (!ok) {
             return;
         }
         switch (n2) {
             case 97: {
                 he he2 = this;
                 if (he2.o != null) {
-                    n3 = he2.o[he2.l][2];
+                    int n3 = he2.o[he2.l][2];
                     if (n3 < 0) {
                         n3 = he2.l;
                     }
                     he2.i(n3);
                     return;
                 }
-                n3 = he2.l - 1;
+                int n3 = he2.l - 1;
                 while (n3 >= 0) {
                     aq aq2 = he2.h(n3);
                     if (aq2.j()) {
@@ -268,14 +297,14 @@ implements b {
             case 96: {
                 he he3 = this;
                 if (he3.o != null) {
-                    n3 = he3.o[he3.l][3];
+                    int n3 = he3.o[he3.l][3];
                     if (n3 < 0) {
                         n3 = he3.l;
                     }
                     he3.i(n3);
                     return;
                 }
-                n3 = he3.l + 1;
+                int n3 = he3.l + 1;
                 while (n3 < he3.k.d()) {
                     aq aq3 = he3.h(n3);
                     if (aq3.j()) {
@@ -289,7 +318,7 @@ implements b {
             case 99: {
                 he he4 = this;
                 if (he4.o != null) {
-                    n3 = he4.o[he4.l][0];
+                    int n3 = he4.o[he4.l][0];
                     if (n3 < 0) {
                         n3 = he4.l;
                     }
@@ -329,7 +358,7 @@ implements b {
             case 98: {
                 he he5 = this;
                 if (he5.o != null) {
-                    n3 = he5.o[he5.l][1];
+                    int n3 = he5.o[he5.l][1];
                     if (n3 < 0) {
                         n3 = he5.l;
                     }
@@ -385,7 +414,10 @@ implements b {
         if (this.l < 0) {
             return;
         }
-        this.t().g(n2);
+        aq tObj = this.t();
+        if (tObj != null) {
+            tObj.g(n2);
+        }
     }
 
     private void b(az az2) {
@@ -412,15 +444,37 @@ implements b {
 
     private void i(int n2) {
         if (n2 != this.l) {
-            if (this.l >= 0) {
-                this.h(this.l).d(false);
+            if (this.l >= 0 && this.k != null && this.l < this.k.d()) {
+                aq old = this.h(this.l);
+                if (old != null) {
+                    try {
+                        old.d(false);
+                    } catch (Throwable t) {
+                        System.out.println("[DEBUG] Exception in old.d(false): " + t);
+                        t.printStackTrace();
+                    }
+                }
             }
             this.l = n2;
-            this.h(this.l).d(true);
+            aq cur = (this.k != null && this.l >= 0 && this.l < this.k.d()) ? this.h(this.l) : null;
+            if (cur != null) {
+                try {
+                    System.out.println("[DEBUG] cur=" + cur + ", class=" + cur.getClass().getName());
+                    cur.d(true);
+                } catch (Throwable t) {
+                    System.out.println("[DEBUG] Exception in cur.d(true): " + t);
+                    t.printStackTrace();
+                }
+            } else {
+                System.out.println("[DEBUG] cur is null at l=" + this.l + ", k.d()=" + (this.k != null ? this.k.d() : -1));
+            }
         }
     }
 
     public final int a(Object object, Object object2) {
+        if (object == null && object2 == null) return 0;
+        if (object == null) return -1;
+        if (object2 == null) return 1;
         object = (aq)object;
         object2 = (aq)object2;
         if (((aq)object).d() > ((aq)object2).d()) {

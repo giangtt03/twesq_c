@@ -25,12 +25,12 @@ bq {
 
     public hn(lf[] object) {
         this.b(241233);
-        this.a(0, 0, v.t, v.u);
+        this.a(0, 0, com.mg.bas.v.t, com.mg.bas.v.u);
         this.k = new ay(0);
         this.k.a(this.a(), this.c(), this.i(), this.j() - ba.a);
         this.p = new aw();
-        this.p.a(this);
-        this.p.a(this);
+        this.p.a((bn)this);
+        this.p.a((bq)this);
         this.p.e(true);
         this.k.b(this.p);
         if (this.y == null) {
@@ -48,8 +48,7 @@ bq {
         this.t = new ft(go.s / 2L);
         this.t.a(go.s);
         az az2 = this.u = new gb(1, 0);
-        object = this;
-        object.a(az2, true);
+        this.a(this.u, true);
         this.v = new gb(2, 2);
         this.w = new gb(3, 3);
     }
@@ -177,13 +176,13 @@ bq {
             this.k.c(true);
         }
         if (this.k.k()) {
-            graphics.setColor(v.am);
+            graphics.setColor(com.mg.bas.v.am);
             graphics.fillRect(0, 0, this.i(), this.j());
             graphics.drawImage(pc.d, this.a() + this.i(), this.c() + this.j() - ba.a, 40);
         }
         this.k.a(graphics, this.a(), this.c());
         this.k.c(true);
-        graphics.setColor(v.am);
+        graphics.setColor(com.mg.bas.v.am);
         if (this.t != null) {
             this.t.a(graphics, 0, 0);
         }
@@ -192,61 +191,58 @@ bq {
     public final void b(Graphics graphics) {
     }
 
-    public final void b(aq object, int n) {
-        object = this.p.i(n);
-        if (object instanceof dk) {
-            object = (dk)object;
-            if (((dk)object).a) {
-                ((dk)object).a = false;
+    public final void b(aq aqObj, int n) {
+        Object obj = this.p.i(n);
+        if (obj instanceof dk) {
+            dk dkObj = (dk)obj;
+            if (dkObj.a) {
+                dkObj.a = false;
                 this.t();
                 return;
             }
             this.z = true;
-            this.a((dk)object);
-            ((dk)object).c = 0;
+            this.a(dkObj);
+            dkObj.c = 0;
             return;
         }
-        if (object instanceof dp) {
-            object = (dp)object;
+        if (obj instanceof dp) {
+            dp dpObj = (dp)obj;
             this.z = false;
-            this.a((dk)((dp)object).b);
+            this.a((dk)dpObj.b);
             return;
         }
-        if (object instanceof lq) {
-            Object object2 = (br[])object;
-            object = this;
-            this.x = object2;
-            bs bs2 = new bs();
-            Object object3 = null;
-            int[] nArray = null;
-            if (!go.e.equals(((lq)object2).f)) {
-                object3 = new String[]{"Mua", "C.Tiết"};
-                nArray = new int[]{11111, 11112};
+        if (obj instanceof lq) {
+            lq lqObj = (lq)obj;
+            this.x = lqObj;
+            String[] labels;
+            int[] codes;
+            if (!go.e.equals(lqObj.f)) {
+                labels = new String[]{"Mua", "C.Tiết"};
+                codes = new int[]{11111, 11112};
             } else {
-                object3 = new String[]{"C.Tiết"};
-                nArray = new int[]{11112};
+                labels = new String[]{"C.Tiết"};
+                codes = new int[]{11112};
             }
-            object2 = new br[((String[])object3).length];
-            int n2 = 0;
-            while (n2 < ((br[])object2).length) {
-                object2[n2] = new br(object3[n2], nArray[n2]);
-                ++n2;
+            br[] brArray = new br[labels.length];
+            for (int i = 0; i < labels.length; i++) {
+                brArray[i] = new br(labels[i], codes[i]);
             }
-            bs2.a((br[])object2);
-            n2 = ((hn)object).p.s();
-            object2 = ((hn)object).p.o(n2);
-            object3 = ((hn)object).k.r();
-            int n3 = (v.t - bs2.e()) / 2;
-            int n4 = ((hn)object).k.d() + ((aq)object2).d() - object3.b;
-            if (n4 + bs2.f() > v.u - ba.a) {
-                n4 = v.u - ba.a - bs2.f();
+            bs bs2 = new bs();
+            bs2.a(brArray);
+            int idx = this.p.s();
+            Object o2 = this.p.o(idx);
+            k kObj = this.k.r();
+            int n3 = (com.mg.bas.v.t - bs2.e()) / 2;
+            int n4 = this.k.d() + ((aq)o2).d() - kObj.b;
+            if (n4 + bs2.f() > com.mg.bas.v.u - ba.a) {
+                n4 = com.mg.bas.v.u - ba.a - bs2.f();
             }
-            bs2.a_(v.t + bs2.e(), n4);
+            bs2.a_(com.mg.bas.v.t + bs2.e(), n4);
             bs2.d(n3, n4);
             bs2.a_(1);
-            bs2.a((bf)object);
-            ((ht)object).a(bs2, ((hn)object).v, com.mg.sq.a.n, ((hn)object).w);
-            ((ht)object).n = true;
+            bs2.a((bf)this);
+            this.a(bs2, this.v, com.mg.sq.a.n, this.w);
+            this.n = true;
         }
     }
 
@@ -256,30 +252,30 @@ bq {
     public final void a(aq aq2, int n, int n2) {
     }
 
-    public final aq a(aw object, int n) {
-        if ((object = ((aw)object).i(n)) == null) {
+    public final aq a(aw awObj, int n) {
+        Object obj = awObj.i(n);
+        if (obj == null) {
             return null;
         }
-        if (object instanceof dk) {
-            return new fi((dk)object);
+        if (obj instanceof dk) {
+            return new fi((dk)obj);
         }
-        if (object instanceof dp) {
+        if (obj instanceof dp) {
             return new gl(37);
         }
         Image image = null;
-        if (object instanceof lq) {
-            object = (lq)object;
-            if (((lq)object).e instanceof lm) {
-                lm lm2 = (lm)((lq)object).e;
-                return new fj(lm2.b, lm2.a, lm2.j, lm2.g, lm2.h, -1, false, null, ((lq)object).f, 0L);
+        if (obj instanceof lq) {
+            lq lqObj = (lq)obj;
+            if (lqObj.e instanceof lm) {
+                lm lm2 = (lm)lqObj.e;
+                return new fj(lm2.b, lm2.a, lm2.j, lm2.g, lm2.h, -1, false, null, lqObj.f, 0L);
             }
-            if (((lq)object).e instanceof ll) {
-                ll ll2 = (ll)((lq)object).e;
+            if (lqObj.e instanceof ll) {
+                ll ll2 = (ll)lqObj.e;
                 try {
                     image = this.r.a(mb.a(ll2.n), true);
-                }
-                catch (Throwable throwable) {}
-                return new fj(ll2.d, ll2.b, ll2.l, ll2.m, false, image, ll2.f, ll2.j, this.y, ((lq)object).f, 0L);
+                } catch (Throwable throwable) {}
+                return new fj(ll2.d, ll2.b, ll2.l, ll2.m, false, image, ll2.f, ll2.j, this.y, lqObj.f, 0L);
             }
         }
         return null;
@@ -399,28 +395,24 @@ bq {
         }
     }
 
-    public final void a(String object, ll[] llArray, lm[] lmArray) {
+    public final void a(String title, ll[] llArray, lm[] lmArray) {
         com.mg.sq.a.s().v();
         if (this.x == null) {
             return;
         }
-        String string = object;
-        object = this;
         dk dk2 = null;
-        int n = 0;
-        while (n < ((hn)object).p.a()) {
-            Object object2 = ((hn)object).p.i(n);
-            if (object2 instanceof dk) {
-                dk2 = (dk)object2;
-            } else if (object2 instanceof lq) {
-                object2 = (lq)object2;
-                if (((lq)object2).b.equals(string)) {
-                    ((hn)object).p.j(n);
-                    dk2.a(string);
+        for (int n = 0; n < this.p.a(); n++) {
+            Object obj = this.p.i(n);
+            if (obj instanceof dk) {
+                dk2 = (dk)obj;
+            } else if (obj instanceof lq) {
+                lq lqObj = (lq)obj;
+                if (lqObj.b.equals(title)) {
+                    this.p.j(n);
+                    dk2.a(title);
                     break;
                 }
             }
-            ++n;
         }
         if (llArray != null && llArray.length > 0) {
             go.a(llArray[0]);
@@ -432,10 +424,10 @@ bq {
         }
     }
 
-    private void a(String object) {
-        object = ag.b().a("Chú ý", "Bạn vừa mua thành công! " + (String)object, "Đóng", 8, 1);
-        ((am)object).a(this);
-        ((am)object).b(1345779);
-        ag.b().a((al)object, false);
+    private void a(String msg) {
+        al dialog = ag.b().a("Chú ý", "Bạn vừa mua thành công! " + msg, "Đóng", 8, 1);
+        ((am)dialog).a(this);
+        ((am)dialog).b(1345779);
+        ag.b().a(dialog, false);
     }
 }

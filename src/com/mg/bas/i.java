@@ -1,6 +1,7 @@
 package com.mg.bas;
 // Decompiled with: CFR 0.152
 // Class Version: 1
+import java.io.UnsupportedEncodingException;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -82,11 +83,11 @@ public final class i {
         return stringArray;
     }
 
-    public static byte[] c(String string) {
+    public static byte[] c(String string) throws UnsupportedEncodingException {
         return i.c(string, null);
     }
 
-    public static byte[] c(String string, String string2) {
+    public static byte[] c(String string, String string2) throws UnsupportedEncodingException {
         if (string2 == null) {
             string2 = "UTF-8";
         }

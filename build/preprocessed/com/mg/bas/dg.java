@@ -4,7 +4,6 @@ package com.mg.bas;
 // Class Version: 1
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
-import java.io.FilterInputStream;
 
 public final class dg {
     public int a;
@@ -20,55 +19,52 @@ public final class dg {
         this(n, dg.a(byArray));
     }
 
-    private static int[] a(byte[] object) {
+    private static int[] a(byte[] byArray) {
         try {
-            int[] nArray = new int[((byte[])object).length / 4];
-            object = new DataInputStream(new ByteArrayInputStream((byte[])object));
+            int[] nArray = new int[byArray.length / 4];
+            DataInputStream dis = new DataInputStream(new ByteArrayInputStream(byArray));
             int n = 0;
             while (n < nArray.length) {
-                nArray[n] = ((DataInputStream)object).readInt();
+                nArray[n] = dis.readInt();
                 ++n;
             }
-            ((FilterInputStream)object).close();
+            dis.close();
             return nArray;
-        }
-        catch (Exception exception) {
-            Exception exception2 = exception;
+        } catch (Exception exception) {
             exception.printStackTrace();
             return null;
         }
     }
 
     public final dg a() {
-        Object object = new int[this.c.length];
-        System.arraycopy(this.c, 0, object, 0, this.c.length);
-        object = new dg(this.a, (int[])object);
+        int[] copy = new int[this.c.length];
+        System.arraycopy(this.c, 0, copy, 0, this.c.length);
+        dg v0 = new dg(this.a, copy);
         v0.b = this.b;
-        return object;
+        return v0;
     }
 
     public final String toString() {
         return this.b;
     }
 
-    public final boolean equals(Object object) {
-        if (object == this) {
+    public final boolean equals(Object obj) {
+        if (obj == this) {
             return true;
         }
-        if (object instanceof dg) {
-            dg dg2 = (dg)object;
-            object = dg2;
+        if (obj instanceof dg) {
+            dg dg2 = (dg)obj;
             int[] nArray = this.c;
-            object = dg2.c;
-            if (dg2.c == null || nArray == null) {
-                return object == nArray;
+            int[] otherArray = dg2.c;
+            if (otherArray == null || nArray == null) {
+                return otherArray == nArray;
             }
-            if (((Object)object).length != nArray.length) {
+            if (otherArray.length != nArray.length) {
                 return false;
             }
             int n = 0;
-            while (n < ((Object)object).length) {
-                if (object[n] != nArray[n]) {
+            while (n < otherArray.length) {
+                if (otherArray[n] != nArray[n]) {
                     return false;
                 }
                 ++n;

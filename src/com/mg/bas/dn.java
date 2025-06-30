@@ -22,7 +22,7 @@ public final class dn {
         }
         this.c = new ls(string, 0, 0, n3, bx.d.a() + 4, 1);
         if (n2 == 2) {
-            String string2 = this.c.g();
+            String string2 = this.c.i();
             if (!i.b(string2) && this.c.i().trim().equals(string2)) {
                 string = "Bấm vào để xem... " + string;
                 this.c = new ls(string, 0, 0, n3, bx.d.a() + 4, 1);

@@ -2,7 +2,10 @@
 // Class Version: 1
 package com.mg.smsgame;
 
+import com.mg.bas.ci;
+import com.mg.bas.ct;
 import java.io.IOException;
+import javax.microedition.io.ConnectionNotFoundException;
 import javax.microedition.io.Connector;
 import javax.microedition.io.PushRegistry;
 import javax.microedition.lcdui.Display;
@@ -20,51 +23,51 @@ extends MIDlet {
     private static MGMIDlet f;
 
     public MGMIDlet(boolean bl, String string, String string2, String string3, String string4) {
-        v.X = true;
+        com.mg.bas.v.X = true;
         if (true) {
-            ci.h = 0;
-            ci.g = 0;
-            ci.f = 0;
-            ci.e = 0;
-            ci.i = 0;
-            ci.j = 0;
+            com.mg.bas.ci.h = 0;
+            com.mg.bas.ci.g = 0;
+            com.mg.bas.ci.f = 0;
+            com.mg.bas.ci.e = 0;
+            com.mg.bas.ci.i = 0;
+            com.mg.bas.ci.j = 0;
         }
-        ci.a = string;
-        ci.b = string2;
-        ci.d = string3;
-        ci.c = string4;
-        ci.k = String.valueOf(ci.a) + ci.b;
+        com.mg.bas.ci.a = string;
+        com.mg.bas.ci.b = string2;
+        com.mg.bas.ci.d = string3;
+        com.mg.bas.ci.c = string4;
+        com.mg.bas.ci.k = String.valueOf(com.mg.bas.ci.a) + com.mg.bas.ci.b;
         this.e();
         this.d = false;
         Object object = this.getAppProperty("Distributor-Name");
         if (object == null || ((String)object).length() == 0) {
             object = "asao";
         }
-        ci.l = object;
+        ci.l = (String) object;
         this.a = Display.getDisplay((MIDlet)this);
         f = this;
         try {
             object = System.getProperty("microedition.platform");
-            ct.a("Platform" + (String)object);
-            v.ah = false;
+            com.mg.bas.ct.a("Platform" + (String)object);
+            com.mg.bas.v.ah = false;
             if (object != null) {
                 int n = ((String)(object = ((String)object).toLowerCase().trim())).indexOf("nokia");
                 if (n >= 0) {
-                    v.ah = true;
+                    com.mg.bas.v.ah = true;
                     if (((String)object).indexOf("n95") >= 0 || System.getProperty("com.nokia.mid.imei") != null || System.getProperty("com.nokia.mid.imsi") != null || System.getProperty("com.nokia.mid.networkid") != null || System.getProperty("com.nokia.mid.networksignal") != null || System.getProperty("com.nokia.mid.networkavailability") != null || System.getProperty("com.nokia.mid.batterylevel") != null || System.getProperty("com.nokia.mid.countrycode") != null) {
-                        v.ah = false;
+                        com.mg.bas.v.ah = false;
                     }
                 } else {
                     n = ((String)object).indexOf("sonyericssonw810");
                     if (n >= 0) {
-                        v.ah = true;
+                        com.mg.bas.v.ah = true;
                     }
                 }
             }
-            ct.a("configure=" + System.getProperty("microedition.configuration"));
-            ct.a("profile=" + System.getProperty("microedition.profiles"));
-            ct.a("NokiaLessThanSerials60=" + v.ah);
-            v.W = false;
+            com.mg.bas.ct.a("configure=" + System.getProperty("microedition.configuration"));
+            com.mg.bas.ct.a("profile=" + System.getProperty("microedition.profiles"));
+            com.mg.bas.ct.a("NokiaLessThanSerials60=" + com.mg.bas.v.ah);
+            com.mg.bas.v.W = false;
             object = System.getProperty("com.sonyericsson.java.platform");
             if (object != null) {
                 int n;
@@ -73,7 +76,7 @@ extends MIDlet {
                     object = ((String)object).substring(0, n2);
                 }
                 if ((n = Integer.parseInt((String)object)) < 8) {
-                    v.W = true;
+                    com.mg.bas.v.W = true;
                 }
             }
         }
@@ -81,38 +84,41 @@ extends MIDlet {
             object = throwable;
             throwable.printStackTrace();
         }
-        if (v.g) {
-            if (v.X) {
-                if (v.V) {
+        if (com.mg.bas.v.g) {
+            if (com.mg.bas.v.X) {
+                if (com.mg.bas.v.V) {
                     this.a();
                     MGMIDlet.b();
                 }
-                new ce();
+                new com.mg.bas.ce();
                 return;
             }
             String[] stringArray = PushRegistry.listConnections((boolean)false);
             if (!(stringArray != null && stringArray.length != 0)) {
-                this.a.setCurrent((Displayable)new aj());
+                this.a.setCurrent((Displayable)new com.mg.bas.aj());
                 return;
             }
-            if (v.V) {
+            if (com.mg.bas.v.V) {
                 MGMIDlet.b();
             }
-            this.a.setCurrent((Displayable)new ce());
+            this.a.setCurrent((Displayable)new com.mg.bas.ce());
             return;
         }
-        if (v.X) {
-            new ce();
+        if (com.mg.bas.v.X) {
+            new com.mg.bas.ce();
             return;
         }
-        this.a.setCurrent((Displayable)new ce());
+        this.a.setCurrent((Displayable)new com.mg.bas.ce());
     }
 
-    public final void a(String object) {
-        ct.a("Request link: " + object);
-        f.platformRequest((String)object);
-        object = this;
-        object.notifyDestroyed();
+    public final void a(final String s) {
+        ct.a("Request link: " + s);
+        try {
+            MGMIDlet.f.platformRequest(s);
+        } catch (ConnectionNotFoundException ex) {
+            ex.printStackTrace();
+        }
+        this.notifyDestroyed();
     }
 
     public static void b(String string) {
@@ -129,7 +135,7 @@ extends MIDlet {
         Object object = PushRegistry.listConnections((boolean)false);
         if (object == null || ((String[])object).length == 0) {
             try {
-                object = "sms://:" + ci.d;
+                object = "sms://:" + com.mg.bas.ci.d;
                 String string = ((Object)((Object)this)).getClass().getName();
                 PushRegistry.registerConnection((String)object, (String)string, (String)"*");
                 return;
@@ -142,7 +148,7 @@ extends MIDlet {
     }
 
     protected void destroyApp(boolean bl) {
-        s.a().b();
+        com.mg.bas.s.a().b();
     }
 
     protected void pauseApp() {
@@ -159,51 +165,51 @@ extends MIDlet {
     }
 
     public static void b() {
-        if (b) {
+        if (MGMIDlet.b) {
             return;
         }
-        MessageConnection messageConnection = PushRegistry.listConnections((boolean)true);
-        if (messageConnection != null && ((String[])messageConnection).length > 0) {
+        final String[] listConnections;
+        if ((listConnections = PushRegistry.listConnections(true)) != null && listConnections.length > 0) {
             try {
-                messageConnection = (MessageConnection)Connector.open((String)("sms://:" + ci.d));
-                ci.a(messageConnection);
-                b = true;
+                ci.a((MessageConnection)Connector.open("sms://:" + ci.d));
+                MGMIDlet.b = true;
             }
-            catch (IOException iOException) {}
-        } else {
-            try {
-                messageConnection = (MessageConnection)Connector.open((String)("sms://:" + ci.d));
-                ci.a(messageConnection);
-                b = false;
-            }
-            catch (IOException iOException) {}
+            catch (final IOException ex) {}
         }
-        ct.a("AutoStart=" + b);
+        else {
+            try {
+                ci.a((MessageConnection)Connector.open("sms://:" + ci.d));
+                MGMIDlet.b = false;
+            }
+            catch (final IOException ex2) {}
+        }
+        ct.a("AutoStart=" + MGMIDlet.b);
     }
+    
 
     public final void c() {
-        cs.c();
-        this.a.setCurrent((Displayable)ag.a());
-        v.a(v.v, v.w, v.G);
-        cr.b();
+        com.mg.bas.cs.c();
+        this.a.setCurrent((Displayable)com.mg.bas.ag.a());
+        com.mg.bas.v.a(com.mg.bas.v.v, com.mg.bas.v.w, com.mg.bas.v.G);
+        com.mg.bas.cr.b();
         this.f();
-        if (v.l && cr.c()) {
-            cr.i();
+        if (com.mg.bas.v.l && com.mg.bas.cr.c()) {
+            com.mg.bas.cr.i();
         }
-        if (v.l && !cr.a(true)) {
-            cr.i();
+        if (com.mg.bas.v.l && !com.mg.bas.cr.a(true)) {
+            com.mg.bas.cr.i();
         }
-        if (v.t < v.r || v.u < v.s) {
-            cr.h();
+        if (com.mg.bas.v.t < com.mg.bas.v.r || com.mg.bas.v.u < com.mg.bas.v.s) {
+            com.mg.bas.cr.h();
         }
-        Runnable runnable = ag.a();
+        Runnable runnable = com.mg.bas.ag.a();
         runnable = new Thread(runnable);
         ((Thread)runnable).start();
     }
 
     public final void a(Displayable displayable, boolean bl) {
-        v.c();
-        v.Z = true;
+        com.mg.bas.v.c();
+        com.mg.bas.v.Z = true;
         this.a.setCurrent(displayable);
     }
 

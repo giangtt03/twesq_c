@@ -21,7 +21,7 @@ extends aq {
     public gd(byte[] byArray) {
         this.i = "Nhập lại những ký tự sau:";
         if (byArray != null && byArray.length > 0) {
-            this.k = f.a(byArray);
+            this.k = com.mg.bas.f.a(byArray);
         }
         int n = bx.d.a() + 10;
         if (this.k != null) {

@@ -1,53 +1,90 @@
 package com.mg.bas;
-// Decompiled with: CFR 0.152
-// Class Version: 1
 import javax.microedition.lcdui.Graphics;
 
-public final class ir
-extends at {
+public final class ir extends at {
     private int a;
     private int b;
     private int c;
-
-    public final void j(int n) {
-        ((at)null).j(n);
+    
+    private at parentAt;        
+    private as parentAs;        
+    private int[] offsetArray;  
+    
+    public ir(at parent, as asParent, int[] offsets) {
+        this.parentAt = parent;
+        this.parentAs = asParent;
+        this.offsetArray = offsets != null ? offsets : new int[]{0, 0}; // default offset
+        this.a = 0;
+        this.b = 0;
+        this.c = 2; // default value cho c
     }
-
-    public final void a(Graphics graphics, int n, int n2) {
+    
+    public ir() {
+        this(null, null, new int[]{0, 0});
     }
+    
+    public final void j(int paramInt) {
+        if (parentAt != null) {
+            parentAt.j(paramInt);
+        }
 
-    public final void b(Graphics graphics, int n, int n2) {
-        if (!((at)null).m() || this.a < 5) {
+    }
+    
+    public final void a(Graphics paramGraphics, int paramInt1, int paramInt2) {
+        // todo
+    }
+    
+    public final void b(Graphics paramGraphics, int paramInt1, int paramInt2) {
+        if (parentAt == null || !parentAt.m() || this.a < 5) {
             return;
         }
-        ((as)null).a(graphics, n + null[0], n2 + null[1]);
+        
+        if (parentAs != null && offsetArray != null && offsetArray.length >= 2) {
+            parentAs.a(paramGraphics, paramInt1 + offsetArray[0], paramInt2 + offsetArray[1]);
+        }
     }
-
-    public final void c(Graphics graphics, int n, int n2) {
-        if (!((at)null).m() || this.a >= 5) {
+    
+    public final void c(Graphics paramGraphics, int paramInt1, int paramInt2) {
+        if (parentAt == null || !parentAt.m() || this.a >= 5) {
             return;
         }
-        ((as)null).a(graphics, n + null[0], n2 + null[1]);
+        
+        if (parentAs != null && offsetArray != null && offsetArray.length >= 2) {
+            parentAs.a(paramGraphics, paramInt1 + offsetArray[0], paramInt2 + offsetArray[1]);
+        }
     }
-
+    
     public final void i() {
         if (!this.r) {
             return;
         }
+        
         if (this.b > 0) {
-            --this.b;
+            this.b--;
             if (this.b == 0) {
-                ((at)null).b(true);
+                if (parentAt != null) {
+                    parentAt.b(true);
+                }
             } else {
                 return;
             }
         }
-        ((as)null).i();
+        
+        if (parentAs != null) {
+            parentAs.i();
+        }
+        
         if (this.c > 0) {
-            --this.c;
+            this.c--;
             return;
         }
+        
         this.c = 2;
-        this.a = (this.a + 1) % (null).length;
+        
+        if (offsetArray != null && offsetArray.length > 0) {
+            this.a = (this.a + 1) % offsetArray.length;
+        } else {
+            this.a = (this.a + 1) % 10;
+        }
     }
 }

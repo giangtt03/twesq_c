@@ -17,23 +17,24 @@ extends al {
     private int s = 0;
     private int t;
     private int u;
-    private int v;
+//    private int v;
     private int w = 2;
+    private int vWidth;
 
     public gw() {
-        this(1900, i.c(System.currentTimeMillis()).get(1));
+        this(1900, com.mg.bas.i.c(System.currentTimeMillis()).get(1));
     }
 
     private gw(int n, int n2) {
         super(1);
         this.o = n2;
-        Object object = i.c(System.currentTimeMillis());
+        Object object = com.mg.bas.i.c(System.currentTimeMillis());
         this.p = ((Calendar)object).get(5);
         this.q = ((Calendar)object).get(2) + 1;
         this.r = ((Calendar)object).get(1);
-        this.v = this.k * 7 + 5;
+        this.vWidth = this.k * 7 + 5;
         this.u = 6 * this.l + 5;
-        this.a((v.t - this.v - 6 - 6) / 2, (v.u - ba.a - this.u - this.m - this.m - 3 - 15 - 15) / 2, this.v + 6 + 6, this.u + this.m + this.m + 3 + 15 + 15);
+        this.a((v.t - this.vWidth - 6 - 6) / 2, (v.u - ba.a - this.u - this.m - this.m - 3 - 15 - 15) / 2, this.vWidth + 6 + 6, this.u + this.m + this.m + 3 + 15 + 15);
         gb gb2 = new gb(-1099, 2);
         object = this;
         ((am)object).a(gb2, true);
@@ -55,7 +56,7 @@ extends al {
         int n2 = this.q;
         int n3 = this.p;
         this.p = n3 > (n2 = gw.d(n2, n)) ? n2 : n3;
-        Calendar calendar = i.a;
+        Calendar calendar = com.mg.bas.i.a;
         calendar.set(5, 1);
         calendar.set(2, this.q - 1);
         calendar.set(1, this.r);
@@ -220,22 +221,22 @@ extends al {
         bx.d.c();
         int n = this.a() + 6;
         int n2 = this.c() + 15;
-        int n3 = n + (this.v - 60) / 2;
+        int n3 = n + (this.vWidth - 60) / 2;
         int n4 = n2;
         if (this.w == 2) {
             pc.c(graphics, n3 - 25, n4 + 1, 19, 17, 857589, 0);
             pc.c(graphics, n3 + 5 + 60, n4 + 1, 19, 17, 857589, 1);
         }
         pc.a(graphics, n3, n4, 60, this.m, this.w == 2);
-        bx.d.a(graphics, String.valueOf(this.r), n + this.v / 2, n2 + 3, 1);
-        n3 = n + (this.v - 100) / 2;
+        bx.d.a(graphics, String.valueOf(this.r), n + this.vWidth / 2, n2 + 3, 1);
+        n3 = n + (this.vWidth - 100) / 2;
         n4 = n2 += this.m + 2;
         if (this.w == 1) {
             pc.c(graphics, n3 - 25, n4 + 1, 19, 17, 857589, 0);
             pc.c(graphics, n3 + 5 + 100, n4 + 1, 19, 17, 857589, 1);
         }
         pc.a(graphics, n3, n4, 100, this.m, this.w == 1);
-        bx.d.a(graphics, "Tháng " + this.q, n + this.v / 2, n2 + 3, 1);
+        bx.d.a(graphics, "Tháng " + this.q, n + this.vWidth / 2, n2 + 3, 1);
         this.a(graphics, n, n2 += this.m + 1);
     }
 
@@ -249,8 +250,8 @@ extends al {
             n6 = 13295359;
         }
         graphics.setColor(12564408);
-        graphics.fillRect(n + 2, n2 + 2, this.v - 4, 1);
-        pc.b(graphics, n + 1, n2 + 1, this.v - 2, this.u - 2, n5, n6, -1);
+        graphics.fillRect(n + 2, n2 + 2, this.vWidth - 4, 1);
+        pc.b(graphics, n + 1, n2 + 1, this.vWidth - 2, this.u - 2, n5, n6, -1);
         n5 = 0;
         int n7 = n2 + 3 + this.l;
         int n8 = n2 + this.u - 1;
@@ -264,19 +265,19 @@ extends al {
                 n3 = 16550298;
             }
             graphics.setColor(n6);
-            graphics.fillRect(n + 2, n7 - this.l, this.v - 4 - this.k - this.k, this.l);
+            graphics.fillRect(n + 2, n7 - this.l, this.vWidth - 4 - this.k - this.k, this.l);
             graphics.setColor(n4);
-            graphics.fillRect(n + this.v - 2 - this.k - this.k, n7 - this.l, this.k, this.l);
+            graphics.fillRect(n + this.vWidth - 2 - this.k - this.k, n7 - this.l, this.k, this.l);
             graphics.setColor(n3);
-            graphics.fillRect(n + this.v - 2 - this.k, n7 - this.l, this.k, this.l);
+            graphics.fillRect(n + this.vWidth - 2 - this.k, n7 - this.l, this.k, this.l);
             graphics.setColor(12564408);
-            graphics.fillRect(n + 2, n7 - 1, this.v - 4, 1);
+            graphics.fillRect(n + 2, n7 - 1, this.vWidth - 4, 1);
             n5 = n5 != 0 ? 0 : 1;
             n7 += this.l;
         }
         graphics.setColor(12564408);
         n7 = n + 2 + this.k;
-        n8 = n + this.v - 2;
+        n8 = n + this.vWidth - 2;
         while (n7 < n8) {
             graphics.fillRect(n7, n2 + 2, 1, this.u - 4);
             n7 += this.k;

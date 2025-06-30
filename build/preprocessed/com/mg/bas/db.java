@@ -22,7 +22,10 @@ extends as {
     public db() {
         int n = 30098;
         pa pa2 = pa.a();
-        this.a(f.a(pa2.b(n, false)), 3);
+        byte[] arr = pa2.b(n, false);
+        byte[][] arr2d = new byte[1][];
+        arr2d[0] = arr;
+        this.a(arr2d);
         this.a(t);
         this.d(0);
         this.g = 0;

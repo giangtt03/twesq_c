@@ -38,9 +38,9 @@ extends aq {
     if (dl2.k > 0 || dl2.l) {
         this.k.d(2, dl2.k);
     }
-    if (dl2.i == 0) {
+    if (dl2.idx == 0) {
         this.k.d(4, dl2.j);
-    } else if (dl2.i == 1) {
+    } else if (dl2.idx == 1) {
         this.k.d(3, dl2.j);
     }
     if (dl2.e > 0L) {

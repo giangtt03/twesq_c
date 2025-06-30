@@ -41,7 +41,7 @@ public final class nq {
     }
 
     public nq(byte by) {
-        this(-1, 1);
+        this(-1, by);
     }
 
     public final String toString() {

@@ -25,13 +25,13 @@ bu {
         this.a(0, 0, 100, 100);
         this.q = new ay(0);
         this.q.h(1);
-        this.q.a(0, 0, v.t, v.u - ba.a);
+        this.q.a(0, 0, com.mg.bas.v.t, com.mg.bas.v.u - ba.a);
         this.q.b(this);
         this.a(new ba());
         this.a(new gb(-1, 0));
         this.b(new gb(-2, 1));
         this.c(com.mg.sq.a.n);
-        this.a(this);
+        this.a((aq)this);
         this.v = null;
     }
 
@@ -51,8 +51,9 @@ bu {
         byte[] byArray = pd.c(n);
         if (byArray != null) {
             ee ee2 = new ee();
-            int n2 = m.c(byArray);
-            ee2.a(i.a(byArray, 4, n2));
+            int n2 = ((byArray[4] & 0xFF) << 24) | ((byArray[5] & 0xFF) << 16) | ((byArray[6] & 0xFF) << 8) | (byArray[7] & 0xFF);
+            String str = new String(byArray, 4, n2);
+            ee2.a(str);
             ee2.h = new byte[byArray.length - 4 - n2];
             System.arraycopy(byArray, n2 + 4, ee2.h, 0, ee2.h.length);
             this.a(ee2);
@@ -68,7 +69,8 @@ bu {
             this.t = false;
             try {
                 this.r = ee2.a();
-                this.p = f.a(ee2.h);
+                // NOTE: The following lines require J2ME libraries for Image:
+                this.p = com.mg.bas.f.a(ee2.h);
                 this.q.o();
                 if (com.mg.sq.a.m != null) {
                     a a2 = com.mg.sq.a.m.p.p;
@@ -101,9 +103,9 @@ bu {
             return;
         }
         if (this.p != null) {
-            if (this.p.getWidth() < v.t || this.p.getHeight() < v.u) {
+            if (this.p.getWidth() < com.mg.bas.v.t || this.p.getHeight() < com.mg.bas.v.u) {
                 graphics.setColor(0xFFFFFF);
-                graphics.fillRect(0, 0, v.t, v.u);
+                graphics.fillRect(0, 0, com.mg.bas.v.t, com.mg.bas.v.u);
             }
             k k2 = this.q.q();
             if (!this.t && !this.u) {
@@ -113,16 +115,16 @@ bu {
                 graphics.drawRegion(this.p, 0, 0, this.p.getWidth(), this.p.getHeight(), n2, -k2.a, -k2.b, 0);
             }
             if (this.s > 0) {
-                com.mg.sq.a.h.a(graphics, "<*", 0, (v.u - ba.a) / 2, 0);
+                com.mg.sq.a.h.a(graphics, "<*", 0, (com.mg.bas.v.u - ba.a) / 2, 0);
             }
             if (this.s >= 0 && this.s < com.mg.sq.a.m.p.p.d() - 1) {
-                com.mg.sq.a.h.a(graphics, "#>", v.t, (v.u - ba.a) / 2, 2);
+                com.mg.sq.a.h.a(graphics, "#>", com.mg.bas.v.t, (com.mg.bas.v.u - ba.a) / 2, 2);
             }
         } else {
             graphics.setColor(0xFFFFFF);
-            graphics.fillRect(0, 0, v.t, v.u);
+            graphics.fillRect(0, 0, com.mg.bas.v.t, com.mg.bas.v.u);
             bx.d.c(true);
-            bx.d.a(graphics, "Chọn hình muốn xem!", v.t / 2, v.u / 2 - ba.a, 1);
+            bx.d.a(graphics, "Chọn hình muốn xem!", com.mg.bas.v.t / 2, com.mg.bas.v.u / 2 - ba.a, 1);
             bx.d.c();
         }
         this.c = false;
@@ -150,13 +152,13 @@ bu {
         }
         k k2 = this.q.r();
         n -= k2.a;
-        int n3 = (v.u - ba.a) / 2 - 30;
+        int n3 = (com.mg.bas.v.u - ba.a) / 2 - 30;
         if ((n2 -= k2.b) >= n3 && n2 <= n3 + 60) {
             if (n < 40) {
                 this.f(142);
                 return true;
             }
-            if (n > v.t - 40) {
+            if (n > com.mg.bas.v.t - 40) {
                 this.f(135);
                 return true;
             }
@@ -190,7 +192,7 @@ bu {
                 if ((object = ((he)object).e(4)) != null && object instanceof fu) {
                     n3 = ((fu)object).r() + 1;
                 }
-                if (i.b(string)) {
+                if (com.mg.bas.i.b(string)) {
                     com.mg.sq.a.t("Bạn chưa nhập nội dung ME");
                     return;
                 }
@@ -207,7 +209,7 @@ bu {
                 return;
             }
             case 9993: {
-                hp hp2 = new hp(2);
+                hp hp2 = new hp((byte)2);
                 hp2.e(this.w.r());
                 hp2.f(this.x);
                 hp2.w();
@@ -246,10 +248,11 @@ bu {
                     bs bs2 = new bs();
                     bs2.a(new gb(1, 2));
                     bs2.b(new gb(2, 3));
-                    br[] brArray = new br("Lật", 10802);
-                    brArray.a(new br[]{new br("Dọc", 10801), new br("Ngang", 10803), new br("Thông thường", 10800)});
+                    br brLat = new br("Lật", 10802);
+                    brLat.a(new br[]{new br("Dọc", 10801), new br("Ngang", 10803), new br("Thông thường", 10800)});
                     br br2 = new br("Thao tác", 10804);
                     br2.a(new br[]{new br("Gửi Me", 10809), new br("Gửi tiếp", 10805), new br("Chép nội dung", 10806)});
+                    br[] brArray;
                     if (oo2.v != null && oo2.v.length > 0) {
                         br br3 = new br("Hình đã tải", 10807);
                         br[] brArray2 = new br[oo2.v.length];
@@ -259,9 +262,9 @@ bu {
                             ++n4;
                         }
                         br3.a(brArray2);
-                        brArray = new br[]{brArray, br3, br2, new br("Đóng", 10808)};
+                        brArray = new br[]{brLat, br3, br2, new br("Đóng", 10808)};
                     } else {
-                        brArray = new br[]{brArray, br2, new br("Đóng", 10808)};
+                        brArray = new br[]{brLat, br2, new br("Đóng", 10808)};
                     }
                     if (com.mg.sq.a.m != null) {
                         brArray = com.mg.sq.a.m.a(brArray, brArray.length - 1);
@@ -269,9 +272,9 @@ bu {
                     }
                     bs2.a(brArray);
                     int n5 = bs2.e() > bs2.f() ? bs2.e() : bs2.f();
-                    bs2.a_(-n5, v.u);
-                    bs2.d(0, v.u - ba.a - bs2.f());
-                    bs2.a(oo2);
+                    bs2.a_(-n5, com.mg.bas.v.u);
+                    bs2.d(0, com.mg.bas.v.u - ba.a - bs2.f());
+                    bs2.a((bf)oo2);
                     oo2.a(bs2);
                     return;
                 }
@@ -370,8 +373,8 @@ bu {
     }
 
     public final g v() {
-        int n2 = v.t;
-        int n3 = v.u - ba.a;
+        int n2 = com.mg.bas.v.t;
+        int n3 = com.mg.bas.v.u - ba.a;
         if (this.p != null) {
             if (this.p.getHeight() > n3) {
                 n3 = this.p.getHeight();

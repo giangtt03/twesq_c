@@ -28,14 +28,11 @@ implements bf {
     private String D = null;
     private az E;
 
-    public hl(lm[] object, az az2, az az3, az az4) {
-        this(null, (lm[])object);
-        object = this;
-        object.a(az2, true);
+    public hl(lm[] lmArr, az az2, az az3, az az4) {
+        this(null, lmArr);
+        this.a(az2, true);
         this.a(az4);
-        az2 = az3;
-        object = this;
-        object.b(az2, true);
+        this.b(az3, true);
         this.a(this.u);
     }
 
@@ -47,19 +44,19 @@ implements bf {
             this.m.c += (n -= this.m.c);
             this.n.c += n;
             this.f += n;
-            this.c = (v.t - this.f) / 2;
+            this.c = (com.mg.bas.v.t - this.f) / 2;
         }
     }
 
-    public hl(String object, lm[] lmArray) {
+    public hl(String title, lm[] lmArray) {
         super(1);
         int n;
         if (lmArray == null) {
             lmArray = new lm[]{};
         }
-        this.v = object;
+        this.v = title;
         this.u = lmArray;
-        if (v.t > v.u) {
+        if (com.mg.bas.v.t > com.mg.bas.v.u) {
             this.r = 5;
         }
         this.a(new ba());
@@ -72,7 +69,7 @@ implements bf {
         }
         int n2 = this.f > 240 ? 225 : this.f - 15;
         int n3 = 7;
-        if (object != null) {
+        if (title != null) {
             this.w = new cu(7, 7);
             n3 = 7 + (bx.d.a() + 2);
         }
@@ -97,18 +94,17 @@ implements bf {
         this.n = new k(7, n3, n2, bx.d.a() * 3 + 5 + 5);
         this.f = n2 + 7 + 7 + 1;
         this.g = (n3 += this.n.d) + 7;
-        this.c = (v.t - this.f) / 2;
-        this.d = (v.u - this.g - ba.a) / 2;
-        object = this;
-        if (((hl)object).t > 0) {
-            ((hl)object).q = new int[((hl)object).o.length][4];
+        this.c = (com.mg.bas.v.t - this.f) / 2;
+        this.d = (com.mg.bas.v.u - this.g - ba.a) / 2;
+        if (this.t > 0) {
+            this.q = new int[this.o.length][4];
             n3 = 0;
-            while (n3 < ((hl)object).s) {
+            while (n3 < this.s) {
                 n = 0;
-                while (n < ((hl)object).r) {
-                    n2 = n3 * ((hl)object).r + n;
-                    if (n2 >= ((hl)object).o.length) break;
-                    ((hl)object).q[n2] = new int[]{n2 < ((hl)object).o.length - 1 ? n2 + 1 : ((hl)object).o.length - 1, n2 > 0 ? n2 - 1 : 0, n3 < ((hl)object).s - 1 ? n2 + ((hl)object).r : n2, n3 > 0 ? n2 - ((hl)object).r : n2};
+                while (n < this.r) {
+                    int n2_ = n3 * this.r + n;
+                    if (n2_ >= this.o.length) break;
+                    this.q[n2_] = new int[]{n2_ < this.o.length - 1 ? n2_ + 1 : this.o.length - 1, n2_ > 0 ? n2_ - 1 : 0, n3 < this.s - 1 ? n2_ + this.r : n2_, n3 > 0 ? n2_ - this.r : n2_};
                     ++n;
                 }
                 ++n3;
@@ -152,8 +148,8 @@ implements bf {
         }
         this.n.d = bx.d.a() * this.x + 5 + 5;
         this.g = 20 + this.n.d + 7;
-        if (this.d + this.g > v.u) {
-            this.d = (v.u - this.g) / 2;
+        if (this.d + this.g > com.mg.bas.v.u) {
+            this.d = (com.mg.bas.v.u - this.g) / 2;
         }
     }
 
@@ -191,19 +187,16 @@ implements bf {
         }
     }
 
-    private void a(lm[] object) {
+    private void a(lm[] lmArr) {
         if (this.u == null || this.u.length == 0) {
-            this.a((az)null);
-            az az2 = null;
-            object = this;
-            object.a(az2, true);
+            this.a((az)null, true);
             return;
         }
         a a2 = new a();
         int n = 0;
-        while (n < ((lm[])object).length) {
-            if (object[n].g > 0) {
-                a2.a(object[n]);
+        while (n < lmArr.length) {
+            if (lmArr[n].g > 0) {
+                a2.a(lmArr[n]);
             }
             ++n;
         }
@@ -215,17 +208,14 @@ implements bf {
             ++n2;
         }
         if (this.u == null || this.u.length == 0) {
-            this.a((az)null);
-            a2 = null;
-            hl hl2 = this;
-            hl2.a((az)((Object)a2), true);
+            this.a((az)null, true);
         }
     }
 
     public final void c(Graphics graphics) {
         int n;
         if (this.h) {
-            pc.a(graphics, this.c, this.d, this.f, this.g, v.aj, true);
+            pc.a(graphics, this.c, this.d, this.f, this.g, com.mg.bas.v.aj, true);
             if (this.v != null) {
                 bx.d.c(true);
                 bx.d.a(graphics, this.v, this.w.a + this.c, this.w.b + this.d, 0);
@@ -233,7 +223,7 @@ implements bf {
             }
         }
         if (this.m != null) {
-            pc.b(graphics, this.m.a + this.c, this.m.b + this.d, this.m.c, this.m.d, v.aj, true);
+            pc.b(graphics, this.m.a + this.c, this.m.b + this.d, this.m.c, this.m.d, com.mg.bas.v.aj, true);
             n = 0;
             int n2 = this.o.length;
             while (n < n2) {
@@ -254,7 +244,7 @@ implements bf {
             }
             pc.a(graphics, this.o[this.l], this.c, this.d, this.z);
             if (this.h) {
-                pc.b(graphics, this.n.a + this.c, this.n.b + this.d, this.n.c, this.n.d, v.aj, true);
+                pc.b(graphics, this.n.a + this.c, this.n.b + this.d, this.n.c, this.n.d, com.mg.bas.v.aj, true);
             }
         }
         if (this.h && this.p != null) {
@@ -297,8 +287,8 @@ implements bf {
             }
             this.n.d = bx.d.a() * this.x + 5 + 5;
             this.g = n2 + this.n.d + 7;
-            if (this.d + this.g > v.u) {
-                this.d = (v.u - this.g) / 2;
+            if (this.d + this.g > com.mg.bas.v.u) {
+                this.d = (com.mg.bas.v.u - this.g) / 2;
             }
             this.x();
             return;

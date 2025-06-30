@@ -17,37 +17,31 @@ public final class ox {
     }
 
     public final Image a(int n, boolean bl) {
-        Object object;
-        int n2;
-        ox ox2;
-        block5: {
-            if (this.b != null && (ox2 = this.b.a(n, false)) != null) {
-                return ox2;
+        Image result = null;
+        if (this.b != null) {
+            result = this.b.a(n, false);
+            if (result != null) {
+                return result;
             }
-            long l = n;
-            ox2 = this;
-            n2 = 0;
-            while (n2 < ox2.a.d()) {
-                ov ov2 = (ov)ox2.a.b(n2);
-                if ((long)ov2.a == l) {
-                    object = ov2.b;
-                    break block5;
-                }
-                ++n2;
-            }
-            object = ox2 = null;
         }
-        if (object == null && bl) {
-            n2 = n;
-            Object object2 = pa.a();
-            byte[] byArray = ((pa)object2).b(n2, false);
-            object2 = byArray;
+        long l = n;
+        int n2 = 0;
+        while (n2 < this.a.d()) {
+            ov ov2 = (ov)this.a.b(n2);
+            if ((long)ov2.a == l) {
+                result = ov2.b;
+                break;
+            }
+            ++n2;
+        }
+        if (result == null && bl) {
+            byte[] byArray = pa.a().b(n, false);
             if (byArray != null) {
-                ox2 = f.a((byte[])object2);
-                this.a.a(new ov(n, (Image)ox2));
+                result = f.a(byArray);
+                this.a.a(new ov(n, result));
             }
         }
-        return ox2;
+        return result;
     }
 
     public final void a(int n, Image image) {

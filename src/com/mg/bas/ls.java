@@ -24,9 +24,9 @@ extends o {
         this.a.a(new lo(string, 1, n3, n2, n6, 16));
     }
 
-    protected final n a(String object, int n2, int n3, int n4, int n5, int n6) {
-        object = super.a((String)object, n2, n3, n4, n5, n6);
-        switch (((n)object).c()) {
+    protected final n a(String string, int n2, int n3, int n4, int n5, int n6) {
+        n object = super.a(string, n2, n3, n4, n5, n6);
+        switch (object.c()) {
             case 3: 
             case 4: 
             case 5: {

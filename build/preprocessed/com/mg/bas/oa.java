@@ -32,7 +32,7 @@ ik {
         super(1);
         ct.b("Initializing platform");
         this.a((ba)null);
-        this.a(this);
+        this.a((bf)this);
         this.f(true);
         this.a(false);
         this.d(false);
@@ -88,7 +88,7 @@ ik {
         this.n.c(this.k);
         this.w.v();
         if (!co.b().f()) {
-            com.mg.sq.a.a(this);
+            this.w.a(this);
         }
     }
 
@@ -255,12 +255,12 @@ ik {
             }
             case 1: {
                 if (com.mg.sq.a.m == null || com.mg.sq.a.m.A() == null || !this.n.b(com.mg.sq.a.m.A())) break;
-                this.n.a(com.mg.sq.a.m.A());
+                this.n.a((fb)com.mg.sq.a.m.A());
                 return;
             }
             case 3: {
                 if (com.mg.sq.a.m == null || com.mg.sq.a.m.z() == null || !this.n.b(com.mg.sq.a.m.z())) break;
-                this.n.a(com.mg.sq.a.m.z());
+                this.n.a((fb)com.mg.sq.a.m.z());
                 return;
             }
             case 99030: {
@@ -283,21 +283,19 @@ ik {
             case 0: {
                 go.x = n;
                 go.w = object;
-                if (((String)object).equals("M99")) {
+                if (object.equals("M99")) {
                     this.f(4);
                     return;
                 }
                 String string = object;
-                object = this;
+                oa oaInstance = this;
                 System.gc();
                 try {
                     com.mg.sq.a.s().a((String)null, (il)null, 3000);
-                    ((oa)object).w.a(5, new Object[]{string});
+                    oaInstance.w.a(5, new Object[]{string});
                     return;
-                }
-                catch (Exception exception) {
-                    object = exception;
-                    exception.printStackTrace();
+                } catch (Exception caughtException) {
+                    caughtException.printStackTrace();
                 }
             }
         }
@@ -361,32 +359,33 @@ ik {
         if (this.t) {
             return;
         }
-        Object object2 = null;
+        ha haInstance = null;
         if (this.w.c(191919)) {
-            object2 = (ha)this.w.d(191919);
+            haInstance = (ha)this.w.d(191919);
         }
-        if (object2 != null) {
+        if (haInstance != null) {
             this.d(1, 13);
             return;
         }
-        object2 = this.n.q();
-        if (object2 != null) {
-            ((fb)object2).t();
+        fb fbInstance = this.n.q();
+        if (fbInstance != null) {
+            fbInstance.t();
         }
         if (this.k != null) {
             boolean bl3 = bl2;
             boolean bl4 = bl;
             String string2 = string;
             long l2 = l;
-            Object object3 = object;
-            object2 = lh2;
-            object = this.k;
-            if (((ol)object).p != null) {
-                if (((ol)object).p instanceof om) {
-                    ((om)((ol)object).p).m.a();
-                    v.c();
-                } else if (((ol)object).p instanceof oq) {
-                    ((oq)((ol)object).p).a((lh)object2, (String)object3, l2, string2, bl4, bl3);
+            String object3 = object;
+            lh lhInstance = lh2;
+            ol currentOl = this.k;
+            if (currentOl.p != null) {
+                
+                if (currentOl.p instanceof om) {
+                    ((om)currentOl.p).m.a();
+                    com.mg.bas.v.c();
+                } else if (currentOl.p instanceof oq) {
+                    ((oq)currentOl.p).a(lhInstance, object3, l2, string2, bl4, bl3);
                     return;
                 }
             }
@@ -400,10 +399,10 @@ ik {
 
     public final void a(String string, String object) {
         this.w.a(false);
-        object = this.w.a("", (String)(object == null ? String.valueOf(string) + " không muốn đánh với bạn." : object), "Đóng", 12, 1);
+        al dialog = this.w.a("", (object == null ? String.valueOf(string) + " không muốn đánh với bạn." : object), "Đóng", 12, 1);
         this.l = string;
-        ((am)object).a(this);
-        this.w.a((al)object, false);
+        ((am)dialog).a(this);
+        this.w.a(dialog, false);
     }
 
     public final void a(lh lh2, lh lh3, boolean bl, byte[] byArray, byte[] byArray2, byte[] byArray3, int n, byte by, byte by2) {
@@ -493,7 +492,7 @@ ik {
             } else {
                 if (((ol)object).p instanceof om) {
                     ((om)((ol)object).p).m.a();
-                    v.c();
+                    com.mg.bas.v.c();
                 }
                 bl = false;
             }
@@ -537,11 +536,9 @@ ik {
         if (!go.w.equals(joArray2)) {
             return;
         }
-        boolean bl = false;
-        joArray2 = joArray;
         ol ol2 = this.k;
         if (ol2.p instanceof om) {
-            ((om)ol2.p).a(joArray2, false);
+            ((om)ol2.p).a(joArray, false);
         }
     }
 
@@ -670,8 +667,8 @@ ik {
             }
             case 99020: {
                 oa oa2 = this;
-                object = new ib();
-                oa2.w.a((al)object);
+                al dialog = new ib(); 
+                oa2.w.a(dialog);
                 return true;
             }
             case 99021: {
@@ -748,7 +745,7 @@ ik {
 
     private void c(String string) {
         hr hr2 = new hr();
-        hr2.a((Object)this.k);
+        hr2.a(this.k);
         this.w.a(hr2);
         if (string == null) {
             this.o.o();
@@ -774,9 +771,9 @@ ik {
     }
 
     public final void a(String object) {
-        object = this.w.a("", String.valueOf(this.l) + " đang đánh nhau với " + (String)object + ". Muốn xem trận đánh không?", "Xem", 121, "Đóng", 12, 1);
-        ((am)object).a(this);
-        this.w.a((al)object, false);
+        al dialog = this.w.a("", String.valueOf(this.l) + " đang đánh nhau với " + object + ". Muốn xem trận đánh không?", "Xem", 121, "Đóng", 12, 1);
+        ((am)dialog).a(this);
+        this.w.a(dialog, false);
     }
 
     public final void b(String object) {
@@ -784,10 +781,10 @@ ik {
             this.o.a(false);
             return;
         }
-        object = this.w.a("", String.valueOf(object) + " muốn giao dịch với bạn. Bạn có đồng ý không?", "Đồng ý", 123, "Không", 124, 1);
-        ((am)object).b(241207);
-        ((am)object).a(this);
-        this.w.a((al)object, false);
+        al dialog = this.w.a("", String.valueOf(object) + " muốn giao dịch với bạn. Bạn có đồng ý không?", "Đồng ý", 123, "Không", 124, 1);
+        ((am)dialog).b(241207);
+        ((am)dialog).a(this);
+        this.w.a(dialog, false);
     }
 
     public final boolean w() {
@@ -835,7 +832,7 @@ ik {
         if (!this.n.b(this.p)) {
             this.n.c(this.p);
         }
-        this.n.a(this.p);
+        this.n.a((bf)this.p);
     }
 
     public final void y() {
@@ -846,31 +843,29 @@ ik {
         this.n.d(this.p);
         this.p = null;
         if (this.k != null) {
-            this.n.a(this.k);
+            this.n.a((bf)this.p);
         }
     }
 
-    public final void a(lr[] object) {
+    public final void a(lr[] lrArray) {
         if (this.k != null) {
-            lr[] lrArray = object;
-            object = this.k;
+            ol olInstance = this.k;
             this.k.t = false;
-            if (((ol)object).p == null || ((ol)object).p.b() != 3) {
-                ((ol)object).j(3);
+            if (olInstance.p == null || olInstance.p.b() != 3) {
+                olInstance.j(3);
                 os.l = lrArray;
-            } else if (((ol)object).p.b() == 3) {
-                ((os)((ol)object).p).a(lrArray);
+            } else if (olInstance.p.b() == 3) {
+                ((os)olInstance.p).a(lrArray);
             }
         }
         this.w.v();
     }
 
-    public final void b(lr[] object) {
+    public final void b(lr[] lrArray) {
         if (this.k != null) {
-            lr[] lrArray = object;
-            object = this.k;
-            if (object.p.b() == 3) {
-                ((os)object.p).b(lrArray);
+            ol olInstance = this.k;
+            if (olInstance.p != null && olInstance.p.b() == 3) {
+                ((os)olInstance.p).b(lrArray);
             }
         }
         this.w.v();

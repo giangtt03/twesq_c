@@ -173,7 +173,7 @@ Runnable {
                                 }
                                 object2 = this.F[0];
                                 this.F[0] = this.F[s];
-                                this.F[s] = object2;
+                                this.F[s] = (String)object2;
                                 this.H = 2;
                                 this.u();
                                 break;
@@ -215,7 +215,7 @@ Runnable {
                                 }
                                 object = this.F[0];
                                 this.F[0] = this.F[s];
-                                this.F[s] = object;
+                                this.F[s] = (String)object;
                                 this.H = 2;
                                 this.u();
                                 break;
@@ -257,7 +257,7 @@ Runnable {
                                 }
                                 object = this.F[0];
                                 this.F[0] = this.F[s];
-                                this.F[s] = object;
+                                this.F[s] = (String)object;
                                 this.H = 2;
                                 ct.a("[OLA] Connect success to " + this.F[s]);
                                 this.v();
@@ -351,10 +351,10 @@ Runnable {
                                         ((el)object3).a((short)79, ((eh)object4).n);
                                         break;
                                     }
-                                    String string = g.a();
-                                    String string2 = g.b();
-                                    String string3 = g.c();
-                                    String string4 = g.d();
+                                    String string = com.mg.bas.g.a();
+                                    String string2 = com.mg.bas.g.b();
+                                    String string3 = com.mg.bas.g.c();
+                                    String string4 = com.mg.bas.g.d();
                                     if (string != null) {
                                         ((el)object3).a((short)81, string);
                                     }
@@ -376,7 +376,7 @@ Runnable {
                                     }
                                     ((el)object3).a((short)7, ((eh)object4).h);
                                     ((el)object3).a((short)8, ((eh)object4).g);
-                                    if (i.a(((eh)object4).q)) break;
+                                    if (com.mg.bas.i.a(((eh)object4).q)) break;
                                     ((el)object3).a((short)109, ((eh)object4).q);
                                     break;
                                 }
@@ -395,7 +395,7 @@ Runnable {
                                     Object object3 = object;
                                     Object object4 = object2;
                                     ((el)object3).a((short)7, ((eh)object4).j);
-                                    if (i.a(null)) break;
+                                    if (com.mg.bas.i.a((String) null)) break;
                                     ((el)object3).a((short)22, (String)null);
                                     break;
                                 }
@@ -436,7 +436,7 @@ Runnable {
                                     Object object4 = object2;
                                     ((el)object3).a((short)12, (byte)((eh)object4).E);
                                     String string = ((eh)object4).k;
-                                    if (!i.a(string)) {
+                                    if (!com.mg.bas.i.a(string)) {
                                         ((el)object3).a((short)13, string);
                                     }
                                     if (((eh)object4).Q) break;
@@ -556,7 +556,7 @@ Runnable {
                                     break;
                                 }
                                 case 125: {
-                                    el el2 = object;
+                                    el el2 = (el)object;
                                     Object object3 = object2;
                                     Object object4 = this;
                                     if (!((eh)object3).j.toLowerCase().equals(((du)object4).f.toLowerCase())) {
@@ -587,10 +587,10 @@ Runnable {
                                     if ((l = ((eh)object4).v) != 0L) {
                                         ((el)object3).a((short)72, l);
                                     }
-                                    string5 = g.a();
-                                    String string6 = g.b();
-                                    object4 = g.c();
-                                    String string7 = g.d();
+                                    string5 = com.mg.bas.g.a();
+                                    String string6 = com.mg.bas.g.b();
+                                    object4 = com.mg.bas.g.c();
+                                    String string7 = com.mg.bas.g.d();
                                     if (string5 == null || string6 == null || object4 == null || string7 == null) break;
                                     ((el)object3).a((short)81, string5);
                                     ((el)object3).a((short)82, string6);
@@ -629,7 +629,7 @@ Runnable {
                                     Object object4 = object2;
                                     ((el)object3).a((short)7, ((eh)object4).h);
                                     ((el)object3).a((short)24, ((eh)object4).l);
-                                    if (i.a(((eh)object4).q)) break;
+                                    if (com.mg.bas.i.a(((eh)object4).q)) break;
                                     ((el)object3).a((short)109, ((eh)object4).q);
                                     break;
                                 }
@@ -791,7 +791,7 @@ Runnable {
                                     if (((eh)object4).J != 0) {
                                         ((el)object3).a((short)220, (byte)((eh)object4).J);
                                     }
-                                    if (i.a(((eh)object4).q)) break;
+                                    if (com.mg.bas.i.a(((eh)object4).q)) break;
                                     ((el)object3).a((short)109, ((eh)object4).q);
                                     break;
                                 }
@@ -800,7 +800,7 @@ Runnable {
                                     Object object4 = object2;
                                     ((el)object3).a((short)129, (String)null);
                                     ((el)object3).a((short)24, ((eh)object4).l);
-                                    if (i.a(((eh)object4).q)) break;
+                                    if (com.mg.bas.i.a(((eh)object4).q)) break;
                                     ((el)object3).a((short)109, ((eh)object4).q);
                                     break;
                                 }
@@ -897,16 +897,16 @@ Runnable {
                                     String string3;
                                     Object object3 = object;
                                     Object object4 = object2;
-                                    byte by = ((eh)object4).P;
+                                    byte by = (byte)(((eh)object4).P);
                                     if (by == 1) {
-                                        ((el)object3).a((short)213, m.a((short)((eh)object4).A));
+                                        ((el)object3).a((short)213, com.mg.bas.m.a((short)((eh)object4).A));
                                         ((el)object3).a((short)212, ((eh)object4).P);
                                         ((el)object3).a((short)37, 0);
                                         ((el)object3).a((short)68, (byte)0);
-                                        string3 = g.a();
-                                        string4 = g.b();
-                                        String string = g.c();
-                                        string6 = g.d();
+                                        string3 = com.mg.bas.g.a();
+                                        string4 = com.mg.bas.g.b();
+                                        String string = com.mg.bas.g.c();
+                                        string6 = com.mg.bas.g.d();
                                         if (string3 != null && string4 != null && string != null && string6 != null) {
                                             ((el)object3).a((short)81, string3);
                                             ((el)object3).a((short)82, string4);
@@ -914,7 +914,7 @@ Runnable {
                                             ((el)object3).a((short)80, string6);
                                         }
                                     } else {
-                                        ((el)object3).a((short)214, m.a((short)((eh)object4).A));
+                                        ((el)object3).a((short)214, com.mg.bas.m.a((short)((eh)object4).A));
                                         ((el)object3).a((short)23, ((eh)object4).N);
                                     }
                                     if (((eh)object4).K == 0) break;
@@ -1039,7 +1039,7 @@ Runnable {
         int n2 = 0;
         while (n2 < eh2.r.length) {
             el2.a((short)7, ds.e(eh2.r[n2]));
-            if (eh2.s != null && !i.a(eh2.s[n2])) {
+            if (eh2.s != null && !com.mg.bas.i.a(eh2.s[n2])) {
                 el2.a((short)22, eh2.s[n2]);
             }
             ++n2;
@@ -1061,7 +1061,7 @@ Runnable {
         if (!this.a) {
             throw new RuntimeException("Connection is not READY. Please wait until ChatConnectionListener with method notifyConnected returns");
         }
-        if (!i.a(string) && !i.b(string2)) {
+        if (!com.mg.bas.i.a((String)string) && !com.mg.bas.i.b((String)string2)) {
             this.f = string.toLowerCase().trim();
             this.g = string2;
             this.i = s;
@@ -1073,8 +1073,8 @@ Runnable {
         if (this.o == null) {
             throw new RuntimeException("There's no device information. Please call setDevice before start connection");
         }
-        eh eh2 = new eh(95);
-        new eh(95).D = 0;
+        eh eh2 = new eh((short)95);
+        new eh((short)95).D = 0;
         eh2.c = this.o.b;
         eh2.o = null;
         eh2.d = this.o.a;
@@ -1102,10 +1102,10 @@ Runnable {
                 Object object;
                 int n2 = 0;
                 while (n2 < this.F.length) {
-                    if (i.a(string, this.F[n2])) {
+                    if (com.mg.bas.i.a((String)string, (String)this.F[n2])) {
                         object = this.F[0];
                         this.F[0] = string;
-                        this.F[n2] = object;
+                        this.F[n2] = (String) object;
                         break;
                     }
                     ++n2;
@@ -1113,8 +1113,8 @@ Runnable {
                 if (n2 >= this.F.length) {
                     object = new String[this.F.length + 1];
                     System.arraycopy(this.F, 0, object, 1, this.F.length);
-                    object[0] = string;
-                    this.F = object;
+                    this.F[n2] = (String) object;
+                    this.F = (String[])object;
                 }
             }
             if (this.J != null && !this.b) {
@@ -1127,8 +1127,8 @@ Runnable {
 
     private void v() {
         ct.a("[OLA] Request Authentication");
-        eh eh2 = new eh(96);
-        new eh(96).D = 0;
+        eh eh2 = new eh((short)96);
+        new eh((short)96).D = 0;
         eh2.c = this.o.b;
         eh2.o = null;
         eh2.d = this.o.a;
@@ -1144,9 +1144,9 @@ Runnable {
         ct.a("[OLA] Submit Authentication");
         if (this.J != null && !this.b) {
         }
-        this.l = j.a(this.m, this.g);
-        eh eh2 = new eh(97);
-        new eh(97).E = this.i;
+        this.l = com.mg.bas.j.a(this.m, this.g);
+        eh eh2 = new eh((short)97);
+        new eh((short)97).E = this.i;
         eh2.b = this.f;
         eh2.M = this.l;
         eh2.D = 0;
@@ -1158,8 +1158,8 @@ Runnable {
         eh2.x = this.o.e;
         eh2.y = this.o.f;
         eh2.p = this.o.c;
-        if (!i.b(null)) {
-            if (!i.b(null)) {
+        if (!com.mg.bas.i.b(null)) {
+            if (!com.mg.bas.i.b(null)) {
                 eh2.n = String.valueOf(null) + " " + null;
             }
         }
@@ -1182,7 +1182,7 @@ Runnable {
                 }
                 --this.N;
                 if (this.H == 2) {
-                    eh eh2 = new eh(42);
+                    eh eh2 = new eh((short)42);
                     this.M.a(eh2);
                 }
                 this.P = l;
@@ -1192,7 +1192,7 @@ Runnable {
             long l2 = System.currentTimeMillis();
             if (l2 - du2.Q >= 300000L) {
                 du2.Q = System.currentTimeMillis();
-                eh eh3 = new eh(168);
+                eh eh3 = new eh((short)168);
                 du2.M.a(eh3);
                 du2.t();
             }
@@ -1204,15 +1204,15 @@ Runnable {
     }
 
     public final void a(int n2) {
-        eh eh2 = new eh(9);
-        new eh(9).B = n2;
+        eh eh2 = new eh((short)9);
+        new eh((short)9).B = n2;
         eh2.G = 0;
         this.M.a(eh2);
         this.t();
     }
 
     public final void i() {
-        eh eh2 = new eh(140);
+        eh eh2 = new eh((short)140);
         this.M.a(eh2);
         this.t();
     }
@@ -1225,13 +1225,13 @@ Runnable {
         if (string == null) {
             throw new RuntimeException("Null receiver Id");
         }
-        eh eh2 = new eh(14);
+        eh eh2 = new eh((short)14);
         if (s > 0) {
             eh2.J = s;
         }
         eh2.h = ds.e(string);
         eh2.g = string2;
-        if (!i.a(string3)) {
+        if (!com.mg.bas.i.a(string3)) {
             eh2.q = "id=" + string3;
         }
         this.M.a(eh2);
@@ -1239,8 +1239,8 @@ Runnable {
     }
 
     public final void b(String string) {
-        eh eh2 = new eh(44);
-        new eh(44).j = ds.e(string);
+        eh eh2 = new eh((short)44);
+        new eh((short)44).j = ds.e(string);
         this.M.a(eh2);
         this.t();
     }
@@ -1248,9 +1248,9 @@ Runnable {
     private void a(short s, String string, boolean bl) {
         this.h = string;
         this.i = s;
-        eh eh2 = new eh(21);
-        new eh(21).E = s;
-        if (!i.a(string)) {
+        eh eh2 = new eh((short)21);
+        new eh((short)21).E = s;
+        if (!com.mg.bas.i.a(string)) {
             this.i = (short)2;
             eh2.k = string;
             eh2.E = this.i;
@@ -1271,7 +1271,7 @@ Runnable {
     }
 
     public final void j() {
-        eh eh2 = new eh(6);
+        eh eh2 = new eh((short)6);
         this.M.a(eh2);
         this.t();
     }
@@ -1283,8 +1283,8 @@ Runnable {
         this.X = 0L;
         this.r = 0;
         this.q = 0;
-        eh eh2 = new eh(115);
-        new eh(115).l = "Test";
+        eh eh2 = new eh((short)115);
+        new eh((short)115).l = "Test";
         eh2.B = n2;
         this.M.a(eh2);
         this.t();
@@ -1309,7 +1309,7 @@ Runnable {
         } else {
             this.X = System.currentTimeMillis();
         }
-        eh eh2 = new eh(115);
+        eh eh2 = new eh((short)115);
         eh2.A = this.t = n2 + 1;
         this.M.a(eh2);
         this.t();
@@ -1317,24 +1317,21 @@ Runnable {
 
     public final void a(String object, String string) {
         String string2 = object;
-        object = null;
         String[] stringArray = new String[]{string};
         string = string2;
-        object = this;
-        Object object2 = stringArray;
-        if (!(stringArray == null || ((String[])object2).length == 0)) {
-            object2 = new eh(15);
-            new eh(15).i = string;
+        if (stringArray != null && stringArray.length != 0) {
+            eh object2 = new eh((short)15);
+            object2.i = string;
             object2.r = stringArray;
             object2.s = null;
-            ((du)object).M.a(object2);
-            super.t();
+            this.M.a(object2);
+            this.t();
         }
     }
 
     public final void a(String string, long l, short s) {
-        eh eh2 = new eh(103);
-        new eh(103).j = string;
+        eh eh2 = new eh((short)103);
+        new eh((short)103).j = string;
         eh2.v = l;
         eh2.K = s;
         this.z = s;
@@ -1343,8 +1340,8 @@ Runnable {
     }
 
     public final void a(long l, long l2, short s) {
-        eh eh2 = new eh(92);
-        new eh(92).v = l2;
+        eh eh2 = new eh((short)92);
+        new eh((short)92).v = l2;
         eh2.w = l;
         this.p = l;
         eh2.K = s;
@@ -1354,8 +1351,8 @@ Runnable {
     }
 
     public final void a(long l, short s) {
-        eh eh2 = new eh(91);
-        new eh(91).v = l;
+        eh eh2 = new eh((short)91);
+        new eh((short)91).v = l;
         eh2.E = s;
         this.M.a(eh2);
         this.t();
@@ -1370,8 +1367,8 @@ Runnable {
     }
 
     private void a(String string, long l, String string2, short s, short s2) {
-        eh eh2 = new eh(106);
-        new eh(106).g = string;
+        eh eh2 = new eh((short)106);
+        new eh((short)106).g = string;
         eh2.v = l;
         eh2.l = string2;
         eh2.L = s;
@@ -1382,38 +1379,37 @@ Runnable {
 
     final void b(String string, String object) {
         byte[] byArray;
-        if (i.a((String)object)) {
+        if (com.mg.bas.i.a((String)object)) {
             return;
         }
-        eh eh2 = new eh(109);
+        eh eh2 = new eh((short)109);
         try {
-            byArray = i.c((String)object, null);
+            byArray = com.mg.bas.i.c((String)object, null);
         }
         catch (Exception exception) {
             byArray = ((String)object).getBytes();
         }
         if (byArray != null) {
             byte[] byArray2 = new byte[byArray.length + 1];
-            object = byArray2;
             byArray2[0] = 5;
-            System.arraycopy(byArray, 0, object, 1, byArray.length);
+            System.arraycopy(byArray, 0, byArray2, 1, byArray.length);
             eh2.j = string;
-            eh2.O = (byte[])object;
+            eh2.O = byArray2;
             this.M.a(eh2);
             this.t();
         }
     }
 
     public final void a(long l) {
-        eh eh2 = new eh(111);
-        new eh(111).v = l;
+        eh eh2 = new eh((short)111);
+        new eh((short)111).v = l;
         this.M.a(eh2);
         this.t();
     }
 
     public final void a(String string, short s) {
-        eh eh2 = new eh(116);
-        new eh(116).m = string;
+        eh eh2 = new eh((short)116);
+        new eh((short)116).m = string;
         eh2.K = s;
         this.M.a(eh2);
         this.A = s;
@@ -1437,8 +1433,8 @@ Runnable {
         du2.J.a(du2.u, du2.w);
         this.y = string;
         this.W = s;
-        eh eh2 = new eh(114);
-        new eh(114).l = string;
+        eh eh2 = new eh((short)114);
+        new eh((short)114).l = string;
         eh2.K = this.W;
         this.M.a(eh2);
         this.t();
@@ -1448,10 +1444,11 @@ Runnable {
         this.l();
         this.y = null;
         this.W = s;
-        object = new eh(114);
-        new eh(114).l = null;
-        ((eh)object).K = this.W;
-        this.M.a(object);
+        eh ehObj = new eh((short)114);
+        ehObj.l = null;
+        ehObj.K = this.W;
+        this.M.a(ehObj);
+        this.t();
         this.t();
     }
 
@@ -1486,10 +1483,10 @@ Runnable {
                 ((du)object).V = System.currentTimeMillis();
             }
         }
-        object = new eh(114);
-        ((eh)object).A = this.v = n2 + 1;
-        ((eh)object).K = this.W;
-        this.M.a(object);
+        eh ehObj = new eh((short)114);
+        ehObj.A = this.v = n2 + 1;
+        ehObj.K = this.W;
+        this.M.a(ehObj);
         this.t();
     }
 
@@ -1509,23 +1506,23 @@ Runnable {
         this.T = 0;
     }
 
-    public final void b(String string, String object, String string2) {
-        object = new eh(39);
-        new eh(39).h = ds.e(string);
-        ((eh)object).l = string2;
-        if (!i.a(null)) {
-            ((eh)object).q = "id=" + null;
+    public final void b(String string, String unused, String string2) {
+        eh ehObj = new eh((short)39);
+        new eh((short)39).h = ds.e(string);
+        ehObj.l = string2;
+        if (!com.mg.bas.i.a((String)null)) {
+            ehObj.q = "id=" + (String)null;
         }
-        this.M.a(object);
+        this.M.a(ehObj);
         this.t();
     }
 
-    private void a(String string, short s, String object) {
-        object = new eh(104);
-        new eh(104).j = ds.e(string);
-        ((eh)object).H = s;
-        ((eh)object).g = null;
-        this.M.a(object);
+    private void a(String string, short s, String strParam) {
+        eh ehObj = new eh((short)104);
+        new eh((short)104).j = ds.e(string);
+        ehObj.H = s;
+        ehObj.g = null;
+        this.M.a(ehObj);
         this.t();
     }
 
@@ -1540,42 +1537,42 @@ Runnable {
     }
 
     public final void n() {
-        eh eh2 = new eh(100);
+        eh eh2 = new eh((short)100);
         this.M.a(eh2);
         this.t();
     }
 
     public final void a(long l, int n2) {
-        eh eh2 = new eh(101);
-        new eh(101).u = l;
+        eh eh2 = new eh((short)101);
+        new eh((short)101).u = l;
         eh2.z = n2;
         this.M.a(eh2);
         this.t();
     }
 
     public final void b(long l) {
-        eh eh2 = new eh(102);
-        new eh(102).t = l;
+        eh eh2 = new eh((short)102);
+        new eh((short)102).t = l;
         this.M.a(eh2);
         this.t();
     }
 
     public final void o() {
-        eh eh2 = new eh(128);
+        eh eh2 = new eh((short)128);
         this.M.a(eh2);
         this.t();
     }
 
     public final void b(short s) {
-        eh eh2 = new eh(124);
-        new eh(124).K = (short)2412;
+        eh eh2 = new eh((short)124);
+        new eh((short)124).K = (short)2412;
         this.M.a(eh2);
         this.t();
     }
 
     public final void a(String string, int n2, short s) {
-        eh eh2 = new eh(125);
-        new eh(125).j = ds.e(string);
+        eh eh2 = new eh((short)125);
+        new eh((short)125).j = ds.e(string);
         eh2.A = n2;
         eh2.F = s;
         this.M.a(eh2);
@@ -1583,52 +1580,52 @@ Runnable {
     }
 
     public final void f(String string) {
-        if (i.a(string)) {
+        if (com.mg.bas.i.a(string)) {
             return;
         }
-        eh eh2 = new eh(134);
-        new eh(134).e = string;
+        eh eh2 = new eh((short)134);
+        new eh((short)134).e = string;
         this.M.a(eh2);
         this.t();
     }
 
     public final void g(String string) {
-        if (i.a(string)) {
+        if (com.mg.bas.i.a(string)) {
             return;
         }
-        eh eh2 = new eh(135);
-        new eh(135).e = string;
+        eh eh2 = new eh((short)135);
+        new eh((short)135).e = string;
         this.M.a(eh2);
         this.t();
     }
 
     public final void p() {
-        eh eh2 = new eh(136);
+        eh eh2 = new eh((short)136);
         this.M.a(eh2);
         this.t();
     }
 
     public final void q() {
-        eh eh2 = new eh(35);
+        eh eh2 = new eh((short)35);
         this.M.a(eh2);
         this.t();
     }
 
     public final void r() {
-        eh eh2 = new eh(137);
+        eh eh2 = new eh((short)137);
         this.M.a(eh2);
         this.t();
     }
 
     public final void s() {
-        eh eh2 = new eh(138);
+        eh eh2 = new eh((short)138);
         this.M.a(eh2);
         this.t();
     }
 
     public final void c(String string, String string2) {
-        eh eh2 = new eh(65);
-        new eh(65).j = string2;
+        eh eh2 = new eh((short)65);
+        new eh((short)65).j = string2;
         eh2.m = string;
         this.M.a(eh2);
         this.t();

@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+MIDlet-Vendor: MicroGame Corp.
+MIDlet-Version: 0.18.0
+MIDlet-1: Su Quan Online Beta,/icon.png,com.mg.sq.SQMIDlet
+MicroEdition-Configuration: CLDC-1.1
+MIDlet-Name: 123 sq Online Beta
+MicroEdition-Profile: MIDP-2.0
+

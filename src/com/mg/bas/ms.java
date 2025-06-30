@@ -96,7 +96,6 @@ implements mr {
         synchronized (object2) {
             this.u = object;
             this.e();
-            object = this;
             return;
         }
     }
@@ -108,7 +107,6 @@ implements mr {
         this.m = null;
         this.u = null;
         byte[] byArray2 = object;
-        object = this;
         this.o = byArray2;
         this.f();
         this.n = 0;
@@ -116,25 +114,28 @@ implements mr {
         this.a(byArray);
         int n = 0;
         while (n < this.q[0].length) {
-            object2 = this.q[0][n].a();
-            this.q[0][n].a().r = lhArray[n].r;
-            object2.s = lhArray[n].s;
-            object2.t = lhArray[n].t;
-            object2.u = lhArray[n].u;
-            object2.v = lhArray[n].v;
-            object2.w = lhArray[n].w;
+            this.q[0][n] = ms.a(lhArray[n]);
+            this.q[0][n].f(3);
+            lh lh0 = this.q[0][n].a();
+            lh0.r = lhArray[n].r;
+            lh0.s = lhArray[n].s;
+            lh0.t = lhArray[n].t;
+            lh0.u = lhArray[n].u;
+            lh0.v = lhArray[n].v;
+            lh0.w = lhArray[n].w;
             ++n;
         }
         n = 0;
         while (n < this.q[1].length) {
-            this.q[1][n].a();
-            object2 = this.q[1][0].a();
-            this.q[1][0].a().r = lhArray2[n].r;
-            object2.s = lhArray2[n].s;
-            object2.t = lhArray2[n].t;
-            object2.u = lhArray2[n].u;
-            object2.v = lhArray2[n].v;
-            object2.w = lhArray2[n].w;
+            this.q[1][n] = ms.a(lhArray2[n]);
+            this.q[1][n].f(3);
+            lh lh1 = this.q[1][n].a();
+            lh1.r = lhArray2[n].r;
+            lh1.s = lhArray2[n].s;
+            lh1.t = lhArray2[n].t;
+            lh1.u = lhArray2[n].u;
+            lh1.v = lhArray2[n].v;
+            lh1.w = lhArray2[n].w;
             ++n;
         }
     }

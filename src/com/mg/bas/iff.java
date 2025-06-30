@@ -6,15 +6,15 @@ import javax.microedition.lcdui.Image;
 public final class iff
 extends c {
     public iff() {
-        this(f.d("/f/ver"));
+        this(com.mg.bas.f.d("/f/ver"));
     }
 
     public iff(int[] nArray) {
-        byte[] byArray = f.b("/f/ver");
+        byte[] byArray = com.mg.bas.f.b("/f/ver");
         int[] nArray2 = new int[2];
         nArray2[0] = 0xFFFFFF;
-        h.a(byArray, nArray2, nArray);
-        this.a = f.a(byArray);
+        com.mg.bas.h.a(byArray, nArray2, nArray);
+        this.a = com.mg.bas.f.a(byArray);
         this.d();
     }
 

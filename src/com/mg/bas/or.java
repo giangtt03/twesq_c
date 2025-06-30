@@ -31,18 +31,19 @@ bq {
     public or(oa oa2) {
         super(103, 8, "Xếp Hạng", false);
         this.z = oa2;
-        this.a(this);
+        this.a((bf)this);
         this.a(new ba());
-        this.d(v.t);
-        this.e(v.u - ba.a);
+        this.d(com.mg.bas.v.t);
+        this.e(com.mg.bas.v.u - ba.a);
         int n = this.e() / 10;
         this.u = new int[][]{{10, (n << 1) + 10, 10 + (n << 3)}, {10, (n << 1) + 10, n << 3}};
         this.t = new ay(0);
         this.t.a(this.c(), this.d() + 50, this.e(), this.f() - 60);
         this.t.h(1);
         this.s = new aw();
-        this.s.a(this);
-        this.s.a(this);
+//        this.s.a(this);
+        this.s.a((bn)this);
+        this.s.a((bq)this);
         this.s.e(true);
         this.t.b(this.s);
         this.y = new gb(5, 1);
@@ -91,9 +92,9 @@ bq {
                 }
                 int n3 = bs2.e() > bs2.f() ? bs2.e() : bs2.f();
                 bs2.a_(-n3, or2.f() - bs2.f() + n3);
-                bs2.d(0, v.u - ba.a - bs2.f());
-                bs2.a(or2);
-                or2.a(bs2);
+                bs2.d(0, com.mg.bas.v.u - ba.a - bs2.f());
+//                bs2.a(or2);
+                bs2.a((bg)or2);
                 bs2.c(com.mg.sq.a.n);
                 bs2.a(or2.w);
                 bs2.b(or2.x);
@@ -107,42 +108,43 @@ bq {
     }
 
     public final aq a(aw object, int n) {
-        if ((object = ((aw)object).i(n)) instanceof fy) {
-            return (fy)object;
+        Object item = object.i(n);
+        if (item instanceof fy) {
+            return (fy)item;
         }
-        if (object instanceof dp) {
+        if (item instanceof dp) {
             return new gl(15);
         }
         return null;
     }
 
     public final void b(aq object, int n) {
-        object = this.s.i(n);
-        if (object instanceof fy) {
+        Object item = this.s.i(n);
+        if (item instanceof fy) {
             this.r = this.p[this.q][n].c;
-            object = this;
+            or orObj = this;
             bs bs2 = new bs();
             if (com.mg.sq.a.m != null && com.mg.sq.a.o) {
                 bs2.a(new br[]{new br("Xem ME", 6), new br("Chi Tiết", 7)});
             } else {
                 bs2.a(new br[]{new br("Chi Tiết", 7)});
             }
-            int n2 = ((or)object).s.s();
-            aq aq2 = ((or)object).s.o(n2);
-            k k2 = ((or)object).t.r();
-            int n3 = (v.t - bs2.e()) / 2;
-            int n4 = ((or)object).t.d() + aq2.d() - k2.b;
-            if (n4 + bs2.f() > v.u - ba.a) {
-                n4 = v.u - ba.a - bs2.f();
+            int n2 = orObj.s.s();
+            aq aq2 = orObj.s.o(n2);
+            k k2 = orObj.t.r();
+            int n3 = (com.mg.bas.v.t - bs2.e()) / 2;
+            int n4 = orObj.t.d() + aq2.d() - k2.b;
+            if (n4 + bs2.f() > com.mg.bas.v.u - ba.a) {
+                n4 = com.mg.bas.v.u - ba.a - bs2.f();
             }
-            bs2.a_(v.t + bs2.e(), n4);
+            bs2.a_(com.mg.bas.v.t + bs2.e(), n4);
             bs2.d(n3, n4);
-            bs2.a((bg)object);
-            bs2.a(((or)object).w);
-            bs2.b(((or)object).x);
+            bs2.a((bg)orObj);
+            bs2.a(orObj.w);
+            bs2.b(orObj.x);
             bs2.c(com.mg.sq.a.n);
             bs2.a_(1);
-            ((or)object).a(bs2);
+            orObj.a(bs2);
         }
     }
 
@@ -165,7 +167,7 @@ bq {
     }
 
     public final void a(Graphics graphics, int n, int n2) {
-        graphics.setColor(v.am);
+        graphics.setColor(com.mg.bas.v.am);
         graphics.fillRect(this.c(), this.d(), this.e(), this.f());
         this.A.a(graphics, gs.c[this.q], this.c() + this.e() / 2, this.d() + 5, 1);
         pc.a(graphics, 10 + this.c(), 25 + this.d(), this.e() - 20);
@@ -206,7 +208,7 @@ bq {
         switch (n2) {
             case 7: {
                 ks.a().a(this.r, (byte)103);
-                com.mg.sq.a.s().a((String)null, (il)null);
+                com.mg.sq.a.s().a((String)null, (com.mg.bas.il)null);
                 break;
             }
             case 11: {

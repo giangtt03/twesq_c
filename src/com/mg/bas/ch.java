@@ -27,25 +27,19 @@ implements MessageListener {
     }
 
     public static void a(MessageConnection object) {
-        MessageConnection messageConnection = object;
-        object = ch.a();
-        d = messageConnection;
+        ch handler = ch.a();
+        d = object;
         try {
-            d.setMessageListener((MessageListener)object);
-            return;
-        }
-        catch (IOException iOException) {
-            object = iOException;
+            d.setMessageListener(handler);
+        } catch (IOException iOException) {
             iOException.printStackTrace();
-            return;
         }
     }
 
     public final void notifyIncomingMessage(MessageConnection object) {
-        b = new cm(this.c, (MessageConnection)object);
-        object = b;
-        object = new Thread((Runnable)object);
-        object.start();
+        b = new cm(this.c, object);
+        Thread t = new Thread(b);
+        t.start();
     }
 
     public static void a(String string, String string2, be be2) {

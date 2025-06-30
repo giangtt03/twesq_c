@@ -1,18 +1,20 @@
 package com.mg.bas;
 // Decompiled with: CFR 0.152
 // Class Version: 1
+
 import com.mg.sq.a;
 import javax.microedition.lcdui.Graphics;
 
 public final class ib
-extends al
-implements b,
-bf,
-bq {
+        extends al
+        implements b,
+        bf,
+        bq {
+
     private lh k;
     private ay l;
     private boolean m = false;
-    private k n = new k(0, 0, v.t, v.u);
+    private k n = new k(0, 0, com.mg.bas.v.t, com.mg.bas.v.u);
     private int o;
     private String[] p;
     private cu q = null;
@@ -51,11 +53,11 @@ bq {
         this.c = 0;
         this.d = 0;
         if (ib.t()) {
-            this.f = v.t;
+            this.f = com.mg.bas.v.t;
             this.g = 240 - ba.a;
         }
-        this.c = v.t >= this.f ? (v.t - this.f) / 2 : 0;
-        this.d = v.u >= this.g ? (v.u - ba.a - this.g) / 2 : 0;
+        this.c = com.mg.bas.v.t >= this.f ? (com.mg.bas.v.t - this.f) / 2 : 0;
+        this.d = com.mg.bas.v.u >= this.g ? (com.mg.bas.v.u - ba.a - this.g) / 2 : 0;
         this.a(this.c, this.d, this.f, this.g);
         this.a(go.k);
         ib ib2 = this;
@@ -84,7 +86,7 @@ bq {
         ib2.l.a(new k(ib2.t.a, ib2.t.b, ib2.t.c, ib2.t.d));
         ib2.l.b(ib2.F);
         ib2.l.h(1);
-        ib2.a((byte)0);
+        ib2.a((byte) 0);
         this.a(this);
         if (!cs.a.c(142)) {
             od.h(142);
@@ -98,7 +100,7 @@ bq {
 
     public final void c(Graphics graphics) {
         cw.a(graphics, this.n);
-        pc.d(graphics, this.c, this.d, this.f, this.g, v.aj);
+        pc.d(graphics, this.c, this.d, this.f, this.g, com.mg.bas.v.aj);
         cw.b(graphics, new k(this.c, this.d, this.f, this.g));
         int n = this.u.a + this.c;
         int n2 = this.u.b + this.d;
@@ -117,13 +119,17 @@ bq {
                     ib2.l.a(graphics2, n4, n3);
                     ib2.l.c(true);
                 }
-                if (this.F.t().b == null) break;
+                if (this.F.t().b == null) {
+                    break;
+                }
                 bx.d.c(true);
                 int n5 = this.c + this.G.a;
                 int n6 = this.d + this.G.b;
                 bx.d.a(graphics, this.F.t().b, n5 + 8, n6 + 4, 0);
                 bx.d.c(false);
-                if (this.F.r() > 0) break;
+                if (this.F.r() > 0) {
+                    break;
+                }
                 bx.d.a(graphics, "Chưa học", n5 + 8, n6 + bx.d.a() + 4, 0);
                 break;
             }
@@ -160,8 +166,10 @@ bq {
                     String[] cfr_ignored_0 = ib3.y;
                     bx.c.a();
                 }
-                if (ib3.F.r() >= ib3.F.t().c.length) break;
-                pc.b(graphics3, ib3.E.a, ib3.E.b, ib3.E.c, ib3.E.d, v.aj, false);
+                if (ib3.F.r() >= ib3.F.t().c.length) {
+                    break;
+                }
+                pc.b(graphics3, ib3.E.a, ib3.E.b, ib3.E.c, ib3.E.d, com.mg.bas.v.aj, false);
                 n7 = ib3.E.b + 5;
                 com.mg.sq.a.h.a(graphics3, ib3.F.r() > 0 ? "Điều kiện tăng cấp: " : "Điều kiện được học: ", ib3.E.a + 4, n7, 0);
                 bx.a(graphics3, com.mg.sq.a.h, ib3.p, ib3.E.a + 4, n7 += com.mg.sq.a.h.a(), ib3.E.c, ib3.E.d, 0);
@@ -190,10 +198,10 @@ bq {
                 this.a(com.mg.sq.a.n);
                 Object object = this.A;
                 Object object2 = this;
-                ((am)object2).a((az)object, true);
+                ((am) object2).a((az) object, true);
                 object = object2 = new gb(1112, 3);
                 object2 = this;
-                ((am)object2).b((az)object, true);
+                ((am) object2).b((az) object, true);
                 return;
             }
             case 1: {
@@ -296,7 +304,7 @@ bq {
                 bl = false;
             }
             if (bl) {
-                v.c();
+                com.mg.bas.v.c();
                 return;
             }
             if (this.I.f(n)) {
@@ -307,7 +315,7 @@ bq {
         }
         if (this.z == 1) {
             switch (n) {
-                case 97: 
+                case 97:
                 case 99: {
                     --this.v;
                     if (this.v < 0) {
@@ -316,7 +324,7 @@ bq {
                     this.e(this.v);
                     return;
                 }
-                case 96: 
+                case 96:
                 case 98: {
                     ++this.v;
                     if (this.v >= this.F.s().length) {
@@ -340,28 +348,24 @@ bq {
 
     public final int a(Object object, Object object2) {
         if (object instanceof lv) {
-            object = (lv)object;
-            object2 = (lv)object2;
-            return ((ld)object2).a - ((ld)object).a;
+            object = (lv) object;
+            object2 = (lv) object2;
+            return ((ld) object2).a - ((ld) object).a;
         }
-        object = (lw)object;
-        object2 = (lw)object2;
-        return ((lw)object2).a - ((lw)object).a;
+        object = (lw) object;
+        object2 = (lw) object2;
+        return ((lw) object2).a - ((lw) object).a;
     }
 
-    private void a(bs object) {
-        this.I = object;
-        az az2 = this.C;
-        object = this;
-        ((am)object).b(az2, true);
-        az2 = this.D;
-        object = this;
-        ((am)object).a(az2, true);
+    private void a(bs bsObj) {
+        this.I = bsObj;
+        this.b(this.C, true);
+        this.a(this.D, true);
         this.a(new bd("", 12));
     }
 
     private void u() {
-        v.c();
+        com.mg.bas.v.c();
         this.I = null;
         this.e(true);
         this.a(this.z);
@@ -404,7 +408,7 @@ bq {
                 break;
             }
             case 1114: {
-                ib2.a((byte)1);
+                ib2.a((byte) 1);
                 bl = true;
                 break;
             }
@@ -422,7 +426,7 @@ bq {
                 if (n5 + ib3.K.q() > ib3.d + ib3.g) {
                     n5 = ib3.d + k2.b - ib3.K.q() - 3;
                 }
-                ib3.K.c(v.t + ib3.K.p(), n5);
+                ib3.K.c(com.mg.bas.v.t + ib3.K.p(), n5);
                 ib3.K.a(n4, n5);
                 if (ib2.O && ib2.N < 2) {
                     ib2.M = null;
@@ -454,7 +458,7 @@ bq {
                 }
                 int n6 = bs2.e() > bs2.f() ? bs2.e() : bs2.f();
                 bs2.a_(-n6, ib2.j() - bs2.f() + n6);
-                bs2.d(0, v.u - ba.a - bs2.f());
+                bs2.d(0, com.mg.bas.v.u - ba.a - bs2.f());
                 bs2.a(ib2);
                 ib2.a(bs2);
                 ib2.k(false);
@@ -465,7 +469,7 @@ bq {
                 return;
             }
             case 10: {
-                this.a((byte)0);
+                this.a((byte) 0);
                 return;
             }
             case 13: {
@@ -507,7 +511,8 @@ bq {
     public final void a(int n, int n2) {
         if (this.I != null) {
             boolean bl;
-            block7: {
+            block7:
+            {
                 int n3 = n2;
                 int n4 = n;
                 az[] azArray = this.I.a();
@@ -561,11 +566,11 @@ bq {
     }
 
     private void v() {
-        com.mg.sq.a.s().a((String)null, (il)null);
+        com.mg.sq.a.s().a((String) null, (il) null);
         int[] nArray = new int[this.F.s().length];
         int n = 0;
         while (n < nArray.length) {
-            nArray[n] = this.F.j((int)n).a;
+            nArray[n] = this.F.j((int) n).a;
             ++n;
         }
         ks.a().a(nArray, this.F.x());
@@ -585,7 +590,7 @@ bq {
         if (!bl) {
             this.K = null;
             if (this.O && this.N == 2) {
-                this.M = new gj(this.P[this.N], 10, v.u - ba.a - 8, 200, 70, false);
+                this.M = new gj(this.P[this.N], 10, com.mg.bas.v.u - ba.a - 8, 200, 70, false);
                 this.M.f(10);
                 this.M.a(10);
                 this.M.a(new k(this.M.n() + 9, this.M.o() + 9, this.M.p() - 20, this.M.q() - 20));
@@ -595,11 +600,11 @@ bq {
         }
     }
 
-    public final void j(boolean n) {
+    public final void j(boolean bl) {
         if (gr.q && go.k.G < 10) {
             od.h(145);
             gr.q = false;
-            n = 0;
+            int n = 0;
             while (n < go.r.length) {
                 if (this.F.i(n)) {
                     this.O = true;
@@ -621,10 +626,9 @@ bq {
         }
     }
 
-    public final void b(aq object, int n) {
-        int n2 = this.F.i(n);
+    public final void b(aq aqObj, int n) {
+        int n2 = this.F.j(n).a;
         k k2 = this.F.a();
-        object = this;
         this.L = k2;
         bs bs2 = new bs();
         if (n2 != 0) {
@@ -632,47 +636,46 @@ bq {
         } else {
             bs2.a(new br[]{new br("Chi Tiết", 1114), new br("Đóng", 1112)});
         }
-        n2 = ((al)object).c + k2.a + (k2.c - bs2.e()) / 2;
-        int n3 = ((al)object).d + k2.b + k2.d;
-        if (n3 + bs2.f() > ((al)object).d + ((am)object).g) {
-            n3 = ((al)object).d + ((am)object).g - bs2.f();
+        n2 = this.c + k2.a + (k2.c - bs2.e()) / 2;
+        int n3 = this.d + k2.b + k2.d;
+        if (n3 + bs2.f() > this.d + this.g) {
+            n3 = this.d + this.g - bs2.f();
         }
-        n2 = n2 < ((al)object).c ? ((al)object).c : (n2 + bs2.e() > ((al)object).c + ((am)object).f ? ((al)object).c + ((am)object).f - bs2.e() : n2);
-        bs2.a_(v.t + bs2.e(), n3);
+        n2 = n2 < this.c ? this.c : (n2 + bs2.e() > this.c + this.f ? this.c + this.f - bs2.e() : n2);
+        bs2.a_(com.mg.bas.v.t + bs2.e(), n3);
         bs2.d(n2, n3);
-        bs2.a((bf)object);
+        bs2.a((bf) this);
         bs2.a_(1);
-        super.a(bs2);
-        ((ib)object).J = true;
-        if (((ib)object).N == 1 && ((ib)object).M != null) {
-            ((ib)object).M.g(((ib)object).M.o() + (((ib)object).M.a() ? 70 : 0));
-            ((ib)object).M.a(new k(((ib)object).M.n() + 9, ((ib)object).M.o() + 9, ((ib)object).M.p() - 20, ((ib)object).M.q() - 20));
+        this.J = true;
+        if (this.N == 1 && this.M != null) {
+            this.M.g(this.M.o() + (this.M.a() ? 70 : 0));
+            this.M.a(new k(this.M.n() + 9, this.M.o() + 9, this.M.p() - 20, this.M.q() - 20));
         }
     }
 
-    public final void a(aq aq2, int n) {
-    }
-
-    public final void a(aq object, int n, int n2) {
+    public final void a(aq aqObj, int n, int n2) {
         if (this.F.q()) {
             if (this.K != null) {
-                Object object2 = object = this.F.r() - 1 < 0 ? "Chưa học" : this.F.t().c[this.F.r() - 1].e;
+                Object object2 = this.F.r() - 1 < 0 ? "Chưa học" : this.F.t().c[this.F.r() - 1].e;
                 k k2 = this.L;
-                object = this;
-                ((ib)object).K.a((String)object2);
-                int n3 = ((al)object).c + 10;
-                int n4 = ((al)object).d + k2.b + k2.d + 3;
-                if (n4 + ((ib)object).K.q() > ((al)object).d + ((am)object).g) {
-                    n4 = ((al)object).d + k2.b - ((ib)object).K.q() - 3;
+                this.K.a((String) object2);
+                int n3 = this.c + 10;
+                int n4 = this.d + k2.b + k2.d + 3;
+                if (n4 + this.K.q() > this.d + this.g) {
+                    n4 = this.d + k2.b - this.K.q() - 3;
                 }
-                ((ib)object).K.a(n3, n4);
-                if (((ib)object).K.o() != n4) {
-                    ((ib)object).K.g(n4);
+                this.K.a(n3, n4);
+                if (this.K.o() != n4) {
+                    this.K.g(n4);
                 }
                 return;
             }
         } else {
             this.v = n2;
         }
+    }
+
+    public void a(aq var1, int var2) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

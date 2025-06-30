@@ -69,7 +69,7 @@ cg {
 
     public static void a(String string, String string2, String string3) {
         string = String.valueOf(string) + " " + string2 + " " + c + " " + cv.a(100);
-        ci.a(string, string3, null);
+        ci.a(string, string3, (be) null); // Disambiguate with (be) null
     }
 
     public final void a(String stringArray) {
@@ -78,32 +78,33 @@ cg {
         String string = "\"";
         Object object = "\"";
         Object object2 = " ";
-        String[] stringArray3 = stringArray;
+        String string3 = stringArray; // Use a String,
         boolean bl = false;
         int n2 = 0;
         Vector vector = new Vector();
         int n3 = 0;
-        while (n3 < stringArray3.length() - ((String)object2).length() + 1) {
-            if (((String)object2).equals(stringArray3.substring(n3, n3 + ((String)object2).length())) && !bl) {
-                vector.addElement(stringArray3.substring(n2, n3));
+        while (n3 < string3.length() - ((String)object2).length() + 1) {
+            if (((String)object2).equals(string3.substring(n3, n3 + ((String)object2).length())) && !bl) {
+                vector.addElement(string3.substring(n2, n3));
                 n2 = n3 + ((String)object2).length();
                 n3 = n2 - 1;
-            } else if (((String)object).equals(stringArray3.substring(n3, n3 + ((String)object).length())) && !bl) {
-                vector.addElement(stringArray3.substring(n2, n3));
+            } else if (((String)object).equals(string3.substring(n3, n3 + ((String)object).length())) && !bl) {
+                vector.addElement(string3.substring(n2, n3));
                 n2 = n3 + ((String)object).length();
                 n3 = n2 - 1;
                 bl = true;
-            } else if (string.equals(stringArray3.substring(n3, n3 + string.length())) && bl) {
-                vector.addElement(stringArray3.substring(n2, n3));
+            } else if (string.equals(string3.substring(n3, n3 + string.length())) && bl) {
+                vector.addElement(string3.substring(n2, n3));
                 n2 = n3 + string.length();
                 n3 = n2 - 1;
                 bl = false;
             }
             ++n3;
         }
-        if (n2 < stringArray3.length()) {
-            vector.addElement(stringArray3.substring(n2));
+        if (n2 < string3.length()) {
+            vector.addElement(string3.substring(n2));
         }
+        String[] stringArray3;
         if (vector.size() > 0) {
             stringArray3 = new String[vector.size()];
             n3 = 0;
@@ -127,33 +128,33 @@ cg {
             while (n2 < stringArray3.length) {
                 if (stringArray3[n2].length() != 0) {
                     char c = stringArray3[n2].charAt(0);
-                    String string3 = null;
+                    String string4 = null;
                     if (stringArray3[n2].length() > 1) {
-                        string3 = stringArray3[n2].substring(1);
+                        string4 = stringArray3[n2].substring(1);
                     }
                     switch (c) {
                         case 'a': {
-                            n4 = Integer.parseInt(string3);
+                            n4 = Integer.parseInt(string4);
                             break;
                         }
                         case 'l': {
-                            object = string3;
+                            object = string4;
                             break;
                         }
                         case 'c': {
-                            string = string3;
+                            string = string4;
                             break;
                         }
                         case 'q': {
                             break;
                         }
                         case 'r': {
-                            string2 = string3;
+                            string2 = string4;
                             break;
                         }
                         case 'i': {
                             try {
-                                Integer.parseInt(string3);
+                                Integer.parseInt(string4);
                                 break;
                             }
                             catch (Exception exception) {}
@@ -163,13 +164,13 @@ cg {
                 ++n2;
             }
             if (ag.b() != null) {
-                String string4;
+                String string5;
                 n2 = n4;
                 Object object3 = object;
-                String string5 = string;
-                stringArray3 = string2;
-                if (string2 != null && string2.length() >= 4 && (string4 = string2.substring(0, 4).toLowerCase()).equals("reco")) {
-                    ag.b().a(n2, (String)object3, string5, (String)stringArray3);
+                String string6 = string;
+                String string7 = string2;
+                if (string2 != null && string2.length() >= 4 && (string5 = string2.substring(0, 4).toLowerCase()).equals("reco")) {
+                    ag.b().a(n2, (String)object3, string6, string7); // Pass string7
                 }
                 cn.a().d(0, 3);
                 cr.g();

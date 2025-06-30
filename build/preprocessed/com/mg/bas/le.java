@@ -6,8 +6,8 @@ import javax.microedition.lcdui.Image;
 
 public final class le
 extends as {
-    private Image s = f.d("/blacksmith");
-    private Image t = f.d("/effblacksmith");
+    private Image s = com.mg.bas.f.d("/blacksmith");
+    private Image t = com.mg.bas.f.d("/effblacksmith");
     private int u = 40;
     private as v;
     private static final int[][] w;

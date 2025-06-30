@@ -16,10 +16,10 @@ implements bf {
         super(6);
         this.a(new ba());
         this.a(com.mg.sq.a.n);
-        this.a = bx.a("\nBạn có chấp nhận các quy định của Ola tại http://term.ola.vn không?", v.t - 4, bx.d);
+        this.a = bx.a("\nBạn có chấp nhận các quy định của Ola tại http://term.ola.vn không?", com.mg.bas.v.t - 4, bx.d);
         int n = 15 + bx.d.a() * (this.a.length + 1) + 4 + 10;
         this.b = new ex("Đồng ý", 3);
-        this.b.a((v.t - 80) / 2, n, 80, 20);
+        this.b.a((com.mg.bas.v.t - 80) / 2, n, 80, 20);
         this.b.d(true);
         bs bs2 = new bs(new br[]{new br("Đồng ý", 0), new br("Quy định", 1), new br("Thoát", 2)});
         bs2.a(this);
@@ -42,16 +42,16 @@ implements bf {
     }
 
     protected final void a(Graphics graphics) {
-        graphics.setColor(v.am);
-        graphics.fillRect(0, 0, v.t, v.u - ba.a);
-        graphics.drawImage(pc.d, v.t, v.u - ba.a, 40);
+        graphics.setColor(com.mg.bas.v.am);
+        graphics.fillRect(0, 0, com.mg.bas.v.t, com.mg.bas.v.u - ba.a);
+        graphics.drawImage(pc.d, com.mg.bas.v.t, com.mg.bas.v.u - ba.a, 40);
         bx.d.c(true);
-        bx.d.a(graphics, "Quy định", v.t / 2, 15, 1);
+        bx.d.a(graphics, "Quy định", com.mg.bas.v.t / 2, 15, 1);
         bx.d.c();
         int n = 15 + (bx.d.a() + 4);
         int n2 = 0;
         while (n2 < this.a.length) {
-            bx.d.a(graphics, this.a[n2], v.t / 2, n, 1);
+            bx.d.a(graphics, this.a[n2], com.mg.bas.v.t / 2, n, 1);
             n += bx.d.a();
             ++n2;
         }

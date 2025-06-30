@@ -1,707 +1,666 @@
 package com.mg.bas;
-// Utility class for data serialization, caching, and record store management.
-// Decompiled with: CFR 0.152
+// Decompiled with: Procyon 0.6.0
 // Class Version: 1
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
+import java.io.DataInputStream;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.DataOutputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.UnsupportedEncodingException;
 import javax.microedition.rms.RecordStore;
 
-public final class pd
-extends cs {
-    private static u b = null;
-
+public final class pd extends cs
+{
+    private static u b;
+    
+    static {
+        pd.b = null;
+    }
+    
     private static void H() {
-        b = u.a("olacacher", 2048, 1024, 1, 10);
-        int n = 10240;
+        pd.b = u.a("olacacher", 2048, 1024, 1, 10);
         cs.a = u.a("161b", 161, 10240);
     }
-
-    public static long b(int[] nArray) {
-        if (nArray == null) {
+    
+    public static long b(final int[] array) {
+        if (array == null) {
             return 0L;
         }
-        byte[] byArray = new byte[nArray.length << 2];
+        final byte[] array2 = new byte[array.length << 2];
         int n = 0;
-        int n2 = 0;
-        while (n2 < nArray.length) {
-            System.arraycopy(m.a((int)byArray[n2]), 0, byArray, n, 4);
+        for (int i = 0; i < array.length; ++i) {
+            System.arraycopy(m.a((int)array2[i]), 0, array2, n, 4);
             n += 4;
-            ++n2;
         }
         e.a();
-        return e.a(byArray);
+        return e.a(array2);
     }
-
-    public static int a(long l) {
-        long l2 = 0L;
-        byte[] byArray = cs.a.a(153);
-        if (byArray != null) {
-            l2 = m.d(byArray);
+    
+    public static int a(final long n) {
+        long d = 0L;
+        final byte[] a;
+        if ((a = cs.a.a(153)) != null) {
+            d = m.d(a);
         }
-        if (l2 != l) {
-            pd.b(l);
+        if (d != n) {
+            b(n);
             return 0;
         }
-        int n = 0;
-        byArray = cs.a.a(154);
-        if (byArray != null) {
-            n = m.c(byArray);
+        int c = 0;
+        final byte[] a2;
+        if ((a2 = cs.a.a(154)) != null) {
+            c = m.c(a2);
         }
-        return n;
+        return c;
     }
-
-    public static void b(long l) {
-        cs.a.b(153, m.a(l));
+    
+    public static void b(final long n) {
+        cs.a.b(153, m.a(n));
     }
-
-    public static void a(int n) {
+    
+    public static void a(final int n) {
         cs.a.b(154, m.a(n));
     }
-
+    
     public static void j() {
         cs.a.b(153);
         cs.a.b(154);
         cs.a.a();
     }
-
+    
     public static long k() {
-        int n = 155;
-        u u2 = cs.a;
-        Object object = u2.a(155);
-        Long l = object != null ? new Long(m.d(object)) : null;
-        object = l;
-        if (l == null) {
-            object = new Long(System.currentTimeMillis());
-            long l2 = object.longValue();
+        final byte[] a = cs.a.a(155);
+        long n;
+        if (a != null) {
+            n = m.d(a);
+        } else {
+            n = System.currentTimeMillis();
             if (!cs.a.c(155)) {
-                cs.a.b(155, m.a(l2));
+                cs.a.b(155, m.a(n));
             }
         }
-        return object.longValue();
+        return n;
     }
-
-    public static void a(String[] stringArray) {
-        if (stringArray == null) {
+    
+    public static void a(final String[] array) {
+        if (array == null) {
             return;
         }
-        byte[] byArray = new byte[1000];
+        final byte[] array2 = new byte[1000];
         int n = 0;
-        System.arraycopy(m.a(stringArray.length), 0, byArray, 0, 4);
+        System.arraycopy(m.a(array.length), 0, array2, 0, 4);
         n += 4;
-        int n2 = 0;
-        while (n2 < stringArray.length) {
-            byte[] byArray2 = stringArray[n2].getBytes();
-            System.arraycopy(m.a(byArray2.length), 0, byArray, n, 4);
-            System.arraycopy(byArray2, 0, byArray, n += 4, byArray2.length);
-            n += byArray2.length;
-            ++n2;
-        }
-        cs.a.b(157, byArray, 0, n);
-    }
-
-    public static String[] l() {
-        byte[] byArray = cs.a.a(157);
-        if (byArray != null) {
-            int n = 0;
-            int n2 = m.a(byArray, 0);
+        for (int i = 0; i < array.length; ++i) {
+            final byte[] bytes;
+            System.arraycopy(m.a((bytes = array[i].getBytes()).length), 0, array2, n, 4);
             n += 4;
-            String[] stringArray = new String[n2];
-            int n3 = 0;
-            while (n3 < stringArray.length) {
-                int n4 = m.a(byArray, n);
-                stringArray[n3] = new String(byArray, n += 4, n4);
-                n += n4;
-                ++n3;
+            System.arraycopy(bytes, 0, array2, n, bytes.length);
+            n += bytes.length;
+        }
+        cs.a.b(157, array2, 0, n);
+    }
+    
+    public static String[] l() {
+        final byte[] a;
+        if ((a = cs.a.a(157)) != null) {
+            int n = 0;
+            final int a2 = m.a(a, 0);
+            n += 4;
+            final String[] array = new String[a2];
+            for (int i = 0; i < array.length; ++i) {
+                final int a3 = m.a(a, n);
+                n += 4;
+                array[i] = new String(a, n, a3);
+                n += a3;
             }
-            return stringArray;
+            return array;
         }
         return null;
     }
-
+    
     public static final void m() {
-        pd.H();
-        int n2 = 0;
-        byte[] byArray = cs.a.a(121);
-        if (byArray != null) {
-            n2 = m.c(byArray);
+        H();
+        int c = 0;
+        final byte[] a;
+        if ((a = cs.a.a(121)) != null) {
+            c = m.c(a);
         }
-        if (n2 < 7) {
+        if (c < 7) {
             try {
-                String[] stringArray = RecordStore.listRecordStores();
-                if (stringArray != null) {
-                    int n3 = 0;
-                    while (n3 < stringArray.length) {
-                        g.b(stringArray[n3]);
-                        ++n3;
+                final String[] listRecordStores;
+                if ((listRecordStores = RecordStore.listRecordStores()) != null) {
+                    for (int i = 0; i < listRecordStores.length; ++i) {
+                        g.b(listRecordStores[i]);
                     }
                 }
             }
-            catch (Throwable throwable) {
-                Throwable throwable2 = throwable;
-                throwable.printStackTrace();
+            catch (final Throwable t) {
+//                final Throwable t2;
+                t.printStackTrace();
             }
-            pd.H();
-            byte[] byArray2 = m.a(7);
-            cs.a.b(121, byArray2);
+            H();
+            cs.a.b(121, m.a(7));
         }
     }
-
+    
     public static boolean n() {
         return cs.a.c(151);
     }
-
+    
     public static void o() {
-        cs.a.b(151, new byte[]{1});
+        cs.a.b(151, new byte[] { 1 });
     }
-
+    
     public static final String p() {
-        byte[] byArray = cs.a.a(112);
-        if (byArray != null) {
-            return i.a(byArray);
+        final byte[] a;
+        if ((a = cs.a.a(112)) != null) {
+            return i.a(a);
         }
         return null;
     }
-
-    public static final void a(String string) {
-        byte[] byArray = null;
+    
+    public static final void a(final String s) {
+        byte[] c = null;
         try {
-            byArray = i.c(string);
+            c = i.c(s);
         }
-        catch (UnsupportedEncodingException unsupportedEncodingException) {}
-        if (byArray == null || byArray.length <= 0) {
-            byArray = new byte[]{};
+        catch (final UnsupportedEncodingException ex) {}
+        if (c == null || c.length <= 0) {
+            c = new byte[0];
         }
-        cs.a.b(112, byArray);
+        cs.a.b(112, c);
     }
-
+    
     public static byte[] q() {
-        byte[] byArray = b.a(Integer.MIN_VALUE);
-        return byArray;
+        return pd.b.a(Integer.MIN_VALUE);
     }
-
-    public static void b(byte[] byArray) {
-        if (byArray == null) {
+    
+    public static void b(final byte[] array) {
+        if (array == null) {
             return;
         }
-        b.a(Integer.MIN_VALUE, byArray);
-        b.a(Integer.MIN_VALUE, Long.MAX_VALUE);
-        b.a();
+        pd.b.a(Integer.MIN_VALUE, array);
+        pd.b.a(Integer.MIN_VALUE, Long.MAX_VALUE);
+        pd.b.a();
     }
-
-    public static void b(String object) {
-        byte[] byArray = null;
+    
+    public static void b(final String s) {
+        byte[] c = null;
         try {
-            byArray = i.c((String)object);
+            c = i.c(s);
         }
-        catch (UnsupportedEncodingException unsupportedEncodingException) {
-            object = unsupportedEncodingException;
-            unsupportedEncodingException.printStackTrace();
+        catch (final UnsupportedEncodingException ex) {
+//            final Throwable t;
+            ex.printStackTrace();
         }
-        if (byArray == null) {
+        if (c == null) {
             return;
         }
-        cs.a.b(119, byArray);
+        cs.a.b(119, c);
     }
-
+    
     public static String r() {
-        byte[] byArray = cs.a.a(119);
-        if (byArray == null) {
+        final byte[] a;
+        if ((a = cs.a.a(119)) == null) {
             return null;
         }
-        return i.a(byArray);
+        return i.a(a);
     }
-
+    
     public static void s() {
-        b.b(-2147483647);
-        b.b(-2147483646);
+        pd.b.b(-2147483647);
+        pd.b.b(-2147483646);
         cs.a.b(118);
         cs.a.b(112);
         cs.a.b(150);
         cs.a.a();
-        b.a();
+        pd.b.a();
         go.d = 0;
     }
-
-    public static void b(String[] stringArray) {
-        if (stringArray == null) {
+    
+    public static void b(final String[] array) {
+        if (array == null) {
             return;
         }
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(2000);
-        DataOutputStream dataOutputStream = new DataOutputStream(byteArrayOutputStream);
-        Object object = null;
+        final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(2000);
+        final DataOutputStream dataOutputStream = new DataOutputStream(byteArrayOutputStream);
+        byte[] byteArray = null;
         try {
-            dataOutputStream.writeInt(stringArray.length);
-            int n2 = 0;
-            while (n2 < stringArray.length) {
-                object = i.c(stringArray[n2]);
-                dataOutputStream.writeInt(((Object)object).length);
-                dataOutputStream.write((byte[])object, 0, ((Object)object).length);
+            dataOutputStream.writeInt(array.length);
+            for (int i = 0; i < array.length; ++i) {
+                final byte[] c = com.mg.bas.i.c(array[i]);
+                dataOutputStream.writeInt(c.length);
+                dataOutputStream.write(c, 0, c.length);
                 dataOutputStream.flush();
                 byteArrayOutputStream.flush();
-                object = byteArrayOutputStream.toByteArray();
+                byteArray = byteArrayOutputStream.toByteArray();
                 dataOutputStream.close();
                 byteArrayOutputStream.close();
-                ++n2;
             }
         }
-        catch (IOException iOException) {
+        catch (final IOException ex) {
             try {
                 dataOutputStream.close();
                 byteArrayOutputStream.close();
             }
-            catch (IOException iOException2) {
-                object = iOException2;
-                iOException2.printStackTrace();
+            catch (final IOException ex2) {
+//                final Throwable t;
+                ex2.printStackTrace();
             }
-            iOException.printStackTrace();
+            ex.printStackTrace();
             return;
         }
-        if (object == null) {
+        if (byteArray == null) {
             return;
         }
-        b.a(-2147483646, (byte[])object);
-        b.a(-2147483646, Long.MAX_VALUE);
-        b.a();
+        pd.b.a(-2147483646, byteArray);
+        pd.b.a(-2147483646, Long.MAX_VALUE);
+        pd.b.a();
     }
-
+    
     public static String[] t() {
-        String[] stringArray;
-        Object object = b.a(-2147483646);
-        if (object == null) {
+        final byte[] a;
+        if ((a = pd.b.a(-2147483646)) == null) {
             return null;
         }
-        object = new ByteArrayInputStream((byte[])object);
-        DataInputStream dataInputStream = new DataInputStream((InputStream)object);
+        final ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(a);
+        final DataInputStream dataInputStream = new DataInputStream(byteArrayInputStream);
+        String[] array;
         try {
-            int n2 = dataInputStream.readInt();
-            stringArray = new String[n2];
-            int n3 = 0;
-            while (n3 < n2) {
-                byte[] byArray = new byte[dataInputStream.readInt()];
-                dataInputStream.read(byArray, 0, byArray.length);
-                stringArray[n3] = i.a(byArray);
-                ++n3;
+            final int int1;
+            array = new String[int1 = dataInputStream.readInt()];
+            for (int i = 0; i < int1; ++i) {
+                final byte[] array2 = new byte[dataInputStream.readInt()];
+                dataInputStream.read(array2, 0, array2.length);
+                array[i] = com.mg.bas.i.a(array2);
             }
             dataInputStream.close();
-            object.close();
+            byteArrayInputStream.close();
         }
-        catch (Exception exception) {
+        catch (final Exception ex) {
             try {
                 dataInputStream.close();
-                object.close();
+                byteArrayInputStream.close();
             }
-            catch (IOException iOException) {
-                IOException iOException2 = iOException;
-                iOException.printStackTrace();
+            catch (final IOException ex2) {
+//                final Throwable t;
+                ex2.printStackTrace();
             }
             return null;
         }
-        b.b(-2147483646);
-        b.a();
-        return stringArray;
+        pd.b.b(-2147483646);
+        pd.b.a();
+        return array;
     }
-
-    public static void a(dt[] objectArray, int n2) {
-        if (objectArray == null) {
+    
+    public static void a(final dt[] array, final int n) {
+        if (array == null) {
             return;
         }
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(2000);
-        DataOutputStream dataOutputStream = new DataOutputStream(byteArrayOutputStream);
+        final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(2000);
+        final DataOutputStream dataOutputStream = new DataOutputStream(byteArrayOutputStream);
+        byte[] byteArray;
         try {
-            int n3 = objectArray.length;
-            int n4 = 0;
-            while (n4 < objectArray.length) {
-                if (objectArray[n4].a() == 1) {
-                    --n3;
+            int length = array.length;
+            for (int i = 0; i < array.length; ++i) {
+                if (array[i].a() == 1) {
+                    --length;
                 }
-                ++n4;
             }
-            dataOutputStream.writeInt(n3);
-            n4 = 0;
-            while (n4 < objectArray.length) {
-                if (objectArray[n4].a() != 1) {
-                    byte[] byArray = i.c(objectArray[n4].b());
-                    dataOutputStream.writeInt(byArray.length);
-                    dataOutputStream.write(byArray, 0, byArray.length);
-                    n3 = 0;
-                    ds[] dsArray = objectArray[n4].c();
-                    if (dsArray != null) {
-                        n3 = dsArray.length;
+            dataOutputStream.writeInt(length);
+            for (int j = 0; j < array.length; ++j) {
+                if (array[j].a() != 1) {
+                    final byte[] c = i.c(array[j].b());
+                    dataOutputStream.writeInt(c.length);
+                    dataOutputStream.write(c, 0, c.length);
+                    int length2 = 0;
+                    final ds[] c2;
+                    if ((c2 = array[j].c()) != null) {
+                        length2 = c2.length;
                     }
-                    dataOutputStream.writeInt(n3);
-                    int n5 = 0;
-                    while (n5 < n3) {
-                        byte[] byArray2 = i.c(dsArray[n5].a());
-                        dataOutputStream.writeInt(byArray2.length);
-                        dataOutputStream.write(byArray2, 0, byArray2.length);
-                        byArray2 = i.c(dsArray[n5].b());
-                        if (byArray2 == null) {
+                    dataOutputStream.writeInt(length2);
+                    for (int k = 0; k < length2; ++k) {
+                        final byte[] c3 = i.c(c2[k].a());
+                        dataOutputStream.writeInt(c3.length);
+                        dataOutputStream.write(c3, 0, c3.length);
+                        final byte[] c4;
+                        if ((c4 = i.c(c2[k].b())) == null) {
                             dataOutputStream.writeInt(0);
-                        } else {
-                            dataOutputStream.writeInt(byArray2.length);
-                            dataOutputStream.write(byArray2, 0, byArray2.length);
                         }
-                        ++n5;
+                        else {
+                            dataOutputStream.writeInt(c4.length);
+                            dataOutputStream.write(c4, 0, c4.length);
+                        }
                     }
                 }
-                ++n4;
             }
             dataOutputStream.flush();
             byteArrayOutputStream.flush();
             dataOutputStream.close();
-            objectArray = byteArrayOutputStream.toByteArray();
+            byteArray = byteArrayOutputStream.toByteArray();
             byteArrayOutputStream.close();
         }
-        catch (IOException iOException) {
+        catch (final IOException ex) {
             try {
                 dataOutputStream.close();
                 byteArrayOutputStream.close();
             }
-            catch (IOException iOException2) {
-                IOException iOException3 = iOException2;
-                iOException2.printStackTrace();
+            catch (final IOException ex2) {
+//                final Throwable t;
+                ex2.printStackTrace();
             }
-            objectArray = null;
-            iOException.printStackTrace();
+            byteArray = null;
+            ex.printStackTrace();
         }
-        if (objectArray == null) {
+        if (byteArray == null) {
             return;
         }
-        b.a(-2147483647, (byte[])objectArray);
-        b.a(-2147483647, Long.MAX_VALUE);
-        b.a();
-        int n6 = n2;
-        byte[] byArray = m.a(n6);
-        cs.a.b(118, byArray);
+        pd.b.a(-2147483647, byteArray);
+        pd.b.a(-2147483647, Long.MAX_VALUE);
+        pd.b.a();
+        cs.a.b(118, m.a(n));
     }
-
+    
     public static dt[] u() {
-        dt[] dtArray;
-        Object object = b.a(-2147483647);
-        if (object == null) {
+        final byte[] a;
+        if ((a = pd.b.a(-2147483647)) == null) {
             return null;
         }
-        object = new ByteArrayInputStream((byte[])object);
-        DataInputStream dataInputStream = new DataInputStream((InputStream)object);
+        final ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(a);
+        final DataInputStream dataInputStream = new DataInputStream(byteArrayInputStream);
+        dt[] array;
         try {
-            int n2 = dataInputStream.readInt();
-            dtArray = new dt[n2];
-            int n3 = 0;
-            while (n3 < n2) {
-                byte[] byArray = new byte[dataInputStream.readInt()];
-                dataInputStream.read(byArray, 0, byArray.length);
-                dtArray[n3] = new dt(i.a(byArray));
-                ds[] dsArray = new ds[dataInputStream.readInt()];
-                int n4 = 0;
-                while (n4 < dsArray.length) {
-                    dsArray[n4] = new ds();
-                    byArray = new byte[dataInputStream.readInt()];
-                    dataInputStream.read(byArray, 0, byArray.length);
-                    dsArray[n4].a(i.a(byArray));
-                    byArray = new byte[dataInputStream.readInt()];
-                    if (byArray.length > 0) {
-                        dataInputStream.read(byArray, 0, byArray.length);
-                        dsArray[n4].b(i.a(byArray));
-                    } else {
-                        dsArray[n4].b(dsArray[n4].a());
+            final int int1;
+            array = new dt[int1 = dataInputStream.readInt()];
+            for (int i = 0; i < int1; ++i) {
+                final byte[] array2 = new byte[dataInputStream.readInt()];
+                dataInputStream.read(array2, 0, array2.length);
+                array[i] = new dt(com.mg.bas.i.a(array2));
+                final ds[] array3 = new ds[dataInputStream.readInt()];
+                for (int j = 0; j < array3.length; ++j) {
+                    array3[j] = new ds();
+                    final byte[] array4 = new byte[dataInputStream.readInt()];
+                    dataInputStream.read(array4, 0, array4.length);
+                    array3[j].a(com.mg.bas.i.a(array4));
+                    final byte[] array5;
+                    if ((array5 = new byte[dataInputStream.readInt()]).length > 0) {
+                        dataInputStream.read(array5, 0, array5.length);
+                        array3[j].b(com.mg.bas.i.a(array5));
                     }
-                    ++n4;
+                    else {
+                        array3[j].b(array3[j].a());
+                    }
                 }
-                dtArray[n3].a(dsArray);
-                dtArray[n3].a((short)0);
+                array[i].a(array3);
+                array[i].a((short)0);
                 dataInputStream.close();
-                object.close();
-                ++n3;
+                byteArrayInputStream.close();
             }
         }
-        catch (IOException iOException) {
+        catch (final IOException ex) {
             try {
                 dataInputStream.close();
-                object.close();
+                byteArrayInputStream.close();
             }
-            catch (IOException iOException2) {
-                IOException iOException3 = iOException2;
-                iOException2.printStackTrace();
+            catch (final IOException ex2) {
+//                final Throwable t;
+                ex2.printStackTrace();
             }
-            iOException.printStackTrace();
+            ex.printStackTrace();
             return null;
         }
-        return dtArray;
+        return array;
     }
-
+    
     public static int v() {
-        byte[] byArray = cs.a.a(118);
-        if (byArray == null) {
+        final byte[] a;
+        if ((a = cs.a.a(118)) == null) {
             return go.d;
         }
-        return m.c(byArray);
+        return m.c(a);
     }
-
-    public static final boolean b(int n2) {
-        if (n2 < -2147483643) {
-            n2 += 5;
+    
+    public static final boolean b(int n) {
+        if (n < -2147483643) {
+            n += 5;
         }
-        return b.c(n2);
+        return pd.b.c(n);
     }
-
-    public static final void a(byte[] byArray, String object) {
-        byte[] byArray2;
-        if (byArray == null) {
+    
+    public static final void a(final byte[] array, final String s) {
+        if (array == null) {
             return;
         }
-        int n2 = ((String)object).hashCode();
-        if (n2 < -2147483643) {
-            n2 += 5;
+        int hashCode;
+        if ((hashCode = s.hashCode()) < -2147483643) {
+            hashCode += 5;
         }
+        byte[] array2;
         try {
-            byArray2 = i.c((String)object);
+            array2 = i.c(s);
         }
-        catch (UnsupportedEncodingException unsupportedEncodingException) {
-            byArray2 = ((String)object).getBytes();
+        catch (final UnsupportedEncodingException ex) {
+            array2 = s.getBytes();
         }
-        object = new byte[byArray.length + byArray2.length + 4];
-        System.arraycopy(m.a(byArray2.length), 0, object, 0, 4);
-        System.arraycopy(byArray2, 0, object, 4, byArray2.length);
-        System.arraycopy(byArray, 0, object, 4 + byArray2.length, byArray.length);
-        b.b(n2, (byte[])object);
+        final byte[] array3 = new byte[array.length + array2.length + 4];
+        System.arraycopy(m.a(array2.length), 0, array3, 0, 4);
+        System.arraycopy(array2, 0, array3, 4, array2.length);
+        System.arraycopy(array, 0, array3, 4 + array2.length, array.length);
+        pd.b.b(hashCode, array3);
     }
-
-    public static final byte[] c(int n2) {
-        if (n2 < -2147483643) {
-            n2 += 5;
+    
+    public static final byte[] c(int n) {
+        if (n < -2147483643) {
+            n += 5;
         }
-        byte[] byArray = b.a(n2);
-        b.e();
-        return byArray;
+        final byte[] a = pd.b.a(n);
+        pd.b.e();
+        return a;
     }
-
+    
     public static final int w() {
-        byte[] byArray = cs.a.a(113);
-        if (byArray == null) {
+        final byte[] a;
+        if ((a = cs.a.a(113)) == null) {
             return 24;
         }
-        return m.c(byArray);
+        return m.c(a);
     }
-
-    public static final void d(int n2) {
-        byte[] byArray = m.a(n2);
-        cs.a.b(113, byArray);
+    
+    public static final void d(final int n) {
+        cs.a.b(113, m.a(n));
     }
-
+    
     public static final int x() {
-        byte[] byArray = cs.a.a(120);
-        if (byArray == null) {
+        final byte[] a;
+        if ((a = cs.a.a(120)) == null) {
             return 0;
         }
-        return m.c(byArray);
+        return m.c(a);
     }
-
-    public static final void e(int n2) {
-        byte[] byArray = m.a(n2);
-        cs.a.b(120, byArray);
+    
+    public static final void e(final int n) {
+        cs.a.b(120, m.a(n));
     }
-
+    
     public static final int y() {
-        byte[] byArray = cs.a.a(117);
-        if (byArray == null) {
+        final byte[] a;
+        if ((a = cs.a.a(117)) == null) {
             return go.b;
         }
-        return m.c(byArray);
+        return m.c(a);
     }
-
-    public static final void f(int n2) {
-        byte[] byArray = m.a(n2);
-        cs.a.b(117, byArray);
+    
+    public static final void f(final int n) {
+        cs.a.b(117, m.a(n));
     }
-
+    
     public static final void z() {
-        byte[] byArray = new byte[]{1};
-        cs.a.b(114, byArray);
+        cs.a.b(114, new byte[] { 1 });
     }
-
+    
     public static final void A() {
-        byte[] byArray = new byte[3];
-        byArray[1] = 18;
-        byte[] byArray2 = byArray;
-        cs.a.b(152, byArray2);
+        cs.a.b(152, new byte[] { 0, 18, 0 });
     }
-
+    
     public static final boolean B() {
-        if (cs.a.c(152)) {
-            byte[] byArray = cs.a.a(152);
-            return byArray[0] == 0 && byArray[1] == 18 && byArray[2] == 0;
-        }
-        return false;
+        final byte[] a;
+        return cs.a.c(152) && (a = cs.a.a(152))[0] == 0 && a[1] == 18 && a[2] == 0;
     }
-
-    public static final void c(long l) {
-        byte[] byArray = m.a(l);
-        cs.a.b(160, byArray);
+    
+    public static final void c(final long n) {
+        cs.a.b(160, m.a(n));
     }
-
-    public static void g(int n2) {
-        byte[] byArray = m.a((long)n2);
-        cs.a.b(162, byArray);
+    
+    public static void g(final int n) {
+        cs.a.b(162, m.a((long)n));
     }
-
+    
     public static final int C() {
-        byte[] byArray;
-        if (cs.a.c(162) && (byArray = cs.a.a(162)) != null) {
-            return m.c(byArray);
+        final byte[] a;
+        if (cs.a.c(162) && (a = cs.a.a(162)) != null) {
+            return m.c(a);
         }
         return -1;
     }
-
-    public static final boolean d(long l) {
-        byte[] byArray;
-        if (cs.a.c(160) && (byArray = cs.a.a(160)) != null) {
-            long l2 = m.d(byArray);
-            return l2 == l;
-        }
-        return false;
+    
+    public static final boolean d(final long n) {
+        final byte[] a;
+        return cs.a.c(160) && (a = cs.a.a(160)) != null && m.d(a) == n;
     }
-
+    
     public static final boolean D() {
         return cs.a.c(114);
     }
-
+    
     public static String[][] E() {
-        String[][] stringArray = null;
+        String[][] array = null;
         if (cs.a.c(115)) {
-            byte[] byArray = cs.a.a(115);
-            int n2 = 0;
-            int n3 = m.a(byArray, 0);
-            stringArray = new String[n3][2];
-            n2 += 4;
-            int n4 = 0;
-            while (n4 < n3) {
-                int n5 = m.a(byArray, n2);
-                stringArray[n4][0] = i.a(byArray, n2 += 4, n5);
-                n2 += n5;
-                n5 = m.a(byArray, n2);
-                stringArray[n4][1] = i.a(byArray, n2 += 4, n5);
-                n2 += n5;
-                ++n4;
+            final byte[] a = cs.a.a(115);
+            int n = 0;
+            final int a2;
+            array = new String[a2 = m.a(a, 0)][2];
+            n += 4;
+            for (int i = 0; i < a2; ++i) {
+                final int a3 = m.a(a, n);
+                n += 4;
+                array[i][0] = com.mg.bas.i.a(a, n, a3);
+                int n2 = n + a3;
+                final int a4 = m.a(a, n2);
+                n2 += 4;
+                array[i][1] = com.mg.bas.i.a(a, n2, a4);
+                n = n2 + a4;
             }
         }
-        return stringArray;
+        return array;
     }
-
-    public static String[][] a(String[][] stringArray, String object, String string) {
-        int n2;
-        String string2 = string = string == null ? "" : string;
-        if (((String)object).length() > 15) {
-            object = String.valueOf(((String)object).substring(0, 12)) + "...";
+    
+    public static String[][] a(String[][] array, String string, String s) {
+        s = ((s == null) ? "" : s);
+        if (string.length() > 15) {
+            string = String.valueOf(string.substring(0, 12)) + "...";
         }
-        if (stringArray == null) {
-            stringArray = "#sq".equals(string) ? new String[][]{{object, string}, {"#ola", "#ola"}} : ("#ola".equals(string) ? new String[][]{{object, string}, {"#sq", "#sq"}} : new String[][]{{object, string}, {"#sq", "#sq"}, {"#ola", "#ola"}});
-        } else {
-            boolean bl = false;
-            int n3 = 0;
-            while (n3 < stringArray.length) {
-                if (stringArray[n3][1].equals(string)) {
-                    n2 = n3 - 1;
-                    while (n2 >= 0) {
-                        stringArray[n2 + 1] = stringArray[n2];
-                        --n2;
+        if (array == null) {
+            if ("#sq".equals(s)) {
+                array = new String[][] { { string, s }, { "#ola", "#ola" } };
+            }
+            else if ("#ola".equals(s)) {
+                array = new String[][] { { string, s }, { "#sq", "#sq" } };
+            }
+            else {
+                array = new String[][] { { string, s }, { "#sq", "#sq" }, { "#ola", "#ola" } };
+            }
+        }
+        else {
+            boolean b = false;
+            for (int i = 0; i < array.length; ++i) {
+                if (array[i][1].equals(s)) {
+                    for (int j = i - 1; j >= 0; --j) {
+                        array[j + 1] = array[j];
                     }
-                    stringArray[0] = new String[]{object, string};
-                    bl = true;
+                    array[0] = new String[] { string, s };
+                    b = true;
                     break;
                 }
-                ++n3;
             }
-            if (!bl) {
-                String[][] stringArray2 = new String[stringArray.length + 1][2];
-                n2 = 1;
-                while (n2 < stringArray2.length) {
-                    stringArray2[n2] = stringArray[n2 - 1];
-                    ++n2;
+            if (!b) {
+                final String[][] array2 = new String[array.length + 1][2];
+                for (int k = 1; k < array2.length; ++k) {
+                    array2[k] = array[k - 1];
                 }
-                stringArray = stringArray2;
-                stringArray2[0] = new String[]{object, string};
+                (array = array2)[0] = new String[] { string, s };
             }
         }
-        if (stringArray.length > 5) {
-            String[][] stringArray3 = new String[stringArray.length - 1][2];
-            int n4 = 0;
-            while (n4 < stringArray3.length) {
-                stringArray3[n4] = stringArray[n4];
-                ++n4;
+        if (array.length > 5) {
+            final String[][] array3 = new String[array.length - 1][2];
+            for (int l = 0; l < array3.length; ++l) {
+                array3[l] = array[l];
             }
-            stringArray = stringArray3;
+            array = array3;
         }
-        byte[] byArray = new byte[1000];
-        int n5 = 0;
-        System.arraycopy(m.a(stringArray.length), 0, byArray, 0, 4);
-        n5 += 4;
-        n2 = 0;
-        while (n2 < stringArray.length) {
-            byte[] byArray2 = pd.a(stringArray[n2][0], stringArray[n2][1]);
-            object = byArray2;
-            System.arraycopy(byArray2, 0, byArray, n5, ((Object)object).length);
-            n5 += ((Object)object).length;
-            ++n2;
+        final byte[] array4 = new byte[1000];
+        int n = 0;
+        System.arraycopy(m.a(array.length), 0, array4, 0, 4);
+        n += 4;
+        for (int n2 = 0; n2 < array.length; ++n2) {
+            final byte[] a;
+            System.arraycopy(a = a(array[n2][0], array[n2][1]), 0, array4, n, a.length);
+            n += a.length;
         }
-        cs.a.b(115, byArray, 0, n5);
-        return stringArray;
+        cs.a.b(115, array4, 0, n);
+        return array;
     }
-
-    private static byte[] a(String object, String object2) {
+    
+    private static byte[] a(final String s, final String s2) {
+        byte[] array;
         try {
-            byte[] byArray = i.c((String)object);
-            byte[] byArray2 = i.c((String)object2);
-            object2 = byArray2;
-            if (byArray2 == null) {
-                object2 = new byte[0];
+            final byte[] c = i.c(s);
+            byte[] c2;
+            if ((c2 = i.c(s2)) == null) {
+                c2 = new byte[0];
             }
-            object = new byte[byArray.length + ((Object)object2).length + 8];
-            System.arraycopy(m.a(byArray.length), 0, object, 0, 4);
-            System.arraycopy(byArray, 0, object, 4, byArray.length);
-            int n2 = 4 + byArray.length;
-            System.arraycopy(m.a(((Object)object2).length), 0, object, n2, 4);
-            System.arraycopy(object2, 0, object, n2 += 4, ((Object)object2).length);
+            array = new byte[c.length + c2.length + 8];
+            System.arraycopy(m.a(c.length), 0, array, 0, 4);
+            System.arraycopy(c, 0, array, 4, c.length);
+            int n = 4 + c.length;
+            System.arraycopy(m.a(c2.length), 0, array, n, 4);
+            n += 4;
+            System.arraycopy(c2, 0, array, n, c2.length);
         }
-        catch (Throwable throwable) {
-            Throwable throwable2 = throwable;
-            throwable.printStackTrace();
+        catch (final Throwable t) {
+//            final Throwable t2;
+            t.printStackTrace();
             return null;
         }
-        return object;
+        return array;
     }
-
+    
     public static final int F() {
-        byte[] byArray = cs.a.a(116);
-        if (byArray == null) {
+        final byte[] a;
+        if ((a = cs.a.a(116)) == null) {
             return 0;
         }
-        return m.c(byArray);
+        return m.c(a);
     }
-
-    public static final void h(int n2) {
-        byte[] byArray = m.a(n2);
-        cs.a.b(116, byArray);
+    
+    public static final void h(final int n) {
+        cs.a.b(116, m.a(n));
     }
-
-    public static final void b(boolean bl) {
-        byte[] byArray = new byte[]{(byte)(bl ? 1 : 0)};
-        cs.a.a(150, byArray);
-        if (go.t != bl) {
-            go.t = !bl;
+    
+    public static final void b(final boolean b) {
+        cs.a.a(150, new byte[] { (byte)(b ? 1 : 0) });
+        if (go.t != b) {
+            go.t = !b;
         }
         cs.a.a();
     }
-
+    
     public static final int G() {
-        byte[] byArray = cs.a.a(150);
-        if (byArray == null) {
+        final byte[] a;
+        if ((a = cs.a.a(150)) == null) {
             return 0;
         }
-        return byArray[0];
+        return a[0];
     }
 }

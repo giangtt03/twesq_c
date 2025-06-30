@@ -43,14 +43,14 @@ extends aq {
                 }
                 this.i = d2;
                 if (n <= 0 || n >= n2 || string == null || !string.equals("")) break block8;
-                Object object = bx.a(string, n2 - n, d2);
-                if (((String[])object).length <= 0) break block9;
-                n4 = object[0].length();
-                object = string.substring(n4);
-                object = bx.a((String)object, n2, d2);
-                this.k = new String[((String[])object).length + 1];
+                String[] arr = bx.a(string, n2 - n, d2);
+                if (arr.length <= 0) break block9;
+                n4 = arr[0].length();
+                String rest = string.substring(n4);
+                String[] arr2 = bx.a(rest, n2, d2);
+                this.k = new String[arr2.length + 1];
                 this.k[0] = string.substring(0, n4);
-                System.arraycopy(object, 0, this.k, 1, ((String[])object).length);
+                System.arraycopy(arr2, 0, this.k, 1, arr2.length);
                 n = 1;
                 n4 = 0;
                 while (n4 < this.k[0].length()) {

@@ -1,11 +1,10 @@
 package com.mg.bas;
-// Decompiled with: CFR 0.152
+// Decompiled with: Procyon 0.6.0
 // Class Version: 1
 import javax.microedition.lcdui.Graphics;
 
-public final class fd
-extends aq
-implements bu {
+public final class fd extends aq implements bu
+{
     private int i;
     private int j;
     private int k;
@@ -13,330 +12,322 @@ implements bu {
     private ay m;
     private int n;
     private int o;
-    private k p = new k();
+    private k p;
     private ii q;
-    private boolean r = false;
+    private boolean r;
     private int s;
-
-    public fd(int n, int n2) {
+    
+    public fd(final int n, final int o) {
+        super();
+        this.p = new k();
+        this.r = false;
         this.n = n;
-        this.o = n2;
-        this.m = new ay();
-        this.m.b(this);
+        this.o = o;
+        (this.m = new ay()).b(this);
         this.m.e(false);
     }
-
+    
     public final int a() {
         return this.s;
     }
-
-    public final void e(boolean bl) {
+    
+    public final void e(final boolean b) {
         this.r = true;
     }
-
-    public final void a(ii ii2) {
-        this.q = ii2;
+    
+    public final void a(final ii q) {
+        this.q = q;
     }
-
-    public final void a(int n, int n2, int n3, int n4, int n5, int n6) {
+    
+    public final void a(final int n, final int n2, final int n3, final int n4, final int n5, final int n6) {
         this.j = 4;
         this.i = 4;
         this.m.a(new j(5, 5, 5, 5));
     }
-
-    public final void d(int n, int n2) {
-        this.k = n;
-        this.l = n2;
+    
+    public final void d(final int k, final int l) {
+        this.k = k;
+        this.l = l;
     }
-
-    /*
-     * Unable to fully structure code
-     */
-    public final void a(Graphics g, int x, int y) {
-    if (!this.c) {
-        return;
-    }
-
-    x += this.c(); // offset x
-    y += this.d(); // offset y
-
-    final Rect padding = this.m.q(); // có thể là padding (a, b, c, d)
-    final Rect margin = this.m.a();  // có thể là margin (a, b, c, d)
-
-    if (this.q != null) {
-        this.q.b(g, 
-            x - margin.b, 
-            y - margin.a, 
-            this.e() + margin.b + margin.d, 
-            this.f() + margin.a + margin.c
-        );
-    }
-
-    cw.a(g, this.p); // vẽ khung nền gì đó
-    cw.a(g, this.p, x, y, this.e(), this.f()); // vẽ background?
-
-    int contentHeight = padding.b + padding.d;
-    x -= padding.a;
-    y -= padding.b;
-
-    for (int i = 0; i < this.o; i++) {
-        int row = i / this.n;
-        int col = i % this.n;
-
-        int drawX = (this.i + this.k) * col;
-        int drawY = (this.j + this.l) * row;
-
-        // nếu vị trí này không nằm trong vùng visible thì bỏ qua
-        if (!padding.b(drawX, drawY, this.k, this.l)) {
-            if (drawY + this.l > contentHeight) {
-                break;
-            }
-            continue;
+    
+    public final void a(final Graphics graphics, int n, int n2) {
+        if (!super.c) {
+            return;
         }
-
-        if (this.q == null) continue;
-
-        int finalX = x + drawX;
-        int finalY = y + drawY;
-
-        // xử lý khi là ô được chọn (ví dụ hiệu ứng selection)
-        if (i == this.s) {
-            if (!this.r) {
-                this.q.a(g, finalX, finalY, this.k, this.l, i); // có thể là draw item với chỉ số
-                this.q.a(g, finalX, finalY, this.k, this.l);     // có thể là vẽ hiệu ứng highlight
-            } else {
-                this.q.a(g, finalX, finalY, this.k, this.l);     // vẽ thường
-                this.q.a(g, finalX, finalY, this.k, this.l, i);  // vẽ index?
-            }
-        } else {
-            this.q.a(g, finalX, finalY, this.k, this.l, i);      // vẽ ô bình thường
+        n += this.c();
+        n2 += this.d();
+        final k q = this.m.q();
+        final j a = this.m.a();
+        if (this.q != null) {
+            this.q.b(graphics, n - a.b, n2 - a.a, this.e() + a.b + a.d, this.f() + a.a + a.c);
         }
+        cw.a(graphics, this.p);
+        cw.a(graphics, this.p, n, n2, this.e(), this.f());
+        final int n3 = q.b + q.d;
+        n -= q.a;
+        n2 -= q.b;
+        for (int i = 0; i < this.o; ++i) {
+            final int n4 = i / this.n;
+            final int n5 = (this.i + this.k) * (i % this.n);
+            final int n6 = (this.j + this.l) * n4;
+            if (!q.b(n5, n6, this.k, this.l)) {
+                if (n6 + this.l > n3) {
+                    break;
+                }
+            }
+            else if (this.q != null) {
+                final int n7 = n + n5;
+                final int n8 = n2 + n6;
+                if (i == this.s) {
+                    if (!this.r) {
+                        this.q.a(graphics, n7, n8, this.k, this.l, i);
+                        this.q.a(graphics, n7, n8, this.k, this.l);
+                        continue;
+                    }
+                    this.q.a(graphics, n7, n8, this.k, this.l);
+                }
+                this.q.a(graphics, n7, n8, this.k, this.l, i);
+            }
+        }
+        cw.c(graphics, this.p);
+        super.c = false;
     }
-
-    cw.c(g, this.p); // có thể là vẽ viền/khung
-    this.c = false; // reset cờ cần vẽ
-}
-
-
-    private int g(int n, int n2) {
+    
+    private int g(final int n, final int n2) {
         if (n2 < 0) {
             return 0;
         }
         return n2 * (this.l + this.j);
     }
-
-    private int h(int n, int n2) {
+    
+    private int h(final int n, final int n2) {
         if (n2 < 0) {
             return 0;
         }
         return n2 * (this.k + this.i);
     }
-
-    private boolean a(ay aq2, k object, int n, int n2) {
+    
+    private boolean a(final ay ay, final k k, int n, int n2) {
         if (2 == n) {
             if (n2 < 0) {
                 if (this.s >= this.n) {
-                    n = this.g(0, this.s / this.n);
-                    if (n > ((k)object).b + this.j) {
+                    if ((n = this.g(0, this.s / this.n)) > k.b + this.j) {
                         n2 = this.s - this.n;
-                        fd fd2 = this;
                         this.s = n2;
-                        this.a((ay)aq2, (k)object);
+                        this.a(ay, k);
                         return true;
                     }
-                    ((ay)aq2).d(2, -1);
+                    ay.d(2, -1);
                     return true;
                 }
-                if (((ay)aq2).t()) {
-                    return false;
-                }
-                ((ay)aq2).d(2, -1);
-                return true;
-            }
-            n = this.s + this.n;
-            if (n >= this.o) {
-                n = this.o - 1;
-            }
-            if (n / this.n != this.s / this.n) {
-                n2 = this.g(0, this.s / this.n);
-                if (n2 + this.l + this.j < ((k)object).b + ((k)object).d) {
-                    n2 = n;
-                    fd fd3 = this;
-                    this.s = n2;
-                    this.b((ay)aq2, (k)object);
+                else {
+                    if (ay.t()) {
+                        return false;
+                    }
+                    ay.d(2, -1);
                     return true;
                 }
-                ((ay)aq2).d(2, 1);
-                return true;
             }
-            if (((ay)aq2).s()) {
-                return false;
+            else {
+                if ((n = this.s + this.n) >= this.o) {
+                    n = this.o - 1;
+                }
+                if (n / this.n != this.s / this.n) {
+                    if ((n2 = this.g(0, this.s / this.n)) + this.l + this.j < k.b + k.d) {
+                        n2 = n;
+                        this.s = n2;
+                        this.b(ay, k);
+                        return true;
+                    }
+                    ay.d(2, 1);
+                    return true;
+                }
+                else {
+                    if (ay.s()) {
+                        return false;
+                    }
+                    ay.d(2, 1);
+                    return true;
+                }
             }
-            ((ay)aq2).d(2, 1);
-            return true;
         }
-        if (n2 < 0) {
+        else if (n2 < 0) {
             if (this.s > 0) {
                 if (this.s % this.n == 0) {
-                    ((ay)aq2).i(true);
+                    ay.i(true);
                     n2 = this.s - 1;
-                    fd fd4 = this;
                     this.s = n2;
-                    this.a((ay)aq2, (k)object);
+                    this.a(ay, k);
                     return true;
                 }
-                n = this.h(0, this.s % this.n);
-                if (n > ((k)object).a + this.i) {
+                if ((n = this.h(0, this.s % this.n)) > k.a + this.i) {
                     n2 = this.s - 1;
-                    Object object2 = this;
                     this.s = n2;
-                    object2 = object;
-                    object = aq2;
-                    aq2 = this;
-                    n2 = ((fd)aq2).g(0, ((fd)aq2).s % ((fd)aq2).n);
-                    if (n2 <= ((k)object2).a) {
-                        int n3 = n2 - ((k)object2).a;
-                        if (((fd)aq2).k >= ((k)object2).c) {
-                            n3 += ((fd)aq2).k - ((k)object2).c;
-                        } else if (((fd)aq2).s % ((fd)aq2).n > 0) {
-                            n3 = n2 - n3 + ((fd)aq2).k + ((fd)aq2).i + ((fd)aq2).k > ((k)object2).a + ((k)object2).c ? (n3 -= ((k)object2).c - ((fd)aq2).k - ((fd)aq2).i) : (n3 -= ((fd)aq2).k);
+                    if ((n2 = this.g(0, this.s % this.n)) <= k.a) {
+                        int n3 = n2 - k.a;
+                        if (this.k >= k.c) {
+                            n3 += this.k - k.c;
                         }
-                        ((ay)object).i(n3);
+                        else if (this.s % this.n > 0) {
+                            if (n2 - n3 + this.k + this.i + this.k > k.a + k.c) {
+                                n3 -= k.c - this.k - this.i;
+                            }
+                            else {
+                                n3 -= this.k;
+                            }
+                        }
+                        ay.i(n3);
                     }
                     return true;
                 }
-                ((ay)aq2).d(1, -1);
+                ay.d(1, -1);
                 return true;
             }
-            if (((ay)aq2).u()) {
+            else {
+                if (ay.u()) {
+                    return false;
+                }
+                ay.d(1, -1);
+                return true;
+            }
+        }
+        else if (this.s < this.o - 1) {
+            if (this.s % this.n == this.n - 1) {
+                ay.h(true);
+                n2 = this.s + 1;
+                this.s = n2;
+                this.b(ay, k);
+                return true;
+            }
+            if ((n = this.h(0, this.s % this.n)) + this.k + this.i < k.a + k.c) {
+                n2 = this.s + 1;
+                this.s = n2;
+                if ((n2 = this.g(0, this.s % this.n)) + this.k + this.i > k.a + k.c) {
+                    int n4 = n2 + this.k + this.i - (k.a + k.c);
+                    if (this.k >= k.c) {
+                        n4 -= this.k - k.c;
+                    }
+                    else if (this.s % this.n < this.n - 1) {
+                        if (n2 - n4 - this.k - this.i < k.a) {
+                            n4 += k.c - this.k - this.i;
+                        }
+                        else {
+                            n4 += this.k + this.i;
+                        }
+                    }
+                    ay.i(n4);
+                }
+                return true;
+            }
+            ay.d(1, 1);
+            return true;
+        }
+        else {
+            if (ay.v()) {
                 return false;
             }
-            ((ay)aq2).d(1, -1);
+            ay.d(1, 1);
             return true;
         }
-        if (this.s < this.o - 1) {
-            if (this.s % this.n == this.n - 1) {
-                ((ay)aq2).h(true);
-                n2 = this.s + 1;
-                fd fd5 = this;
-                this.s = n2;
-                this.b((ay)aq2, (k)object);
-                return true;
+    }
+    
+    private void a(final ay ay, final k k) {
+        final int g;
+        if ((g = this.g(0, this.s / this.n)) <= k.b) {
+            int n = g - k.b;
+            if (this.l >= k.d) {
+                n += this.l - k.d;
             }
-            n = this.h(0, this.s % this.n);
-            if (n + this.k + this.i < ((k)object).a + ((k)object).c) {
-                n2 = this.s + 1;
-                Object object3 = this;
-                this.s = n2;
-                object3 = object;
-                object = aq2;
-                aq2 = this;
-                n2 = ((fd)aq2).g(0, ((fd)aq2).s % ((fd)aq2).n);
-                if (n2 + ((fd)aq2).k + ((fd)aq2).i > ((k)object3).a + ((k)object3).c) {
-                    int n4 = n2 + ((fd)aq2).k + ((fd)aq2).i - (((k)object3).a + ((k)object3).c);
-                    if (((fd)aq2).k >= ((k)object3).c) {
-                        n4 -= ((fd)aq2).k - ((k)object3).c;
-                    } else if (((fd)aq2).s % ((fd)aq2).n < ((fd)aq2).n - 1) {
-                        n4 = n2 - n4 - ((fd)aq2).k - ((fd)aq2).i < ((k)object3).a ? (n4 += ((k)object3).c - ((fd)aq2).k - ((fd)aq2).i) : (n4 += ((fd)aq2).k + ((fd)aq2).i);
+            else if (this.s >= this.n) {
+                if (g - n + this.l + this.j + this.l > k.b + k.d) {
+                    n -= k.d - this.l - this.j;
+                }
+                else {
+                    n -= this.l;
+                }
+            }
+            ay.j(n);
+        }
+    }
+    
+    private void b(final ay ay, final k k) {
+        final int g;
+        if ((g = this.g(0, this.s / this.n)) + this.l + this.j > k.b + k.d) {
+            int n = g + this.l + this.j - (k.b + k.d);
+            if (this.l >= k.d) {
+                n -= this.l - k.d;
+            }
+            else {
+                int n2;
+                if ((n2 = this.s + this.n) >= this.o) {
+                    n2 = this.o - 1;
+                }
+                if (n2 / this.n != this.s / this.n) {
+                    if (g - n - this.l - this.j < k.b) {
+                        n += k.d - this.l - this.j;
                     }
-                    ((ay)object).i(n4);
-                }
-                return true;
-            }
-            ((ay)aq2).d(1, 1);
-            return true;
-        }
-        if (((ay)aq2).v()) {
-            return false;
-        }
-        ((ay)aq2).d(1, 1);
-        return true;
-    }
-
-    private void a(ay ay2, k k2) {
-        int n = this.g(0, this.s / this.n);
-        if (n <= k2.b) {
-            int n2 = n - k2.b;
-            if (this.l >= k2.d) {
-                n2 += this.l - k2.d;
-            } else if (this.s >= this.n) {
-                n2 = n - n2 + this.l + this.j + this.l > k2.b + k2.d ? (n2 -= k2.d - this.l - this.j) : (n2 -= this.l);
-            }
-            ay2.j(n2);
-        }
-    }
-
-    private void b(ay ay2, k k2) {
-        int n = this.g(0, this.s / this.n);
-        if (n + this.l + this.j > k2.b + k2.d) {
-            int n2 = n + this.l + this.j - (k2.b + k2.d);
-            if (this.l >= k2.d) {
-                n2 -= this.l - k2.d;
-            } else {
-                int n3 = this.s + this.n;
-                if (n3 >= this.o) {
-                    n3 = this.o - 1;
-                }
-                if (n3 / this.n != this.s / this.n) {
-                    n2 = n - n2 - this.l - this.j < k2.b ? (n2 += k2.d - this.l - this.j) : (n2 += this.l + this.j);
+                    else {
+                        n += this.l + this.j;
+                    }
                 }
             }
-            ay2.j(n2);
+            ay.j(n);
         }
     }
-
-    public final boolean f(int n) {
+    
+    public final boolean f(final int n) {
         if (n >= 96 && n <= 99) {
-            k k2 = this.m.r();
+            final k r = this.m.r();
             switch (n) {
                 case 99: {
-                    return this.a(this.m, k2, 2, -1);
+                    return this.a(this.m, r, 2, -1);
                 }
                 case 98: {
-                    return this.a(this.m, k2, 2, 1);
+                    return this.a(this.m, r, 2, 1);
                 }
                 case 97: {
-                    return this.a(this.m, k2, 1, -1);
+                    return this.a(this.m, r, 1, -1);
                 }
                 case 96: {
-                    return this.a(this.m, k2, 1, 1);
+                    return this.a(this.m, r, 1, 1);
                 }
             }
-        } else if (n == 95) {
+        }
+        else if (n == 95) {
             if (this.q != null && this.s >= 0 && this.s < this.o) {
-                this.q.t();
+                final ii q = this.q;
+                final int s = this.s;
+                q.t();
             }
             return true;
         }
         return false;
     }
-
-    public final boolean c(int n, int n2) {
-        int n3 = n2 - this.d();
-        int n4 = n - this.c();
-        n3 /= this.l + this.j;
-        if ((n3 = n3 * this.n + (n4 /= this.k + this.i)) < this.o) {
-            if (n3 != this.s) {
-                n2 = n3;
-                fd fd2 = this;
-                this.s = n2;
-            } else {
+    
+    public final boolean c(final int n, int s) {
+        final int n2;
+        if ((n2 = (s - this.d()) / (this.l + this.j) * this.n + (n - this.c()) / (this.k + this.i)) < this.o) {
+            if (n2 != this.s) {
+                s = n2;
+                this.s = s;
+            }
+            else {
                 this.f(95);
             }
             return true;
         }
-        return super.c(n, n2);
+        return super.c(n, s);
     }
-
+    
     public final aq q() {
         return this.m;
     }
-
+    
     public final g v() {
-        int n2 = this.o / this.n + (this.o % this.n != 0 ? 1 : 0);
-        return new g(this.n * this.k + (this.n - 1) * this.i, n2 * this.l + (n2 - 1) * this.j);
+        final int n = this.o / this.n + ((this.o % this.n != 0) ? 1 : 0);
+        return new g(this.n * this.k + (this.n - 1) * this.i, n * this.l + (n - 1) * this.j);
     }
-
+    
     public final int w() {
         return 10;
     }

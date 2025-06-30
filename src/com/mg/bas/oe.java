@@ -1,107 +1,90 @@
 package com.mg.bas;
-// Registration or account creation screen, manages user input and validation.
-// Decompiled with: CFR 0.152
+// Decompiled with: Procyon 0.6.0
 // Class Version: 1
 import com.mg.sq.a;
 
-public final class oe
-extends nz
-implements bf {
+public final class oe extends nz implements bf
+{
     private byte[] b;
     private int c;
-
-    public oe(int n, byte[] object, byte[] object2) {
+    
+    public oe(int i, final byte[] array, byte[] b) {
         super((byte)0);
-        this.c = n;
-        oe oe2 = this;
-        this.b = object2;
-        this.a(this);
+        this.c = i;
+        b = b;
+        this.b = b;
+        this.a((bf)this);
         new cu(10, 22);
-        int n2 = this.i();
-        this.g -= ba.a;
+        i = this.i();
+        super.g -= ba.a;
         this.j(true);
-        gh gh2 = new gh("Đăng ký");
-        object2 = gh2;
-        gh2.a_(-1919);
-        ((aq)object2).d(n2);
-        ((gh)object2).d(5, 5);
-        ((aq)object2).b(false);
-        this.a((aq)object2);
-        object2 = new gd("Tên đăng nhập");
-        ((gd)object2).d(n2);
-        this.a((aq)object2);
-        object2 = new gd("Mật Khẩu");
-        ((gd)object2).i(1);
-        ((gd)object2).d(n2);
-        this.a((aq)object2);
-        object2 = new gd("Nhập lại mật khẩu");
-        ((gd)object2).i(1);
-        ((gd)object2).d(n2);
-        this.a((aq)object2);
-        object2 = new gd("Họ tên: ");
-        ((gd)object2).d(n2);
-        this.a((aq)object2);
-        object2 = new ga("Ngày sinh ");
-        ((ga)object2).d(n2);
-        this.a((aq)object2);
-        object2 = new gd("Số điện thoại: ");
-        ((gd)object2).h(4);
-        ((gd)object2).d(n2);
-        this.a((aq)object2);
-        fx fx2 = new fx("Giới tính");
-        fx2.a(0, 0, n2, 50);
-        object2 = new ey("Nam", false);
-        ((ey)object2).h(0);
-        fx2.a((ey)object2);
-        object2 = new ey("Nữ", false);
-        ((ey)object2).h(1);
-        fx2.a((ey)object2);
+        final gh gh;
+        (gh = new gh("Đăng ký")).a_(-1919);
+        gh.d(i);
+        gh.d(5, 5);
+        gh.b(false);
+        this.a(gh);
+        final gd gd;
+        (gd = new gd("Tên đăng nhập")).d(i);
+        this.a(gd);
+        final gd gd2;
+        (gd2 = new gd("Mật Khẩu")).i(1);
+        gd2.d(i);
+        this.a(gd2);
+        final gd gd3;
+        (gd3 = new gd("Nhập lại mật khẩu")).i(1);
+        gd3.d(i);
+        this.a(gd3);
+        final gd gd4;
+        (gd4 = new gd("Họ tên: ")).d(i);
+        this.a(gd4);
+        final ga ga;
+        (ga = new ga("Ngày sinh ")).d(i);
+        this.a(ga);
+        final gd gd5;
+        (gd5 = new gd("Số điện thoại: ")).h(4);
+        gd5.d(i);
+        this.a(gd5);
+        final fx fx;
+        (fx = new fx("Giới tính")).a(0, 0, i, 50);
+        final ey ey;
+        (ey = new ey("Nam", false)).h(0);
+        fx.a(ey);
+        final ey ey2;
+        (ey2 = new ey("Nữ", false)).h(1);
+        fx.a(ey2);
         if (!gr.i) {
-            fx2.h(0);
+            fx.h(0);
         }
-        this.a(fx2);
+        this.a(fx);
         this.g(1);
-        object2 = new gd((byte[])object);
-        ((gd)object2).d(n2);
-        this.a((aq)object2);
+        final gd gd6;
+        (gd6 = new gd(array)).d(i);
+        this.a(gd6);
         this.b(10);
         this.a(new ba());
-        object = new bd("Đăng ký", 1001);
-        oe oe3 = this;
-        oe3.a((az)object, true);
-        object = new bd("Hủy", 1000);
-        oe3 = this;
-        oe3.b((az)object, true);
+        this.a(new bd("Đăng ký", 1001), true);
+        this.b(new bd("Hủy", 1000), true);
         this.d(false);
     }
-
-    public final void d(int n2, int n3) {
-        switch (n3) {
+    
+    public final void d(final int n, final int n2) {
+        switch (n2) {
             case 1001: {
                 if (this.d().trim().equals("")) {
-                    al al2 = ag.b().a("Chú ý", "Bạn chưa nhập tên nick. Vui lòng nhập tên nick!", "Đóng", 1005, 1);
-                    al2.a(this);
-                    ag.b().a(al2);
+                    final al a;
+                    (a = ag.b().a("Chú ý", "Bạn chưa nhập tên nick. Vui lòng nhập tên nick!", "Đóng", 1005, 1)).a(this);
+                    ag.b().a(a);
                     return;
                 }
-                am am2 = this;
-                if (this.e().equals(((gd)((nz)am2).f(3)).a())) {
-                    oe oe2 = this;
-                    am2 = oe2;
-                    oe oe3 = this;
-                    am2 = oe3;
-                    am2 = this;
-                    Long l = new Long(((ga)((nz)am2).f(5)).a());
-                    oe oe4 = this;
-                    am2 = oe4;
-                    am2 = this;
-                    ks.a().a(this.d(), g.a(this.b, this.e()), ((gd)oe2.f(4)).a(), ((gd)oe3.f(6)).a(), l, ((gd)oe4.f(8)).a(), (byte)((fx)((nz)am2).f(7)).a().q());
-                    com.mg.sq.a.s().a((String)null, (il)null);
+                if (this.e().equals(((gd)this.f(3)).a())) {
+                    ks.a().a(this.d(), com.mg.bas.g.a(this.b, this.e()), ((gd)this.f(4)).a(), ((gd)this.f(6)).a(), new Long(((ga)this.f(5)).a()), ((gd)this.f(8)).a(), (byte)((fx)this.f(7)).a().q());
+                    com.mg.sq.a.s().a(null, (il)null);
                     return;
                 }
-                am2 = ag.b().a("Chú ý", "Mật khẩu không trùng nhau, vui lòng nhập lại!", "Đóng", 1005, 1);
-                am2.a(this);
-                ag.b().a((al)am2);
+                final al a2;
+                (a2 = ag.b().a("Chú ý", "Mật khẩu không trùng nhau, vui lòng nhập lại!", "Đóng", 1005, 1)).a(this);
+                ag.b().a(a2);
                 return;
             }
             case 1006: {
@@ -115,23 +98,25 @@ implements bf {
                 ag.b().a(false);
                 return;
             }
+            default: {
+                ag.b().f(this.c);
+            }
         }
-        ag.b().f(this.c);
     }
-
+    
     private String d() {
         return ((gd)this.f(1)).a();
     }
-
+    
     private String e() {
         return ((gd)this.f(2)).a();
     }
-
-    public final void a(String object) {
+    
+    public final void a(final String s) {
         if (this.c == 2) {
-            object = ag.b().a("Chú ý", (String)(object == null ? "Chúc mừng bạn đã đăng ký thành công!" : object), "Đóng", 1006, 1);
-            ((am)object).a(this);
-            ag.b().a((al)object);
+            final al a;
+            (a = ag.b().a("Chú ý", (s == null) ? "Chúc mừng bạn đã đăng ký thành công!" : s, "Đóng", 1006, 1)).a(this);
+            ag.b().a(a);
         }
     }
 }

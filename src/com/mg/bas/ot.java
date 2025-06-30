@@ -4,6 +4,11 @@ package com.mg.bas;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 
+import com.mg.bas.hp;
+import com.mg.bas.f;
+
+
+
 public final class ot
 extends fb
 implements bf,
@@ -27,18 +32,18 @@ bq {
 
     public ot(int n, int n2, String string) {
         super(109, 7, string, false);
-        this.a(0, 0, v.t, v.u);
+        this.a(0, 0, com.mg.bas.v.t, com.mg.bas.v.u);
         this.a(new ba());
         this.a(new gb(-1, 0));
         this.c(com.mg.sq.a.n);
         this.b(new gb(-2, 1));
-        this.a(this);
+        this.a((aq)this);
         this.s = new aw();
-        this.s.a(this);
-        this.s.a(this);
+        this.s.a((bn)this);
+        this.s.a((bq)this);
         this.s.f(true);
         this.t = new ay(0);
-        this.t.a(0, 0, v.t, v.u - ba.a);
+        this.t.a(0, 0, com.mg.bas.v.t, com.mg.bas.v.u - ba.a);
         this.t.b(this.s);
         this.y = new a();
         this.z = 0;
@@ -91,9 +96,9 @@ bq {
     public final void a(Graphics graphics, int n, int n2) {
         if (this.t.k()) {
             Graphics graphics2 = graphics;
-            graphics2.setColor(v.am);
-            graphics2.fillRect(0, 0, v.t, v.u - ba.a);
-            graphics2.drawImage(pc.d, v.t, v.u - ba.a, 40);
+            graphics2.setColor(com.mg.bas.v.am);
+            graphics2.fillRect(0, 0, com.mg.bas.v.t, com.mg.bas.v.u - ba.a);
+            graphics2.drawImage(pc.d, com.mg.bas.v.t, com.mg.bas.v.u - ba.a, 40);
             this.t.a(graphics, this.c(), this.d());
         }
     }
@@ -107,11 +112,12 @@ bq {
         this.c(true);
     }
 
-    public final aq a(aw object, int n) {
-        if ((object = ((aw)object).i(n)) instanceof dn) {
-            return new fs((dn)object, (n - 1 & 1) == 1, this.s.e());
+    public final aq a(aw awObj, int n) {
+        Object item = awObj.i(n);
+        if (item instanceof dn) {
+            return new fs((dn)item, (n - 1 & 1) == 1, this.s.e());
         }
-        return new et((dq)object, this.s.e());
+        return new et((dq)item, this.s.e());
     }
 
     private void v() {
@@ -281,14 +287,15 @@ bq {
         try {
             Object[] objectArray = new Object[((ef[])object).length + 1];
             Object[] objectArray2 = objectArray;
-            objectArray[0] = new dn(object[0].c(), 0, this.s.e());
+            objectArray[0] = new dn(((ef)object[0]).c(), 0, this.s.e());
             int n = 1;
             int n2 = 1;
             int n3 = objectArray2.length - 1;
             while (n2 < n3) {
                 int n4 = n2;
-                if (!i.b(object[n4].c())) {
-                    objectArray2[n] = new dn(object[n4].c(), 2, this.s.e() - 2);
+                ef efObj = (ef)object[n4];
+                if (!com.mg.bas.i.b(efObj.c())) {
+                    objectArray2[n] = new dn(efObj.c(), 2, this.s.e() - 2);
                     ++n;
                 }
                 ++n2;
@@ -299,16 +306,15 @@ bq {
                 System.arraycopy(objectArray2, 0, objectArray3, 0, n);
                 objectArray2 = objectArray3;
             }
-            object = this;
-            ((ot)object).s.q();
-            ((ot)object).s.h(10);
-            ((ot)object).s.a(objectArray2);
-            if (((ot)object).s.a() > 1) {
-                ((ot)object).s.k(1);
+            this.s.q();
+            this.s.h(10);
+            this.s.a(objectArray2);
+            if (this.s.a() > 1) {
+                this.s.k(1);
             } else {
-                ((ot)object).s.k(0);
+                this.s.k(0);
             }
-            super.j(4);
+            this.j(4);
             this.A = string;
             this.c(string);
         }
@@ -370,21 +376,18 @@ public final void b(aq object, int n2) {
         int n4 = ot2.s.s();
         aq aq2 = ot2.s.o(n4);
         k k2 = ot2.t.r();
-        int n5 = (v.t - bs2.e()) / 2;
+        int n5 = (com.mg.bas.v.t - bs2.e()) / 2;
         int n6 = ot2.t.d() + aq2.d() - k2.b;
         int n7 = 0;
-        boolean bl = true;
-        if (n6 + bs2.f() > v.u - ba.a) {
-            n7 = v.u - ba.a - bs2.f();
-            bl = false;
+        if (n6 + bs2.f() > com.mg.bas.v.u - ba.a) {
+            n7 = com.mg.bas.v.u - ba.a - bs2.f();
         } else if (n6 < 0) {
-            bl = false;
         } else {
             n7 = n6;
         }
-        bs2.a_(v.t + bs2.e(), n7);
+        bs2.a_(com.mg.bas.v.t + bs2.e(), n7);
         bs2.d(n5, n7);
-        bs2.a(ot2);
+        bs2.a((bf)ot2);
         bs2.a(new gb(0, 2));
         bs2.b(new gb(1, 3));
         bs2.c(com.mg.sq.a.n);
@@ -415,7 +418,7 @@ public final void b(aq object, int n2) {
                 }
                 case 4: {
                     object3 = ((dn)object3).c.b(n8.b(), ((dn)object3).d);
-                    if (i.b((String)object3)) return;
+                    if (com.mg.bas.i.b((String)object3)) return;
                     if (((String)object3).charAt(0) == '@') {
                         object3 = ((String)object3).substring(1);
                     }
@@ -441,49 +444,42 @@ public final void b(aq object, int n2) {
                 }
             }
             if (stringArray2 != null && stringArray2.length > 0) {
-                object3 = new String[1 + stringArray2.length];
+                String[] newStringArray = new String[1 + stringArray2.length];
                 int[] nArray3 = new int[1 + nArray2.length];
-                System.arraycopy(stringArray2, 0, object3, 0, stringArray2.length);
+                System.arraycopy(stringArray2, 0, newStringArray, 0, stringArray2.length);
                 System.arraycopy(nArray2, 0, nArray3, 0, nArray2.length);
-                n3 = stringArray2.length;
-                while (n3 < ((String[])object3).length) {
-                    object3[n3] = stringArray[n3 - stringArray2.length];
+                int n3 = stringArray2.length;
+                while (n3 < newStringArray.length) {
+                    newStringArray[n3] = stringArray[n3 - stringArray2.length];
                     nArray3[n3] = nArray[n3 - nArray2.length];
                     ++n3;
                 }
-                stringArray = object3;
-                int[] nArray4 = nArray3;
+                stringArray = newStringArray;
+                int[] brArray = new int[]{10903, 10913};
+                bs bs3 = new bs();
+                bs3.a(new gb(0, 2));
+                bs3.b(new gb(1, 3));
+//                bs3.a(brArray);
+                int n10 = ot3.s.s();
+                object3 = ot3.s.o(n10);
+                k k3 = ot3.t.r();
+                int nCenter = (com.mg.bas.v.t - bs3.e()) / 2;
+                int n11 = ot3.t.d() + ((aq)object3).d() - k3.b;
+                if (n11 + bs3.f() > com.mg.bas.v.u - ba.a) {
+                    n11 = com.mg.bas.v.u - ba.a - bs3.f();
+                } else if (n11 < 0) {
+                    n11 = 0;
+                }
+                bs3.a_(com.mg.bas.v.t + bs3.e(), n11);
+                bs3.d(nCenter, n11);
+                bs3.a((bf)ot3);
+                bs3.a(new gb(0, 2));
+                bs3.b(new gb(1, 3));
+                bs3.c(com.mg.sq.a.n);
+                bs3.a_(1);
+                ot3.a(bs3);
             }
         }
-        br[] brArray = new br[stringArray.length];
-        int n9 = 0;
-        while (n9 < brArray.length) {
-            int var4_16;
-            brArray[n9] = new br(stringArray[n9], (int)var4_16[n9]);
-            ++n9;
-        }
-        bs bs3 = new bs();
-        bs3.a(new gb(0, 2));
-        bs3.b(new gb(1, 3));
-        bs3.a(brArray);
-        int n10 = ot3.s.s();
-        object3 = ot3.s.o(n10);
-        k k3 = ot3.t.r();
-        n3 = (v.t - bs3.e()) / 2;
-        int n11 = ot3.t.d() + ((aq)object3).d() - k3.b;
-        if (n11 + bs3.f() > v.u - ba.a) {
-            n11 = v.u - ba.a - bs3.f();
-        } else if (n11 < 0) {
-            n11 = 0;
-        }
-        bs3.a_(v.t + bs3.e(), n11);
-        bs3.d(n3, n11);
-        bs3.a(ot3);
-        bs3.a(new gb(0, 2));
-        bs3.b(new gb(1, 3));
-        bs3.c(com.mg.sq.a.n);
-        bs3.a_(1);
-        ot3.a(bs3);
     }
 
     public final void a(String string) {
@@ -567,9 +563,9 @@ public final void b(aq object, int n2) {
                 }
                 bs2.a(brArray);
                 int n6 = bs2.e() > bs2.f() ? bs2.e() : bs2.f();
-                bs2.a_(-n6, v.u);
-                bs2.d(0, v.u - ba.a - bs2.f());
-                bs2.a(ot2);
+                bs2.a_(-n6, com.mg.bas.v.u);
+                bs2.d(0, com.mg.bas.v.u - ba.a - bs2.f());
+                bs2.a((bf)ot2);
                 ot2.a(bs2);
                 return;
             }
@@ -591,10 +587,6 @@ public final void b(aq object, int n2) {
                 oi2.p.a((String)object, 0L, n3);
                 return;
             }
-            case 3: {
-                com.mg.sq.a.s().a(-989858, false);
-                return;
-            }
             case 5: {
                 com.mg.sq.a.s().a(false);
                 if (this.z >= 0 && this.z < this.y.d()) {
@@ -605,7 +597,7 @@ public final void b(aq object, int n2) {
                 return;
             }
             case -7: {
-                hp hp2 = new hp(2);
+                hp hp2 = new hp((byte)2);
                 hp2.a(this);
                 ag.b().a(hp2, false);
                 return;
@@ -662,7 +654,7 @@ public final void b(aq object, int n2) {
                 switch (n3) {
                     case 10901: {
                         object2 = ((dn)object5).c.i();
-                        ff.i = object2;
+                        ff.i = (String)object2;
                         break;
                     }
                     case 10914: {
@@ -693,11 +685,11 @@ public final void b(aq object, int n2) {
                     }
                     case 10904: {
                         object5 = ((dn)object5).c.b(((dn)object5).c.a(((dn)object5).d).b(), ((dn)object5).d);
-                        ff.i = object5;
+                        ff.i = (String)object5;
                         break;
                     }
                     case 10913: {
-                        if (i.b((String)object3)) break;
+                        if (com.mg.bas.i.b((String)object3)) break;
                         if (((String)object3).charAt(0) == '@') {
                             object3 = ((String)object3).substring(1);
                         }
@@ -706,7 +698,7 @@ public final void b(aq object, int n2) {
                         break;
                     }
                     case 10903: {
-                        if (i.b((String)object3)) break;
+                        if (com.mg.bas.i.b((String)object3)) break;
                         if (((String)object3).charAt(0) == '@') {
                             object3 = ((String)object3).substring(1);
                         }

@@ -24,15 +24,15 @@ r {
         try {
             ct.b("main tab");
             this.u = oa2;
-            this.a(this);
+            this.a((bf)this);
             ol ol2 = this;
             if (oa.b == null || oa.c == null) {
                 pa.a().a(go.w, oa2);
             } else {
                 this.k(1);
             }
-            this.d(v.t);
-            this.e(v.u);
+            this.d(com.mg.bas.v.t);
+            this.e(com.mg.bas.v.u);
             this.a(new ba());
             this.m = new ax(3);
             return;
@@ -156,8 +156,8 @@ r {
         this.w = n;
         this.p = null;
         System.gc();
-        ct.b("[processChangeView]");
-        s.a().a(this);
+        com.mg.bas.ct.b("[processChangeView]");
+        com.mg.bas.s.a().a(this);
     }
 
     public final void y() {
@@ -206,7 +206,7 @@ r {
                         this.a(this.r, null, 0L, this.y);
                     }
                 }
-                this.a((bf)((Object)this.p));
+                this.a((bf)this.p);
                 if (this.w != 1 && this.w != 3) break block14;
                 try {
                     Thread.sleep(100L);
@@ -256,22 +256,22 @@ r {
         }
         if (ha2 == null) {
             ag.b().l();
+            mg mgFrom;
+            mg mgTo;
             if (this.p instanceof om) {
-                mg mg2 = ((om)this.p).l.e.u();
-                object2 = mg2;
-                mg2.a(lc.a((lh)object));
-                ((mg)object2).a(nr.a((lh)object));
+                mgFrom = ((om)this.p).l.e.u();
+                mgFrom.a(lc.a((lh)object));
+                mgFrom.a(nr.a((lh)object));
                 ((om)this.p).e(false);
             } else {
-                mg mg3 = mb.a((lh)object, false);
-                object2 = mg3;
-                mg3.a(lc.a((lh)object));
-                ((mg)object2).a(nr.a((lh)object));
+                mgFrom = mb.a((lh)object, false);
+                mgFrom.a(lc.a((lh)object));
+                mgFrom.a(nr.a((lh)object));
             }
-            object = mb.a(lh2, false);
-            ((mg)object).a(lc.a(lh2));
-            ((mg)object).a(nr.a(lh2));
-            ha2 = new ha((at)object2, (at)object, true, bl, 99030, (bf)this.u);
+            mgTo = mb.a(lh2, false);
+            mgTo.a(lc.a(lh2));
+            mgTo.a(nr.a(lh2));
+            ha2 = new ha((at)mgFrom, (at)mgTo, true, bl, 99030, (bf)this.u);
             ha2.a(this);
             ha2.a(lh2);
             ag.b().a(ha2, false);

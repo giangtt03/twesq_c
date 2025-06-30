@@ -7,15 +7,15 @@ import javax.microedition.lcdui.Image;
 
 public final class pc
 extends cw {
-    private static final Image i = f.d("/focusmovechess1");
-    public static Image b = f.d("/crystalblue");
-    public static Image c = f.d("/notifygtmicon");
-    private static Image j = f.d("/tab");
-    private static Image k = f.d("/dialog/corner");
-    private static Image l = f.d("/corner/2");
-    public static Image d = f.d("/hiddendragon");
-    public static final Image e = f.d("/m/hand");
-    public static final Image f = f.d("/m/arrow");
+    private static final Image i = com.mg.bas.f.d("/focusmovechess1");
+    public static Image b = com.mg.bas.f.d("/crystalblue");
+    public static Image c = com.mg.bas.f.d("/notifygtmicon");
+    private static Image j = com.mg.bas.f.d("/tab");
+    private static Image k = com.mg.bas.f.d("/dialog/corner");
+    private static Image l = com.mg.bas.f.d("/corner/2");
+    public static Image d = com.mg.bas.f.d("/hiddendragon");
+    public static final Image e = com.mg.bas.f.d("/m/hand");
+    public static final Image f = com.mg.bas.f.d("/m/arrow");
     private static Image m = null;
     private static int[] n;
     private static int[] o;
@@ -60,9 +60,9 @@ extends cw {
         o = new int[25];
         g = new int[]{9, 15, 9, 10, 16, 8, 6, 16, 16, 16, 16, 15, 11, 16, 23, 8, 11, 8, 14, 16, 16, 16, 14, 10, 6};
         p = new int[]{9, 15, 15, 12, 16, 11, 10, 16, 16, 16, 16, 13, 15, 16, 20, 8, 10, 14, 8, 16, 16, 16, 14, 11, 12};
-        q = f.d("/hiddenphoenix");
-        r = f.d("/roomicon");
-        h = f.d("/elementsicon");
+        q = com.mg.bas.f.d("/hiddenphoenix");
+        r = com.mg.bas.f.d("/roomicon");
+        h = com.mg.bas.f.d("/elementsicon");
         s = 0;
         t = null;
     }
@@ -230,7 +230,7 @@ extends cw {
 
     public static void a() {
         if (m == null) {
-            m = f.d("/olaicons");
+            m = com.mg.bas.f.d("/olaicons");
         }
     }
 
@@ -353,8 +353,8 @@ extends cw {
     public static void b() {
         byte[] byArray;
         if (t == null && (byArray = pa.a().a(1000, false, true)) != null) {
-            s = m.a(byArray, 0);
-            t = f.a(byArray, 4, byArray.length - 4);
+            s = com.mg.bas.m.a(byArray, 0);
+            t = com.mg.bas.f.a(byArray, 4, byArray.length - 4);
         }
     }
 
@@ -427,7 +427,7 @@ extends cw {
 
     public static void d() {
         if (u == null) {
-            u = f.a(pa.a().a(30099, false, false));
+            u = com.mg.bas.f.a(pa.a().a(30099, false, false));
             v = u.getHeight() / 32;
             w = u.getWidth() / 32;
         }

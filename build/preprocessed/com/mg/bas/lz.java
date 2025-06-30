@@ -14,8 +14,8 @@ extends at {
 
     public lz(int n, int n2, int n3, byte by) {
         this.o = n;
-        this.p = n2;
         this.f = 30;
+        this.p = n2;
         this.e = (byte)10;
         lz lz2 = this;
         n2 = lz2.o / 2;
@@ -26,8 +26,8 @@ extends at {
         lz2.d = new int[9];
         int n5 = 0;
         while (n5 < 9) {
-            lz2.c[n5] = n2 + (by * l.b(n4) >> 14);
-            lz2.d[n5] = n3 + (by * l.a(n4) >> 14);
+            lz2.c[n5] = n2 + (by * com.mg.bas.l.b(n4) >> 14);
+            lz2.d[n5] = n3 + (by * com.mg.bas.l.a(n4) >> 14);
             n4 += 40;
             ++n5;
         }

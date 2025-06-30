@@ -26,7 +26,7 @@ extends as {
             case 0: {
                 mp mp2 = mp.a();
                 if (mp2.Q == null) {
-                    mp2.Q = f.d("/miniexplosionfire");
+                    mp2.Q = com.mg.bas.f.d("/miniexplosionfire");
                 }
                 this.a(mp2.Q, 4);
                 break;
@@ -34,9 +34,9 @@ extends as {
             case 2: {
                 mp mp3 = mp.a();
                 if (mp3.R == null) {
-                    byte[] byArray = f.b("/miniexplosionfire");
-                    h.a(byArray, 138);
-                    mp3.R = f.a(byArray);
+                    byte[] byArray = com.mg.bas.f.b("/miniexplosionfire");
+                    com.mg.bas.h.a(byArray, 138);
+                    mp3.R = com.mg.bas.f.a(byArray);
                 }
                 this.a(mp3.R, 4);
                 break;
@@ -44,9 +44,9 @@ extends as {
             case 1: {
                 mp mp4 = mp.a();
                 if (mp4.S == null) {
-                    byte[] byArray = f.b("/miniexplosionfire");
-                    h.a(byArray, -111);
-                    mp4.S = f.a(byArray);
+                    byte[] byArray = com.mg.bas.f.b("/miniexplosionfire");
+                    com.mg.bas.h.a(byArray, -111);
+                    mp4.S = com.mg.bas.f.a(byArray);
                 }
                 this.a(mp4.S, 4);
             }

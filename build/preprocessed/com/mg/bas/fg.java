@@ -30,12 +30,12 @@ implements bu {
     private Image C;
     private boolean D;
     private boolean E = false;
-    private static b F = new fh(0);
+    private static b F = new fh((byte)0);
 
     public fg(boolean bl) {
         this.D = bl;
-        this.k = f.d("/slotlock");
-        this.C = f.d("/m/lock2");
+        this.k = com.mg.bas.f.d("/slotlock");
+        this.C = com.mg.bas.f.d("/m/lock2");
     }
 
     public final void a(aq aq2) {
@@ -58,7 +58,7 @@ implements bu {
     }
 
     public final void a(Graphics graphics, int n, int n2) {
-        pc.b(graphics, this.d.a + n, this.d.b + n2, this.d.c, this.d.d, v.aj, false);
+        pc.b(graphics, this.d.a + n, this.d.b + n2, this.d.c, this.d.d, com.mg.bas.v.aj, false);
         cw.a(graphics, cw.a);
         cw.a(graphics, this.d.a + n, this.d.b + 1 + n2, this.d.c, this.d.d - 2);
         if (this.w == null) {
@@ -326,9 +326,9 @@ implements bu {
             b b3 = b2;
             int n2 = ((a)object).d();
             boolean bl = false;
-            a a2 = object;
+            a a2 = (a)object;
             if (n2 > 0) {
-                a2.a(g.a(a2.e(), 0, n2, b3));
+                a2.a(com.mg.bas.g.a(a2.e(), 0, n2, b3));
             }
             this.x = a2;
         }

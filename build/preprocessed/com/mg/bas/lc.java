@@ -228,7 +228,7 @@ extends as {
         this.B = nArrayArray4;
         if (n == 1) {
             if (s == null) {
-                s = f.d("/aura1");
+                s = com.mg.bas.f.d("/aura1");
             }
             this.w = new as(s, this.z);
             this.w.h(45);
@@ -240,7 +240,7 @@ extends as {
         }
         if (n == 2) {
             if (u == null) {
-                u = f.d("/aura2");
+                u = com.mg.bas.f.d("/aura2");
             }
             this.x = new as(u, this.A);
             this.x.h(40);
@@ -252,7 +252,7 @@ extends as {
         }
         if (n == 3) {
             if (v == null) {
-                v = f.d("/aura3");
+                v = com.mg.bas.f.d("/aura3");
             }
             this.y = new as(v, this.B);
             this.y.h(88);
@@ -264,7 +264,7 @@ extends as {
         }
         if (n == 4) {
             if (v == null) {
-                v = f.d("/aura3");
+                v = com.mg.bas.f.d("/aura3");
             }
             this.y = new as(v, this.B);
             this.y.h(88);
@@ -273,7 +273,7 @@ extends as {
             this.y.d(0);
             this.y.b(2);
             if (u == null) {
-                u = f.d("/aura2");
+                u = com.mg.bas.f.d("/aura2");
             }
             this.x = new as(u, this.A);
             this.x.h(40);

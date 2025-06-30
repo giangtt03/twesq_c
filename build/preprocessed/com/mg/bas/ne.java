@@ -52,8 +52,8 @@ extends at {
         n = 0;
         n2 = 0;
         while (n2 < this.a.length) {
-            int n3 = this.m + (this.b * l.b(n) >> 14);
-            int n4 = this.n + (this.b * l.a(n) >> 14);
+            int n3 = this.m + (this.b * com.mg.bas.l.b(n) >> 14);
+            int n4 = this.n + (this.b * com.mg.bas.l.a(n) >> 14);
             if (this.a[n2] != null) {
                 this.a[n2].a(graphics, n3, n4);
             }

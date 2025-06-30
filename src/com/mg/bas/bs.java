@@ -69,8 +69,9 @@ extends aq {
     }
 
     private int u() {
+        bs bs2 = this;
         while (bs2.n != null) {
-            bs bs2 = bs2.n;
+            bs2 = bs2.n;
         }
         return bs2.m[bs2.k].c();
     }
@@ -129,6 +130,7 @@ extends aq {
     }
 
     public final void n() {
+        bs bs2 = this;
         while (true) {
             int n = 0;
             if (bs2.o != bs2.c()) {
@@ -151,7 +153,7 @@ extends aq {
                 bs2.c(true);
             }
             if (bs2.n == null) break;
-            bs bs2 = bs2.n;
+            bs2 = bs2.n;
         }
     }
 
@@ -173,6 +175,7 @@ extends aq {
     }
 
     public final void a(Graphics graphics, int n, int n2) {
+        bs bs2 = this;
         while (true) {
             int n3 = bs2.c() + n;
             int n4 = bs2.d() + n2;
@@ -198,7 +201,7 @@ extends aq {
                 ++n6;
             }
             if (bs2.n == null) break;
-            bs bs2 = bs2.n;
+            bs2 = bs2.n;
         }
     }
 
@@ -213,10 +216,10 @@ extends aq {
         this.n.d(n, n2);
         Object object = this.q;
         bs bs2 = this.n;
-        this.n.q = object;
+        this.n.q = (bf) object;
         object = this.r;
         bs2 = this.n;
-        this.n.r = object;
+        this.n.r = (bg) object;
         this.n.a(this);
     }
 
@@ -340,9 +343,10 @@ extends aq {
     }
 
     private bs g(int n, int n2) {
+        bs bs2 = this; // hoặc object hiện tại làm gốc
         while (bs2.b instanceof bs) {
-            if (!bs2.b.h().a(n, n2)) {
-                bs bs2 = (bs)bs2.b;
+            if (!((bs)bs2.b).h().a(n, n2)) {
+                bs2 = (bs)bs2.b;
                 continue;
             }
             return (bs)bs2.b;

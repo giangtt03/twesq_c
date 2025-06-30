@@ -24,7 +24,7 @@ extends al {
     }
 
     public final String t() {
-        return p.i[this.o];
+        return com.mg.bas.p.i[this.o];
     }
 
     public final void u() {
@@ -49,7 +49,7 @@ extends al {
             this.k = 35;
             this.l = 30;
             this.m = 6;
-            p.h();
+            com.mg.bas.p.h();
         }
         if (v.t > v.u) {
             this.n = by == 2 ? 5 : 7;
@@ -153,15 +153,15 @@ extends al {
         pc.d(graphics, this.c, this.d, this.f, this.g, 0xF0FBFF);
         int n6 = this.c + this.m + this.k / 2;
         int n7 = this.d + this.m + this.l / 2;
-        int n8 = n6 + this.o % this.n * this.k + p.o[this.o] - p.l[this.o] / 2 - 1;
-        int n9 = n7 + this.o / this.n * this.l + p.n[this.o] - p.m[this.o] / 2 - 1;
+        int n8 = n6 + this.o % this.n * this.k + com.mg.bas.p.o[this.o] - com.mg.bas.p.l[this.o] / 2 - 1;
+        int n9 = n7 + this.o / this.n * this.l + com.mg.bas.p.n[this.o] - com.mg.bas.p.m[this.o] / 2 - 1;
         graphics.setColor(16177368);
-        graphics.fillRect(n8, n9, p.l[this.o] + 2, p.m[this.o] + 2);
-        pc.a(graphics, n8, n9, p.l[this.o] + 2, p.m[this.o] + 2, 0xFBB5B5, -1);
-        cw.b(graphics, 0xF88989, n8 - 1, n9 - 1, p.l[this.o] + 4, p.m[this.o] + 4);
+        graphics.fillRect(n8, n9, com.mg.bas.p.l[this.o] + 2, com.mg.bas.p.m[this.o] + 2);
+        pc.a(graphics, n8, n9, com.mg.bas.p.l[this.o] + 2, com.mg.bas.p.m[this.o] + 2, 0xFBB5B5, -1);
+        cw.b(graphics, 0xF88989, n8 - 1, n9 - 1, com.mg.bas.p.l[this.o] + 4, com.mg.bas.p.m[this.o] + 4);
         n8 = 0;
         while (n8 < 28) {
-            cw.a(graphics, p.p, p.j[n8], p.k[n8], p.l[n8], p.m[n8], n6 + n8 % this.n * this.k + p.o[n8], n7 + n8 / this.n * this.l + p.n[n8], 3);
+            cw.a(graphics, com.mg.bas.p.p, com.mg.bas.p.j[n8], com.mg.bas.p.k[n8], com.mg.bas.p.l[n8], com.mg.bas.p.m[n8], n6 + n8 % this.n * this.k + com.mg.bas.p.o[n8], n7 + n8 / this.n * this.l + com.mg.bas.p.n[n8], 3);
             ++n8;
         }
     }

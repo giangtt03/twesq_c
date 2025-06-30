@@ -15,36 +15,29 @@ extends aq {
     public boolean k = false;
     private d p;
 
-    public eu(ds object, int n2) {
-        int n3;
-        Object object2;
+    public eu(ds ds2, int n2) {
         this.d(n2);
-        ds ds2 = object;
-        object = this;
         this.i = ds2;
         boolean bl = ds2.e() == 2;
-        String string = String.valueOf(ds2.b()) + (bl ? (!i.b(ds2.f()) ? " - " + ds2.f() : "") : "");
+        String string = String.valueOf(ds2.b()) + (bl ? ((ds2.f() != null && ds2.f().length() > 0) ? " - " + ds2.f() : "") : "");
         string = string.replace('\r', ' ');
         string = string.replace('\n', ' ');
-        ((eu)object).p = bx.d;
+        this.p = bx.d;
         boolean bl2 = ds2.g() != null && ds2.g().equals("patriot");
         if (bl2) {
-            ((eu)object).p = com.mg.sq.a.g;
+            this.p = com.mg.sq.a.g;
         }
-        ((eu)object).j = new ls(((eu)object).p, string, 0, 0, Integer.MAX_VALUE, ((eu)object).p.a(), 1);
+        this.j = new ls(this.p, string, 0, 0, Integer.MAX_VALUE, this.p.a(), 1);
         if (!bl2) {
-            ((eu)object).p = bx.c;
+            this.p = bx.c;
         }
-        ((eu)object).m = ds2.d() == 3 ? -3 : (ds2.d() == 1 ? -5 : 10000);
+        this.m = ds2.d() == 3 ? -3 : (ds2.d() == 1 ? -5 : 10000);
         short s = ds2.c();
-        if (((eu)object).i.c() == -13) {
-            object2 = object;
-            n3 = -13;
+        if (this.i.c() == -13) {
+            this.l = -13;
         } else {
-            object2 = object;
-            n3 = ((eu)object).i.e() == 2 ? (int)s : -19;
+            this.l = this.i.e() == 2 ? (int)s : -19;
         }
-        ((eu)object2).l = n3;
     }
 
     public final void d(boolean bl) {

@@ -64,7 +64,7 @@ extends ht {
     }
 
     public final void t() {
-        this.u = f.d("/createcs/bk");
+        this.u = com.mg.bas.f.d("/createcs/bk");
         this.k.i = false;
         this.t = true;
         az az2 = null;
@@ -109,26 +109,18 @@ extends ht {
     public final void e(int n) {
         switch (n) {
             case 1: {
-                br[] brArray;
-                gy gy2 = this;
-                if (!gy2.t) {
-                    brArray = gy2.k.a() ? new br[]{new br("Cập nhật", 21), new br("Tuyệt Chiêu", 20), new br("Rương Đồ", 22), new br("Đóng", 24)} : new br[]{new br("Tuyệt Chiêu", 20), new br("Rương Đồ", 22), new br("Đóng", 24)};
-                    gy2.a(brArray, gy2.r, null, gy2.s);
+                if (!this.t) {
+                    br[] brArray = this.k.a() ? new br[]{new br("Cập nhật", 21), new br("Tuyệt Chiêu", 20), new br("Rương Đồ", 22), new br("Đóng", 24)} : new br[]{new br("Tuyệt Chiêu", 20), new br("Rương Đồ", 22), new br("Đóng", 24)};
+                    this.a(brArray, this.r, null, this.s);
                 }
-                brArray = this.r;
-                gy2 = this;
-                gy2.a((az)brArray, true);
+                this.a(this.r, true);
                 if (this.t) break;
-                brArray = this.s;
-                gy2 = this;
-                gy2.b((az)brArray, true);
+                this.b(this.s, true);
                 return;
             }
             case 2: {
                 this.m.f(95);
-                az az2 = this.q;
-                gy gy3 = this;
-                gy3.a(az2, true);
+                this.a(this.q, true);
                 return;
             }
             case 3: {

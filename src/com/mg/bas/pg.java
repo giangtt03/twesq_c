@@ -8,10 +8,11 @@ implements b {
     }
 
     public final int a(Object object, Object object2) {
-        if (((ep)object).c > (Integer)object2) {
+        int value = ((Integer)object2).intValue();
+        if (((ep)object).c > value) {
             return 1;
         }
-        if (((ep)object).c < (Integer)object2) {
+        if (((ep)object).c < value) {
             return -1;
         }
         return 0;

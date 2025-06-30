@@ -1,663 +1,736 @@
 package com.mg.bas;
-// Decompiled with: CFR 0.152
+// Decompiled with: Procyon 0.6.0
 // Class Version: 1
-public final class km
-extends jv {
-    private boolean[] a = new boolean[5];
-    private int b = 0;
-    private int c = 0;
-
-    /*
-     * Unable to fully structure code
-     */
-    public final void a(at var1_1, kh var2_2) {
-        block115: {
-            if ((var1_1 = (kl)var1_1) == null) break block115;
-            var1_1.i();
-            var6_3 = (kf)var2_2.a(1);
-            var7_4 = var1_1.t;
-            var3_5 = var1_1;
-            switch (var3_5.j) {
-                case 5: {
-                    var7_4.b -= var1_1.s;
-                    var1_1.w += var1_1.s;
-                    --var1_1.s;
-                    if (var1_1.s == 0) {
-                        var1_1.a(6);
-                        break;
-                    }
-                    var3_6 = (var1_1.o() + 20) / 32;
-                    if (!kh.a(var6_3.b(var3_6, var4_29 = (var7_4.a + var7_4.c / 2) / 32))) {
-                        var1_1.a(6);
-                    }
-                    this.a((kl)var1_1, var7_4, var6_3, var2_2);
-                    break;
-                }
-                case 6: {
-                    var7_4.b += var1_1.s;
-                    var1_1.s += 2;
-                    if (var1_1.s > var1_1.a) {
-                        var1_1.s = var1_1.a;
-                    }
-                    var8_37 = (var7_4.b + var7_4.d - var1_1.a) / 32;
-                    var3_7 = (var7_4.b + var7_4.d) / 32;
-                    var4_30 = var7_4.a / 32;
-                    var5_39 = (var7_4.a + var7_4.c) / 32;
-                    if (kh.l(var6_3.b(var3_7, var5_39))) {
-                        var4_30 = var1_1.k;
-                        if (var4_30 == 4) {
-                            var4_30 = var1_1.k | 2;
-                        } else if (var4_30 == 8) {
-                            var4_30 = var1_1.k | 1;
+public final class km extends jv
+{
+    private boolean[] a;
+    private int b;
+    private int c;
+    
+    public km() {
+        super();
+        this.a = new boolean[5];
+        this.b = 0;
+        this.c = 0;
+    }
+    
+    public final void a(final at at, final kh kh) {
+        final kl kl;
+        if ((kl = (kl)at) != null) {
+            kl.i();
+            final kf kf = (kf)kh.a(1);
+            final k t = kl.t;
+            Label_4022: {
+                switch (kl.j) {
+                    case 5: {
+                        final k k = t;
+                        k.b -= kl.s;
+                        final kl kl2 = kl;
+                        kl2.w += kl.s;
+                        final kl kl3 = kl;
+                        --kl3.s;
+                        if (kl.s == 0) {
+                            kl.a(6);
+                            break;
                         }
-                        var1_1.a(7, var4_30);
-                        var5_39 = 32 - (var7_4.a + var7_4.c) % 32;
-                        var1_1.c(var7_4.a, (var3_7 << 5) - var7_4.d + var5_39);
-                        break;
-                    }
-                    if (kh.d(var6_3.b(var3_7, var4_30))) {
-                        var4_30 = var1_1.k;
-                        if (var4_30 == 4) {
-                            var4_30 = var1_1.k | 1;
-                        } else if (var4_30 == 8) {
-                            var4_30 = var1_1.k | 8;
+                        if (!kh.a(kf.b((kl.o() + 20) / 32, (t.a + t.c / 2) / 32))) {
+                            kl.a(6);
                         }
-                        var1_1.a(7, var4_30);
-                        var1_1.c(var7_4.a, (var3_7 << 5) - var7_4.d + var7_4.a % 32);
+                        this.a(kl, t, kf, kh);
                         break;
                     }
-                    var4_30 = (var7_4.a + 5) / 32;
-                    var5_39 = (var7_4.a + var7_4.c - 5) / 32;
-                    if (kh.c(var6_3.b(var3_7, var4_30))) {
-                        if (var8_37 == var3_7) break;
-                        var1_1.a(7);
-                        var1_1.c(var7_4.a, (var3_7 - 1 << 5) - (var7_4.d - 32));
-                        break;
-                    }
-                    if (kh.c(var6_3.b(var3_7, var5_39))) {
-                        if (var8_37 == var3_7) break;
-                        var1_1.a(7);
-                        var1_1.c(var7_4.a, (var3_7 - 1 << 5) - (var7_4.d - 32));
-                        break;
-                    }
-                    this.a((kl)var1_1, var7_4, var6_3, var2_2);
-                    break;
-                }
-                case 7: {
-                    var3_5 = var1_1;
-                    if (var3_5.d.j()) {
-                        var1_1.a(0);
-                    }
-                    this.a(var7_4, var6_3, var2_2, (kl)var1_1);
-                    if (!((var1_1.k & 4) != 0 ? km.a(var7_4, (kl)var1_1, var6_3, var2_2, true) != false : (var1_1.k & 8) != 0 && km.b(var7_4, (kl)var1_1, var6_3, var2_2, true) != false)) break;
-                    return;
-                }
-                case 8: {
-                    if (var1_1.k != 1 || kh.b(var6_3.b(var3_8 = (var7_4.b + 10) / 32, var4_31 = (var7_4.a + var7_4.c / 2) / 32))) break;
-                    this.b = var7_4.b + var7_4.d - (var3_8 + 1 << 5);
-                    this.c = this.b / 3;
-                    break;
-                }
-                case 2: {
-                    if (this.a[0]) {
-                        var1_1.v = true;
-                        if (var1_1.k == 2) {
-                            var1_1.k = 1;
-                            var1_1.g.s();
+                    case 6: {
+                        final k i = t;
+                        i.b += kl.s;
+                        final kl kl4 = kl;
+                        kl4.s += 2;
+                        if (kl.s > kl.a) {
+                            kl.s = kl.a;
                         }
-                        var1_1.b(0, var1_1.i * kl.c[1]);
-                        var3_9 = (var7_4.b + 10) / 32;
-                        var4_32 = (var7_4.a + var7_4.c / 2) / 32;
-                        if (!kh.b(var6_3.b(var3_9, var4_32))) {
-                            this.b = var7_4.b + var7_4.d - (var3_9 + 1 << 5);
+                        final int n = (t.b + t.d - kl.a) / 32;
+                        final int n2 = (t.b + t.d) / 32;
+                        final int n3 = t.a / 32;
+                        if (kh.l(kf.b(n2, (t.a + t.c) / 32))) {
+                            int j;
+                            if ((j = kl.k) == 4) {
+                                j = (kl.k | 0x2);
+                            }
+                            else if (j == 8) {
+                                j = (kl.k | 0x1);
+                            }
+                            kl.a(7, j);
+                            kl.c(t.a, (n2 << 5) - t.d + (32 - (t.a + t.c) % 32));
+                            break;
+                        }
+                        if (kh.d(kf.b(n2, n3))) {
+                            int l;
+                            if ((l = kl.k) == 4) {
+                                l = (kl.k | 0x1);
+                            }
+                            else if (l == 8) {
+                                l = (kl.k | 0x8);
+                            }
+                            kl.a(7, l);
+                            kl.c(t.a, (n2 << 5) - t.d + t.a % 32);
+                            break;
+                        }
+                        final int n4 = (t.a + 5) / 32;
+                        final int n5 = (t.a + t.c - 5) / 32;
+                        if (kh.c(kf.b(n2, n4))) {
+                            if (n != n2) {
+                                kl.a(7);
+                                kl.c(t.a, (n2 - 1 << 5) - (t.d - 32));
+                                break;
+                            }
+                            break;
+                        }
+                        else {
+                            if (!kh.c(kf.b(n2, n5))) {
+                                this.a(kl, t, kf, kh);
+                                break;
+                            }
+                            if (n != n2) {
+                                kl.a(7);
+                                kl.c(t.a, (n2 - 1 << 5) - (t.d - 32));
+                                break;
+                            }
+                            break;
+                        }
+//                        break;
+                    }
+                    case 7: {
+                        if (kl.d.j()) {
+                            kl.a(0);
+                        }
+                        this.a(t, kf, kh, kl);
+                        if ((kl.k & 0x4) != 0x0) {
+                            if (a(t, kl, kf, kh, true)) {
+                                return;
+                            }
+                            break;
+                        }
+                        else {
+                            if ((kl.k & 0x8) != 0x0 && b(t, kl, kf, kh, true)) {
+                                return;
+                            }
+                            break;
+                        }
+//                        break;
+                    }
+                    case 8: {
+                        if (kl.k != 1) {
+                            break;
+                        }
+                        final int n6 = (t.b + 10) / 32;
+                        if (!kh.b(kf.b(n6, (t.a + t.c / 2) / 32))) {
+                            this.b = t.b + t.d - (n6 + 1 << 5);
                             this.c = this.b / 3;
-                            var1_1.a(3);
-                        } else {
-                            var3_9 = (var7_4.b + var7_4.d) / 32;
-                            var5_40 = var7_4.b / 32;
-                            if (kh.b(var6_3.b(var5_40, var4_32)) && kh.c(var6_3.b(var3_9, var4_32))) {
-                                this.b = var7_4.b + var7_4.d - (var3_9 + 1 << 5);
+                            break;
+                        }
+                        break;
+                    }
+                    case 2: {
+                        if (this.a[0]) {
+                            kl.v = true;
+                            if (kl.k == 2) {
+                                kl.k = 1;
+                                kl.g.s();
+                            }
+                            kl.b(0, kl.i * kl.c[1]);
+                            final int n7 = (t.b + 10) / 32;
+                            final int n8 = (t.a + t.c / 2) / 32;
+                            if (!kh.b(kf.b(n7, n8))) {
+                                this.b = t.b + t.d - (n7 + 1 << 5);
                                 this.c = this.b / 3;
-                                var1_1.a(3);
+                                kl.a(3);
+                            }
+                            else {
+                                final int n9 = (t.b + t.d) / 32;
+                                if (kh.b(kf.b(t.b / 32, n8)) && kh.c(kf.b(n9, n8))) {
+                                    this.b = t.b + t.d - (n9 + 1 << 5);
+                                    this.c = this.b / 3;
+                                    kl.a(3);
+                                }
                             }
                         }
-                    } else if (this.a[1]) {
-                        var1_1.v = true;
-                        if (var1_1.k == 1) {
-                            var1_1.k = 2;
-                            var1_1.g.t();
+                        else if (this.a[1]) {
+                            kl.v = true;
+                            if (kl.k == 1) {
+                                kl.k = 2;
+                                kl.g.t();
+                            }
+                            kl.b(0, kl.i * kl.c[2]);
+                            final int n10 = (t.b + t.d) / 32;
+                            final int n11 = (t.a + t.c / 2) / 32;
+                            if (!kh.b(kf.b(n10, n11))) {
+                                kl.g(n10 - 1 << 5);
+                                kl.a(3);
+                            }
+                            else if (kh.c(kf.b(n10, n11))) {
+                                kl.g(n10 - 1 << 5);
+                                kl.a(3);
+                            }
                         }
-                        var1_1.b(0, var1_1.i * kl.c[2]);
-                        var3_10 = (var7_4.b + var7_4.d) / 32;
-                        var4_33 = (var7_4.a + var7_4.c / 2) / 32;
-                        if (!kh.b(var6_3.b(var3_10, var4_33))) {
-                            var1_1.g(var3_10 - 1 << 5);
-                            var1_1.a(3);
-                        } else if (kh.c(var6_3.b(var3_10, var4_33))) {
-                            var1_1.g(var3_10 - 1 << 5);
-                            var1_1.a(3);
+                        else {
+                            kl.v = false;
                         }
-                    } else {
-                        var1_1.v = false;
-                    }
-                    if (this.a[2]) {
-                        this.a[1] = false;
-                        this.a[0] = false;
-                        var1_1.f(var7_4.a - 16);
-                        var1_1.a(6, 4);
+                        if (this.a[2]) {
+                            this.a[0] = (this.a[1] = false);
+                            kl.f(t.a - 16);
+                            kl.a(6, 4);
+                            break;
+                        }
+                        if (this.a[3]) {
+                            this.a[0] = (this.a[1] = false);
+                            kl.f(t.a + 16);
+                            kl.a(6, 8);
+                            break;
+                        }
                         break;
                     }
-                    if (!this.a[3]) break;
-                    this.a[1] = false;
-                    this.a[0] = false;
-                    var1_1.f(var7_4.a + 16);
-                    var1_1.a(6, 8);
-                    break;
-                }
-                case 3: {
-                    if (var1_1.k == 1) {
-                        var7_4.b += this.c * kl.c[var1_1.k];
-                    }
-                    var3_5 = var1_1;
-                    if (!var3_5.d.j()) break;
-                    this.c = 0;
-                    this.b = 0;
-                    var3_11 = var7_4.b / 32;
-                    var1_1.g(var3_11 << 5);
-                    var1_1.a(0);
-                    var3_12 = this;
-                    var3_12.a();
-                    v.c();
-                    var3_13 = (var7_4.b + var7_4.d) / 32;
-                    var4_34 = (var7_4.a + var7_4.c / 2) / 32;
-                    if (kh.c(var6_3.b(var3_13, var4_34))) break;
-                    var1_1.a(6);
-                    break;
-                }
-                case 1: {
-    if (this.a[0]) {
-        if (!var1_1.y) {
-            int var3_14 = (var7_4.b + var7_4.d / 2) / 32;
-            int var4_35 = (var7_4.a + var7_4.c / 2) / 32;
-            if (kh.b(var6_3.b(var3_14, var4_35))) {
-                var1_1.f((var4_35 << 5) + (32 - var7_4.c) / 2);
-                var1_1.a(8, 1);
-                this.a[3] = false;
-                this.a[2] = false;
-            } else {
-                var3_14 = (var1_1.o() + 20) / 32;
-                var4_35 = (var7_4.a + var7_4.c / 2) / 32;
-                if (kh.a(var6_3.b(var3_14, var4_35))) {
-                    var1_1.a(5);
-                    this.a[0] = false;
-                }
-            }
-        } else if (var1_1.k != 1) {
-            var1_1.a(1, 1);
-        }
-    } else if (this.a[1]) {
-        int var3_15 = (var7_4.b + var7_4.d + 8) / 32;
-        int var4_35 = (var7_4.a + var7_4.c / 2) / 32;
-        if (var1_1.y) {
-            if (!kh.c(var6_3.b(var3_15, var4_35)) || kh.b(var6_3.b(var3_15, var4_35))) {
-                if (var1_1.k != 2) {
-                    var1_1.a(1, 2);
-                }
-            } else {
-                var1_1.a(0);
-            }
-        }
-    }
-
-    // Phần xử lý cho this.a[2]
-    if (this.a[2]) {
-        if (var1_1.k == 4) {
-            if (!km.a(var7_4, (kl)var1_1, var6_3, var2_2, true)) {
-                int var3_16 = (var7_4.b + var7_4.d) / 32;
-                int var4_35 = (var7_4.a + var7_4.c - 5) / 32;
-                int var5_41 = (var7_4.a + 5) / 32;
-                var6_3.b(var3_16, var4_35);
-                if (!kh.c(var6_3.b(var3_16, var5_41)) && !kh.c(var6_3.b(var3_16, var4_35))) {
-                    if (!var1_1.y) {
-                        var1_1.a(6);
-                    }
-                } else {
-                    var3_16 = (var7_4.b + var7_4.d) / 32;
-                    var4_35 = (var7_4.a + var7_4.c - var1_1.i) / 32;
-                    int v0 = var6_3.b(var3_16, var4_35);
-                    var5_41 = v0;
-                    if (kh.l(v0)) {
-                        var1_1.c(((var4_35 + 1) << 5) - var7_4.c, (var3_16 << 5) - var7_4.d);
-                        var1_1.a(1, 6);
-                    } else {
-                        var3_16 = (var7_4.b + var7_4.d - var1_1.i) / 32;
-                        var4_35 = (var7_4.a - var1_1.i) / 32;
-                        int v1 = var6_3.b(var3_16, var4_35);
-                        var5_41 = v1;
-                        if (kh.d(v1)) {
-                            var1_1.c((var4_35 + 1) << 5, (var3_16 << 5) - (var7_4.d - 32));
-                            var1_1.a(1, 5);
+                    case 3: {
+                        if (kl.k == 1) {
+                            final k m = t;
+                            m.b += this.c * kl.c[kl.k];
                         }
-                    }
-                }
-            }
-        } else if (var1_1.k == 5) {
-            int var3_17 = (var7_4.b + var7_4.d) / 32;
-            int var4_35 = var7_4.a / 32;
-            int var5_41 = (var7_4.b + var7_4.d - var1_1.i) / 32;
-            int var8_38 = (var7_4.a - var1_1.i) / 32;
-            if (var3_17 != var5_41) {
-                if (var4_35 == var8_38) {
-                    if (!kh.d(var6_3.b(var5_41, var8_38 - 1)) && !kh.d(var6_3.b(var5_41, var8_38))) {
-                        var1_1.c(var8_38 << 5, ((var5_41 + 1) << 5) - var7_4.d);
-                        var1_1.a(1, 4);
-                    }
-                } else if (!kh.d(var6_3.b(var5_41, var8_38))) {
-                    var1_1.c(var4_35 << 5, ((var5_41 + 1) << 5) - var7_4.d);
-                    var1_1.a(1, 4);
-                }
-            }
-        } else if (var1_1.k == 6) {
-            int var3_18 = (var7_4.b + var7_4.d) / 32;
-            int var4_35 = (var7_4.a + var7_4.c) / 32;
-            int var5_41 = (var7_4.b + var7_4.d + var1_1.i) / 32;
-            int var8_38 = (var7_4.a + var7_4.c - var1_1.i) / 32;
-            if (var3_18 != var5_41) {
-                if (var4_35 == var8_38) {
-                    if (!kh.l(var6_3.b(var5_41, var8_38 - 1)) && !kh.l(var6_3.b(var5_41, var8_38))) {
-                        var1_1.c((var8_38 << 5) - var7_4.c, (var5_41 << 5) - var7_4.d);
-                        var1_1.a(1, 4);
-                    }
-                } else if (!kh.l(var6_3.b(var5_41, var8_38))) {
-                    var1_1.c(((var8_38 + 1) << 5) - var7_4.c, (var5_41 << 5) - var7_4.d);
-                    var1_1.a(1, 4);
-                }
-            }
-        } else {
-            if (var1_1.k == 10) {
-                var1_1.a(1, 5);
-            } else if (var1_1.k == 9) {
-                var1_1.a(1, 6);
-            } else {
-                var1_1.a(1, 4);
-            }
-        }
-    } else if (this.a[3]) {
-        if (!km.b(var7_4, (kl)var1_1, var6_3, var2_2, true)) {
-            if (var1_1.k == 8) {
-                int var3_19 = (var7_4.b + var7_4.d) / 32;
-                int var4_35 = (var7_4.a + 5) / 32;
-                int var5_41 = (var7_4.a + var7_4.c - 5) / 32;
-                var6_3.b(var3_19, var4_35);
-                if (!kh.c(var6_3.b(var3_19, var5_41)) && !kh.c(var6_3.b(var3_19, var4_35))) {
-                    if (!var1_1.y) {
-                        var1_1.a(6);
-                    }
-                } else {
-                    var3_19 = (var7_4.b + var7_4.d + var1_1.i) / 32;
-                    var4_35 = (var7_4.a + var1_1.i) / 32;
-                    int v2 = var6_3.b(var3_19, var4_35);
-                    var5_41 = v2;
-                    if (kh.d(v2)) {
-                        var1_1.c((var4_35 << 5) + 1, (var3_19 << 5) - var7_4.d + 1);
-                        var1_1.a(1, 10);
-                    } else {
-                        var3_19 = (var7_4.b + var7_4.d - var1_1.i) / 32;
-                        var4_35 = (var7_4.a + var7_4.c + var1_1.i) / 32;
-                        var6_3.b(var3_19, var4_35);
-                        if (kh.l(var6_3.b(var3_19, var4_35))) {
-                            var1_1.c((var4_35 << 5) - var7_4.c, (var3_19 << 5) + (32 - var7_4.d));
-                            var1_1.a(1, 9);
+                        if (!kl.d.j()) {
+                            break;
                         }
+                        this.c = 0;
+                        this.b = 0;
+                        final int n12 = t.b / 32;
+                        final int a = t.a;
+                        final int c = t.c;
+                        kl.g(n12 << 5);
+                        kl.a(0);
+                        this.a();
+                        v.c();
+                        if (!kh.c(kf.b((t.b + t.d) / 32, (t.a + t.c / 2) / 32))) {
+                            kl.a(6);
+                            break;
+                        }
+                        break;
                     }
-                }
-            } else if (var1_1.k == 10) {
-                int var3_20 = (var7_4.b + var7_4.d) / 32;
-                int var4_35 = var7_4.a / 32;
-                int var5_41 = (var7_4.b + var7_4.d + var1_1.i) / 32;
-                int var8_38 = (var7_4.a + var1_1.i) / 32;
-                if (var3_20 != var5_41) {
-                    if (var4_35 != var8_38 && !kh.d(var6_3.b(var5_41, var8_38))) {
-                        var1_1.c(var8_38 << 5, (var5_41 << 5) - var7_4.d);
-                        var1_1.a(1, 8);
-                    }
-                } else if (var4_35 != var8_38 && !kh.d(var6_3.b(var5_41, var8_38)) && !kh.d(var6_3.b(var5_41 + 1, var8_38))) {
-                    var1_1.c(var8_38 << 5, ((var5_41 + 1) << 5) - var7_4.d);
-                    var1_1.a(1, 8);
-                }
-            } else if (var1_1.k == 9) {
-                int var3_21 = (var7_4.b + var7_4.d) / 32;
-                int var4_35 = (var7_4.a + var7_4.c) / 32;
-                int var5_41 = (var7_4.b + var7_4.d - var1_1.i) / 32;
-                int var8_38 = (var7_4.a + var7_4.c + var1_1.i) / 32;
-                if (var3_21 != var5_41) {
-                    if (var4_35 != var8_38 && !kh.l(var6_3.b(var5_41, var8_38))) {
-                        var1_1.c((var8_38 << 5) - var7_4.c, (var5_41 << 5) + (32 - var7_4.d));
-                        var1_1.a(1, 8);
-                    }
-                } else if (var4_35 != var8_38 && !kh.l(var6_3.b(var3_21, var8_38)) && !kh.l(var6_3.b(var3_21 - 1, var8_38))) {
-                    var1_1.c((var8_38 << 5) - var7_4.c, (var5_41 << 5) - var7_4.d);
-                    var1_1.a(1, 8);
-                }
-            } else {
-                if (var1_1.k == 6) {
-                    var1_1.a(1, 9);
-                } else if (var1_1.k == 5) {
-                    var1_1.a(1, 10);
-                } else {
-                    var1_1.a(1, 8);
-                }
-            }
-        }
-    } else {
-        if (!var1_1.y) {
-            var1_1.a(0);
-        }
-    }
-
-    // Kiểm tra nếu không còn a[] nào true thì reset
-    boolean anyTrue = false;
-    for (int i = 0; i < this.a.length; i++) {
-        if (this.a[i]) {
-            anyTrue = true;
-            break;
-        }
-    }
-    if (!anyTrue) {
-        var1_1.a(0);
-    }
-
-    // Xử lý cuối cùng cho var1_1.j == 1
-    if (var1_1.j == 1) {
-        var1_1.b(kl.b[var1_1.k] * var1_1.i, kl.c[var1_1.k] * var1_1.i);
-        if (var1_1.k == 4) {
-            int var3_23 = (var7_4.b + var7_4.d - 1) / 32;
-            int var4_35 = (var7_4.a - 1) / 32;
-            if (var2_2.n(var6_3.b(var3_23, var4_35))) {
-                var1_1.f((var4_35 + 1) << 5);
-            }
-        } else if (var1_1.k == 8) {
-            int var3_24 = (var7_4.b + var7_4.d - 1) / 32;
-            int var4_35 = (var7_4.a + var7_4.c) / 32;
-            if (var2_2.n(var6_3.b(var3_24, var4_35))) {
-                var1_1.f(((var4_35 - 1) << 5) - (var7_4.c - 32));
-            }
-        }
-    }
-    break;
-}
-                case 0: {
-                    if (this.a[0]) {
-                        if (!var1_1.y) {
-                            var3_25 = (var7_4.b + var7_4.d / 2) / 32;
-                            var4_36 = (var7_4.a + var7_4.c / 2) / 32;
-                            if (kh.b(var6_3.b(var3_25, var4_36))) {
-                                var1_1.f((var4_36 << 5) + (32 - var7_4.c) / 2);
-                                var1_1.a(8, 1);
-                            } else {
-                                var3_25 = (var1_1.o() + 20) / 32;
-                                if (kh.a(var6_3.b(var3_25, var4_36 = (var7_4.a + var7_4.c / 2) / 32))) {
-                                    var1_1.a(5);
+                    case 1: {
+                        if (this.a[0]) {
+                            if (!kl.y) {
+                                final int n13 = (t.b + t.d / 2) / 32;
+                                final int n14 = (t.a + t.c / 2) / 32;
+                                if (kh.b(kf.b(n13, n14))) {
+                                    kl.f((n14 << 5) + (32 - t.c) / 2);
+                                    kl.a(8, 1);
+                                    this.a[2] = (this.a[3] = false);
+                                }
+                                else if (kh.a(kf.b((kl.o() + 20) / 32, (t.a + t.c / 2) / 32))) {
+                                    kl.a(5);
                                     this.a[0] = false;
                                 }
                             }
-                        } else {
-                            var1_1.a(1, 1);
-                        }
-                    } else if (this.a[1]) {
-                        var3_26 = (var7_4.b + var7_4.d + 8) / 32;
-                        var4_36 = (var7_4.a + var7_4.c / 2) / 32;
-                        if (!var1_1.y) {
-                            if (kh.b(var6_3.b(var3_26, var4_36))) {
-                                var1_1.c((var4_36 << 5) + (32 - var7_4.c) / 2, var3_26 << 5);
-                                var1_1.a(8, 2);
-                                break;
+                            else if (kl.k != 1) {
+                                kl.a(1, 1);
                             }
-                        } else if (!kh.c(var6_3.b(var3_26, var4_36)) || kh.b(var6_3.b(var3_26, var4_36))) {
-                            var1_1.a(1, 2);
-                        } else {
-                            var1_1.a(0);
                         }
-                    }
-                    if (!var1_1.y) {
-                        if (var1_1.k == 4) {
-                            var3_27 = (var7_4.b + var7_4.d) / 32;
-                            var4_36 = (var7_4.a + var7_4.c - 5) / 32;
-                            var5_42 = (var7_4.a + 5) / 32;
-                            if (!kh.c(var6_3.b(var3_27, var5_42)) && !kh.c(var6_3.b(var3_27, var4_36))) {
-                                if (var1_1.y) break;
-                                var1_1.a(6);
-                                break;
-                            }
-                        } else if (var1_1.k == 8) {
-                            var3_28 = (var7_4.b + var7_4.d) / 32;
-                            var4_36 = (var7_4.a + 5) / 32;
-                            var5_43 = (var7_4.a + var7_4.c - 5) / 32;
-                            if (!kh.c(var6_3.b(var3_28, var5_43)) && !kh.c(var6_3.b(var3_28, var4_36))) {
-                                var3_28 = (var7_4.b + var7_4.d) / 32;
-                                var4_36 = var7_4.a / 32;
-                                if (!kh.d(var6_3.b(var3_28, var4_36))) {
-                                    if (var1_1.y) break;
-                                    var1_1.a(6);
-                                    break;
+                        else if (this.a[1]) {
+                            final int n15 = (t.b + t.d + 8) / 32;
+                            final int n16 = (t.a + t.c / 2) / 32;
+                            if (kl.y) {
+                                if (!kh.c(kf.b(n15, n16)) || kh.b(kf.b(n15, n16))) {
+                                    if (kl.k != 2) {
+                                        kl.a(1, 2);
+                                    }
+                                }
+                                else {
+                                    kl.a(0);
                                 }
                             }
                         }
+                        if (this.a[2]) {
+                            if (kl.k == 4) {
+                                if (a(t, kl, kf, kh, true)) {
+                                    break;
+                                }
+                                final int n17 = (t.b + t.d) / 32;
+                                final int n18 = (t.a + t.c - 5) / 32;
+                                final int n19 = (t.a + 5) / 32;
+                                kf.b(n17, n18);
+                                if (!kh.c(kf.b(n17, n19)) && !kh.c(kf.b(n17, n18))) {
+                                    if (!kl.y) {
+                                        kl.a(6);
+                                    }
+                                }
+                                else {
+                                    final int n20 = (t.b + t.d) / 32;
+                                    final int n21 = (t.a + t.c - kl.i) / 32;
+                                    if (kh.l(kf.b(n20, n21))) {
+                                        kl.c((n21 + 1 << 5) - t.c, (n20 << 5) - t.d);
+                                        kl.a(1, 6);
+                                    }
+                                    else {
+                                        final int n22 = (t.b + t.d - kl.i) / 32;
+                                        final int n23 = (t.a - kl.i) / 32;
+                                        if (kh.d(kf.b(n22, n23))) {
+                                            kl.c(n23 + 1 << 5, (n22 << 5) - (t.d - 32));
+                                            kl.a(1, 5);
+                                        }
+                                    }
+                                }
+                            }
+                            else if (kl.k == 5) {
+                                final int n24 = (t.b + t.d) / 32;
+                                final int n25 = t.a / 32;
+                                final int n26 = (t.b + t.d - kl.i) / 32;
+                                final int n27 = (t.a - kl.i) / 32;
+                                if (n24 != n26) {
+                                    if (n25 == n27) {
+                                        if (!kh.d(kf.b(n26, n27 - 1)) && !kh.d(kf.b(n26, n27))) {
+                                            kl.c(n27 << 5, (n26 + 1 << 5) - t.d);
+                                            kl.a(1, 4);
+                                        }
+                                    }
+                                    else if (!kh.d(kf.b(n26, n27))) {
+                                        kl.c(n25 << 5, (n26 + 1 << 5) - t.d);
+                                        kl.a(1, 4);
+                                    }
+                                }
+                            }
+                            else if (kl.k == 6) {
+                                final int n28 = (t.b + t.d) / 32;
+                                final int n29 = (t.a + t.c) / 32;
+                                final int n30 = (t.b + t.d + kl.i) / 32;
+                                final int n31 = (t.a + t.c - kl.i) / 32;
+                                if (n28 != n30) {
+                                    if (n29 == n31) {
+                                        if (!kh.l(kf.b(n30, n31 - 1)) && !kh.l(kf.b(n30, n31))) {
+                                            kl.c((n31 << 5) - t.c, (n30 << 5) - t.d);
+                                            kl.a(1, 4);
+                                        }
+                                    }
+                                    else if (!kh.l(kf.b(n30, n31))) {
+                                        kl.c((n31 + 1 << 5) - t.c, (n30 << 5) - t.d);
+                                        kl.a(1, 4);
+                                    }
+                                }
+                            }
+                            else {
+                                if (kl.k == 10) {
+                                    kl.a(1, 5);
+                                    break;
+                                }
+                                if (kl.k == 9) {
+                                    kl.a(1, 6);
+                                    break;
+                                }
+                                kl.a(1, 4);
+                                break;
+                            }
+                        }
+                        else if (this.a[3]) {
+                            if (b(t, kl, kf, kh, true)) {
+                                break;
+                            }
+                            if (kl.k == 8) {
+                                final int n32 = (t.b + t.d) / 32;
+                                final int n33 = (t.a + 5) / 32;
+                                final int n34 = (t.a + t.c - 5) / 32;
+                                kf.b(n32, n33);
+                                if (!kh.c(kf.b(n32, n34)) && !kh.c(kf.b(n32, n33))) {
+                                    if (!kl.y) {
+                                        kl.a(6);
+                                    }
+                                }
+                                else {
+                                    final int n35 = (t.b + t.d + kl.i) / 32;
+                                    final int n36 = (t.a + kl.i) / 32;
+                                    if (kh.d(kf.b(n35, n36))) {
+                                        kl.c((n36 << 5) + 1, (n35 << 5) - t.d + 1);
+                                        kl.a(1, 10);
+                                    }
+                                    else {
+                                        final int n37 = (t.b + t.d - kl.i) / 32;
+                                        final int n38 = (t.a + t.c + kl.i) / 32;
+                                        kf.b(n37, n38);
+                                        if (kh.l(kf.b(n37, n38))) {
+                                            kl.c((n38 << 5) - t.c, (n37 << 5) + (32 - t.d));
+                                            kl.a(1, 9);
+                                        }
+                                    }
+                                }
+                            }
+                            else if (kl.k == 10) {
+                                final int n39 = (t.b + t.d) / 32;
+                                final int n40 = t.a / 32;
+                                final int n41 = (t.b + t.d + kl.i) / 32;
+                                final int n42 = (t.a + kl.i) / 32;
+                                if (n39 != n41) {
+                                    if (n40 != n42 && !kh.d(kf.b(n41, n42))) {
+                                        kl.c(n42 << 5, (n41 << 5) - t.d);
+                                        kl.a(1, 8);
+                                    }
+                                }
+                                else if (n40 != n42 && !kh.d(kf.b(n41, n42)) && !kh.d(kf.b(n41 + 1, n42))) {
+                                    kl.c(n42 << 5, (n41 + 1 << 5) - t.d);
+                                    kl.a(1, 8);
+                                }
+                            }
+                            else if (kl.k == 9) {
+                                final int n43 = (t.b + t.d) / 32;
+                                final int n44 = (t.a + t.c) / 32;
+                                final int n45 = (t.b + t.d - kl.i) / 32;
+                                final int n46 = (t.a + t.c + kl.i) / 32;
+                                if (n43 != n45) {
+                                    if (n44 != n46 && !kh.l(kf.b(n45, n46))) {
+                                        kl.c((n46 << 5) - t.c, (n45 << 5) + (32 - t.d));
+                                        kl.a(1, 8);
+                                    }
+                                }
+                                else if (n44 != n46 && !kh.l(kf.b(n43, n46)) && !kh.l(kf.b(n43 - 1, n46))) {
+                                    kl.c((n46 << 5) - t.c, (n45 << 5) - t.d);
+                                    kl.a(1, 8);
+                                }
+                            }
+                            else {
+                                if (kl.k == 6) {
+                                    kl.a(1, 9);
+                                    break;
+                                }
+                                if (kl.k == 5) {
+                                    kl.a(1, 10);
+                                    break;
+                                }
+                                kl.a(1, 8);
+                                break;
+                            }
+                        }
+                        else if (!kl.y) {
+                            kl.a(0);
+                        }
+                        int n47 = 0;
+                        while (true) {
+                            while (n47 < this.a.length) {
+                                if (this.a[n47]) {
+                                    final boolean b = true;
+                                    if (!b) {
+                                        kl.a(0);
+                                    }
+                                    if (kl.j != 1) {
+                                        break Label_4022;
+                                    }
+                                    kl.b(kl.b[kl.k] * kl.i, kl.c[kl.k] * kl.i);
+                                    if (kl.k == 4) {
+                                        final int n48 = (t.b + t.d - 1) / 32;
+                                        final int n49 = (t.a - 1) / 32;
+                                        if (kh.n(kf.b(n48, n49))) {
+                                            kl.f(n49 + 1 << 5);
+                                            break Label_4022;
+                                        }
+                                        break Label_4022;
+                                    }
+                                    else {
+                                        if (kl.k != 8) {
+                                            break Label_4022;
+                                        }
+                                        final int n50 = (t.b + t.d - 1) / 32;
+                                        final int n51 = (t.a + t.c) / 32;
+                                        if (kh.n(kf.b(n50, n51))) {
+                                            kl.f((n51 - 1 << 5) - (t.c - 32));
+                                            break Label_4022;
+                                        }
+                                        break Label_4022;
+                                    }
+                                }
+                                else {
+                                    ++n47;
+                                }
+                            }
+                            final boolean b = false;
+                            continue;
+                        }
                     }
-                    this.a(var7_4, var6_3, var2_2, (kl)var1_1);
+                    case 0: {
+                        if (this.a[0]) {
+                            if (!kl.y) {
+                                final int n52 = (t.b + t.d / 2) / 32;
+                                final int n53 = (t.a + t.c / 2) / 32;
+                                if (kh.b(kf.b(n52, n53))) {
+                                    kl.f((n53 << 5) + (32 - t.c) / 2);
+                                    kl.a(8, 1);
+                                }
+                                else if (kh.a(kf.b((kl.o() + 20) / 32, (t.a + t.c / 2) / 32))) {
+                                    kl.a(5);
+                                    this.a[0] = false;
+                                }
+                            }
+                            else {
+                                kl.a(1, 1);
+                            }
+                        }
+                        else if (this.a[1]) {
+                            final int n54 = (t.b + t.d + 8) / 32;
+                            final int n55 = (t.a + t.c / 2) / 32;
+                            if (!kl.y) {
+                                if (kh.b(kf.b(n54, n55))) {
+                                    kl.c((n55 << 5) + (32 - t.c) / 2, n54 << 5);
+                                    kl.a(8, 2);
+                                    break;
+                                }
+                            }
+                            else if (!kh.c(kf.b(n54, n55)) || kh.b(kf.b(n54, n55))) {
+                                kl.a(1, 2);
+                            }
+                            else {
+                                kl.a(0);
+                            }
+                        }
+                        if (!kl.y) {
+                            if (kl.k == 4) {
+                                final int n56 = (t.b + t.d) / 32;
+                                final int n57 = (t.a + t.c - 5) / 32;
+                                if (!kh.c(kf.b(n56, (t.a + 5) / 32)) && !kh.c(kf.b(n56, n57))) {
+                                    if (!kl.y) {
+                                        kl.a(6);
+                                        break;
+                                    }
+                                    break;
+                                }
+                            }
+                            else if (kl.k == 8) {
+                                final int n58 = (t.b + t.d) / 32;
+                                final int n59 = (t.a + 5) / 32;
+                                if (!kh.c(kf.b(n58, (t.a + t.c - 5) / 32)) && !kh.c(kf.b(n58, n59))) {
+                                    final int n60 = (t.b + t.d) / 32;
+                                    final int n61 = t.a / 32;
+                                    final int a2 = t.a;
+                                    final int c2 = t.c;
+                                    if (!kh.d(kf.b(n60, n61))) {
+                                        if (!kl.y) {
+                                            kl.a(6);
+                                            break;
+                                        }
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        this.a(t, kf, kh, kl);
+                        break;
+                    }
                 }
             }
-            var2_2.b(var7_4);
+            kh.b(t);
         }
     }
-
-    private static boolean a(k k2, kl kl2, kf kf2, kh kh2, boolean bl) {
-        int n = (k2.b + k2.d / 2) / 32;
-        int n2 = (k2.a - kl2.i) / 32;
-        if (kh2.n(kf2.b(n, n2))) {
-            if (bl) {
-                kl2.f(n2 + 1 << 5);
+    
+    private static boolean a(final k k, final kl kl, final kf kf, final kh kh, final boolean b) {
+        final int n = (k.b + k.d / 2) / 32;
+        final int n2 = (k.a - kl.i) / 32;
+        if (kh.n(kf.b(n, n2))) {
+            if (b) {
+                kl.f(n2 + 1 << 5);
             }
             return true;
         }
         return false;
     }
-
-    private static boolean b(k k2, kl kl2, kf kf2, kh kh2, boolean bl) {
-        int n = (k2.b + k2.d / 2) / 32;
-        int n2 = (k2.a + k2.c + kl2.i) / 32;
-        if (kh2.m(kf2.b(n, n2))) {
-            if (bl) {
-                kl2.f((n2 - 1 << 5) - (k2.c - 32));
+    
+    private static boolean b(final k k, final kl kl, final kf kf, final kh kh, final boolean b) {
+        final int n = (k.b + k.d / 2) / 32;
+        final int n2 = (k.a + k.c + kl.i) / 32;
+        if (kh.m(kf.b(n, n2))) {
+            if (b) {
+                kl.f((n2 - 1 << 5) - (k.c - 32));
             }
             return true;
         }
         return false;
     }
-
-    private void a(k k2, kf kf2, kh kh2, kl kl2) {
-        if (this.a[2]) {
-            int n = (k2.b + k2.d) / 32;
-            int n2 = k2.a / 32;
-            int n3 = (k2.a + k2.c) / 32;
-            if (!kl2.y) {
-                if (!kh.c(kf2.b(n, n3)) && kh.d(kf2.b(n, n2))) {
-                    kl2.a(1, 5);
-                    return;
+    
+    private void a(final k k, final kf kf, final kh kh, final kl kl) {
+        if (!this.a[2]) {
+            if (this.a[3]) {
+                final int n = (k.b + k.d) / 32;
+                final int n2 = k.a / 32;
+                final int n3 = (k.a + k.c) / 32;
+                if (!kl.y) {
+                    if (!kh.c(kf.b(n, n3)) && kh.d(kf.b(n, n2))) {
+                        kl.a(1, 10);
+                        return;
+                    }
+                    final int n4 = (k.a + k.c) / 32;
+                    final int n5 = k.a / 32;
+                    if (!kh.c(kf.b(n, n5)) && kh.l(kf.b(n, n4))) {
+                        kl.a(1, 9);
+                        return;
+                    }
+                    if (kh.l(kf.b(n, n4))) {
+                        kl.a(1, 9);
+                        return;
+                    }
+                    if (kh.d(kf.b(n, n5))) {
+                        kl.a(1, 10);
+                        return;
+                    }
+                    kl.a(1, 8);
                 }
-                if (!kh.c(kf2.b(n, n2)) && kh.l(kf2.b(n, n3))) {
-                    kl2.a(1, 6);
-                    return;
+                else {
+                    kl.a(1, 8);
                 }
-                if (kh.l(kf2.b(n, n3))) {
-                    kl2.a(1, 6);
-                    return;
-                }
-                if (kh.d(kf2.b(n, n2))) {
-                    kl2.a(1, 5);
-                    return;
-                }
-                kl2.a(1, 4);
-                return;
             }
-            kl2.a(1, 4);
             return;
         }
-        if (this.a[3]) {
-            int n = (k2.b + k2.d) / 32;
-            int n4 = k2.a / 32;
-            int n5 = (k2.a + k2.c) / 32;
-            if (!kl2.y) {
-                if (!kh.c(kf2.b(n, n5)) && kh.d(kf2.b(n, n4))) {
-                    kl2.a(1, 10);
-                    return;
-                }
-                n4 = (k2.a + k2.c) / 32;
-                n5 = k2.a / 32;
-                if (!kh.c(kf2.b(n, n5)) && kh.l(kf2.b(n, n4))) {
-                    kl2.a(1, 9);
-                    return;
-                }
-                if (kh.l(kf2.b(n, n4))) {
-                    kl2.a(1, 9);
-                    return;
-                }
-                if (kh.d(kf2.b(n, n5))) {
-                    kl2.a(1, 10);
-                    return;
-                }
-                kl2.a(1, 8);
-                return;
-            }
-            kl2.a(1, 8);
+        final int n6 = (k.b + k.d) / 32;
+        final int n7 = k.a / 32;
+        final int n8 = (k.a + k.c) / 32;
+        if (kl.y) {
+            kl.a(1, 4);
+            return;
         }
+        if (!kh.c(kf.b(n6, n8)) && kh.d(kf.b(n6, n7))) {
+            kl.a(1, 5);
+            return;
+        }
+        if (!kh.c(kf.b(n6, n7)) && kh.l(kf.b(n6, n8))) {
+            kl.a(1, 6);
+            return;
+        }
+        if (kh.l(kf.b(n6, n8))) {
+            kl.a(1, 6);
+            return;
+        }
+        if (kh.d(kf.b(n6, n7))) {
+            kl.a(1, 5);
+            return;
+        }
+        kl.a(1, 4);
     }
-
-    private void a(kl kl2, k k2, kf kf2, kh kh2) {
-        int n;
-        int n2 = (k2.b + k2.d) / 32;
+    
+    private void a(final kl kl, final k k, final kf kf, final kh kh) {
+        final int n = (k.b + k.d) / 32;
         if (this.a[2]) {
-            n = (k2.a - kl2.i) / 32;
-            if ((kl2.k & 4) == 0) {
-                kl2.b(4);
-            } else if (!km.a(k2, kl2, kf2, kh2, false) && !kh2.n(kf2.b(n2, n))) {
-                k2.a += kl2.i * kl.b[4];
+            final int n2 = (k.a - kl.i) / 32;
+            if ((kl.k & 0x4) == 0x0) {
+                kl.b(4);
             }
-        } else if (this.a[3]) {
-            n = (k2.a + k2.c + kl2.i) / 32;
-            if ((kl2.k & 8) == 0) {
-                kl2.b(8);
-            } else if (!km.b(k2, kl2, kf2, kh2, false) && !kh2.m(kf2.b(n2, n))) {
-                k2.a += kl2.i * kl.b[8];
+            else if (!a(k, kl, kf, kh, false) && !kh.n(kf.b(n, n2))) {
+                k.a += kl.i * kl.b[4];
+            }
+        }
+        else if (this.a[3]) {
+            final int n3 = (k.a + k.c + kl.i) / 32;
+            if ((kl.k & 0x8) == 0x0) {
+                kl.b(8);
+            }
+            else if (!b(k, kl, kf, kh, false) && !kh.m(kf.b(n, n3))) {
+                k.a += kl.i * kl.b[8];
             }
         }
         if (this.a[0] || this.a[1] || this.a[4]) {
-            n = (k2.a + k2.c / 2) / 32;
-            n2 = (k2.b + k2.d - 5) / 32;
-            int n3 = (k2.b + 10) / 32;
-            if (kh.b(kf2.b(n2, n)) && kh.b(kf2.b(n3, n))) {
-                kl2.f((n << 5) + (32 - k2.c) / 2);
-                kl2.a(8, this.a[1] ? 2 : 1);
-                this.a[3] = false;
-                this.a[2] = false;
+            final int n4 = (k.a + k.c / 2) / 32;
+            final int n5 = (k.b + k.d - 5) / 32;
+            final int n6 = (k.b + 10) / 32;
+            if (kh.b(kf.b(n5, n4)) && kh.b(kf.b(n6, n4))) {
+                kl.f((n4 << 5) + (32 - k.c) / 2);
+                kl.a(8, this.a[1] ? 2 : 1);
+                this.a[2] = (this.a[3] = false);
             }
         }
     }
-
-    /*
-     * Unable to fully structure code
-     */
-    public final void a(int var1_1, kl var2_3) {
-        switch (var1_1) {
-            case 99: 
+    
+    public final void a(final int n, final kl kl) {
+        switch (n) {
+            case 99:
             case 150: {
                 this.a[0] = true;
                 this.a[1] = false;
                 return;
             }
-            case 98: 
+            case 98:
             case 156: {
                 this.a[1] = true;
                 this.a[0] = false;
                 return;
             }
-            case 97: 
+            case 97:
             case 152: {
                 this.a[2] = true;
                 this.a[3] = false;
                 return;
             }
-            case 96: 
+            case 96:
             case 154: {
                 this.a[3] = true;
                 this.a[2] = false;
                 return;
             }
-            case 95: 
+            case 95:
             case 153: {
-    var1_2 = var2_3;
-    if (var1_2.j == 0 || var1_2.j == 1) {
-        var2_3.a(4);
-    }
-    this.a();
-    return;
-}
-
+                if (kl.j == 0 || kl.j == 1) {
+                    kl.a(4);
+                }
+                this.a();
+                return;
+            }
             case 149: {
-                this.a[2] = true;
-                this.a[0] = true;
+                this.a[0] = (this.a[2] = true);
                 return;
             }
             case 151: {
-                this.a[3] = true;
-                this.a[0] = true;
+                this.a[0] = (this.a[3] = true);
+                break;
             }
         }
     }
-
-    public final void a(int n) {
+    
+    public final void a(final int n) {
         switch (n) {
-            case 99: 
+            case 99:
             case 150: {
                 this.a[0] = false;
                 return;
             }
-            case 98: 
+            case 98:
             case 156: {
                 this.a[1] = false;
                 return;
             }
-            case 97: 
+            case 97:
             case 152: {
                 this.a[2] = false;
                 return;
             }
-            case 96: 
+            case 96:
             case 154: {
                 this.a[3] = false;
                 return;
             }
-            case 95: 
+            case 95:
             case 153: {
                 return;
             }
             case 149: {
-                this.a[2] = false;
-                this.a[0] = false;
+                this.a[0] = (this.a[2] = false);
                 return;
             }
             case 151: {
-                this.a[3] = false;
-                this.a[0] = false;
+                this.a[0] = (this.a[3] = false);
+                break;
             }
         }
     }
-
+    
     public final void a() {
-        this.a[4] = false;
-        this.a[1] = false;
-        this.a[0] = false;
-        this.a[3] = false;
-        this.a[2] = false;
+        final boolean[] a = this.a;
+        final int n = 2;
+        final boolean[] a2 = this.a;
+        final int n2 = 3;
+        final boolean[] a3 = this.a;
+        final int n3 = 0;
+        final boolean[] a4 = this.a;
+        final int n4 = 1;
+        final boolean[] a5 = this.a;
+        final int n5 = 4;
+        final boolean b = false;
+        a5[n5] = b;
+        a3[n3] = (a4[n4] = b);
+        a[n] = (a2[n2] = b);
     }
 }

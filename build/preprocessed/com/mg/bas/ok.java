@@ -21,22 +21,22 @@ bq {
 
     public ok() {
         super(110, 4, "Kho Game", false);
-        this.a(0, 0, v.t, v.u);
-        this.v = bx.a("Cài đặt MIỄN PHÍ vô số trò chơi và ứng dụng cực kỳ hấp dẫn. Ngoài ra, bạn còn có cơ hội nhận ngay các phần quà GIÁ TRỊ từ hệ thống.", v.t, bx.d);
+        this.a(0, 0, com.mg.bas.v.t, com.mg.bas.v.u);
+        this.v = bx.a("Cài đặt MIỄN PHÍ vô số trò chơi và ứng dụng cực kỳ hấp dẫn. Ngoài ra, bạn còn có cơ hội nhận ngay các phần quà GIÁ TRỊ từ hệ thống.", com.mg.bas.v.t, bx.d);
         this.u = new ex("Kho Game", -2);
-        this.u.a((v.t - 100) / 2, 10 + bx.d.a() + 10 + 10 + bx.d.a() * this.v.length, 100, 20);
+        this.u.a((com.mg.bas.v.t - 100) / 2, 10 + bx.d.a() + 10 + 10 + bx.d.a() * this.v.length, 100, 20);
         this.t = new ay(0);
         this.t.a(this.c(), bx.d.a() + 10, this.e(), this.f() - bx.d.a() - 10 - ba.a);
         this.p = new aw();
-        this.p.a(this);
-        this.p.a(this);
+        this.p.a((bn)this);
+        this.p.a((aq)this);
         this.p.e(true);
         this.t.b(this.p);
         this.a(new ba());
         this.a(new gb(-1, 0));
         this.b(new gb(-2, 1));
         this.c(com.mg.sq.a.n);
-        this.a(this);
+        this.a((bf)this);
         boolean bl = false;
         ok ok2 = this;
         this.w = 0;
@@ -115,10 +115,10 @@ bq {
             if (this.c) {
                 this.a(graphics);
                 bx.d.c(true);
-                bx.d.a(graphics, "Giới thiệu", v.t >>> 1, 10, 1);
+                bx.d.a(graphics, "Giới thiệu", com.mg.bas.v.t >>> 1, 10, 1);
                 bx.d.c();
                 n = 10 + (10 + bx.d.a());
-                bx.a(graphics, bx.d, this.v, 0, n, v.t, v.u, 1);
+                bx.a(graphics, bx.d, this.v, 0, n, com.mg.bas.v.t, com.mg.bas.v.u, 1);
                 this.u.a(graphics, this.c(), this.d());
                 this.c(false);
                 return;
@@ -128,7 +128,7 @@ bq {
             n = bl ? 1 : 0;
             if (bl) {
                 this.a(graphics);
-                pc.a(graphics, 4, 20, v.t - 8);
+                pc.a(graphics, 4, 20, com.mg.bas.v.t - 8);
                 bx.d.c(true);
                 bx.d.a(graphics, "Kho Game", this.e() / 2, 2, 1);
                 bx.d.c();
@@ -138,7 +138,7 @@ bq {
     }
 
     private void a(Graphics graphics) {
-        graphics.setColor(v.am);
+        graphics.setColor(com.mg.bas.v.am);
         graphics.fillRect(this.c(), this.d(), this.e(), this.f());
         graphics.drawImage(pc.d, this.c() + this.e(), this.d() + this.f() - ba.a, 40);
     }
@@ -181,7 +181,7 @@ bq {
             }
             ++n3;
         }
-        Object object = new Object[n2];
+        Object[] object = new Object[n2];
         n2 = 0;
         int n4 = 0;
         while (n4 < this.q.length) {
@@ -193,7 +193,7 @@ bq {
                     ++n;
                 }
                 if (this.r[n4].length < this.q[n4].l) {
-                    object[n2++] = new dp("Xem thêm", String.valueOf(this.q[n4].k) + '' + this.r[n4].length);
+                    object[n2++] = new dp("Xem thêm", String.valueOf(this.q[n4].k) + '\u001A' + this.r[n4].length);
                 }
             }
             ++n4;
@@ -204,18 +204,18 @@ bq {
         synchronized (aw2) {
             aq aq2;
             this.p.q();
-            this.p.a((Object[])object);
+            this.p.a(object);
             this.p.k(n4);
             n4 = n;
-            object = this;
-            aq aq3 = object.p.o(object.p.s());
-            if (object.p.s() < object.p.a() - 1 && (aq2 = object.p.o(object.p.s() + 1)).d() + aq2.f() - n4 > object.p.f()) {
-                n4 = aq2.d() + aq2.f() - object.p.f();
+            ok object2 = this;
+            aq aq3 = object2.p.o(object2.p.s());
+            if (object2.p.s() < object2.p.a() - 1 && (aq2 = object2.p.o(object2.p.s() + 1)).d() + aq2.f() - n4 > object2.p.f()) {
+                n4 = aq2.d() + aq2.f() - object2.p.f();
             }
-            if (aq3.d() + aq3.f() - n4 > object.p.f()) {
-                n4 = aq3.d() + aq3.f() - object.p.f();
+            if (aq3.d() + aq3.f() - n4 > object2.p.f()) {
+                n4 = aq3.d() + aq3.f() - object2.p.f();
             }
-            object.t.k(n4);
+            object2.t.k(n4);
             this.c(true);
             return;
         }
@@ -235,9 +235,9 @@ bq {
                 }
                 bs2.a(brArray);
                 int n3 = bs2.e() > bs2.f() ? bs2.e() : bs2.f();
-                bs2.a_(-n3, v.u);
-                bs2.d(0, v.u - ba.a - bs2.f());
-                bs2.a(ok2);
+                bs2.a_(-n3, com.mg.bas.v.u);
+                bs2.d(0, com.mg.bas.v.u - ba.a - bs2.f());
+                bs2.a((bg)ok2);
                 ok2.a(bs2);
                 return;
             }
@@ -296,33 +296,34 @@ bq {
     }
 
     public final void b(aq object, int n) {
-        if (this.p.i(n) instanceof dp) {
-            object = (dp)this.p.i(n);
-            String string = (String)((dp)object).b;
-            int n2 = string.indexOf("");
+        Object item = this.p.i(n);
+        if (item instanceof dp) {
+            dp dpItem = (dp)item;
+            String string = (String)dpItem.b;
+            int n2 = string.indexOf("\u001A");
             long l = Long.parseLong(string.substring(0, n2));
             n2 = Integer.parseInt(string.substring(n2 + 1));
             ok.a(l, n2);
             return;
         }
-        object = (fa)this.p.i(n);
-        if (((fa)object).j) {
+        fa faItem = (fa)item;
+        if (faItem.j) {
             n = 0;
             while (n < this.q.length) {
-                if (this.q[n].equals(object)) {
+                if (this.q[n].equals(faItem)) {
                     if (this.r[n] != null) {
-                        ((fa)object).i = !((fa)object).i;
+                        faItem.i = !faItem.i;
                         this.a();
                         return;
                     }
-                    ok.a(((fa)object).k, 0);
+                    ok.a(faItem.k, 0);
                 }
                 ++n;
             }
             return;
         }
         com.mg.sq.a.s().a((String)null, (il)null);
-        du.a().b(((fa)object).k);
+        du.a().b(faItem.k);
     }
 
     public final void a(aq aq2, int n) {

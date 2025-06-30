@@ -61,19 +61,18 @@ ii {
         this.l[0] = this.q.q();
         this.s[0] = 5;
         this.s[1] = n3 += this.l[0].f() + 6;
-        Object object2 = new fx("Bảng giá:");
-        ((fx)object2).d(false);
-        ((fx)object2).a(5, n3 += 30, this.f - 10, 70);
-        this.l[1] = object2;
+        fx fxObj = new fx("Bảng giá:");
+        fxObj.d(false);
+        fxObj.a(5, n3 += 30, this.f - 10, 70);
+        this.l[1] = fxObj;
         n5 = 0;
         while (n5 < nArray.length) {
             ey ey2 = new ey(String.valueOf(nArray[n5]) + "ngày <" + lArray[n5] + "KEN>", false);
-            object = ey2;
             ey2.h(n5);
-            ((fx)object2).a((ey)object);
+            fxObj.a(ey2);
             ++n5;
         }
-        ((fx)object2).h(0);
+        fxObj.h(0);
         this.g = (n3 += this.l[1].f() + 6) + 5;
         this.c = v.t - this.f >> 1;
         this.d = v.u - ba.a - this.g >> 1;
@@ -90,12 +89,12 @@ ii {
         this.n = nArrayArray;
         this.l[this.m].d(true);
         this.a(new ba());
-        object2 = new bd("Mua", 1);
+        bd bdMua = new bd("Mua", 1);
         gv gv2 = this;
-        gv2.a((az)object2, true);
-        object2 = new bd("Đóng", 0);
+        gv2.a((az)bdMua, true);
+        bd bdDong = new bd("Đóng", 0);
         gv2 = this;
-        gv2.b((az)object2, true);
+        gv2.b((az)bdDong, true);
     }
 
     public final void e(boolean bl) {

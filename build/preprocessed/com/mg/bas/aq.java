@@ -164,8 +164,6 @@ public abstract class aq {
     }
 
     public String toString() {
-        Object object = this;
-        object = "Component id = " + ((aq)object).a + ";  width=" + this.d.c + ",height=" + this.d.d + ",x=" + this.d.a + ",y=" + this.d.b;
-        return object;
+        return "Component id = " + this.a + ";  width=" + this.d.c + ",height=" + this.d.d + ",x=" + this.d.a + ",y=" + this.d.b;
     }
 }

@@ -5,7 +5,6 @@ package com.mg.bas;
 import com.mg.sq.a;
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
-import java.io.FilterInputStream;
 import java.io.IOException;
 
 public final class od
@@ -26,14 +25,12 @@ bi {
         bf bf2;
         try {
             this.c = n;
-            this.a(this);
+            this.a((bf)this);
             this.a(new ba());
             bd bd2 = new bd("Lưu", 1);
-            bf2 = this;
-            bf2.a(bd2, true);
+            this.a(bd2, true);
             bd2 = new bd("Hủy", 0);
-            bf2 = this;
-            bf2.b(bd2, true);
+            this.b(bd2, true);
             this.g -= ba.a;
             this.j(true);
             new cu(10, 22);
@@ -78,7 +75,7 @@ bi {
             ((aq)object).a_(123);
             ((gk)object).a(0, 0, n3, 20);
             ((gk)object).a(this);
-            ((gk)object).e(v.O);
+            ((gk)object).e(com.mg.bas.v.O);
             this.a((aq)object);
             this.d = new gk("Nhạc nền");
             this.d.a((byte)1);
@@ -88,20 +85,20 @@ bi {
             this.k = new gm("Âm lượng");
             this.k.a_(125);
             this.k.d(n3);
-            this.k.h(v.Q);
+            this.k.h(com.mg.bas.v.Q);
             this.k.a(this);
             this.d.a(this);
             this.a(this.k);
-            if (!v.N) {
+            if (!com.mg.bas.v.N) {
                 this.d.e(false);
-                v.Q = 0;
+                com.mg.bas.v.Q = 0;
             }
             object = new gk("Báo rung");
             ((gk)object).a((byte)1);
             ((aq)object).a_(126);
             ((gk)object).a(0, 0, n3, 20);
             ((gk)object).a(this);
-            ((gk)object).e(v.P);
+            ((gk)object).e(com.mg.bas.v.P);
             this.a((aq)object);
             object = new fe("Câu trả lời tự động ");
             ((aq)object).a_(136);
@@ -123,7 +120,7 @@ bi {
             ((aq)object).a_(127);
             ((gk)object).a(0, 0, n3, 20);
             ((gk)object).a(this);
-            ((gk)object).e(v.a);
+            ((gk)object).e(com.mg.bas.v.a);
             this.a((aq)object);
             object = new gk("Đăng nhập ẩn");
             ((gk)object).a((byte)1);
@@ -170,7 +167,7 @@ bi {
         object = cs.a;
         n2 = 0;
         bf2 = od2;
-        int n4 = bf2.a.s().length;
+        int n4 = this.a.s().length;
         while (n2 < n4) {
             int n5 = od2.f(n2).b();
             if (n5 > 0 && ((u)object).c(n5)) {
@@ -178,24 +175,18 @@ bi {
                 Object object2 = ((u)object).a(n5);
                 if (od2.f(n2) instanceof gm) {
                     aq2 = (gf)od2.f(n2);
-                    ((gf)aq2).h(object2[0]);
+                    ((gf)aq2).h(((byte[])object2)[0]);
                 } else if (od2.f(n2) instanceof fe) {
                     aq2 = (fe)od2.f(n2);
-                    try {
-                        ((fe)aq2).a((byte[])object2);
-                    }
-                    catch (IOException iOException) {
-                        object2 = iOException;
-                        iOException.printStackTrace();
-                    }
+                    ((fe)aq2).a((byte[])object2);//                        object2 = iOException;
                 } else if (od2.f(n2) instanceof gk) {
                     aq2 = (gk)od2.f(n2);
-                    ((gk)aq2).e(object2[0] == 0);
+                    ((gk)aq2).e(((byte[])object2)[0] == 0);
                 }
             }
             ++n2;
         }
-        this.b = v.N;
+        this.b = com.mg.bas.v.N;
     }
 
     public static void d() {
@@ -230,7 +221,7 @@ bi {
     private static void h(int n, int n2) {
         switch (n) {
             case 123: {
-                v.O = n2 != 1;
+                com.mg.bas.v.O = n2 != 1;
                 return;
             }
             case 137: {
@@ -238,11 +229,11 @@ bi {
                 return;
             }
             case 124: {
-                v.N = n2 != 1;
+                com.mg.bas.v.N = n2 != 1;
                 return;
             }
             case 126: {
-                v.P = n2 != 1;
+                com.mg.bas.v.P = n2 != 1;
                 return;
             }
             case 138: {
@@ -254,9 +245,9 @@ bi {
                 return;
             }
             case 127: {
-                v.a = n2 != 1;
-                if (!v.a || !v.ai) break;
-                v.b = true;
+                com.mg.bas.v.a = n2 != 1;
+                if (!com.mg.bas.v.a || !com.mg.bas.v.ai) break;
+                com.mg.bas.v.b = true;
                 return;
             }
             case 129: {
@@ -275,7 +266,7 @@ bi {
                 return;
             }
             case 125: {
-                v.Q = n2;
+                com.mg.bas.v.Q = n2;
                 return;
             }
             case 132: {
@@ -307,7 +298,6 @@ bi {
                     ++n;
                 }
                 stringArray = stringArray2;
-                ((FilterInputStream)object).close();
                 byteArrayInputStream.close();
             }
             catch (IOException iOException) {
@@ -318,7 +308,7 @@ bi {
             stringArray = new String[10];
             int n = 0;
             while (n < 10) {
-                stringArray[n] = object[n][1];
+                stringArray[n] = ((String[][])object)[n][1];
                 ++n;
             }
         }
@@ -346,69 +336,70 @@ bi {
     /*
      * Unable to fully structure code
      */
-   public final void d(int var1_1, int var2_3) {
-    switch (var2_3) {
-        case 0: {
-            ag.b().f(this.c);
-            return;
-        }
-        case 1: {
-            Object var1_2 = this;
-            cs var2_4 = cs.a;
-            int var5_5 = 0;
-            int len = ((YourType)var1_2).a.s().length; // Thay YourType bằng kiểu thực tế của this
-            while (var5_5 < len) {
-                Object var3_6 = ((YourType)var1_2).f(var5_5);
-                int var4_8 = ((YourType)var3_6).b();
-                byte var6_9 = 0;
-                if (var3_6 instanceof gf) {
-                    var6_9 = (byte)((gf)var3_6).a();
-                    var2_4.a(var4_8, new byte[]{var6_9});
-                    od.h(var4_8, var6_9);
-                } else if (var3_6 instanceof fe) {
-                    var2_4.a(var4_8, ((fe)var3_6).a());
-                    od.h(var4_8, var6_9);
-                } else if (var3_6 instanceof gk) {
-                    boolean var3_7 = ((gk)var3_6).a();
-                    var6_9 = (byte)(var3_7 ? 0 : 1);
-                    switch (var4_8) {
-                        case 124: {
-                            if (var3_7 != ((YourType)var1_2).b) {
-                                ((YourType)var1_2).b = var3_7;
-                                v.N = var3_7;
-                                if (var3_7) {
-                                    com.mg.sq.a.a(com.mg.sq.a.s().d());
-                                    v.Q = ((YourType)var1_2).k.a();
-                                    co.b().g();
-                                } else {
-                                    co.b().d();
+      public final void d(final int n, final int n2) {
+        switch (n2) {
+            case 0: {
+                ag.b().f(this.c);
+                return;
+            }
+            case 1: {
+                final u a = cs.a;
+                for (int i = 0; i < super.a.s().length; ++i) {
+                    final aq f;
+                    final int b = (f = this.f(i)).b();
+                    byte b2 = 0;
+                    if (f instanceof gf) {
+                        b2 = (byte)((gf)f).a();
+                        a.a(b, new byte[] { b2 });
+                    }
+                    else if (f instanceof fe) {
+                        a.a(b, ((fe)f).a());
+                    }
+                    else {
+                        if (!(f instanceof gk)) {
+                            continue;
+                        }
+                        final boolean a2;
+                        b2 = (byte)((a2 = ((gk)f).a()) ? 0 : 1);
+                        switch (b) {
+                            case 124: {
+                                if (a2 != this.b) {
+                                    this.b = a2;
+                                    com.mg.bas.v.N = a2;
+                                    if (a2) {
+                                        com.mg.sq.a.a((am)com.mg.sq.a.s().d());
+                                        com.mg.bas.v.Q = this.k.a();
+                                        co.b().g();
+                                    }
+                                    else {
+                                        co.b().d();
+                                    }
                                 }
+                                a.a(b, new byte[] { b2 });
+                                break;
                             }
-                            var2_4.a(var4_8, new byte[]{var6_9});
-                            break;
-                        }
-                        case 122: {
-                            if (go.k != null && var3_7 != go.k.aa) {
-                                ks.a().c(var3_7);
-                                com.mg.sq.a.s().a((String) null, (il) null);
+                            case 122: {
+                                if (go.k != null && a2 != go.k.aa) {
+                                    ks.a().c(a2);
+                                    com.mg.sq.a.s().a(null, (il)null);
+                                }
+                                a.a(b, new byte[] { b2 });
+                                break;
                             }
-                            var2_4.a(var4_8, new byte[]{var6_9});
-                            break;
-                        }
-                        default: {
-                            var2_4.a(var4_8, new byte[]{var6_9});
+                            default: {
+                                a.a(b, new byte[] { b2 });
+                                break;
+                            }
                         }
                     }
-                    od.h(var4_8, var6_9);
+                    h(b, b2);
                 }
-                var5_5++;
+                a.a();
+                ag.b().f(this.c);
+                break;
             }
-            var2_4.a();
-            ag.b().f(this.c);
-            break;
         }
     }
-}
 
     public final void a(aq aq2, boolean bl) {
         if (aq2.equals(this.d)) {

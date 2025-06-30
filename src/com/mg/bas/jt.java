@@ -17,7 +17,7 @@ extends at {
     public jt(lh lh2) {
         this.b = new k(3, 2, 87, 8);
         this.c = new k(3, 12, 87, 8);
-        this.a = f.d("/info/gauge");
+        this.a = com.mg.bas.f.d("/info/gauge");
         this.a(lh2);
         this.h(this.a.getWidth());
         this.i(this.a.getHeight());

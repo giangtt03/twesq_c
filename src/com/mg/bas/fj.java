@@ -15,8 +15,8 @@ extends aq {
     private int n;
     private int o;
     private String p;
-    private Image q = f.d("/staricon");
-    private Image r = f.d("/shoppingcarticon");
+    private Image q = com.mg.bas.f.d("/staricon");
+    private Image r = com.mg.bas.f.d("/shoppingcarticon");
     private int s = -1;
     private int t = 0;
     private boolean u;
@@ -32,23 +32,22 @@ extends aq {
         this.u = true;
         this.y = l2 + System.currentTimeMillis();
         n = n2;
-        object = this;
         this.v = n;
     }
 
     public fj(String string, int n, long l, Image image) {
         this.k = string;
-        this.l = i.a(l);
+        this.l = com.mg.bas.i.a(l);
         this.m = image;
         this.j = n;
         this.x = bx.d;
         this.e(40);
-        this.d(v.t);
+        this.d(com.mg.bas.v.t);
     }
 
     public fj(String string, int n, long l, int n2, boolean bl, Image image, int n3, int n4, d d2, String string2, long l2) {
         this.k = string;
-        this.l = i.a(l);
+        this.l = com.mg.bas.i.a(l);
         this.m = image;
         this.i = bl;
         this.j = n;
@@ -64,7 +63,7 @@ extends aq {
         } else {
             this.e(55);
         }
-        this.d(v.t);
+        this.d(com.mg.bas.v.t);
     }
 
     public final void d(boolean bl) {
@@ -109,7 +108,7 @@ extends aq {
         com.mg.sq.a.h.a(graphics, string, n + 35, n2 + 20, 0);
         if (this.y - System.currentTimeMillis() > 0L) {
             long l = Math.max(this.y - System.currentTimeMillis(), 0L);
-            n4 = v.t - bx.c.a(i.b(l, "hh:mm:ss")) - 5;
+            n4 = com.mg.bas.v.t - bx.c.a(com.mg.bas.i.b(l, "hh:mm:ss")) - 5;
             long l2 = l;
             int n6 = Math.max((int)(l2 / 3600000L), 0);
             StringBuffer stringBuffer = new StringBuffer(String.valueOf(n6 < 10 ? "0" + n6 : String.valueOf(n6))).append(":");

@@ -5,54 +5,52 @@ import java.io.InputStream;
 import javax.microedition.io.Connector;
 import javax.microedition.io.SocketConnection;
 import javax.microedition.lcdui.Image;
+import javax.microedition.rms.InvalidRecordIDException;
 import javax.microedition.rms.RecordStore;
+import javax.microedition.rms.RecordStoreException;
 
 public class g {
     public int a;
     public int b;
 
-    public static Image a(Image object, int n2, int n3) {
-        int n4 = object.getWidth();
-        int n5 = object.getHeight();
-        if (n4 != n2 || n5 != n3) {
-            int[] nArray = new int[n4 * n5];
-            object.getRGB(nArray, 0, n4, 0, 0, n4, n5);
-            Object object2 = object = (Object)new int[n2 * n3];
-            int n6 = n5;
-            int n7 = n4;
-            int n8 = n3;
-            n5 = n2;
-            int[] nArray2 = nArray;
-            int n9 = n7 * 1024 / n5;
-            int n10 = n6 * 1024 / n8;
-            int n11 = 0;
-            int n12 = 0;
-            while (n11 < n8) {
-                int n13 = (n10 * n11 >> 10) * n7;
-                int n14 = 0;
-                n6 = 0;
-                while (n6 < n5) {
-                    object2[n12 + n6] = (Image)nArray2[n13 + (n14 >> 10)];
-                    n14 += n9;
-                    ++n6;
+        public static Image a(Image img, int newW, int newH) {
+        int origW = img.getWidth();
+        int origH = img.getHeight();
+        if (origW != newW || origH != newH) {
+            int[] origPixels = new int[origW * origH];
+            img.getRGB(origPixels, 0, origW, 0, 0, origW, origH);
+            int[] resizedPixels = new int[newW * newH];
+            int xRatio = (origW << 10) / newW;
+            int yRatio = (origH << 10) / newH;
+            int destIndex = 0;
+            for (int y = 0; y < newH; y++) {
+                int srcY = (y * yRatio) >> 10;
+                int srcYIndex = srcY * origW;
+                int xAccum = 0;
+                for (int x = 0; x < newW; x++) {
+                    int srcX = xAccum >> 10;
+                    resizedPixels[destIndex + x] = origPixels[srcYIndex + srcX];
+                    xAccum += xRatio;
                 }
-                n12 += n5;
-                ++n11;
+                destIndex += newW;
             }
-            return Image.createRGBImage((int[])object, (int)n2, (int)n3, (boolean)true);
+            return Image.createRGBImage(resizedPixels, newW, newH, true);
         }
-        return object;
+        return img;
     }
 
-    public static SocketConnection a(String string, int n2) {
-        int n3 = 5;
-        String string2 = string;
-        string2 = (SocketConnection)Connector.open((String)("socket://" + string2 + ":" + n2));
-        string2.setSocketOption((byte)1, 5);
-        return string2;
+    public static SocketConnection a(String host, int port) {
+    SocketConnection socket = null;
+    try {
+        socket = (SocketConnection) Connector.open("socket://" + host + ":" + port);
+        socket.setSocketOption(SocketConnection.DELAY, 5); // DELAY = 1, 
+    } catch (Exception e) {
+        e.printStackTrace();
     }
+    return socket;
+}
 
-    public static int a(InputStream inputStream, byte[] byArray, int n2) {
+    public static int a(InputStream inputStream, byte[] byArray, int n2) throws java.io.IOException {
         while (n2 < byArray.length) {
             int n3 = inputStream.read(byArray, n2, byArray.length - n2);
             if (n3 < 0) {
@@ -82,63 +80,69 @@ public class g {
         return false;
     }
 
-    public static RecordStore a(String object, boolean bl) {
+    public static RecordStore a(String name, boolean createIfNecessary) {
         try {
-            return RecordStore.openRecordStore((String)object, (boolean)bl);
-        }
-        catch (Throwable throwable) {
-            object = throwable;
+            return RecordStore.openRecordStore(name, true); // luôn tạo mới nếu chưa có
+        } catch (Throwable throwable) {
             throwable.printStackTrace();
             return null;
         }
     }
 
-    public static byte[] a(RecordStore object, int n2) {
+    public static byte[] a(RecordStore store, int recordId) {
         try {
-            object = object.getRecord(n2);
-        }
-        catch (Throwable throwable) {
-            object = throwable;
+            if (store == null) return null;
+            int num = store.getNumRecords();
+            if (recordId <= 0 || recordId > num) return null;
+            return store.getRecord(recordId);
+        } catch (Throwable throwable) {
             throwable.printStackTrace();
-            object = null;
+            return null;
         }
-        return object;
     }
 
     public static void a(RecordStore recordStore, int n2, byte[] byArray) {
+        if (recordStore == null || byArray == null) return;
         int n3 = byArray.length;
-        boolean bl = false;
-        RecordStore recordStore2 = recordStore;
-        recordStore2.setRecord(n2, byArray, 0, n3);
+        try {
+            int num = recordStore.getNumRecords();
+            if (n2 <= 0 || n2 > num) {
+                // Nếu recordId không hợp lệ, thêm mới
+                recordStore.addRecord(byArray, 0, n3);
+            } else {
+                recordStore.setRecord(n2, byArray, 0, n3);
+            }
+        } catch (Throwable ex) {
+            ex.printStackTrace();
+        }
     }
 
     public static int a(RecordStore recordStore, byte[] byArray) {
+        if (recordStore == null || byArray == null) return 0;
         int n2 = byArray.length;
-        boolean bl = false;
-        RecordStore recordStore2 = recordStore;
-        return recordStore2.addRecord(byArray, 0, n2);
+        try {
+            return recordStore.addRecord(byArray, 0, n2);
+        } catch (RecordStoreException ex) {
+            ex.printStackTrace();
+        }
+        return 0;
     }
 
-    public static int a(RecordStore object) {
+    public static int a(RecordStore store) {
         try {
-            return object.getNumRecords();
-        }
-        catch (Throwable throwable) {
-            object = throwable;
+            if (store == null) return 0;
+            return store.getNumRecords();
+        } catch (Throwable throwable) {
             throwable.printStackTrace();
             return 0;
         }
     }
 
-    public static void b(String object) {
+    public static void b(String name) {
         try {
-            RecordStore.deleteRecordStore((String)object);
-            return;
-        }
-        catch (Throwable throwable) {
-            object = throwable;
+            RecordStore.deleteRecordStore(name);
+        } catch (Throwable throwable) {
             throwable.printStackTrace();
-            return;
         }
     }
 
@@ -270,7 +274,8 @@ public static String a(a var0, int var1_1, int var2_2, boolean var3_3) {
                     a a4 = a3;
                     int n5 = 0;
                     while (n5 < a4.d()) {
-                        int n6 = (Integer)a4.b(n5);
+//                        int n6 = (Integer)a4.b(n5);
+                        int n6 = ((Integer)a4.b(n5)).intValue();
                         n n7 = (n)a2.b(n6);
                         String string2 = g.a(a2, n7.b(), n6, true);
                         if (string2.equals(string)) {
@@ -290,54 +295,46 @@ public static String a(a var0, int var1_1, int var2_2, boolean var3_3) {
         object = a3;
         int n8 = 0;
         while (n8 < ((a)object).d()) {
-            nArray[n8] = (Integer)((a)object).b(n8);
+//            nArray[n8] = (Integer)((a)object).b(n8);
+            nArray[n8] = ((Integer)((a)object).b(n8)).intValue();
             ++n8;
         }
         return nArray;
     }
 
-    public static a c(String object) {
-        Object object2;
-        Object object3 = object;
-        Object object4 = new a(15);
-        if (!i.b((String)object3)) {
-            int n2;
-            object2 = ((String)object3).toLowerCase();
-            while ((n2 = ((String)object2).indexOf(10)) >= 0) {
-                ((a)object4).a(((String)object2).substring(0, n2));
-                ((a)object4).a("\n");
-                if (!i.b((String)(object2 = ((String)object2).substring(n2 + 1)))) continue;
+    public static a c(String str) {
+        a result = new a(15);
+        if (!i.b(str)) {
+            int idx;
+            String lower = str.toLowerCase();
+            while ((idx = lower.indexOf(10)) >= 0) {
+                result.a(lower.substring(0, idx));
+                result.a("\n");
+                lower = lower.substring(idx + 1);
+                if (i.b(lower)) break;
             }
-            if (!i.b((String)object2)) {
-                ((a)object4).a(object2);
+            if (!i.b(lower)) {
+                result.a(lower);
             }
         }
-        object3 = object = object4;
-        if (((a)object).d() > 0) {
+        if (result.d() > 0) {
             try {
-                object2 = object3;
-                g.a((a)object2, "rss://", " ", false, 3);
-                object2 = object3;
-                g.a((a)object2, "http://", " ", false, 3);
-                object2 = object3;
-                g.a((a)object2, "www.", " ", false, 3);
-                object2 = object3;
-                g.a((a)object2, "#", "#", true, 1);
-                object2 = object3;
-                g.a((a)object2, "@", " ", false, 4);
-                object2 = object3;
-                g.a((a)object2, "#", " ", false, 5);
-                object2 = object3;
+                g.a(result, "rss://", " ", false, 3);
+                g.a(result, "http://", " ", false, 3);
+                g.a(result, "www.", " ", false, 3);
+                g.a(result, "#\u001b", "#", true, 1);
+                g.a(result, "@", " ", false, 4);
+                g.a(result, "#", " ", false, 5);
                 int n3 = 0;
-                while (n3 < ((a)object2).d()) {
-                    object4 = (String)((a)object2).b(n3);
-                    if (((String)object4).length() > 0 && ((String)object4).charAt(0) != '') {
+                while (n3 < result.d()) {
+                    String s = (String)result.b(n3);
+                    if (s.length() > 0 && s.charAt(0) != '\u001a') {
                         int n4 = 0;
-                        int n5 = ((String)object4).length() - 1;
+                        int n5 = s.length() - 1;
                         while (n4 < n5) {
-                            int n6 = ((String)object4).length() - n4;
-                            char c = ((String)object4).charAt(n4);
-                            char c2 = ((String)object4).charAt(n4 + 1);
+                            int n6 = s.length() - n4;
+                            char c = s.charAt(n4);
+                            char c2 = s.charAt(n4 + 1);
                             int n7 = 3;
                             int n8 = -1;
                             switch (c) {
@@ -348,17 +345,17 @@ public static String a(a var0, int var1_1, int var2_2, boolean var3_3) {
                                     break;
                                 }
                                 case '@': {
-                                    if (c2 != ';' || n6 <= 2 || ((String)object4).charAt(n4 + 2) != '-') break;
+                                    if (c2 != ';' || n6 <= 2 || s.charAt(n4 + 2) != '-') break;
                                     n8 = 31;
                                     break;
                                 }
                                 case ':': {
                                     if (c2 == '-') {
                                         if (n6 <= 2) break;
-                                        c = ((String)object4).charAt(n4 + 2);
+                                        c = s.charAt(n4 + 2);
                                         if (c == ')') {
                                             if (n6 > 3) {
-                                                char c3 = ((String)object4).charAt(n4 + 3);
+                                                char c3 = s.charAt(n4 + 3);
                                                 n6 = c3;
                                                 if (c3 == ')') {
                                                     n7 = 4;
@@ -403,7 +400,7 @@ public static String a(a var0, int var1_1, int var2_2, boolean var3_3) {
                                         }
                                         if (c == '(') {
                                             if (n6 > 3) {
-                                                char c4 = ((String)object4).charAt(n4 + 3);
+                                                char c4 = s.charAt(n4 + 3);
                                                 n6 = c4;
                                                 if (c4 == '(') {
                                                     n7 = 4;
@@ -439,7 +436,7 @@ public static String a(a var0, int var1_1, int var2_2, boolean var3_3) {
                                         break;
                                     }
                                     if (c2 == ')') {
-                                        if (n6 > 2 && (c = ((String)object4).charAt(n4 + 2)) == ')') {
+                                        if (n6 > 2 && (c = s.charAt(n4 + 2)) == ')') {
                                             n8 = 3;
                                             break;
                                         }
@@ -473,7 +470,7 @@ public static String a(a var0, int var1_1, int var2_2, boolean var3_3) {
                                         break;
                                     }
                                     if (c2 == '(') {
-                                        if (n6 > 2 && (c = ((String)object4).charAt(n4 + 2)) == '(') {
+                                        if (n6 > 2 && (c = s.charAt(n4 + 2)) == '(') {
                                             n8 = 22;
                                             break;
                                         }
@@ -496,16 +493,16 @@ public static String a(a var0, int var1_1, int var2_2, boolean var3_3) {
                                         n8 = 20;
                                         break;
                                     }
-                                    if (c2 != '\"' || n6 <= 2 || (c = ((String)object4).charAt(n4 + 2)) != '>') break;
+                                    if (c2 != '\"' || n6 <= 2 || (c = s.charAt(n4 + 2)) != '>') break;
                                     n8 = 4;
                                     break;
                                 }
                                 case '>': {
                                     if (n6 <= 2) break;
-                                    c = ((String)object4).charAt(n4 + 2);
+                                    c = s.charAt(n4 + 2);
                                     if (c2 != ':') break;
                                     if (n6 > 3) {
-                                        n6 = ((String)object4).charAt(n4 + 3);
+                                        n6 = s.charAt(n4 + 3);
                                         if (c == 'd' && n6 == 60) {
                                             n7 = 4;
                                             n8 = 2;
@@ -518,14 +515,14 @@ public static String a(a var0, int var1_1, int var2_2, boolean var3_3) {
                                 }
                                 case 'b': {
                                     if (n6 <= 2) break;
-                                    c = ((String)object4).charAt(n4 + 2);
+                                    c = s.charAt(n4 + 2);
                                     if (c2 != '-' || c != ')') break;
                                     n8 = 5;
                                     break;
                                 }
                                 case ';': {
                                     if (n6 > 2) {
-                                        c = ((String)object4).charAt(n4 + 2);
+                                        c = s.charAt(n4 + 2);
                                         if (c2 == '-' && c == ')') {
                                             n8 = 10;
                                             break;
@@ -538,14 +535,14 @@ public static String a(a var0, int var1_1, int var2_2, boolean var3_3) {
                                 }
                                 case '|': {
                                     if (n6 <= 2) break;
-                                    c = ((String)object4).charAt(n4 + 2);
+                                    c = s.charAt(n4 + 2);
                                     if (c2 != '-' || c != ')') break;
                                     n8 = 11;
                                     break;
                                 }
                                 case '(': {
                                     if (n6 <= 2) break;
-                                    c = ((String)object4).charAt(n4 + 2);
+                                    c = s.charAt(n4 + 2);
                                     if (c2 == ':' && c == '|') {
                                         n8 = 12;
                                         break;
@@ -564,7 +561,7 @@ public static String a(a var0, int var1_1, int var2_2, boolean var3_3) {
                                 }
                                 case '=': {
                                     if (n6 > 2) {
-                                        c = ((String)object4).charAt(n4 + 2);
+                                        c = s.charAt(n4 + 2);
                                         if (c2 != '(' || c != '(') break;
                                         n8 = 23;
                                         break;
@@ -577,7 +574,7 @@ public static String a(a var0, int var1_1, int var2_2, boolean var3_3) {
                                 case 'X': 
                                 case 'x': {
                                     if (n6 > 2) {
-                                        c = ((String)object4).charAt(n4 + 2);
+                                        c = s.charAt(n4 + 2);
                                         if (c2 != '-' || c != '(') break;
                                         n8 = 26;
                                         break;
@@ -590,24 +587,24 @@ public static String a(a var0, int var1_1, int var2_2, boolean var3_3) {
                                 case 'I': 
                                 case 'i': {
                                     if (n6 <= 2) break;
-                                    c = ((String)object4).charAt(n4 + 2);
+                                    c = s.charAt(n4 + 2);
                                     if (c2 != '-' || c != ')') break;
                                     n8 = 11;
                                 }
                             }
                             if (n8 >= 0) {
-                                String string = ((String)object4).substring(0, n4);
-                                String string2 = ((String)object4).substring(n4, n4 + n7);
-                                object4 = ((String)object4).substring(n4 + n7);
+                                String string = s.substring(0, n4);
+                                String string2 = s.substring(n4, n4 + n7);
+                                s = s.substring(n4 + n7);
                                 string2 = "2" + (n8 < 10 ? "0" + n8 : String.valueOf(n8)) + string2;
                                 if (string == null || string.length() <= 0) {
-                                    ((a)object2).a(string2, n3);
+                                    result.a(string2, n3);
                                 } else {
-                                    ((a)object2).a(string, n3);
-                                    ((a)object2).b(string2, ++n3);
+                                    result.a(string, n3);
+                                    result.b(string2, ++n3);
                                 }
-                                if (object4 == null || ((String)object4).length() <= 0) break;
-                                ((a)object2).b(object4, n3 + 1);
+                                if (s == null || s.length() <= 0) break;
+                                result.b(s, n3 + 1);
                                 break;
                             }
                             ++n4;
@@ -615,13 +612,11 @@ public static String a(a var0, int var1_1, int var2_2, boolean var3_3) {
                     }
                     ++n3;
                 }
-            }
-            catch (Throwable throwable) {
-                object4 = throwable;
+            } catch (Throwable throwable) {
                 throwable.printStackTrace();
             }
         }
-        return object;
+        return result;
     }
 
     private static void a(a a2, String string, String string2, boolean bl, int n2) {
@@ -953,7 +948,7 @@ public static String a(a var0, int var1_1, int var2_2, boolean var3_3) {
     }
 
     public static String d() {
-        String string;
+        String string = "";
         String string2;
         try {
             string2 = System.getProperty("phone.mnc");
@@ -972,6 +967,7 @@ public static String a(a var0, int var1_1, int var2_2, boolean var3_3) {
             if (string2 == null || string2.equals("null") || string2.equals("")) {
                 string2 = System.getProperty("com.nokia.mid.networkid");
             }
+            
             if (string2 == null || string2.equals("null") || string2.equals("")) {
                 return null;
             }

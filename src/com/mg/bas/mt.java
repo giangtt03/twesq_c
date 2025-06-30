@@ -1,11 +1,11 @@
 package com.mg.bas;
-// Decompiled with: CFR 0.152
+// Decompiled with: Procyon 0.6.0
 // Class Version: 1
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 
-public final class mt
-implements mr {
+public final class mt implements mr
+{
     private ms h;
     public mh a;
     private ml i;
@@ -29,76 +29,76 @@ implements mr {
     private mj z;
     public np e;
     private mv A;
-    lz f = new lz(30, 30, 30, 10);
+    lz f;
     private io[] B;
     private in[] C;
     public hl g;
-    private String[][] D = new String[][]{{"Đại hiệp tha mạng!!", "Em vô tội T.T", "Hey! Có gì từ từ nói...", "Eck eck...Sợ quá!!"}};
-
-    public mt(ms object) {
+    private String[][] D;
+    
+    public mt(final ms h) {
+        super();
+        this.f = new lz(30, 30, 30, (byte)10);
+        this.D = new String[][] { { "Đại hiệp tha mạng!!", "Em vô tội T.T", "Hey! Có gì từ từ nói...", "Eck eck...Sợ quá!!" } };
         try {
-            this.h = object;
+            this.h = h;
             this.r = new k();
             this.m();
         }
-        catch (Exception exception) {
-            object = exception;
-            exception.printStackTrace();
+        catch (final Exception ex) {
+//            final Throwable t;
+            ex.printStackTrace();
         }
         this.f.b(false);
     }
-
-    public final void a(String string) {
-        if (string == null || string.length() <= 0) {
+    
+    public final void a(final String s) {
+        if (s == null || s.length() <= 0) {
             return;
         }
-        this.z.a(string, 0);
-        if (!this.h.a((int)1, (int)0).a().O) {
+        this.z.a(s, 0);
+        if (!this.h.a(1, 0).a().O) {
             if (com.mg.sq.a.m != null) {
-                com.mg.sq.a.m.a(this.h.a(1, 0).j(), string);
+                com.mg.sq.a.m.a(this.h.a(1, 0).j(), s);
                 return;
             }
-            String[] stringArray = new String[this.h.a()[1].length];
-            int n = 0;
-            while (n < stringArray.length) {
-                stringArray[n] = this.h.a()[1][n].j();
-                ++n;
+            final String[] array = new String[this.h.a()[1].length];
+            for (int i = 0; i < array.length; ++i) {
+                array[i] = this.h.a()[1][i].j();
             }
-            ks.a().a(stringArray, string);
+            ks.a().a(array, s);
         }
     }
-
-    public final void b(String string) {
-        this.z.a(string, 1);
+    
+    public final void b(final String s) {
+        this.z.a(s, 1);
     }
-
-    public final void a(String string, int n) {
-        this.z.a(string, 1, 50, 20);
+    
+    public final void a(final String s, final int n) {
+        this.z.a(s, 1, 50, 20);
     }
-
+    
     public final void a() {
         if (this.h.a(1, 0).b()) {
             return;
         }
         if (!this.d.i()) {
             this.d.a(true);
-            if (v.z) {
+            if (com.mg.bas.v.z) {
                 this.d.g(true);
             }
         }
     }
-
+    
     public final void b() {
         this.d.a(false);
         ag.a().e();
     }
-
-    public final void a(lm[] lmArray) {
-        this.g = new hl(lmArray, new bd("Dùng", 1008), new bd("Đóng", 1009), new bd("", 1008));
-        this.g.c(true);
+    
+    public final void a(final lm[] array) {
+        (this.g = new hl(array, new bd("Dùng", 1008), new bd("Đóng", 1009), new bd("", 1008))).c(true);
         this.g.b(true);
     }
-
+    
     public final void c() {
         this.B = null;
         this.n = null;
@@ -132,194 +132,168 @@ implements mr {
         this.l = null;
         this.d = null;
     }
-
+    
     private void m() {
-        int n;
         this.A = new mv(this, gr.r);
         this.m = new a();
         this.B = new io[2];
         this.C = new in[2];
         this.l = new a[2];
-        int n2 = 0;
-        while (n2 < this.l.length) {
-            this.l[n2] = new a();
-            ++n2;
+        for (int i = 0; i < this.l.length; ++i) {
+            this.l[i] = new a();
         }
-        this.v = new nm[2][];
-        this.v[0] = new nm[oq.i.length];
+        (this.v = new nm[2][])[0] = new nm[oq.i.length];
         this.v[1] = new nm[oq.j.length];
-        n2 = 0;
-        while (n2 < this.v.length) {
-            int n3 = 0;
-            while (n3 < this.v[n2].length) {
-                this.v[n2][n3] = new nm();
-                this.v[n2][n3].a(com.mg.sq.a.h);
-                this.v[n2][n3].a(40);
-                ++n3;
+        for (int j = 0; j < this.v.length; ++j) {
+            for (int k = 0; k < this.v[j].length; ++k) {
+                (this.v[j][k] = new nm()).a(com.mg.sq.a.h);
+                this.v[j][k].a(40);
             }
-            ++n2;
         }
         this.n = new a();
         this.o = new a();
         this.p = new a();
-        this.s = new na(v.t / 2, v.u / 2 - 15);
-        this.t = new y();
-        this.t.a(40);
-        this.c = new y();
-        this.c.a(Integer.MAX_VALUE);
-        this.u = new y();
-        this.u.a(20);
+        this.s = new na(com.mg.bas.v.t / 2, com.mg.bas.v.u / 2 - 15);
+        (this.t = new y()).a(40);
+        (this.c = new y()).a(Integer.MAX_VALUE);
+        (this.u = new y()).a(20);
         this.k = mp.a().b;
         this.a = new mh();
-        mt mt2 = this;
-        mt mt3 = this;
-        this.a.c((v.t - mt2.A.a()) / 2 + (com.mg.sq.a.k == 0 ? 8 : 48) + 14, (v.u - mt3.A.b()) / 2 + 4 + 14);
+        final mh a = this.a;
+        final int t = com.mg.bas.v.t;
+        final mv a2 = this.A;
+        final int n = (t - mv.a()) / 2 + ((com.mg.sq.a.k == 0) ? 8 : 48) + 14;
+        final int u = com.mg.bas.v.u;
+        final mv a3 = this.A;
+        final int n2 = (u - mv.b()) / 2;
+        final byte l = com.mg.sq.a.k;
+        a.c(n, n2 + 4 + 14);
         this.i = new ml();
-        mr mr2 = this.a.a(0, 0);
-        this.i.a(mr2.n(), mr2.o());
-        Object object = this.h.a();
-        mr2 = this.a;
-        mt mt4 = this;
-        mt mt5 = this;
-        this.b = new mx(this.h, ((mh)mr2).a, com.mg.sq.a.k, (v.t - mt4.A.a()) / 2, (v.u - mt5.A.b()) / 2);
+        final nd a4 = this.a.a(0, 0);
+        this.i.a(a4.n(), a4.o());
+        final lg[][] a5 = this.h.a();
+        final ms h = this.h;
+        final k a6 = this.a.a;
+        final byte m = com.mg.sq.a.k;
+        final int t2 = com.mg.bas.v.t;
+        final mv a7 = this.A;
+        final int n3 = (t2 - mv.a()) / 2;
+        final int u2 = com.mg.bas.v.u;
+        final mv a8 = this.A;
+        this.b = new mx(h, a6, m, n3, (u2 - mv.b()) / 2);
         this.j = mp.a().a;
         this.q = new mm();
         if (oq.o != 9) {
-            mr2 = this;
-            n = 0;
-            while (n < object[0].length) {
-                if (object[0][n].j().equals(go.k.b)) {
-                    object = object[0][n].a();
-                    if (object.E.length == 0) break;
-                    n = 0;
-                    while (n < object.E.length) {
-                        int n4 = 0;
-                        block5: while (n4 < go.k.E.length) {
-                            if (object.E[n].a == go.k.E[n4].a) {
-                                object.E[n] = go.k.E[n4];
-                                n4 = 0;
-                                while (n4 < go.r.length) {
-                                    if (go.r[n4].a == object.E[n].a) {
-                                        object.E[n].e = go.r[n4].c[object.E[n].f - 1].d;
-                                        break block5;
+            final lg[][] array = a5;
+            int n4 = 0;
+            while (n4 < array[0].length) {
+                if (array[0][n4].j().equals(go.k.b)) {
+                    final lh a9;
+                    if ((a9 = array[0][n4].a()).E.length != 0) {
+                        for (int n5 = 0; n5 < a9.E.length; ++n5) {
+                            for (int n6 = 0; n6 < go.k.E.length; ++n6) {
+                                if (a9.E[n5].a == go.k.E[n6].a) {
+                                    a9.E[n5] = go.k.E[n6];
+                                    for (int n7 = 0; n7 < go.r.length; ++n7) {
+                                        if (go.r[n7].a == a9.E[n5].a) {
+                                            a9.E[n5].e = go.r[n7].c[a9.E[n5].f - 1].d;
+                                            break;
+                                        }
                                     }
-                                    ++n4;
+                                    break;
                                 }
-                                break;
                             }
-                            ++n4;
                         }
-                        ++n;
+                        (this.w = new gz(a9)).b(true);
+                        this.w.c(true);
+                        break;
                     }
-                    ((mt)mr2).w = new gz((lh)object);
-                    ((mt)mr2).w.b(true);
-                    ((mt)mr2).w.c(true);
                     break;
                 }
-                ++n;
+                else {
+                    ++n4;
+                }
             }
         }
-        this.d = new ff(null, 255, 2);
-        int n5 = v.t;
-        this.d.a(0, v.u - 20, n5, 20);
+        (this.d = new ff(null, 255, 2)).a(0, com.mg.bas.v.u - 20, com.mg.bas.v.t, 20);
         this.d.h(30);
         this.d.a(new mu(this));
         this.d.d(true);
         this.b();
         this.e = new np();
-        Object object2 = this.a;
-        object2 = ((mh)object2).a;
-        int n6 = this.b.h()[0];
-        n = this.b.g()[0];
-        this.z = new mj(n6, this.b.h()[1], (n += this.b.g()[2]) - n6, 20);
-        this.z.a(this.b.g()[1] - this.b.h()[1]);
+        final k a10 = this.a.a;
+        final int n8 = this.b.h()[0];
+        (this.z = new mj(n8, this.b.h()[1], this.b.g()[0] + this.b.g()[2] - n8, 20)).a(this.b.g()[1] - this.b.h()[1]);
         if (com.mg.sq.a.k == 0) {
-            this.e.c(((k)object2).a + ((k)object2).c / 2 - 5, ((k)object2).b + ((k)object2).d + 10);
+            this.e.c(a10.a + a10.c / 2 - 5, a10.b + a10.d + 10);
             return;
         }
         this.e.c(this.b.e()[0], this.b.e()[1] + this.b.e()[3] + 6);
     }
-
+    
     public final void d() {
         try {
             this.a.i();
             this.i.i();
-            int n = this.m.d() - 1;
-            while (n >= 0) {
-                if (this.m.b(n) != null) {
-                    if (!((ne)this.m.b(n)).m()) {
-                        this.m.a(n);
-                    } else if (this.m.b(n) != null) {
-                        ((ne)this.m.b(n)).i();
+            for (int i = this.m.d() - 1; i >= 0; --i) {
+                if (this.m.b(i) != null) {
+                    if (!((ne)this.m.b(i)).m()) {
+                        this.m.a(i);
+                    }
+                    else if (this.m.b(i) != null) {
+                        ((ne)this.m.b(i)).i();
                     }
                 }
-                --n;
             }
-            n = this.n.d() - 1;
-            while (n >= 0) {
-                if (this.n.b(n) != null) {
-                    if (!((nb)this.n.b(n)).m()) {
-                        this.n.a(n);
-                    } else if (this.n.b(n) != null) {
-                        ((nb)this.n.b(n)).i();
+            for (int j = this.n.d() - 1; j >= 0; --j) {
+                if (this.n.b(j) != null) {
+                    if (!((nb)this.n.b(j)).m()) {
+                        this.n.a(j);
+                    }
+                    else if (this.n.b(j) != null) {
+                        ((nb)this.n.b(j)).i();
                     }
                 }
-                --n;
             }
-            n = this.o.d() - 1;
-            while (n >= 0) {
-                if (this.o.b(n) != null) {
-                    if (!((im)this.o.b(n)).m()) {
-                        this.o.a(n);
-                    } else if (this.o.b(n) != null) {
-                        ((im)this.o.b(n)).i();
+            for (int k = this.o.d() - 1; k >= 0; --k) {
+                if (this.o.b(k) != null) {
+                    if (!((im)this.o.b(k)).m()) {
+                        this.o.a(k);
+                    }
+                    else if (this.o.b(k) != null) {
+                        ((im)this.o.b(k)).i();
                     }
                 }
-                --n;
             }
-            n = this.p.d() - 1;
-            while (n >= 0) {
-                if (this.p.b(n) != null) {
-                    ((nh)this.p.b(n)).i();
+            for (int l = this.p.d() - 1; l >= 0; --l) {
+                if (this.p.b(l) != null) {
+                    ((nh)this.p.b(l)).i();
                 }
-                --n;
             }
-            n = 0;
-            while (n < this.v.length) {
-                int n2 = 0;
-                while (n2 < this.v[n].length) {
+            for (int n = 0; n < this.v.length; ++n) {
+                for (int n2 = 0; n2 < this.v[n].length; ++n2) {
                     this.v[n][n2].b();
-                    ++n2;
                 }
-                ++n;
             }
-            n = 0;
-            while (n < this.B.length) {
-                if (this.B[n] != null) {
-                    this.B[n].i();
+            for (int n3 = 0; n3 < this.B.length; ++n3) {
+                if (this.B[n3] != null) {
+                    this.B[n3].i();
                 }
-                ++n;
             }
-            n = 0;
-            while (n < this.C.length) {
-                if (this.C[n] != null) {
-                    this.C[n].i();
+            for (int n4 = 0; n4 < this.C.length; ++n4) {
+                if (this.C[n4] != null) {
+                    this.C[n4].i();
                 }
-                ++n;
             }
-            n = 0;
-            while (n < this.l.length) {
-                a a2 = this.l[n];
-                if (a2 != null) {
-                    int n3 = 0;
-                    while (n3 < a2.d()) {
-                        if (a2.b(n3) != null) {
-                            ((ip)a2.b(n3)).i();
+            for (int n5 = 0; n5 < this.l.length; ++n5) {
+                final a a;
+                if ((a = this.l[n5]) != null) {
+                    for (int n6 = 0; n6 < a.d(); ++n6) {
+                        if (a.b(n6) != null) {
+                            ((ip)a.b(n6)).i();
                         }
-                        ++n3;
                     }
                 }
-                ++n;
             }
             this.q.i();
             this.b.i();
@@ -332,51 +306,77 @@ implements mr {
             this.z.i();
             if (this.f != null) {
                 this.f.i();
-                return;
             }
         }
-        catch (Exception exception) {
-            Exception exception2 = exception;
-            exception.printStackTrace();
+        catch (final Exception ex) {
+//            final Throwable t;
+            ex.printStackTrace();
         }
     }
-
-    public final void a(Graphics graphics) {
+    
+    public final void a(final Graphics graphics) {
         try {
-            block24: {
-                block23: {
-                    mt mt2 = this;
-                    if (v.t > mt2.A.a()) break block23;
-                    mt mt3 = this;
-                    if (v.u <= mt3.A.b()) break block24;
+            final int t = com.mg.bas.v.t;
+            final mv a = this.A;
+            Label_0187: {
+                if (t <= mv.a()) {
+                    final int u = com.mg.bas.v.u;
+                    final mv a2 = this.A;
+                    if (u <= mv.b()) {
+                        break Label_0187;
+                    }
                 }
                 graphics.setColor(0);
-                mt mt4 = this;
-                graphics.fillRect(0, 0, v.t, (v.u - mt4.A.b()) / 2);
-                mt mt5 = this;
-                mt mt6 = this;
-                graphics.fillRect(0, (v.u + mt5.A.b()) / 2, v.t, (v.u - mt6.A.b()) / 2);
-                mt mt7 = this;
-                mt mt8 = this;
-                mt mt9 = this;
-                graphics.fillRect(0, (v.u - mt7.A.b()) / 2, (v.t - mt8.A.a()) / 2, mt9.A.b());
-                mt mt10 = this;
-                mt mt11 = this;
-                mt mt12 = this;
-                mt mt13 = this;
-                graphics.fillRect((v.t + mt10.A.a()) / 2, (v.u - mt11.A.b()) / 2, (v.t - mt12.A.a()) / 2, mt13.A.b());
+                final int n = 0;
+                final int n2 = 0;
+                final int t2 = com.mg.bas.v.t;
+                final int u2 = com.mg.bas.v.u;
+                final mv a3 = this.A;
+                graphics.fillRect(n, n2, t2, (u2 - mv.b()) / 2);
+                final int n3 = 0;
+                final int u3 = com.mg.bas.v.u;
+                final mv a4 = this.A;
+                final int n4 = (u3 + mv.b()) / 2;
+                final int t3 = com.mg.bas.v.t;
+                final int u4 = com.mg.bas.v.u;
+                final mv a5 = this.A;
+                graphics.fillRect(n3, n4, t3, (u4 - mv.b()) / 2);
+                final int n5 = 0;
+                final int u5 = com.mg.bas.v.u;
+                final mv a6 = this.A;
+                final int n6 = (u5 - mv.b()) / 2;
+                final int t4 = com.mg.bas.v.t;
+                final mv a7 = this.A;
+                final int n7 = (t4 - mv.a()) / 2;
+                final mv a8 = this.A;
+                graphics.fillRect(n5, n6, n7, mv.b());
+                final int t5 = com.mg.bas.v.t;
+                final mv a9 = this.A;
+                final int n8 = (t5 + mv.a()) / 2;
+                final int u6 = com.mg.bas.v.u;
+                final mv a10 = this.A;
+                final int n9 = (u6 - mv.b()) / 2;
+                final int t6 = com.mg.bas.v.t;
+                final mv a11 = this.A;
+                final int n10 = (t6 - mv.a()) / 2;
+                final mv a12 = this.A;
+                graphics.fillRect(n8, n9, n10, mv.b());
             }
-            mt mt14 = this;
-            int n = (v.t - mt14.A.a()) / 2;
-            mt mt15 = this;
-            int n2 = (v.u - mt15.A.b()) / 2;
-            mt mt16 = this;
-            mt mt17 = this;
-            graphics.setClip(n, n2, mt16.A.a(), mt17.A.b());
-            this.A.a(graphics, n, n2, 0);
+            final int t7 = com.mg.bas.v.t;
+            final mv a13 = this.A;
+            final int n11 = (t7 - mv.a()) / 2;
+            final int u7 = com.mg.bas.v.u;
+            final mv a14 = this.A;
+            final int n12 = (u7 - mv.b()) / 2;
+            final int n13 = n11;
+            final int n14 = n12;
+            final mv a15 = this.A;
+            final int a16 = mv.a();
+            final mv a17 = this.A;
+            graphics.setClip(n13, n14, a16, mv.b());
+            this.A.a(graphics, n11, n12, 0);
             cw.a(graphics, this.r);
-            at at2 = this.a;
-            cw.a(graphics, at2.a, this.r);
+            cw.a(graphics, this.a.a, this.r);
             this.a.a(graphics);
             cw.c(graphics, this.r);
             this.i.a(graphics);
@@ -388,577 +388,554 @@ implements mr {
                     this.q.a(graphics);
                 }
             }
-            catch (Exception exception) {
-                ct.a("[SQCViewManager] loi view" + exception.toString());
+            catch (final Exception ex) {
+                ct.a("[SQCViewManager] loi view" + ex.toString());
             }
             this.b.a(graphics);
             this.t.a(graphics, 0, 0);
             this.c.a(graphics, 0, 0);
             this.u.a(graphics, 0, 0);
-            n2 = 0;
-            while (n2 < this.l.length) {
-                a a2 = this.l[n2];
-                nk nk2 = this.b.a[n2];
-                int n3 = nk2.n() + (nk2.p() - a2.d() * 17) / 2;
-                int n4 = nk2.o() - 15;
-                int n5 = 0;
-                while (n5 < a2.d()) {
-                    at2 = (ip)a2.b(n5);
-                    ((ip)at2).a(graphics, n3 + (n2 == 0 ? nk2.p() / 2 - 20 : -nk2.p() / 2 + 20), n4);
-                    n3 += 15;
-                    ++n5;
+            for (int i = 0; i < this.l.length; ++i) {
+                final a a18 = this.l[i];
+                final nk nk;
+                int n15 = (nk = this.b.a[i]).n() + (nk.p() - a18.d() * 17) / 2;
+                final int n16 = nk.o() - 15;
+                for (int j = 0; j < a18.d(); ++j) {
+                    ((ip)a18.b(j)).a(graphics, n15 + ((i == 0) ? (nk.p() / 2 - 20) : (-nk.p() / 2 + 20)), n16);
+                    n15 += 15;
                 }
-                ++n2;
             }
-            n2 = 0;
-            while (n2 < this.m.d()) {
-                ((ne)this.m.b(n2)).a(graphics, 0, 0);
-                ++n2;
+            for (int k = 0; k < this.m.d(); ++k) {
+                ((ne)this.m.b(k)).a(graphics, 0, 0);
             }
-            n2 = this.p.d() - 1;
-            while (n2 >= 0) {
-                ((nh)this.p.b(n2)).a(graphics);
-                --n2;
+            for (int l = this.p.d() - 1; l >= 0; --l) {
+                ((nh)this.p.b(l)).a(graphics);
             }
-            n2 = 0;
-            while (n2 < this.n.d()) {
-                ((nb)this.n.b(n2)).a(graphics, 0, 0);
-                ++n2;
+            for (int n17 = 0; n17 < this.n.d(); ++n17) {
+                ((nb)this.n.b(n17)).a(graphics, 0, 0);
             }
-            n2 = 0;
-            while (n2 < this.o.d()) {
-                ((im)this.o.b(n2)).a(graphics);
-                ++n2;
+            for (int n18 = 0; n18 < this.o.d(); ++n18) {
+                ((im)this.o.b(n18)).a(graphics);
             }
-            n2 = 0;
-            while (n2 < this.B.length) {
-                if (this.B[n2] != null) {
-                    this.B[n2].a(graphics);
+            for (int n19 = 0; n19 < this.B.length; ++n19) {
+                if (this.B[n19] != null) {
+                    this.B[n19].a(graphics);
                 }
-                ++n2;
             }
-            n2 = 0;
-            while (n2 < this.C.length) {
-                if (this.C[n2] != null) {
-                    this.C[n2].a(graphics);
+            for (int n20 = 0; n20 < this.C.length; ++n20) {
+                if (this.C[n20] != null) {
+                    this.C[n20].a(graphics);
                 }
-                ++n2;
             }
             if (oq.o != 1) {
                 this.e.a(graphics);
             }
             this.z.a(graphics);
-            n2 = 0;
-            while (n2 < this.v.length) {
-                int n6 = 0;
-                while (n6 < this.v[n2].length) {
-                    this.v[n2][n6].a(graphics, 0, 0);
-                    ++n6;
+            for (int n21 = 0; n21 < this.v.length; ++n21) {
+                for (int n22 = 0; n22 < this.v[n21].length; ++n22) {
+                    this.v[n21][n22].a(graphics, 0, 0);
                 }
-                ++n2;
             }
             this.s.a(graphics);
-            graphics.setClip(0, 0, v.t, v.u);
+            graphics.setClip(0, 0, com.mg.bas.v.t, com.mg.bas.v.u);
             this.d.a(graphics, 0, 0);
-            return;
         }
-        catch (Exception exception) {
-            Exception exception2 = exception;
-            exception.printStackTrace();
-            return;
+        catch (final Exception ex2) {
+//            final Throwable t8;
+            ex2.printStackTrace();
         }
     }
-
-    public final void a(int n, int n2, int n3) {
+    
+    public final void a(final int n, final int n2, final int n3) {
         this.i.a(n);
-        nd nd2 = this.a.a(n2 - 2, n3 - 2);
-        this.i.a(nd2.n(), nd2.o());
+        final nd a = this.a.a(n2 - 2, n3 - 2);
+        this.i.a(a.n(), a.o());
     }
-
-    public final void b(int n, int n2, int n3) {
+    
+    public final void b(final int n, final int n2, final int n3) {
         this.i.a(n);
-        nd nd2 = this.a.a(n2 - 2, n3 - 2);
+        final nd a = this.a.a(n2 - 2, n3 - 2);
         if (n == 0 && oq.o != 9) {
-            this.i.b(nd2.n(), nd2.o());
+            this.i.b(a.n(), a.o());
             return;
         }
-        this.i.a(nd2.n(), nd2.o());
+        this.i.a(a.n(), a.o());
     }
-
-    public final void a(int n, int n2) {
+    
+    public final void a(final int n, final int n2) {
         this.i.a(0);
-        nd nd2 = this.a.a(n - 2, n2 - 2);
+        final nd a = this.a.a(n - 2, n2 - 2);
         int n3 = 0;
         if (n2 > 2) {
             n3 = 1;
         }
         if (n2 < 9) {
-            n3 |= 2;
+            n3 |= 0x2;
         }
         if (n > 2) {
-            n3 |= 4;
+            n3 |= 0x4;
         }
         if (n < 9) {
-            n3 |= 8;
+            n3 |= 0x8;
         }
-        this.i.b(n3, nd2.n(), nd2.o());
+        this.i.b(n3, a.n(), a.o());
     }
-
-    private static int b(int n, int n2, int n3, int n4) {
+    
+    private static int b(final int n, final int n2, final int n3, final int n4) {
         int n5 = 0;
         if (n2 < n4) {
             n5 = 2;
-        } else if (n2 > n4) {
+        }
+        else if (n2 > n4) {
             n5 = 1;
-        } else if (n < n3) {
+        }
+        else if (n < n3) {
             n5 = 8;
-        } else if (n > n3) {
+        }
+        else if (n > n3) {
             n5 = 4;
         }
         return n5;
     }
-
-    public final void a(int n, int n2, int n3, int n4, int n5) {
+    
+    public final void a(final int n, final int n2, final int n3, final int n4, final int n5) {
         this.i.a(n);
-        nd nd2 = this.a.a(n4 - 2, n5 - 2);
-        nd nd3 = this.a.a(n2 - 2, n3 - 2);
-        this.i.c(nd3.n(), nd3.o(), nd2.n(), nd2.o());
+        final nd a = this.a.a(n4 - 2, n5 - 2);
+        final nd a2 = this.a.a(n2 - 2, n3 - 2);
+        this.i.c(a2.n(), a2.o(), a.n(), a.o());
     }
-
+    
     public final void e() {
         this.f.b(false);
     }
-
-    public final void b(int n, int n2, int n3, int n4, int n5) {
-        n4 = mt.b(n2, n3, n4, n5);
+    
+    public final void b(final int n, final int n2, final int n3, int b, final int n4) {
+        b = b(n2, n3, b, n4);
         this.i.a(n);
-        nd nd2 = this.a.a(n2 - 2, n3 - 2);
-        this.i.b(n4, nd2.n(), nd2.o());
+        final nd a = this.a.a(n2 - 2, n3 - 2);
+        this.i.b(b, a.n(), a.o());
     }
-
-    public final void a(my my2) {
-        int n;
-        int n2 = my2.a;
-        int n3 = my2.b;
-        if ((my2.e[0] & 0xFF) >= 3 || (my2.e[1] & 0xFF) >= 3) {
-            n = mt.b(my2.c, my2.d, my2.a, my2.b);
-            n2 = my2.c;
-            n3 = my2.d;
-        } else {
-            n = mt.b(my2.a, my2.b, my2.c, my2.d);
+    
+    public final void a(final my my) {
+        int n = my.a;
+        int n2 = my.b;
+        int n3;
+        if ((my.e[0] & 0xFF) >= 3 || (my.e[1] & 0xFF) >= 3) {
+            n3 = b(my.c, my.d, my.a, my.b);
+            n = my.c;
+            n2 = my.d;
         }
-        int n4 = (n3 - 2) * 28 + this.a.n();
-        n2 = (n2 - 2) * 28 + this.a.o();
-        this.q.b(n4, n2, n);
+        else {
+            n3 = b(my.a, my.b, my.c, my.d);
+        }
+        this.q.b((n2 - 2) * 28 + this.a.n(), (n - 2) * 28 + this.a.o(), n3);
     }
-
+    
     public final void f() {
         this.q.a();
     }
-
+    
     public final void g() {
         this.i.a();
     }
-
+    
     public final int h() {
         int n = 0;
-        int n2 = 0;
-        while (n2 < 8) {
-            int n3 = n + 0;
-            int n4 = 0;
-            while (n4 < 8) {
-                nd nd2 = this.a.a(n2, n4);
-                nd2.i(28, n3);
-                ++n3;
-                ++n4;
+        for (int i = 0; i < 8; ++i) {
+            int n2 = n + 0;
+            for (int j = 0; j < 8; ++j) {
+                this.a.a(i, j).i(28, n2);
+                ++n2;
             }
             ++n;
-            ++n2;
         }
         return 22;
     }
-
+    
     public final int i() {
         int n = 0;
-        nj[][] njArray = this.h;
-        njArray = this.h.l;
-        int[] nArray = new int[12];
-        int n2 = 2;
-        while (n2 < 10) {
-            int n3 = 0;
-            int n4 = 9;
-            while (n4 >= 2) {
-                this.a(n3, n2, n4, n2, njArray[n4][n2], nArray[n2] + n);
-                int n5 = n2;
-                nArray[n5] = nArray[n5] + 1;
-                --n3;
-                --n4;
+        final nj[][] l = this.h.l;
+        final int[] array = new int[12];
+        for (int i = 2; i < 10; ++i) {
+            int n2 = 0;
+            for (int j = 9; j >= 2; --j) {
+                this.a(n2, i, j, i, l[j][i], array[i] + n);
+                final int[] array2 = array;
+                final int n3 = i;
+                ++array2[n3];
+                --n2;
             }
             ++n;
-            ++n2;
         }
         return 21;
     }
-
-    public final void a(int n, int n2, nj nj2, int n3) {
-        this.a.a(n, n2, nj2, n3);
+    
+    public final void a(final int n, final int n2, final nj nj, final int n3) {
+        this.a.a(n, n2, nj, n3);
     }
-
-    public final void a(int n, int n2, int n3, int n4, nj nj2, nj nj3) {
-        this.a.a(n, n2, n3, n4, nj2, nj3);
+    
+    public final void a(final int n, final int n2, final int n3, final int n4, final nj nj, final nj nj2) {
+        this.a.a(n, n2, n3, n4, nj, nj2);
     }
-
-    public final void a(int n, int n2, int n3, int n4, nj nj2, int n5) {
-        this.a.a(n, n2, n3, n4, nj2, n5);
+    
+    public final void a(final int n, final int n2, final int n3, final int n4, final nj nj, final int n5) {
+        this.a.a(n, n2, n3, n4, nj, n5);
     }
-
-    public final int a(mw mw2, int n) {
-        int n2 = 0;
-        if (mw2.k) {
-            int n3;
-            Object object;
-            if ((mw2.a.e & 1) != 0) {
-                int[] nArray;
-                int n4 = n = (n + 1) % 2;
-                object = mw2;
-                mt mt2 = this;
-                if (n4 == 0) {
-                    int[] nArray2 = new int[4];
-                    nArray2[0] = mt2.b.a[0].n();
-                    nArray2[1] = mt2.b.a[0].o();
-                    nArray2[2] = mt2.b.a[0].p();
-                    nArray = nArray2;
-                    nArray2[3] = mt2.b.a[0].q();
-                } else {
-                    int[] nArray3 = new int[4];
-                    nArray3[0] = mt2.b.a[1].n();
-                    nArray3[1] = mt2.b.a[1].o();
-                    nArray3[2] = mt2.b.a[1].p();
-                    nArray = nArray3;
-                    nArray3[3] = mt2.b.a[1].q();
+    
+    public final int a(final mw mw, int a) {
+        int n = 0;
+        if (mw.k) {
+            if ((mw.a.e & 0x1) != 0x0) {
+                final int n2;
+                a = (n2 = (a + 1) % 2);
+                int[] array3;
+                int[] array2;
+                if (n2 == 0) {
+                    final int[] array = array2 = (array3 = new int[4]);
+                    array[0] = this.b.a[0].n();
+                    array[1] = this.b.a[0].o();
+                    array[2] = this.b.a[0].p();
+                    array[3] = this.b.a[0].q();
                 }
-                int[] nArray4 = nArray;
-                int n5 = nArray[0] + nArray4[2] / 2 + cv.a() % 10;
-                int n6 = nArray4[1] + nArray4[3] / 2 + cv.a() % 10;
-                if (((mw)object).d == 1 && ((mw)object).g == 1) {
-                    mt2.a((mw)object, n5, n6);
-                } else if (((mw)object).d == 1) {
-                    mt2.b((mw)object, n5, n6);
-                } else if (((mw)object).g == 1) {
-                    mt2.a((mw)object, n5, n6);
-                } else {
-                    mt2.a((mw)object, n5, n6);
-                    mt2.b((mw)object, n5, n6);
+                else {
+                    final int[] array4 = array2 = (array3 = new int[4]);
+                    array4[0] = this.b.a[1].n();
+                    array4[1] = this.b.a[1].o();
+                    array4[2] = this.b.a[1].p();
+                    array4[3] = this.b.a[1].q();
                 }
-                mt2.a(n4, 36, 26, true);
+                final int[] array5 = array2;
+                final int n3 = array3[0] + array5[2] / 2 + cv.a() % 10;
+                final int n4 = array5[1] + array5[3] / 2 + cv.a() % 10;
+                if (mw.d == 1 && mw.g == 1) {
+                    this.a(mw, n3, n4);
+                }
+                else if (mw.d == 1) {
+                    this.b(mw, n3, n4);
+                }
+                else if (mw.g == 1) {
+                    this.a(mw, n3, n4);
+                }
+                else {
+                    this.a(mw, n3, n4);
+                    this.b(mw, n3, n4);
+                }
+                this.a(n2, 36, 26, true);
             }
-            nj nj2 = mw2.a;
-            object = null;
-            k k2 = new k();
-            switch (nj2.e) {
-                case 1: 
-                case 16: 
-                case 32: 
+            final nj a2 = mw.a;
+            int[] array6 = null;
+            final k k = new k();
+            switch (a2.e) {
+                case 1:
+                case 16:
+                case 32:
                 case 64: {
-                    if (n == 0) {
+                    if (a == 0) {
                         this.b.a[0].g();
                         break;
                     }
                     this.b.a[1].g();
                     break;
                 }
-                case 2: 
-                case 4: 
+                case 2:
+                case 4:
                 case 8: {
-                    if ((nj2.e & 2) != 0) {
-                        object = n == 0 ? this.b.a() : this.b.b();
-                    } else if ((nj2.e & 4) != 0) {
-                        object = n == 0 ? this.b.c() : this.b.d();
-                    } else if ((nj2.e & 8) != 0) {
-                        object = n == 0 ? this.b.e() : this.b.f();
+                    if ((a2.e & 0x2) != 0x0) {
+                        array6 = ((a == 0) ? this.b.a() : this.b.b());
                     }
-                    if (object == null) break;
-                    k2.a = (int)(object[0] + object[2] / 2);
-                    k2.b = (int)(object[1] + object[3] / 2);
-                    k2.c = (int)(object[2] - 2);
-                    k2.d = (int)(object[3] - 2);
+                    else if ((a2.e & 0x4) != 0x0) {
+                        array6 = ((a == 0) ? this.b.c() : this.b.d());
+                    }
+                    else if ((a2.e & 0x8) != 0x0) {
+                        array6 = ((a == 0) ? this.b.e() : this.b.f());
+                    }
+                    if (array6 != null) {
+                        k.a = array6[0] + array6[2] / 2;
+                        k.b = array6[1] + array6[3] / 2;
+                        k.c = array6[2] - 2;
+                        k.d = array6[3] - 2;
+                        break;
+                    }
+                    break;
                 }
             }
             this.a.n();
             this.a.o();
-            n2 = mw2.d == 1 && mw2.g == 1 ? this.a(mw2) : (mw2.d < 3 ? this.a(mw2) : (mw2.g < 3 ? this.b(mw2) : ((n = this.a(mw2)) > (n3 = this.b(mw2)) ? n : n3)));
+            int n5;
+            if (mw.d == 1 && mw.g == 1) {
+                n5 = this.a(mw);
+            }
+            else if (mw.d < 3) {
+                n5 = this.a(mw);
+            }
+            else if (mw.g < 3) {
+                n5 = this.b(mw);
+            }
+            else {
+                a = this.a(mw);
+                final int b = this.b(mw);
+                n5 = ((a > b) ? a : b);
+            }
+            n = n5;
         }
-        return n2;
+        return n;
     }
-
-    private int a(mw mw2) {
-        return this.a.b(mw2);
+    
+    private int a(final mw mw) {
+        return this.a.b(mw);
     }
-
-    private int b(mw mw2) {
-        return this.a.a(mw2);
+    
+    private int b(final mw mw) {
+        return this.a.a(mw);
     }
-
-    public final int a(int n) {
+    
+    public final int a(final int n) {
         Image image = null;
         switch (n) {
             case 1: {
-                image = f.d("/strwin");
+                image = com.mg.bas.f.d("/strwin");
                 break;
             }
             case 0: {
-                image = f.d("/strlose");
+                image = com.mg.bas.f.d("/strlose");
+                break;
             }
         }
         return this.s.a(image);
     }
-
-    private void a(int n, int n2, k k2, nj nj2, int n3, boolean n4) {
-        if ((nj2.e & 1) != 0) {
+    
+    private void a(final int n, final int n2, final k k, final nj nj, final int n3, final boolean b) {
+        if ((nj.e & 0x1) != 0x0) {
             return;
         }
         try {
-            nh nh2 = null;
-            n4 = this.p.d() - 1;
-            while (n4 >= 0) {
-                nh nh3 = (nh)this.p.b(n4);
-                if (!nh3.m()) {
-                    nh2 = nh3;
+            nh nh = null;
+            for (int i = this.p.d() - 1; i >= 0; --i) {
+                final nh nh2;
+                if (!(nh2 = (nh)this.p.b(i)).m()) {
+                    nh = nh2;
                     break;
                 }
-                --n4;
             }
-            if (nh2 == null) {
-                nh2 = new nh(this.k);
-                this.p.a(nh2);
+            if (nh == null) {
+                nh = new nh(this.k);
+                this.p.a(nh);
             }
-            nh2.a(n, n2, k2, nj2.g, 0, false);
-            return;
+            nh.a(n, n2, k, nj.g, 0, false);
         }
-        catch (OutOfMemoryError outOfMemoryError) {
+        catch (final OutOfMemoryError outOfMemoryError) {
             this.b(true);
             if (com.mg.sq.a.m != null) {
                 com.mg.sq.a.m.G();
             }
-            return;
         }
     }
-
-    public final void b(int n, int n2) {
-        int[] nArray = null;
-        k k2 = new k();
+    
+    public final void b(int n, final int n2) {
+        int[] array = null;
+        final k k = new k();
         switch (n2) {
             case 1: {
-                nArray = n == 0 ? this.b.a() : this.b.b();
+                array = ((n == 0) ? this.b.a() : this.b.b());
                 break;
             }
             case 2: {
-                nArray = n == 0 ? this.b.c() : this.b.d();
+                array = ((n == 0) ? this.b.c() : this.b.d());
                 break;
             }
             case 3: {
-                int[] nArray2 = nArray = n == 0 ? this.b.e() : this.b.f();
+                array = ((n == 0) ? this.b.e() : this.b.f());
+                break;
             }
         }
-        if (nArray != null) {
-            k2.a = nArray[0] + nArray[2] / 2;
-            k2.b = nArray[1] + nArray[3] / 2;
-            k2.c = nArray[2] - 2;
-            k2.d = nArray[3] - 2;
+        if (array != null) {
+            k.a = array[0] + array[2] / 2;
+            k.b = array[1] + array[3] / 2;
+            k.c = array[2] - 2;
+            k.d = array[3] - 2;
             if (com.mg.sq.a.k == 0) {
-                n = nArray[0] + nArray[2] + 30;
-                int n3 = nArray[1] - 50;
-                int n4 = 0;
-                while (n4 < 9) {
-                    if (n4 == 0 || n4 == 8) {
-                        this.a(n + 30, n3, k2, nj.a(n2), 0, false);
-                    } else {
-                        this.a(n, n3, k2, nj.a(n2), 0, false);
+                n = array[0] + array[2] + 30;
+                int n3 = array[1] - 50;
+                for (int i = 0; i < 9; ++i) {
+                    if (i == 0 || i == 8) {
+                        this.a(n + 30, n3, k, nj.a(n2), 0, false);
+                    }
+                    else {
+                        this.a(n, n3, k, nj.a(n2), 0, false);
                     }
                     n3 += 12;
-                    ++n4;
                 }
                 return;
             }
-            n = nArray[0] - 50;
-            int n5 = nArray[1] - 30;
-            int n6 = 0;
-            while (n6 < 9) {
-                if (n6 == 0 || n6 == 8) {
-                    this.a(n, n5 - 30, k2, nj.a(n2), 0, false);
-                } else {
-                    this.a(n, n5, k2, nj.a(n2), 0, false);
+            n = array[0] - 50;
+            final int n4 = array[1] - 30;
+            for (int j = 0; j < 9; ++j) {
+                if (j == 0 || j == 8) {
+                    this.a(n, n4 - 30, k, nj.a(n2), 0, false);
+                }
+                else {
+                    this.a(n, n4, k, nj.a(n2), 0, false);
                 }
                 n += 12;
-                ++n6;
             }
         }
     }
-
-    public final void a(String string, int n, int n2, boolean bl) {
-        if (n2 == 0) {
+    
+    public final void a(final String s, int i, final int n, final boolean b) {
+        if (n == 0) {
             return;
         }
-        boolean bl2 = this.h.b;
-        boolean bl3 = this.h.e;
-        d d2 = com.mg.sq.a.h;
-        lg[][] lgArray = this.h.a();
-        String string2 = String.valueOf(n2 >= 0 ? (n2 == 0 ? (n != 0 ? "-" : "+") : "+") : "") + n2;
-        n = 0;
-        while (n < lgArray.length) {
-            int n3 = 0;
-            while (n3 < lgArray[n].length) {
-                if (lgArray[n][n3].j().equals(string)) {
-                    if ((bl2 || bl || bl3) && n2 < 0) {
-                        d2 = bx.a;
-                        if (bl2 && bl) {
-                            d2.a(12067023);
-                        } else if (bl2) {
-                            d2.a(6290199);
-                        } else if (bl3 && bl) {
-                            d2.a(16753920);
-                        } else if (bl3) {
-                            d2.a(0xFFFF00);
-                        } else {
-                            d2.a(2371791);
+        final boolean b2 = this.h.b;
+        final boolean e = this.h.e;
+        d d = com.mg.sq.a.h;
+        final lg[][] a = this.h.a();
+        final String string = String.valueOf((n >= 0) ? ((n == 0) ? ((i != 0) ? "-" : "+") : "+") : "") + n;
+        int j;
+        for (i = 0; i < a.length; ++i) {
+            for (j = 0; j < a[i].length; ++j) {
+                if (a[i][j].j().equals(s)) {
+                    if ((b2 || b || e) && n < 0) {
+                        d = bx.a;
+                        if (b2 && b) {
+                            d.a(12067023);
+                        }
+                        else if (b2) {
+                            d.a(6290199);
+                        }
+                        else if (e && b) {
+                            d.a(16753920);
+                        }
+                        else if (e) {
+                            d.a(16776960);
+                        }
+                        else {
+                            d.a(2371791);
                         }
                     }
-                    this.v[n][n3].a(string2, this.b.a(n)[n3].n() + this.b.a(n)[n3].p() / 2, this.b.a(n)[n3].o());
-                    this.v[n][n3].a(this.b.a(n)[n3]);
-                    this.v[n][n3].a(d2);
-                    if (n == 1 && this.h.a(1, 0).b() && n2 < 0 && this.h.a(1, 0).c() <= 50) {
+                    this.v[i][j].a(string, this.b.a(i)[j].n() + this.b.a(i)[j].p() / 2, this.b.a(i)[j].o());
+                    this.v[i][j].a(this.b.a(i)[j]);
+                    this.v[i][j].a(d);
+                    if (i == 1 && this.h.a(1, 0).b() && n < 0 && this.h.a(1, 0).c() <= 50) {
                         this.a(this.D[0][cv.a(this.D[0].length)], 50);
                     }
                     return;
                 }
-                ++n3;
             }
-            ++n;
         }
     }
-
-    public final void c(int n, int n2, int n3, int n4, int n5) {
-        ne ne2 = null;
-        int n6 = this.m.d() - 1;
-        while (n6 >= 0) {
-            ne ne3 = (ne)this.m.b(n6);
-            if (!ne3.a()) {
-                ne2 = ne3;
+    
+    public final void c(final int n, int n2, final int n3, final int n4, final int n5) {
+        ne ne = null;
+        for (int i = this.m.d() - 1; i >= 0; --i) {
+            final ne ne2;
+            if (!(ne2 = (ne)this.m.b(i)).a()) {
+                ne = ne2;
                 break;
             }
-            --n6;
         }
-        if (ne2 == null) {
-            ne2 = new ne(this.j);
-            this.m.a(ne2);
+        if (ne == null) {
+            ne = new ne(this.j);
+            this.m.a(ne);
         }
-        n6 = (n3 + n5 / 2 - 2) * 28 - (n5 % 2 == 0 ? 14 : 4) + this.a.n();
-        int n7 = (n2 + n4 / 2 - 2) * 28 - (n4 % 2 == 0 ? 14 : 5) + this.a.o();
+        final int n6 = (n3 + n5 / 2 - 2) * 28 - ((n5 % 2 == 0) ? 14 : 4) + this.a.n();
+        final int n7 = (n2 + n4 / 2 - 2) * 28 - ((n4 % 2 == 0) ? 14 : 5) + this.a.o();
         n2 = n - 1;
-        ne2.a(n6, n7, n2, "x" + n);
+        ne.a(n6, n7, n2, "x" + n);
     }
-
-    private void c(int n, int n2, int n3) {
+    
+    private void c(final int n, final int n2, final int n3) {
         this.a(n, n2, n3, false);
     }
-
-    public final void a(int n, int n2, int n3, boolean bl) {
-        this.b.a(n, n2, bl);
+    
+    public final void a(final int n, final int n2, final int n3, final boolean b) {
+        this.b.a(n, n2, b);
         this.b.c(n3);
     }
-
-    private void a(mw mw2, int n, int n2) {
-        int n3 = mw2.c;
-        int n4 = mw2.c + mw2.d;
-        while (n3 < n4) {
-            nb nb2 = null;
-            nd nd2 = this.a.a(mw2.b - 2, n3 - 2);
-            int n5 = this.n.d() - 1;
-            while (n5 >= 0) {
-                nb nb3 = (nb)this.n.b(n5);
-                if (!nb3.m()) {
-                    nb2 = nb3;
+    
+    private void a(final mw mw, final int n, final int n2) {
+        for (int i = mw.c; i < mw.c + mw.d; ++i) {
+            nb nb = null;
+            final nd a = this.a.a(mw.b - 2, i - 2);
+            for (int j = this.n.d() - 1; j >= 0; --j) {
+                final nb nb2;
+                if (!(nb2 = (nb)this.n.b(j)).m()) {
+                    nb = nb2;
                     break;
                 }
-                --n5;
             }
-            if (nb2 == null) {
-                nb2 = new nb(this.k);
-                this.n.a(nb2);
+            if (nb == null) {
+                nb = new nb(this.k);
+                this.n.a(nb);
             }
-            nb2.a(nd2.n(), nd2.o(), n, n2, mw2.a.d * nb2.q());
-            ++n3;
+            nb.a(a.n(), a.o(), n, n2, mw.a.d * nb.q());
         }
     }
-
-    private void b(mw mw2, int n, int n2) {
-        int n3 = mw2.e;
-        int n4 = mw2.e + mw2.g;
-        while (n3 < n4) {
-            nb nb2 = null;
-            nd nd2 = this.a.a(n3 - 2, mw2.f - 2);
-            int n5 = this.n.d() - 1;
-            while (n5 >= 0) {
-                nb nb3 = (nb)this.n.b(n5);
-                if (!nb3.m()) {
-                    nb2 = nb3;
+    
+    private void b(final mw mw, final int n, final int n2) {
+        for (int i = mw.e; i < mw.e + mw.g; ++i) {
+            nb nb = null;
+            final nd a = this.a.a(i - 2, mw.f - 2);
+            for (int j = this.n.d() - 1; j >= 0; --j) {
+                final nb nb2;
+                if (!(nb2 = (nb)this.n.b(j)).m()) {
+                    nb = nb2;
                     break;
                 }
-                --n5;
             }
-            if (nb2 == null) {
-                nb2 = new nb(this.k);
-                this.n.a(nb2);
+            if (nb == null) {
+                nb = new nb(this.k);
+                this.n.a(nb);
             }
-            nb2.a(nd2.n(), nd2.o(), n, n2, mw2.a.d * nb2.q());
-            ++n3;
+            nb.a(a.n(), a.o(), n, n2, mw.a.d * nb.q());
         }
     }
-
-    private void a(int n, int n2, boolean bl, boolean bl2) {
-        a a2 = this.l[n];
-        ip ip2 = null;
-        int n3 = 0;
-        while (n3 < a2.d()) {
-            ip ip3 = (ip)a2.b(n3);
-            if (ip3.b == bl && ip3.a == n2) {
-                ip2 = ip3;
+    
+    private void a(final int n, final int n2, final boolean b, final boolean b2) {
+        final a a = this.l[n];
+        ip ip = null;
+        for (int i = 0; i < a.d(); ++i) {
+            final ip ip2;
+            if ((ip2 = (ip)a.b(i)).b == b && ip2.a == n2) {
+                ip = ip2;
                 break;
             }
-            ++n3;
         }
-        if (ip2 == null) {
-            a2.a(new ip(n2, bl, 8));
+        if (ip == null) {
+            a.a(new ip(n2, b, 8));
         }
-        if (bl2) {
+        if (b2) {
             this.c(n);
         }
     }
-
-    public final void a(int n, int n2, boolean bl) {
-        a a2 = this.l[n];
-        int n3 = 0;
-        while (n3 < a2.d()) {
-            ip ip2 = (ip)a2.b(n3);
-            if (ip2.b == bl && ip2.a == n2) {
-                a2.a(n3);
+    
+    public final void a(final int n, final int n2, final boolean b) {
+        final a a = this.l[n];
+        for (int i = 0; i < a.d(); ++i) {
+            final ip ip;
+            if ((ip = (ip)a.b(i)).b == b && ip.a == n2) {
+                a.a(i);
                 return;
             }
-            ++n3;
         }
     }
-
-    private void c(int n) {
-        int n2 = this.h.a((int)n, (int)0).a().g / 2;
+    
+    private void c(final int n) {
+        final int n2 = this.h.a(n, 0).a().g / 2;
         if (this.C[n] == null) {
             this.C[n] = new in(n2);
-            int[] nArray = n == 0 ? new int[]{this.b.a[0].n(), this.b.a[0].o(), this.b.a[0].p(), this.b.a[0].q()} : new int[]{this.b.a[1].n(), this.b.a[1].o(), this.b.a[1].p(), this.b.a[1].q()};
-            this.C[n].c(nArray[0] + nArray[2] / 2, nArray[1] + nArray[3]);
+            int[] array;
+            if (n == 0) {
+                array = new int[] { this.b.a[0].n(), this.b.a[0].o(), this.b.a[0].p(), this.b.a[0].q() };
+            }
+            else {
+                array = new int[] { this.b.a[1].n(), this.b.a[1].o(), this.b.a[1].p(), this.b.a[1].q() };
+            }
+            this.C[n].c(array[0] + array[2] / 2, array[1] + array[3]);
         }
         this.C[n].r();
     }
-
-    private void d(int n) {
+    
+    private void d(final int n) {
         if (this.h.a(n, 0).b()) {
             return;
         }
@@ -966,13 +943,18 @@ implements mr {
         if (this.B[n] == null) {
             this.B[n] = new io(n, this);
         }
-        int[] nArray = n == 0 ? new int[]{this.b.a[1].n(), this.b.a[1].o(), this.b.a[1].p(), this.b.a[1].q()} : new int[]{this.b.a[0].n(), this.b.a[0].o(), this.b.a[0].p(), this.b.a[0].q()};
-        int n2 = this.h.a((int)n, (int)0).a().g / 2;
-        this.B[n].a(n2, (ni)this.b.a[n], nArray[0] + nArray[2] / 2, nArray[1] + nArray[3] / 2);
+        int[] array;
+        if (n == 0) {
+            array = new int[] { this.b.a[1].n(), this.b.a[1].o(), this.b.a[1].p(), this.b.a[1].q() };
+        }
+        else {
+            array = new int[] { this.b.a[0].n(), this.b.a[0].o(), this.b.a[0].p(), this.b.a[0].q() };
+        }
+        this.B[n].a(this.h.a(n, 0).a().g / 2, (ni)this.b.a[n], array[0] + array[2] / 2, array[1] + array[3] / 2);
         this.c(n);
     }
-
-    public final void b(int n) {
+    
+    public final void b(final int n) {
         if (this.h.a(n, 0).b()) {
             return;
         }
@@ -981,567 +963,501 @@ implements mr {
         }
         this.B[n] = null;
     }
-
-    public final int a(lv lv2, byte[] byArray, byte[] byArray2, byte[] objectArray, byte[] byArray3, int object) {
-        Object object2;
-        int[] nArray;
-        int n = object + 1 & 1;
+    
+    public final int a(final lv lv, final byte[] array, final byte[] array2, final byte[] array3, final byte[] array4, int i) {
+        final int n = i + 1 & 0x1;
         int n2 = 10;
         int n3 = 0;
         int n4 = -180;
-        if (object == 0) {
+        if (i == 0) {
             n4 = 180;
         }
-        int n5 = this.a.a(0, 0).p() >> 1;
-        int n6 = this.a.a(0, 0).q() >> 1;
-        if (object == 0) {
-            nArray = new int[]{this.b.a[1].n(), this.b.a[1].o(), this.b.a[1].p(), this.b.a[1].q()};
-            object2 = new int[]{this.b.a[0].n(), this.b.a[0].o(), this.b.a[0].p(), this.b.a[0].q()};
-        } else {
-            nArray = new int[]{this.b.a[0].n(), this.b.a[0].o(), this.b.a[0].p(), this.b.a[0].q()};
-            object2 = new int[]{this.b.a[1].n(), this.b.a[1].o(), this.b.a[1].p(), this.b.a[1].q()};
+        final int n5 = this.a.a(0, 0).p() >> 1;
+        final int n6 = this.a.a(0, 0).q() >> 1;
+        int[] array5;
+        int[] array6;
+        if (i == 0) {
+            array5 = new int[] { this.b.a[1].n(), this.b.a[1].o(), this.b.a[1].p(), this.b.a[1].q() };
+            array6 = new int[] { this.b.a[0].n(), this.b.a[0].o(), this.b.a[0].p(), this.b.a[0].q() };
         }
-        switch (lv2.a) {
+        else {
+            array5 = new int[] { this.b.a[0].n(), this.b.a[0].o(), this.b.a[0].p(), this.b.a[0].q() };
+            array6 = new int[] { this.b.a[1].n(), this.b.a[1].o(), this.b.a[1].p(), this.b.a[1].q() };
+        }
+        switch (lv.a) {
             case 1000: {
-                object = nArray[0] + nArray[2] / 2;
-                int n7 = nArray[1] + nArray[3] / 2;
-                lv lv3 = lv2;
-                n3 = this.a(0, lv3.a, object - n4, n7 - 180, (int)object, n7, 10);
+                i = array5[0] + array5[2] / 2;
+                final int n7 = array5[1] + array5[3] / 2;
+                int n8 = this.a(0, lv.a, i - n4, n7 - 180, i, n7, 10);
                 this.a(n, 32, 22, false);
                 n2 = 10 + (cv.a(7) + 5);
-                int n8 = 0;
-                while (n8 < byArray3.length) {
-                    object2 = this.a.a(objectArray[n8] - 2, byArray3[n8] - 2);
-                    object = ((at)object2).n() + n5;
-                    n7 = ((at)object2).o() + n6;
-                    int n9 = 10 + cv.a(15);
-                    lv3 = lv2;
-                    n3 = this.a(n3, lv3.a, object - n4, n7 - 180, (int)object, n7, n9);
-                    if (n9 > n2) {
-                        n2 = n9;
+                for (int j = 0; j < array4.length; ++j) {
+                    final nd a;
+                    i = (a = this.a.a(array3[j] - 2, array4[j] - 2)).n() + n5;
+                    final int n9 = a.o() + n6;
+                    final int n10 = 10 + cv.a(15);
+                    n8 = this.a(n8, lv.a, i - n4, n9 - 180, i, n9, n10);
+                    if (n10 > n2) {
+                        n2 = n10;
                     }
-                    ++n8;
                 }
                 break;
             }
             case 1001: {
-                if (byArray == null) break;
-                int n10 = 0;
-                while (n10 < byArray.length) {
-                    object2 = this.a.a(byArray[n10] - 2, byArray2[n10] - 2);
-                    this.a((int)byArray[n10], (int)byArray2[n10], nj.a(10), n2 + 5);
-                    object = ((at)object2).n();
-                    int n11 = ((at)object2).o();
-                    lv lv4 = lv2;
-                    n3 = this.a(n3, lv4.a, (int)object, n11, (int)object, n11, n2);
-                    n2 += 4;
-                    ++n10;
+                if (array != null) {
+                    for (int k = 0; k < array.length; ++k) {
+                        final nd a2 = this.a.a(array[k] - 2, array2[k] - 2);
+                        this.a(array[k], array2[k], nj.a(10), n2 + 5);
+                        i = a2.n();
+                        final int o = a2.o();
+                        n3 = this.a(n3, lv.a, i, o, i, o, n2);
+                        n2 += 4;
+                    }
+                    n2 -= 4;
+                    break;
                 }
-                n2 -= 4;
                 break;
             }
             case 1002: {
-                this.a((int)object, 1, true, true);
+                this.a(i, 1, true, true);
                 break;
             }
             case 1003: {
-                this.d((int)object);
+                this.d(i);
                 n2 += 30;
                 break;
             }
             case 1004: {
-                n4 = nArray[0] + nArray[2] / 2;
-                n3 = nArray[1] + nArray[3];
-                lv lv5 = lv2;
-                this.a(0, lv5.a, n4, n3, n4, n3, 0);
+                final int n11 = array5[0] + array5[2] / 2;
+                final int n12 = array5[1] + array5[3];
+                this.a(0, lv.a, n11, n12, n11, n12, 0);
                 this.c(n, 26, 16);
                 break;
             }
             case 1005: {
-                object = object2[0] + object2[2] / 2;
-                int n12 = object2[1] + object2[3] / 2;
-                n4 = nArray[0] + nArray[2] / 2;
-                n3 = nArray[1] + nArray[3] / 2;
-                lv lv6 = lv2;
-                this.a(0, lv6.a, (int)object, n12, n4, n3, 4);
+                i = array6[0] + array6[2] / 2;
+                this.a(0, lv.a, i, array6[1] + array6[3] / 2, array5[0] + array5[2] / 2, array5[1] + array5[3] / 2, 4);
                 this.c(n, 20, 10);
                 break;
             }
             case 1006: {
-                object = nArray[0] + nArray[2] / 2;
-                int n13 = nArray[1] + nArray[3];
-                lv lv7 = lv2;
-                n3 = this.a(0, lv7.a, object - n4, n13 - 180, (int)object, n13, 10);
+                i = array5[0] + array5[2] / 2;
+                final int n13 = array5[1] + array5[3];
+                int n14 = this.a(0, lv.a, i - n4, n13 - 180, i, n13, 10);
                 this.c(n, 36, 26);
-                int n14 = 0;
-                while (n14 < byArray3.length) {
-                    int n15 = cv.a(7) + 4;
-                    object2 = this.a.a(objectArray[n14] + 1 - 2, byArray3[n14] + 1 - 2);
-                    object = ((at)object2).n();
-                    n13 = ((at)object2).o();
-                    lv7 = lv2;
-                    n3 = this.a(n3, lv7.a, object - n4, n13 - 180, (int)object, n13, n15);
+                for (int l = 0; l < array4.length; ++l) {
+                    final int n15 = cv.a(7) + 4;
+                    final nd a3;
+                    i = (a3 = this.a.a(array3[l] + 1 - 2, array4[l] + 1 - 2)).n();
+                    final int o2 = a3.o();
+                    n14 = this.a(n14, lv.a, i - n4, o2 - 180, i, o2, n15);
                     if (n15 > n2) {
                         n2 = n15;
                     }
-                    ++n14;
                 }
                 break;
             }
             case 1007: {
-                object = nArray[0] + nArray[2] / 2;
-                int n16 = nArray[1] + nArray[3];
-                lv lv8 = lv2;
-                n3 = this.a(0, lv8.a, (int)object, n16, (int)object, n16, 10);
+                i = array5[0] + array5[2] / 2;
+                final int n16 = array5[1] + array5[3];
+                int n17 = this.a(0, lv.a, i, n16, i, n16, 10);
                 this.c(n, 30, 11);
-                int n17 = 0;
-                while (n17 < byArray3.length) {
-                    int n18 = cv.a(7) + 10;
-                    object2 = this.a.a(objectArray[n17] + 4 - 1 - 2, byArray3[n17] + 2 - 1 - 2);
-                    object = ((at)object2).n() + n5;
-                    n16 = ((at)object2).o() + n6;
-                    lv8 = lv2;
-                    n3 = this.a(n3, lv8.a, (int)object, n16, (int)object, n16, n18);
-                    if (n18 > n2) {
-                        n2 = n18;
+                for (int n18 = 0; n18 < array4.length; ++n18) {
+                    final int n19 = cv.a(7) + 10;
+                    final nd a4;
+                    i = (a4 = this.a.a(array3[n18] + 4 - 1 - 2, array4[n18] + 2 - 1 - 2)).n() + n5;
+                    final int n20 = a4.o() + n6;
+                    n17 = this.a(n17, lv.a, i, n20, i, n20, n19);
+                    if (n19 > n2) {
+                        n2 = n19;
                     }
-                    ++n17;
                 }
                 break;
             }
             case 1008: {
                 this.c(n, 10, 4);
-                nd nd2 = this.a.a(7, byArray3[0] + 1 - 2);
-                object2 = nd2;
-                object = nd2.n() + n5;
-                int n19 = ((at)object2).o() + n6;
-                lv lv9 = lv2;
-                this.a(0, lv9.a, (int)object, n19, (int)object, 0, 10);
+                final nd a5;
+                i = (a5 = this.a.a(7, array4[0] + 1 - 2)).n() + n5;
+                this.a(0, lv.a, i, a5.o() + n6, i, 0, 10);
                 break;
             }
             case 2000: {
-                int[] nArray2 = new int[byArray.length + 1];
-                int[] nArray3 = new int[byArray.length + 1];
-                objectArray = nArray3;
-                int n20 = nArray3.length - 1;
-                object = 0;
-                while (object < n20) {
-                    object2 = this.a.a(byArray[object] - 2, byArray2[object] - 2);
-                    nArray2[object] = ((at)object2).n();
-                    objectArray[object] = ((at)object2).o();
-                    ++object;
+                final int[] array7 = new int[array.length + 1];
+                int[] array8;
+                int n21;
+                nd a6;
+                for (n21 = (array8 = new int[array.length + 1]).length - 1, i = 0; i < n21; ++i) {
+                    a6 = this.a.a(array[i] - 2, array2[i] - 2);
+                    array7[i] = a6.n();
+                    array8[i] = a6.o();
                 }
-                n2 = 10 + (objectArray.length * 5 + 5);
+                n2 = 10 + (array8.length * 5 + 5);
                 this.c(n, n2, n2 - 6);
-                object = nArray[0] + nArray[2] / 2;
-                int n21 = nArray[1] + nArray[3] / 2;
-                nArray2[nArray2.length - 1] = object;
-                objectArray[nArray2.length - 1] = n21;
-                lv lv10 = lv2;
-                n3 = this.a(0, lv10.a, (int)object, n21, (int)object, n21, n2);
-                jg jg2 = (jg)this.o.b(n3);
-                jg2.a(nArray2, (int[])objectArray);
+                i = array5[0] + array5[2] / 2;
+                final int n22 = array5[1] + array5[3] / 2;
+                array7[array7.length - 1] = i;
+                array8[array7.length - 1] = n22;
+                ((jg)this.o.b(this.a(0, lv.a, i, n22, i, n22, n2))).a(array7, array8);
                 break;
             }
             case 2001: {
-                this.a((int)object, 0, true, true);
+                this.a(i, 0, true, true);
                 break;
             }
             case 2002: {
-                this.a((int)object, 2, true, true);
+                this.a(i, 2, true, true);
                 break;
             }
             case 2003: {
-                object = nArray[0] + nArray[2] / 2;
-                int n22 = nArray[1] + nArray[3] / 2;
-                lv lv11 = lv2;
-                this.a(0, lv11.a, object - n4, n22 - 180, (int)object, n22, 10);
+                i = array5[0] + array5[2] / 2;
+                final int n23 = array5[1] + array5[3] / 2;
+                this.a(0, lv.a, i - n4, n23 - 180, i, n23, 10);
                 this.c(n, 36, 26);
                 n2 = 14;
                 break;
             }
             case 2004: {
-                int n23 = object2[1] + object2[3] / 2 + 6;
-                n4 = nArray[0] + nArray[2] / 2;
-                n3 = nArray[1] + nArray[3] / 2 + 6;
-                if (object == 0) {
-                    n4 += 60;
-                    object = object2[0] + object2[2];
-                } else {
-                    object = object2[0];
-                    n4 -= 60;
+                final int n24 = array6[1] + array6[3] / 2 + 6;
+                int n25 = array5[0] + array5[2] / 2;
+                final int n26 = array5[1] + array5[3] / 2 + 6;
+                if (i == 0) {
+                    n25 += 60;
+                    i = array6[0] + array6[2];
                 }
-                lv lv12 = lv2;
-                this.a(0, lv12.a, (int)object, n23, n4, n3, 10);
+                else {
+                    i = array6[0];
+                    n25 -= 60;
+                }
+                this.a(0, lv.a, i, n24, n25, n26, 10);
                 this.c(n, 20, 10);
                 n2 = 10;
-                if (!this.h.a(n, 0).i()) break;
-                this.a(n, 1, false, false);
+                if (this.h.a(n, 0).i()) {
+                    this.a(n, 1, false, false);
+                    break;
+                }
                 break;
             }
             case 2005: {
-                this.d((int)object);
+                this.d(i);
                 n2 += 30;
                 break;
             }
             case 2006: {
-                int n24 = object2[1] + object2[3] / 2 + 4;
-                n4 = nArray[0] + nArray[2] / 2;
-                mt mt2 = this;
-                int n25 = (v.t - mt2.A.a()) / 2;
-                if (object == 0) {
-                    lv lv13 = lv2;
-                    n3 = this.a(0, lv13.a, (n25 -= 56) - cv.a(150), n24, n4, n24, 6);
+                int n27 = array6[1] + array6[3] / 2 + 4;
+                final int n28 = array5[0] + array5[2] / 2;
+                final int t = com.mg.bas.v.t;
+                final mv a7 = this.A;
+                int n29 = (t - mv.a()) / 2;
+                if (i == 0) {
+                    n29 -= 56;
+                    int n30 = this.a(0, lv.a, n29 - cv.a(150), n27, n28, n27, 6);
                     this.c(n, 16, 10);
-                    mt mt3 = this;
-                    n4 = n25 + mt3.A.a() + 100;
-                    n5 = 0;
-                    while (n5 < objectArray.length) {
-                        object2 = this.a.a(objectArray[n5] - 2, 0);
-                        lv13 = lv2;
-                        n3 = this.a(n3, lv13.a, n25 - ((n5 & 1) == 1 ? 40 : 0), ((at)object2).o(), n4, ((at)object2).o(), 6);
-                        ++n5;
+                    final int n31 = n29;
+                    final mv a8 = this.A;
+                    final int n32 = n31 + mv.a() + 100;
+                    for (int n33 = 0; n33 < array3.length; ++n33) {
+                        final nd a9 = this.a.a(array3[n33] - 2, 0);
+                        n30 = this.a(n30, lv.a, n29 - (((n33 & 0x1) == 0x1) ? 40 : 0), a9.o(), n32, a9.o(), 6);
                     }
-                    n24 -= 40;
-                    n5 = 0;
-                    while (n5 < 3) {
-                        lv13 = lv2;
-                        n3 = this.a(n3, lv13.a, n25 - cv.a(150), n24, n4, n24, 6);
-                        n24 += 20;
-                        ++n5;
+                    n27 -= 40;
+                    for (int n34 = 0; n34 < 3; ++n34) {
+                        n30 = this.a(n30, lv.a, n29 - cv.a(150), n27, n32, n27, 6);
+                        n27 += 20;
                     }
-                } else {
-                    lv lv14 = lv2;
-                    mt mt4 = this;
-                    n3 = this.a(0, lv14.a, n25 + mt4.A.a() + cv.a(150), n24, n4, n24, 6);
+                }
+                else {
+                    final int n35 = 0;
+                    final int a10 = lv.a;
+                    final int n36 = n29;
+                    final mv a11 = this.A;
+                    int n37 = this.a(n35, a10, n36 + mv.a() + cv.a(150), n27, n28, n27, 6);
                     this.c(n, 16, 10);
-                    n4 = n25 - 100;
-                    mt mt5 = this;
-                    n25 += mt5.A.a();
-                    n5 = 0;
-                    while (n5 < objectArray.length) {
-                        object2 = this.a.a(objectArray[n5] - 2, 0);
-                        lv14 = lv2;
-                        n3 = this.a(n3, lv14.a, n25 + ((n5 & 1) == 1 ? 40 : 0), ((at)object2).o(), n4, ((at)object2).o(), 6);
-                        ++n5;
+                    final int n38 = n29 - 100;
+                    final int n39 = n29;
+                    final mv a12 = this.A;
+                    final int n40 = n39 + mv.a();
+                    for (int n41 = 0; n41 < array3.length; ++n41) {
+                        final nd a13 = this.a.a(array3[n41] - 2, 0);
+                        n37 = this.a(n37, lv.a, n40 + (((n41 & 0x1) == 0x1) ? 40 : 0), a13.o(), n38, a13.o(), 6);
                     }
-                    n24 -= 40;
-                    n5 = 0;
-                    while (n5 < 3) {
-                        lv14 = lv2;
-                        n3 = this.a(n3, lv14.a, n25 + cv.a(150), n24, n4, n24, 6);
-                        n24 += 20;
-                        ++n5;
+                    n27 -= 40;
+                    for (int n42 = 0; n42 < 3; ++n42) {
+                        n37 = this.a(n37, lv.a, n40 + cv.a(150), n27, n38, n27, 6);
+                        n27 += 20;
                     }
                 }
                 n2 = 5;
                 break;
             }
             case 2007: {
-                lv lv15;
-                int n26;
-                n5 = 0;
-                while (n5 < byArray3.length) {
-                    object2 = this.a.a(objectArray[n5] + 1 - 2, byArray3[n5] + 1 - 2);
-                    object = ((at)object2).n();
-                    n26 = ((at)object2).o() - n6;
-                    int n27 = 10 + cv.a(10) + 5;
-                    lv15 = lv2;
-                    n3 = this.a(n3, lv15.a, (int)object, n26, (int)object, 0, n27 + (n5 << 1));
-                    if (n27 > n2) {
-                        n2 = n27;
+                for (int n43 = 0; n43 < array4.length; ++n43) {
+                    final nd a14;
+                    i = (a14 = this.a.a(array3[n43] + 1 - 2, array4[n43] + 1 - 2)).n();
+                    final int n44 = a14.o() - n6;
+                    final int n45 = 10 + cv.a(10) + 5;
+                    n3 = this.a(n3, lv.a, i, n44, i, 0, n45 + (n43 << 1));
+                    if (n45 > n2) {
+                        n2 = n45;
                     }
-                    ++n5;
                 }
-                object = nArray[0] + nArray[2] / 2;
-                n26 = nArray[1] + nArray[3] - 10;
-                lv15 = lv2;
-                this.a(n3, lv15.a, (int)object, n26, (int)object, 0, n2 - 15);
+                i = array5[0] + array5[2] / 2;
+                this.a(n3, lv.a, i, array5[1] + array5[3] - 10, i, 0, n2 - 15);
                 this.c(n, n2, n2 - 6);
                 break;
             }
             case 2008: {
-                n4 = nArray[0] + nArray[2] / 2;
-                n3 = nArray[1] + nArray[3] / 2;
-                lv lv16 = lv2;
-                n3 = this.a(0, lv16.a, 0, 0, n4, n3, 0);
-                jl jl2 = (jl)this.o.b(n3);
-                ((jl)this.o.b(n3)).s = byArray.length;
-                int n28 = 0;
-                while (n28 < byArray.length) {
-                    object2 = this.a.a(byArray[n28] - 2, byArray2[n28] - 2);
-                    jl2.t[n28].c(((at)object2).n(), ((at)object2).o());
-                    ++n28;
+                final jl jl;
+                (jl = (jl)this.o.b(this.a(0, lv.a, 0, 0, array5[0] + array5[2] / 2, array5[1] + array5[3] / 2, 0))).s = array.length;
+                for (int n46 = 0; n46 < array.length; ++n46) {
+                    final nd a15 = this.a.a(array[n46] - 2, array2[n46] - 2);
+                    jl.t[n46].c(a15.n(), a15.o());
                 }
                 this.a(n, 32, 22, false);
                 n2 = 0;
                 break;
             }
             case 4000: {
-                object = nArray[0] + nArray[2] / 2;
-                int n29 = nArray[1] + nArray[3] / 2;
-                lv lv17 = lv2;
-                n3 = this.a(0, lv17.a, object - n4, n29 - 180, (int)object, n29, 10);
+                i = array5[0] + array5[2] / 2;
+                final int n47 = array5[1] + array5[3] / 2;
+                int n48 = this.a(0, lv.a, i - n4, n47 - 180, i, n47, 10);
                 this.a(n, 32, 22, false);
                 n2 = 10 + (cv.a(7) + 5);
-                int n30 = 0;
-                while (n30 < byArray3.length) {
-                    object2 = this.a.a(objectArray[n30] - 2, byArray3[n30] - 2);
-                    object = ((at)object2).n() + n5;
-                    n29 = ((at)object2).o() + n6;
-                    int n31 = 10 + cv.a(15);
-                    lv17 = lv2;
-                    n3 = this.a(n3, lv17.a, object - n4, n29 - 180, (int)object, n29, n31);
-                    if (n31 > n2) {
-                        n2 = n31;
+                for (int n49 = 0; n49 < array4.length; ++n49) {
+                    final nd a16;
+                    i = (a16 = this.a.a(array3[n49] - 2, array4[n49] - 2)).n() + n5;
+                    final int n50 = a16.o() + n6;
+                    final int n51 = 10 + cv.a(15);
+                    n48 = this.a(n48, lv.a, i - n4, n50 - 180, i, n50, n51);
+                    if (n51 > n2) {
+                        n2 = n51;
                     }
-                    ++n30;
                 }
                 break;
             }
             case 4001: {
-                object = object2[0] + object2[2] / 2;
-                int n32 = object2[1] + object2[3] - 10;
-                lv lv18 = lv2;
-                this.a(0, lv18.a, (int)object, n32, (int)object, n32, 10);
+                i = array6[0] + array6[2] / 2;
+                final int n52 = array6[1] + array6[3] - 10;
+                this.a(0, lv.a, i, n52, i, n52, 10);
                 this.b.c(10);
                 n2 = 14;
                 break;
             }
             case 4002: {
-                object = object2[0] + object2[2] / 2;
-                int n33 = object2[1] + object2[3] / 2 + 6;
-                n4 = nArray[0] + nArray[2] / 2;
-                lv lv19 = lv2;
-                this.a(0, lv19.a, (int)object, n33, n4, n33, 10);
+                i = array6[0] + array6[2] / 2;
+                final int n53 = array6[1] + array6[3] / 2 + 6;
+                this.a(0, lv.a, i, n53, array5[0] + array5[2] / 2, n53, 10);
                 this.a(n, 1, false, false);
                 n2 = 15;
                 break;
             }
             case 4003: {
-                n4 = nArray[0] + nArray[2] / 2;
-                n3 = nArray[1] + nArray[3];
-                lv lv20 = lv2;
-                this.a(0, lv20.a, n4, n3, n4, n3, 10);
+                final int n54 = array5[0] + array5[2] / 2;
+                final int n55 = array5[1] + array5[3];
+                this.a(0, lv.a, n54, n55, n54, n55, 10);
                 this.b.a(n, 10);
                 this.c(n, 15, 16);
                 n2 = 13;
                 break;
             }
             case 4004: {
-                this.d((int)object);
+                this.d(i);
                 n2 += 30;
                 break;
             }
             case 4005: {
-                object = object2[0] + object2[2] / 2;
-                int n34 = object2[1] + object2[3] / 2;
-                n4 = nArray[0] + nArray[2] / 2;
-                n3 = nArray[1] + nArray[3] / 2;
-                lv lv21 = lv2;
-                this.a(0, lv21.a, (int)object, n34, n4, n3, 4);
+                i = array6[0] + array6[2] / 2;
+                this.a(0, lv.a, i, array6[1] + array6[3] / 2, array5[0] + array5[2] / 2, array5[1] + array5[3] / 2, 4);
                 this.c(n, 26, 16);
                 break;
             }
             case 4006: {
-                n4 = nArray[0] + nArray[2] / 2;
-                n3 = nArray[1] + nArray[3] / 2;
-                lv lv22 = lv2;
-                n3 = this.a(0, lv22.a, n4, n3 - 180, n4, n3, 0);
+                final int n56 = array5[0] + array5[2] / 2;
+                final int n57 = array5[1] + array5[3] / 2;
+                int n58 = this.a(0, lv.a, n56, n57 - 180, n56, n57, 0);
                 this.c(n, 20, 10);
-                int n35 = 0;
-                while (n35 < byArray3.length) {
-                    int n36 = cv.a(15) + 10;
-                    object2 = this.a.a(objectArray[n35] + 1 - 2, byArray3[n35] + 1 - 2);
-                    object = ((at)object2).n();
-                    int n37 = ((at)object2).o();
-                    lv22 = lv2;
-                    n3 = this.a(n3, lv22.a, (int)object, n37 - 180, (int)object, n37, n36);
-                    if (n36 > n2) {
-                        n2 = n36;
+                for (int n59 = 0; n59 < array4.length; ++n59) {
+                    final int n60 = cv.a(15) + 10;
+                    final nd a17;
+                    i = (a17 = this.a.a(array3[n59] + 1 - 2, array4[n59] + 1 - 2)).n();
+                    final int o3 = a17.o();
+                    n58 = this.a(n58, lv.a, i, o3 - 180, i, o3, n60);
+                    if (n60 > n2) {
+                        n2 = n60;
                     }
-                    ++n35;
                 }
                 break;
             }
             case 4007: {
-                int n38 = 0;
-                while (n38 < byArray3.length) {
-                    object2 = this.a.a(objectArray[n38] + 3 - 1 - 2, byArray3[n38] + 1 - 2);
-                    object = ((at)object2).n();
-                    int n39 = ((at)object2).o() + n6;
-                    int n40 = 10 + cv.a(15);
-                    lv lv23 = lv2;
-                    n3 = this.a(n3, lv23.a, (int)object, n39, (int)object, 0, n40);
-                    if (n40 > n2) {
-                        n2 = n40;
+                for (int n61 = 0; n61 < array4.length; ++n61) {
+                    final nd a18;
+                    i = (a18 = this.a.a(array3[n61] + 3 - 1 - 2, array4[n61] + 1 - 2)).n();
+                    final int n62 = a18.o() + n6;
+                    final int n63 = 10 + cv.a(15);
+                    n3 = this.a(n3, lv.a, i, n62, i, 0, n63);
+                    if (n63 > n2) {
+                        n2 = n63;
                     }
-                    ++n38;
                 }
                 this.c(n, n2, n2 - 6);
                 break;
             }
             case 4008: {
-                object = nArray[0] + nArray[2] / 2;
-                int n41 = nArray[1] + nArray[3] / 2;
-                lv lv24 = lv2;
-                n3 = this.a(0, lv24.a, object - n4, n41 - 180, (int)object, n41, 10);
+                i = array5[0] + array5[2] / 2;
+                final int n64 = array5[1] + array5[3] / 2;
+                int n65 = this.a(0, lv.a, i - n4, n64 - 180, i, n64, 10);
                 this.a(n, 32, 22, false);
                 n2 = 10 + (cv.a(7) + 5);
-                int n42 = 0;
-                while (n42 < byArray3.length) {
-                    object2 = this.a.a(objectArray[n42] - 2, byArray3[n42] - 2);
-                    object = ((at)object2).n() + n5;
-                    n41 = ((at)object2).o() + n6;
-                    int n43 = 10 + cv.a(20);
-                    lv24 = lv2;
-                    n3 = this.a(n3, lv24.a, object - n4, n41 - 180, (int)object, n41, n43);
-                    if (n43 > n2) {
-                        n2 = n43;
+                for (int n66 = 0; n66 < array4.length; ++n66) {
+                    final nd a19;
+                    i = (a19 = this.a.a(array3[n66] - 2, array4[n66] - 2)).n() + n5;
+                    final int n67 = a19.o() + n6;
+                    final int n68 = 10 + cv.a(20);
+                    n65 = this.a(n65, lv.a, i - n4, n67 - 180, i, n67, n68);
+                    if (n68 > n2) {
+                        n2 = n68;
                     }
-                    ++n42;
                 }
                 break;
             }
         }
         return n2 - 3;
     }
-
-    private int a(int n, int n2, int n3, int n4, int n5, int n6, int n7) {
-        im im2;
-        int n8;
-        int n9;
-        block29: {
-            int n10 = n2;
-            int n11 = n;
-            mt mt2 = this;
-            if (n11 < 0) {
-                n9 = -1;
-            } else {
-                while (n11 < mt2.o.d()) {
-                    im im3 = (im)mt2.o.b(n11);
-                    if (!im3.m() && im3.r() == n10) {
-                        n9 = n11;
-                        break block29;
+    
+    private int a(int n, final int n2, final int n3, final int n4, final int n5, final int n6, final int n7) {
+        final int n8 = n;
+        int n10 = 0;
+        int n9 = 0;
+        Label_0076: {
+            if (n8 < 0) {
+                n9 = (n10 = -1);
+            }
+            else {
+                for (int i = n8; i < this.o.d(); ++i) {
+                    final im im;
+                    if (!(im = (im)this.o.b(i)).m() && im.r() == n2) {
+                        n9 = (n10 = i);
+                        break Label_0076;
                     }
-                    ++n11;
                 }
-                n9 = n8 = -1;
+                n9 = (n10 = -1);
             }
         }
+        n = n10;
+        Object o = null;
         if (n9 > 0) {
-            im2 = (im)this.o.b(n8);
-        } else {
+            o = this.o.b(n);
+        }
+        else {
             switch (n2) {
                 case 1000: {
-                    im2 = new is();
+                    o = new is();
                     break;
                 }
                 case 1001: {
-                    im2 = new it();
+                    o = new it();
                     break;
                 }
                 case 1004: {
-                    im2 = new iu();
+                    o = new iu();
                     break;
                 }
                 case 1005: {
-                    im2 = new iv();
+                    o = new iv();
                     break;
                 }
                 case 1006: {
-                    im2 = new iw();
+                    o = new iw();
                     break;
                 }
                 case 1007: {
-                    im2 = new ix();
+                    o = new ix();
                     break;
                 }
                 case 1008: {
-                    im2 = new iy();
+                    o = new iy();
                     break;
                 }
                 case 2000: {
-                    im2 = new jg();
+                    o = new jg();
                     break;
                 }
                 case 2003: {
-                    im2 = new jh();
+                    o = new jh();
                     break;
                 }
                 case 2004: {
-                    im2 = new ji();
+                    o = new ji();
                     break;
                 }
                 case 2006: {
-                    im2 = new jj();
+                    o = new jj();
                     break;
                 }
                 case 2007: {
-                    im2 = new jk();
+                    o = new jk();
                     break;
                 }
                 case 2008: {
-                    im2 = new jl();
+                    o = new jl();
                     break;
                 }
                 case 4000: {
-                    im2 = new iz();
+                    o = new iz();
                     break;
                 }
                 case 4001: {
-                    im2 = new ja();
+                    o = new ja();
                     break;
                 }
                 case 4002: {
-                    im2 = new jb();
+                    o = new jb();
                     break;
                 }
                 case 4003: {
-                    im2 = new jc();
+                    o = new jc();
                     break;
                 }
                 case 4005: {
-                    im2 = new jd();
+                    o = new jd();
                     break;
                 }
                 case 4006: {
-                    im2 = new je();
+                    o = new je();
                     break;
                 }
                 case 4007: {
-                    im2 = new jf();
+                    o = new jf();
                     break;
                 }
                 case 4008: {
-                    im2 = new iz();
+                    o = new iz();
                     break;
                 }
                 default: {
                     return -1;
                 }
             }
-            im2.l(n2);
-            this.o.a(im2);
-            n8 = this.o.d() - 1;
+            ((im)o).l(n2);
+            this.o.a(o);
+            n = this.o.d() - 1;
         }
-        im2.a(n3, n4, n5, n6, n7);
-        return n8;
+        ((im)o).a(n3, n4, n5, n6, n7);
+        return n;
     }
-
-    public final void a(boolean bl) {
-        this.b.a(bl);
+    
+    public final void a(final boolean b) {
+        this.b.a(b);
     }
-
-    public final void a(bf bf2) {
+    
+    public final void a(final bf bf) {
         if (this.w != null) {
-            this.w.b(bf2);
+            this.w.b(bf);
             return;
         }
         com.mg.sq.a.s().a("Kiểu quyết đấu: Không chơi Tuyệt Chiêu");
     }
-
-    public final void a(int n, int n2, int n3, int n4) {
+    
+    public final void a(final int n, final int n2, int n3, int n4) {
         n3 = 112 + this.a.n() - 14;
         n4 = 112 + this.a.o() - 14;
         this.t.a("Còn " + n2 + " lượt", n3, n4);
@@ -1551,37 +1467,31 @@ implements mr {
         }
         this.t.a(com.mg.sq.a.h);
     }
-
+    
     public final void j() {
-        Object object = this.a;
-        object = ((mh)object).a;
-        this.u.a("Hết nước đi!", ((k)object).a + ((k)object).c / 2, ((k)object).b + ((k)object).d / 2);
+        final k a = this.a.a;
+        this.u.a("Hết nước đi!", a.a + a.c / 2, a.b + a.d / 2);
     }
-
-    public final void c(String string) {
-        Object object = this.a;
-        object = ((mh)object).a;
-        this.c.a(string, ((k)object).a + ((k)object).c / 2, ((k)object).b + ((k)object).d / 2);
+    
+    public final void c(final String s) {
+        final k a = this.a.a;
+        this.c.a(s, a.a + a.c / 2, a.b + a.d / 2);
     }
-
+    
     public final void k() {
         this.z.a("Vui lòng đừng gửi quá nhanh!", 0);
     }
-
+    
     public final void l() {
         this.o.a();
     }
-
-    public final void b(boolean bl) {
-        mt mt2 = this;
-        mt2.n.a();
-        mt2 = this;
-        mt2.m.a();
-        mt2 = this;
-        mt2.p.a();
-        if (bl) {
-            mt mt3 = this;
-            mt3.o.a();
+    
+    public final void b(final boolean b) {
+        this.n.a();
+        this.m.a();
+        this.p.a();
+        if (b) {
+            this.o.a();
         }
         System.gc();
     }

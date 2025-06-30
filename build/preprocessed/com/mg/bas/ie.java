@@ -9,7 +9,7 @@ public final class ie
 extends al
 implements bf {
     private static int k;
-    private static int l;
+    private static int lIndex;
     private int[] m;
     private int[] n;
     private int o = 60;
@@ -57,8 +57,8 @@ implements bf {
         this.f -= 20;
         this.u = bx.a(this.r, this.f - 16, bx.b);
         this.g = this.q + p + p + p + bx.c.a() * this.u.length;
-        this.c = (v.t - this.f) / 2;
-        this.d = (v.u - this.g - ba.a) / 2;
+        this.c = (com.mg.bas.v.t - this.f) / 2;
+        this.d = (com.mg.bas.v.u - this.g - ba.a) / 2;
         int n = this.f / 2;
         int n2 = this.d + p + this.q / 2;
         int n3 = this.q / 2;
@@ -76,10 +76,10 @@ implements bf {
 
     public final void c(Graphics graphics) {
         if (this.x != null) {
-            graphics.fillRect(0, 0, v.t, v.u);
-            graphics.drawImage(this.x, v.t >> 1, v.u >> 1, 3);
+            graphics.fillRect(0, 0, com.mg.bas.v.t, com.mg.bas.v.u);
+            graphics.drawImage(this.x, com.mg.bas.v.t >> 1, com.mg.bas.v.u >> 1, 3);
         } else {
-            pc.a(graphics, this.c, this.d, this.f, this.g, v.aj, false);
+            pc.a(graphics, this.c, this.d, this.f, this.g, com.mg.bas.v.aj, false);
         }
         if (this.s) {
             com.mg.sq.a.h.a(graphics, this.t, this.c + this.f / 2, this.d + p + this.q / 2 - 5, 1);
@@ -88,7 +88,7 @@ implements bf {
         ie ie2 = this;
         int n = ie2.w.getWidth() / 3;
         int n2 = ie2.w.getHeight();
-        int n3 = (l - 2 + ie2.m.length) % ie2.m.length;
+        int n3 = (lIndex - 2 + ie2.m.length) % ie2.m.length;
         int n4 = 0;
         while (n4 < 2) {
             int n5 = (n3 + n4 + ie2.m.length) % ie2.m.length;
@@ -98,7 +98,7 @@ implements bf {
         if (ie2.y >= 0) {
             bx.c.a(graphics2, String.valueOf(ie2.y) + "%", ie2.c + ie2.f / 2, ie2.d + (p + ie2.q) / 2, 3);
         }
-        cw.a(graphics2, ie2.w, n, 0, n, n2, ie2.m[l], ie2.n[l], 3);
+        cw.a(graphics2, ie2.w, n, 0, n, n2, ie2.m[lIndex], ie2.n[lIndex], 3);
         cw.a(graphics2, ie2.w, n + n, 0, n, n2, ie2.m[k], ie2.n[k], 3);
         int n6 = 0;
         int n7 = 0;
@@ -118,7 +118,7 @@ implements bf {
             }
             this.t = String.valueOf(n);
         }
-        l = k;
+        lIndex = k;
         k = (k + 1) % this.m.length;
     }
 

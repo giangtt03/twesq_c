@@ -46,7 +46,7 @@ extends im {
 
     public final void a(int n, int n2, int n3, int n4, int n5) {
         this.r = true;
-        if (n3 >= v.t / 2) {
+        if (n3 >= com.mg.bas.v.t / 2) {
             this.c(0);
             this.j(40);
             this.b(n3 + 20, n4);

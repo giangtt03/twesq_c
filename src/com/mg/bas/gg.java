@@ -23,7 +23,7 @@ extends aq {
 
     public gg(String string) {
         this.k = string;
-        this.p = f.d("/info/increase");
+        this.p = com.mg.bas.f.d("/info/increase");
     }
 
     public final void a(int n, int n2, int n3, int n4) {

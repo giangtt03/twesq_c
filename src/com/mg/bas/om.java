@@ -75,9 +75,9 @@ bg {
      */
     public om(int var1_1, ol var2_4, oa var3_5) {
     super();
-    this.r = f.d("/monster");
-    this.s = f.d("/zap");
-    this.t = f.d("/ice");
+    this.r = com.mg.bas.f.d("/monster");
+    this.s = com.mg.bas.f.d("/zap");
+    this.t = com.mg.bas.f.d("/ice");
     this.u = ks.a();
     this.D = null;
     this.l = null;
@@ -115,8 +115,8 @@ bg {
     this.al = new ox(null);
     this.ad = new int[20];
 
-    if (!v.ah) {
-        java.util.Calendar var1_2 = i.c(System.currentTimeMillis());
+    if (!com.mg.bas.v.ah) {
+        java.util.Calendar var1_2 = com.mg.bas.i.c(System.currentTimeMillis());
         int hour = var1_2.get(11);
         if (hour < 6) {
             this.ac = -40;
@@ -131,8 +131,8 @@ bg {
 
     this.an = new ax(3);
     var2_4.a(this.an);
-    this.d(v.t);
-    this.e(v.u);
+    this.d(com.mg.bas.v.t);
+    this.e(com.mg.bas.v.u);
     var2_4.a(new ba());
     om.p = false;
 
@@ -140,7 +140,7 @@ bg {
         try {
             this.P = true;
             this.Z = true;
-            this.am.a(this);
+            this.am.a((aq)this);
             this.w = new gb(109, 1);
             this.x = new gb(105, 0);
             this.y = new gb(113, 2);
@@ -206,7 +206,7 @@ bg {
             return;
         }
         graphics.setColor(0);
-        graphics.fillRect(0, 0, v.t, v.u);
+        graphics.fillRect(0, 0, com.mg.bas.v.t, com.mg.bas.v.u);
         try {
             this.F.a(graphics);
             if (this.S != null) {
@@ -237,33 +237,22 @@ bg {
     }
 
     private void x() {
-        int n;
         System.out.println("Loading map " + oa.c);
-        Image image = this.g(oa.c.f, this.ac);
-        this.F = new kh(image);
-        this.K = om.a(oa.c.j, oa.c.d, oa.c.e);
+        this.F = new kh(this.g(oa.c.f, this.ac));
+        this.K = a(oa.c.j, oa.c.d, oa.c.e);
         this.n = new a();
-        int n2 = 0;
-        while (n2 < oa.c.d) {
-            n = 0;
-            while (n < oa.c.e) {
-                if (this.K[n2][n] == 2) {
-                    this.n.a(new cu(n, n2));
-                    this.K[n2][n] = 0;
+        for (int i = 0; i < oa.c.d; ++i) {
+            for (int j = 0; j < oa.c.e; ++j) {
+                if (this.K[i][j] == 2) {
+                    this.n.a(new cu(j, i));
+                    this.K[i][j] = 0;
                 }
-                ++n;
             }
-            ++n2;
         }
-        Object object = this.g(oa.c.g, this.ac);
-        object = new kc((Image)object);
-        this.F.a((kb)object);
-        n = om.a(oa.c.k, oa.c.m);
-        byte[] byArray = oa.b[n];
-        object = byArray;
-        h.b(byArray, (this.ac << 1) / 3);
-        object = f.a((byte[])object);
-        this.G = new kf((Image)object, om.a(oa.c.h, oa.c.d, oa.c.e), 32, 32);
+        this.F.a(new kc(this.g(oa.c.g, this.ac)));
+        final byte[] array;
+        com.mg.bas.h.b(array = oa.b[a(oa.c.k, oa.c.m)], (this.ac << 1) / 3);
+        this.G = new kf(com.mg.bas.f.a(array), a(oa.c.h, oa.c.d, oa.c.e), (byte)32, (byte)32);
         this.F.a(this.G);
         this.F.h(this.G.p());
         this.F.i(this.G.q());
@@ -271,68 +260,69 @@ bg {
         this.F.a(this.H);
         this.Q = new ln();
         this.L = new kg[oa.c.l.length];
-        byte[] byArray2 = f.b("/gate");
-        object = byArray2;
-        h.b(byArray2, (this.ac << 1) / 3);
-        object = f.a((byte[])object);
-        int n3 = 0;
-        while (n3 < oa.c.l.length) {
-            jm jm2 = oa.c.l[n3];
-            if (jm2.a == 1) {
-                this.L[n3] = new kg(this.Q, jm2);
-                this.L[n3].e = this.Q;
-            } else if (jm2.a == 0) {
-                this.L[n3] = new jy((Image)object, jm2, this.F.p());
-            } else {
-                Image image2 = this.al.a(jm2.i, true);
-                if (image2 == null) {
-                    image2 = this.g(jm2.i, 0);
-                    this.al.a(jm2.i, image2);
-                }
-                this.L[n3] = new kk(image2, jm2, 1);
+        final byte[] b;
+        com.mg.bas.h.b(b = com.mg.bas.f.b("/gate"), (this.ac << 1) / 3);
+        final Image a = com.mg.bas.f.a(b);
+        for (int k = 0; k < oa.c.l.length; ++k) {
+            final jm jm;
+            if ((jm = oa.c.l[k]).a == 1) {
+                this.L[k] = new kg(this.Q, jm);
+                this.L[k].e = this.Q;
             }
-            if (jm2.c == go.x && i == null) {
-                int n4 = 0;
-                if (jm2.a == 0) {
-                    n4 = this.L[n3].b() == 0 ? this.L[n3].d.f : (n4 -= 26);
-                }
-                i = new cu(jm2.d + n4, jm2.e);
+            else if (jm.a == 0) {
+                this.L[k] = new jy(a, jm, this.F.p());
             }
-            ++n3;
+            else {
+                Image image;
+                if ((image = this.al.a(jm.i, true)) == null) {
+                    image = this.g(jm.i, 0);
+                    this.al.a(jm.i, image);
+                }
+                this.L[k] = new kk(image, jm, 1);
+            }
+            if (jm.c == go.x && om.i == null) {
+                int f = 0;
+                if (jm.a == 0) {
+                    if (this.L[k].b() == 0) {
+                        f = this.L[k].d.f;
+                    }
+                    else {
+                        f -= 26;
+                    }
+                }
+                om.i = new cu(jm.d + f, jm.e);
+            }
         }
-        this.l = new kl();
-        this.l.a(go.k);
+        (this.l = new kl()).a(go.k);
         this.l.c(om.i.a, om.i.b);
-        if (j == 4) {
-            j = 0;
+        if (om.j == 4) {
+            om.j = 0;
         }
-        this.l.a(j, k);
-        i = null;
+        this.l.a(om.j, om.k);
+        om.i = null;
         this.H.a(this.l);
         this.H.c = this.L;
-        if (go.u != null && go.u.length > 0 && E != null) {
-            Image image3 = f.d("/info/itemchest");
-            int n5 = 0;
-            while (n5 < go.u.length) {
-                ju ju2 = new ju(image3, 1);
-                ju2.l(60);
-                ju2.v = go.u[n5];
-                ju2.c(om.E.a, om.E.b - ju2.q());
-                ju2.a(new byte[][]{new byte[1], new byte[1], new byte[1], new byte[1]}, ju2.p());
-                ju2.a(new byte[][]{new byte[1], new byte[1], new byte[1], new byte[1]});
-                ju2.b((byte)1);
-                ju2.a((byte)1);
-                ju2.w = cv.a(2) == 0 ? -1 : 1;
-                this.H.d.a(ju2);
-                ++n5;
+        if (go.u != null && go.u.length > 0 && om.E != null) {
+            final Image d = com.mg.bas.f.d("/info/itemchest");
+            for (int l = 0; l < go.u.length; ++l) {
+                final ju ju;
+                (ju = new ju(d, 1)).l(60);
+                ju.v = go.u[l];
+                ju.c(om.E.a, om.E.b - ju.q());
+                ju.a(new byte[][] { new byte[1], new byte[1], new byte[1], new byte[1] }, ju.p());
+                ju.a(new byte[][] { new byte[1], new byte[1], new byte[1], new byte[1] });
+                ju.b((byte)1);
+                ju.a((byte)1);
+                ju.w = ((cv.a(2) == 0) ? -1 : 1);
+                this.H.d.a(ju);
             }
             go.u = new ll[0];
         }
-        this.G.a(om.a(oa.c.i, oa.c.d, oa.c.e));
+        this.G.a(a(oa.c.i, oa.c.d, oa.c.e));
         this.F.a(this.l.t);
         this.S = oa.c.b;
         this.T = bx.d.a(this.S) + 10;
-        this.R = new cu(v.t - this.T / 2, 0);
+        this.R = new cu(com.mg.bas.v.t - this.T / 2, 0);
         this.V = new jt(go.k);
         this.a(go.k.ac);
         this.O = true;
@@ -470,38 +460,37 @@ bg {
         }
     }
 
-    private ki a(int n, int n2, jo object, Image object2) {
-        int n3;
-        Image image;
-        if (object == null) {
+    private ki a(final int n, final int n2, final jo jo, final Image image) {
+        if (jo == null) {
             return null;
         }
-        switch (((jo)object).c >> 1) {
+        Image image2 = null;
+        int n3 = 0;
+        switch (jo.c >> 1) {
             case 0: {
-                image = this.r;
+                image2 = this.r;
                 n3 = 14;
                 break;
             }
             case 1: {
-                image = this.s;
+                image2 = this.s;
                 n3 = 5;
                 break;
             }
             default: {
-                image = this.t;
+                image2 = this.t;
                 n3 = 13;
+                break;
             }
         }
-        object = new ki(image, 1, 6, (jo)object, go.k, (Image)object2);
-        ((ki)object).c(n3);
-        ((ki)object).a(((at)object).n(), ((at)object).o(), ((at)object).p() - 12, 20);
-        int n4 = cv.a(2, 4);
-        object2 = object;
-        ((ki)object).d = n4;
-        ((ki)object).c(n - (((at)object).p() - 32), n2 - (((at)object).q() - 32));
-        ((ki)object).a(0, cv.a(2, 3));
-        this.H.b.a(object);
-        return object;
+        final ki ki;
+        (ki = new ki(image2, 1, 6, jo, go.k, image)).c(n3);
+        ki.a(ki.n(), ki.o(), ki.p() - 12, 20);
+        ki.d = cv.a(2, 4);
+        ki.c(n - (ki.p() - 32), n2 - (ki.q() - 32));
+        ki.a(0, cv.a(2, 3));
+        this.H.b.a(ki);
+        return ki;
     }
 
     private static int a(int n, int[] nArray) {
@@ -550,7 +539,7 @@ bg {
                                     if (this.Y > 0) {
                                         --this.Y;
                                         if (this.Y == 0) {
-                                            ag.b().a(this.q, false);
+                                           com.mg.bas.ag.b().a(this.q, false);
                                         } else if (this.Y < 0) {
                                             this.q();
                                         }
@@ -770,7 +759,7 @@ bg {
     public final void q() {
         ki ki2;
         this.Y = 0;
-        ag.b().a(false);
+        com.mg.bas.ag.b().a(false);
         this.l.a(0);
         this.e(false);
         if (this.U >= 0 && (ki2 = (ki)this.I.b(this.U)) != null) {
@@ -787,9 +776,9 @@ bg {
         ct.b("fightingMonster");
         try {
             if (!bl) {
-                ag.a().b(10);
+                com.mg.bas.ag.a().b(10);
             }
-            ag.b().l();
+            com.mg.bas.ag.b().l();
             this.N = true;
             this.Y = 10;
             this.r();
@@ -838,58 +827,55 @@ bg {
         }
     }
 
-    public final void d(int n, int n2) {
+    public final void d(final int n, final int n2) {
         switch (n2) {
             case 105: {
-                om om2 = this;
-                if (om2.N || om2.X == null || om2.am == null) break;
-                bs bs2 = new bs();
-                oa cfr_ignored_0 = om2.X;
-                br[] brArray = oa.a(om2.am);
-                if (brArray != null) {
-                    bs2.a(brArray);
-                    int n3 = bs2.e() > bs2.f() ? bs2.e() : bs2.f();
-                    bs2.a_(-n3, om2.f() - bs2.f() + n3);
-                    bs2.d(0, v.u - ba.a - bs2.f());
-                    bs2.a(om2);
-                    bs2.c(om2.C);
-                    bs2.a(om2.y);
-                    bs2.b(om2.z);
-                    om2.m.a();
-                    if (om2.an.a() != null && om2.an.a() instanceof gj) {
-                        om2.an.a().b(false);
-                        om2.an.i();
-                        gj gj2 = (gj)om2.an.a();
-                        br[] brArray2 = bs2.s();
-                        at at2 = null;
-                        if (gj2 != null) {
-                            int n4 = 0;
-                            while (n4 < brArray2.length) {
-                                if (brArray2[n4].b().equals(gj2.b())) {
-                                    at2 = brArray2[n4];
+                if (this.N || this.X == null || this.am == null) {
+                    break;
+                }
+                final bs bs = new bs();
+                final oa x = this.X;
+                final br[] a;
+                if ((a = oa.a((fb)this.am)) != null) {
+                    bs.a(a);
+                    final int n3 = (bs.e() > bs.f()) ? bs.e() : bs.f();
+                    bs.a_(-n3, this.f() - bs.f() + n3);
+                    bs.d(0, com.mg.bas.v.u - ba.a - bs.f());
+                    bs.a((bg)this);
+                    bs.c(this.C);
+                    bs.a(this.y);
+                    bs.b(this.z);
+                    this.m.a();
+                    if (this.an.a() != null && this.an.a() instanceof gj) {
+                        this.an.a().b(false);
+                        this.an.i();
+                        final gj ai = (gj)this.an.a();
+                        final br[] s = bs.s();
+                        br aj = null;
+                        if (ai != null) {
+                            for (int i = 0; i < s.length; ++i) {
+                                if (s[i].b().equals(ai.b())) {
+                                    aj = s[i];
                                 }
-                                ++n4;
                             }
-                            if (at2 != null) {
-                                n4 = at2.n() + at2.p();
-                                gj2.f(n4 + 5);
-                                gj2.g(at2.o());
-                                gj2.a(gj2.n() + 10);
-                                gj2.a(new k(gj2.n() + 9, gj2.o() + 9, gj2.p() - 20, gj2.q() - 20));
-                                gj2.c(true);
-                                om2.aj = at2;
-                                om2.ai = gj2;
-                                gj2.c();
+                            if (aj != null) {
+                                ai.f(aj.n() + aj.p() + 5);
+                                ai.g(aj.o());
+                                ai.a(ai.n() + 10);
+                                ai.a(new k(ai.n() + 9, ai.o() + 9, ai.p() - 20, ai.q() - 20));
+                                ai.c(true);
+                                this.aj = aj;
+                                (this.ai = ai).c();
                             }
                         }
                     }
-                    om2.am.a(bs2);
+                    this.am.a(bs);
                 }
                 return;
             }
             case 101: {
-                com.mg.sq.a.s().a((String)null, (il)null);
-                i = null;
+                com.mg.sq.a.s().a(null, (il)null);
+                om.i = null;
                 this.e(false);
                 this.m.a();
                 this.l.a(0);
@@ -902,7 +888,7 @@ bg {
                 this.af = this.M.a();
                 this.ak = this.M.d.c;
                 this.u.b(go.w, this.ak);
-                com.mg.sq.a.s().a((String)null, (il)null);
+                com.mg.sq.a.s().a(null, (il)null);
                 return;
             }
             case 109: {
@@ -920,62 +906,63 @@ bg {
             }
             case 110: {
                 if (go.b()) {
-                    com.mg.sq.a.a((bf)this, "Hành Trang", 114, "Đóng", 115);
+                    com.mg.sq.a.a(this, "Hành Trang", 114, "Đóng", 115);
                     return;
                 }
                 com.mg.sq.a.a(this.ab.v, this, "Nhặt", 2000, "Bỏ qua", 1000);
                 return;
             }
             case 2000: {
-                om om3 = this;
-                om3.ag.a(om3.ab.v);
-                om3.u.b(new String[]{om3.ab.v.c});
-                ag.b().a(241212, false);
-                om3.H.d.b(om3.ab);
-                om3.ab = null;
-                om3.am.c(om3.C);
+                this.ag.a(this.ab.v);
+                this.u.b(new String[] { this.ab.v.c });
+                com.mg.bas.ag.b().a(241212, false);
+                this.H.d.b(this.ab);
+                this.ab = null;
+                this.am.c(this.C);
                 return;
             }
             case 1000: {
-                ag.b().a(241212, false);
+                com.mg.bas.ag.b().a(241212, false);
                 this.H.d.b(this.ab);
                 this.ab = null;
                 this.am.c(this.C);
                 return;
             }
             case 112: {
-                if (ag.b().c(241212)) {
-                    Object object = (hg)ag.b().d(241212);
-                    object = ((hg)object).k;
-                    go.a((ll)object);
-                    this.u.b(new String[]{((ll)object).c});
-                    ag.b().a(241212, false);
+                if (com.mg.bas.ag.b().c(241212)) {
+                    final ll k;
+                    go.a(k = ((hg)com.mg.bas.ag.b().d(241212)).k);
+                    this.u.b(new String[] { k.c });
+                    com.mg.bas.ag.b().a(241212, false);
                 }
                 this.am.c(this.C);
                 return;
             }
             case 114: {
-                ag.b().a(241209, false);
+                com.mg.bas.ag.b().a(241209, false);
                 this.X.v();
                 return;
             }
             case 115: {
-                ag.b().a(241209, false);
+                com.mg.bas.ag.b().a(241209, false);
                 return;
             }
             case 118: {
-                kk kk2 = (kk)this.M;
-                if (this.M == null) break;
+                final kk kk = (kk)this.M;
+                if (this.M != null) {
+                    break;
+                }
                 break;
             }
             case -999: {
-                ag.b().a(false);
+                com.mg.bas.ag.b().a(false);
                 return;
             }
             default: {
                 ks.a().a(n2 - 99999990, go.w, this.ak);
-                com.mg.sq.a.s().a((String)null, (il)null);
-                ag.b().a(-9898989, false);
+                com.mg.sq.a.s().a(null, (il)null);
+                com.mg.bas.ag.b().a(-9898989, false);
+                break;
             }
         }
     }
@@ -991,36 +978,44 @@ bg {
         if (this.N) {
             return true;
         }
-        if (v.ai) {
-            char c = ae.a(n);
-            if (c == 'w' || c == 'W') {
+        if (com.mg.bas.v.ai) {
+            final char a;
+            if ((a = com.mg.bas.ae.a(n)) == 'w' || a == 'W') {
                 n = 99;
-            } else if (c == 'a' || c == 'A') {
+            }
+            else if (a == 'a' || a == 'A') {
                 n = 97;
-            } else if (c == 'd' || c == 'D') {
+            }
+            else if (a == 'd' || a == 'D') {
                 n = 96;
-            } else if (c == 's' || c == 'x' || c == 'X' || c == 'S') {
+            }
+            else if (a == 's' || a == 'x' || a == 'X' || a == 'S') {
                 n = 98;
             }
         }
         if (this.M != null && this.M.d.a == 0) {
             switch (n) {
                 case 97: {
-                    if (this.M.b() != 0 || this.o || this.l.t.a > this.M.n() + this.M.p() / 2) break;
-                    i = null;
-                    this.e(false);
-                    this.u.b(go.w, this.M.d.c);
-                    com.mg.sq.a.s().a((String)null, (il)null);
-                    this.o = true;
+                    if (this.M.b() == 0 && !this.o && this.l.t.a <= this.M.n() + this.M.p() / 2) {
+                        om.i = null;
+                        this.e(false);
+                        this.u.b(go.w, this.M.d.c);
+                        com.mg.sq.a.s().a(null, (il)null);
+                        this.o = true;
+                        break;
+                    }
                     break;
                 }
                 case 96: {
-                    if (this.M.b() != 1 || this.o || this.l.t.a + this.l.t.c + 10 < this.M.n() + this.M.p() / 2) break;
-                    i = null;
-                    this.e(false);
-                    this.u.b(go.w, this.M.d.c);
-                    com.mg.sq.a.s().a((String)null, (il)null);
-                    this.o = true;
+                    if (this.M.b() == 1 && !this.o && this.l.t.a + this.l.t.c + 10 >= this.M.n() + this.M.p() / 2) {
+                        om.i = null;
+                        this.e(false);
+                        this.u.b(go.w, this.M.d.c);
+                        com.mg.sq.a.s().a(null, (il)null);
+                        this.o = true;
+                        break;
+                    }
+                    break;
                 }
             }
         }
@@ -1028,7 +1023,11 @@ bg {
             return true;
         }
         if (this.l != null) {
-            this.m.a(n, this.l);
+            final jv m = this.m;
+            final int n2 = n;
+            final kl l = this.l;
+            final kh f = this.F;
+            m.a(n2, l);
         }
         return true;
     }
@@ -1037,20 +1036,26 @@ bg {
         if (!this.O) {
             return false;
         }
-        if (v.ai) {
-            char c = ae.a(n);
-            if (c == 'w' || c == 'W') {
+        if (com.mg.bas.v.ai) {
+            final char a;
+            if ((a = com.mg.bas.ae.a(n)) == 'w' || a == 'W') {
                 n = 99;
-            } else if (c == 'a' || c == 'A') {
+            }
+            else if (a == 'a' || a == 'A') {
                 n = 97;
-            } else if (c == 'd' || c == 'D') {
+            }
+            else if (a == 'd' || a == 'D') {
                 n = 96;
-            } else if (c == 's' || c == 'x' || c == 'X' || c == 'S') {
+            }
+            else if (a == 's' || a == 'x' || a == 'X' || a == 'S') {
                 n = 98;
             }
         }
         if (this.l != null) {
-            this.m.a(n);
+            final jv m = this.m;
+            final int n2 = n;
+            final kl l = this.l;
+            m.a(n2);
         }
         return true;
     }
@@ -1071,28 +1076,28 @@ bg {
         if (!this.O) {
             return false;
         }
-        if (new k(this.l.n() - v.t / 2, this.l.o(), v.t / 2, this.l.q()).a(n -= this.F.n(), n2 -= this.F.o())) {
+        if (new k(this.l.n() - com.mg.bas.v.t / 2, this.l.o(), com.mg.bas.v.t / 2, this.l.q()).a(n -= this.F.n(), n2 -= this.F.o())) {
             this.f(97);
             return true;
         }
-        if (new k(this.l.n() + this.l.p(), this.l.o(), v.t / 2, this.l.p()).a(n, n2)) {
+        if (new k(this.l.n() + this.l.p(), this.l.o(), com.mg.bas.v.t / 2, this.l.p()).a(n, n2)) {
             this.f(96);
             return true;
         }
-        if (new k(this.l.n(), this.l.o() - v.u / 2, this.l.p(), v.u / 2).a(n, n2)) {
+        if (new k(this.l.n(), this.l.o() - com.mg.bas.v.u / 2, this.l.p(), com.mg.bas.v.u / 2).a(n, n2)) {
             this.f(99);
             return true;
         }
-        if (new k(this.l.n(), this.l.o() + this.l.q(), this.l.p(), v.u / 2).a(n, n2)) {
+        if (new k(this.l.n(), this.l.o() + this.l.q(), this.l.p(), com.mg.bas.v.u / 2).a(n, n2)) {
             this.f(98);
             return true;
         }
-        if (new k(this.l.n() - v.t / 2, this.l.o() - v.u / 2, v.t / 2, v.u / 2).a(n, n2)) {
+        if (new k(this.l.n() - com.mg.bas.v.t / 2, this.l.o() - com.mg.bas.v.u / 2, com.mg.bas.v.t / 2, com.mg.bas.v.u / 2).a(n, n2)) {
             this.f(99);
             this.f(97);
             return true;
         }
-        if (new k(this.l.n() + this.l.p(), this.l.o() - v.u / 2, v.t / 2, v.u / 2).a(n, n2)) {
+        if (new k(this.l.n() + this.l.p(), this.l.o() - com.mg.bas.v.u / 2, com.mg.bas.v.t / 2, com.mg.bas.v.u / 2).a(n, n2)) {
             this.f(99);
             this.f(96);
             return true;
@@ -1115,28 +1120,28 @@ bg {
             this.g(99);
             this.g(98);
         }
-        if (new k(this.l.n() - v.t / 2, this.l.o(), v.t / 2, this.l.q()).a(n, n2)) {
+        if (new k(this.l.n() - com.mg.bas.v.t / 2, this.l.o(), com.mg.bas.v.t / 2, this.l.q()).a(n, n2)) {
             this.g(97);
             return true;
         }
-        if (new k(this.l.n() + this.l.p(), this.l.o(), v.t / 2, this.l.p()).a(n, n2)) {
+        if (new k(this.l.n() + this.l.p(), this.l.o(), com.mg.bas.v.t / 2, this.l.p()).a(n, n2)) {
             this.g(96);
             return true;
         }
-        if (new k(this.l.n(), this.l.o() - v.u / 2, this.l.p(), v.u / 2).a(n, n2)) {
+        if (new k(this.l.n(), this.l.o() - com.mg.bas.v.u / 2, this.l.p(), com.mg.bas.v.u / 2).a(n, n2)) {
             this.g(99);
             return true;
         }
-        if (new k(this.l.n(), this.l.o() + this.l.q(), this.l.p(), v.u / 2).a(n, n2)) {
+        if (new k(this.l.n(), this.l.o() + this.l.q(), this.l.p(), com.mg.bas.v.u / 2).a(n, n2)) {
             this.g(98);
             return true;
         }
-        if (new k(this.l.n() - v.t / 2, this.l.o() - v.u / 2, v.t / 2, v.u / 2).a(n, n2)) {
+        if (new k(this.l.n() - com.mg.bas.v.t / 2, this.l.o() - com.mg.bas.v.u / 2, com.mg.bas.v.t / 2, com.mg.bas.v.u / 2).a(n, n2)) {
             this.g(99);
             this.g(97);
             return true;
         }
-        if (new k(this.l.n() + this.l.p(), this.l.o() - v.u / 2, v.t / 2, v.u / 2).a(n, n2)) {
+        if (new k(this.l.n() + this.l.p(), this.l.o() - com.mg.bas.v.u / 2, com.mg.bas.v.t / 2, com.mg.bas.v.u / 2).a(n, n2)) {
             this.g(99);
             this.g(96);
             return true;
@@ -1181,7 +1186,7 @@ bg {
                 ((gj)object).c(true);
             }
         }
-        if ((object = ag.b().e()) != null && ((am)object).h() == 241203) {
+        if ((object = com.mg.bas.ag.b().e()) != null && ((am)object).h() == 241203) {
             object = (ib)object;
             ((ib)object).j(true);
         }
@@ -1209,10 +1214,10 @@ bg {
                 this.ad = nArray;
             }
             if (bl) {
-                h.b(byArray, n2);
+                com.mg.bas.h.b(byArray, n2);
             }
         }
-        return f.a(byArray);
+        return com.mg.bas.f.a(byArray);
     }
 
     public final void t() {
@@ -1290,31 +1295,28 @@ bg {
         }
     }
 
-    public final void a(String object, byte by) {
-        if (object == null) {
+      public final void a(final String s, final byte b) {
+        if (s == null) {
             this.X.u();
             return;
         }
         try {
-            if (this.M != null) {
-                if (this.M.d.b.equals(this.af)) {
-                    as as2 = new as(this.M.f, 1);
-                    as2.a(new byte[][]{new byte[1]});
-                    as2.c(2);
-                    object = new ic(this.M.n(), this.M.o() - 10, this.F.a(), as2, (String)object, this.M.d.b);
-                    ag.b().a((al)object);
-                    return;
-                }
-                this.af = null;
+            if (this.M == null) {
+                com.mg.sq.a.s().q(s);
                 return;
             }
-            com.mg.sq.a.s().q((String)object);
-            return;
+            if (this.M.d.b.equals(this.af)) {
+                final as as;
+                (as = new as(this.M.f, 1)).a(new byte[][] { new byte[1] });
+                as.c(2);
+                com.mg.bas.ag.b().a(new ic(this.M.n(), this.M.o() - 10, this.F.a(), as, s, this.M.d.b));
+                return;
+            }
+            this.af = null;
         }
-        catch (Exception exception) {
-            Exception exception2 = exception;
-            exception.printStackTrace();
-            return;
+        catch (final Exception ex) {
+//            final Throwable t;
+            ex.printStackTrace();
         }
     }
 
@@ -1344,79 +1346,72 @@ bg {
         }
     }
 
-    public final void a(String[] object) {
-        int n = 0;
-        while (n < ((String[])object).length) {
-            int n2 = 0;
-            while (n2 < this.ag.d()) {
-                ll ll2 = (ll)this.ag.b(n2);
-                if (object[n].equals(ll2.c)) {
-                    go.a(ll2);
-                    this.ag.a(n2);
+    public final void a(final String[] array) {
+        for (int i = 0; i < array.length; ++i) {
+            for (int j = 0; j < this.ag.d(); ++j) {
+                final ll ll = (ll)this.ag.b(j);
+                if (array[i].equals(ll.c)) {
+                    go.a(ll);
+                    this.ag.a(j);
                     break;
                 }
-                ++n2;
             }
-            ++n;
         }
         if (gr.o) {
             gr.o = false;
-            n = bx.c.a() * 3 + 20;
-            gj gj2 = new gj("Bạn vừa có vật phẩm. Hãy bấm phím menu trái > Nhân vật > Rương đồ", this.c() + 15, this.d() + this.f() - 30, n);
+            final int n = bx.c.a() * 3 + 20;
+            final gj gj;
+            (gj = new gj("Bạn vừa có vật phẩm. Hãy bấm phím menu trái > Nhân vật > Rương đồ", this.c() + 15, this.d() + this.f() - 30, n)).f(this.c() + 5);
+            gj.a(10);
+            gj.a(new k(gj.n() + 9, gj.o() + 9, gj.p() - 20, gj.q() - 20));
+            gj.c(true);
+            this.an.a(gj);
+            gj gj2;
+            if (this.e() > 240) {
+                gj2 = new gj("Tốt lắm! Hãy chọn Nhân vật > Rương đồ", this.c() + 15, this.d() + this.f() - 30, n);
+            }
+            else {
+                gj2 = new gj("Tốt lắm! Hãy chọn Nhân vật > Rương đồ", this.c() + 15, this.d() + this.f() - 30, this.e() - 80, n, false);
+            }
+            gj2.a(new String[] { "Nhân Vật", "Rương Đồ" });
             gj2.f(this.c() + 5);
             gj2.a(10);
             gj2.a(new k(gj2.n() + 9, gj2.o() + 9, gj2.p() - 20, gj2.q() - 20));
             gj2.c(true);
+            gj.a(gj2);
             this.an.a(gj2);
-            object = this.e() > 240 ? new gj("Tốt lắm! Hãy chọn Nhân vật > Rương đồ", this.c() + 15, this.d() + this.f() - 30, n) : new gj("Tốt lắm! Hãy chọn Nhân vật > Rương đồ", this.c() + 15, this.d() + this.f() - 30, this.e() - 80, n, false);
-            ((gj)object).a(new String[]{"Nhân Vật", "Rương Đồ"});
-            ((at)object).f(this.c() + 5);
-            ((gj)object).a(10);
-            ((gj)object).a(new k(((at)object).n() + 9, ((at)object).o() + 9, ((at)object).p() - 20, ((at)object).q() - 20));
-            ((gj)object).c(true);
-            gj2.a((gj)object);
-            this.an.a((at)object);
         }
     }
 
-    public final void a(int[] nArray, String[] object) {
-        int n;
-        he he2 = new he();
-        he2.b(-9898989);
-        he2.a(new ba());
-        he2.a(this);
-        int n2 = 10;
-        aq[] aqArray = new ex[nArray.length];
-        int n3 = 0;
-        int n4 = 0;
-        while (n4 < nArray.length) {
-            n = bx.d.a(object[n4]) + 30;
-            if (n > n3) {
-                n3 = n;
+    public final void a(final int[] array, final String[] array2) {
+        final he he;
+        (he = new he()).b(-9898989);
+        he.a(new ba());
+        he.a((bf)this);
+        int n = 10;
+        final ex[] array3 = new ex[array.length];
+        int n2 = 0;
+        for (int i = 0; i < array.length; ++i) {
+            final int n3;
+            if ((n3 = bx.d.a(array2[i]) + 30) > n2) {
+                n2 = n3;
             }
-            aqArray[n4] = new ex(object[n4], nArray[n4] + 99999990);
-            aqArray[n4].a(10, n2, n3, 18);
-            n2 += aqArray[n4].f() + 5;
-            ++n4;
+            (array3[i] = new ex(array2[i], array[i] + 99999990)).a(10, n, n2, 18);
+            n += array3[i].f() + 5;
         }
-        he2.a(aqArray);
-        n4 = aqArray.length - 1;
-        while (n4 >= 0) {
-            aqArray[n4].d(n3);
-            --n4;
+        he.a(array3);
+        for (int j = array3.length - 1; j >= 0; --j) {
+            array3[j].d(n2);
         }
-        n4 = n2 + 5;
-        n = v.t - (n3 += 20) >> 1;
-        int n5 = v.u - n4 >> 1;
-        he2.a(n, n5, n3, n4);
-        object = new gb(-999, 3);
-        he he3 = he2;
-        ((am)he3).b((az)object, true);
+        n2 += 20;
+        final int n4 = n + 5;
+        he.a(com.mg.bas.v.t - n2 >> 1, com.mg.bas.v.u - n4 >> 1, n2, n4);
+        he.b(new gb(-999, 3), true);
         if (this.M != null) {
-            he2.a(he2.a(), this.M.o() + this.F.o() - he2.j(), he2.i(), he2.j());
+            he.a(he.a(), this.M.o() + this.F.o() - he.j(), he.i(), he.j());
         }
-        he2.f(0);
-        ag.b().a(he2, false);
+        he.f(0);
+        com.mg.bas.ag.b().a(he, false);
     }
 
     public final void w() {
@@ -1446,18 +1441,17 @@ bg {
         ct.b("Finish Map.destroy()");
     }
 
-    public final void a(lt[] ltArray) {
-        if (ltArray != null) {
-            this.ap = new jx[ltArray.length];
-            int n = 0;
-            while (n < ltArray.length) {
-                int n2 = ltArray[n].a;
-                pa pa2 = pa.a();
-                pa2 = f.a(pa2.b(n2, false));
-                this.ap[n] = new jx((Image)pa2, 1);
-                this.ap[n].a(ltArray[n].b);
-                this.aq = ltArray[n].a != 200000 || ltArray[n].b <= 0L;
-                ++n;
+      public final void a(final lt[] array) {
+        if (array != null) {
+            this.ap = new jx[array.length];
+            for (int i = 0; i < array.length; ++i) {
+                (this.ap[i] = new jx(com.mg.bas.f.a(pa.a().b(array[i].a, false)), 1)).a(array[i].b);
+                if (array[i].a == 200000 && array[i].b > 0L) {
+                    this.aq = false;
+                }
+                else {
+                    this.aq = true;
+                }
             }
         }
     }

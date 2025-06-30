@@ -1,9 +1,11 @@
 package com.mg.bas;
 // Decompiled with: CFR 0.152
 // Class Version: 1
+
 import java.io.UnsupportedEncodingException;
 
 public final class jm {
+
     public int a;
     public String b;
     public int c;
@@ -15,9 +17,10 @@ public final class jm {
     public int i;
 
     public final byte[] a() {
-        byte[] byArray = null;
         try {
-            byte[] byArray2 = i.c(this.b);
+            byte[] byArray = null;
+//        try {
+            byte[] byArray2 = com.mg.bas.i.c(this.b);
             int n = 12 + byArray2.length + 16;
             byArray = new byte[n];
             System.arraycopy(m.a(this.a), 0, byArray, 0, 4);
@@ -28,13 +31,18 @@ public final class jm {
             System.arraycopy(m.a(this.g), 0, byArray, 20, 4);
             System.arraycopy(m.a(byArray2.length), 0, byArray, 24, 4);
             System.arraycopy(byArray2, 0, byArray, 28, byArray2.length);
+            return null;
+        } catch (UnsupportedEncodingException ex) {
+            ex.printStackTrace();
         }
-        catch (UnsupportedEncodingException unsupportedEncodingException) {
-            UnsupportedEncodingException unsupportedEncodingException2 = unsupportedEncodingException;
-            unsupportedEncodingException.printStackTrace();
-        }
-        return byArray;
+        return null;
     }
+////        catch (UnsupportedEncodingException unsupportedEncodingException) {
+////            UnsupportedEncodingException unsupportedEncodingException2 = unsupportedEncodingException;
+////            unsupportedEncodingException.printStackTrace();
+////        }
+//        return byArray;
+//    }
 
     public final String toString() {
         String string = " x = " + this.d + " y= " + this.e + "       w = " + this.f + " h = " + this.g + "        " + this.b + "   type = " + this.a;

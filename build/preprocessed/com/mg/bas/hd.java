@@ -21,24 +21,24 @@ bq {
 
     public hd() {
         super(1);
-        dt dt2;
         this.l.a(this.a(), this.c(), this.i(), this.j() - 20);
         this.m = new aw();
-        this.m.a(this);
-        this.m.a(this);
+        this.m.a((bn)this);
+        this.m.a((bq)this);
         this.m.e(true);
         this.l.b(this.m);
-        hd hd2 = this;
         int n = 0;
         dt dt3 = new dt("Đàm Đạo");
-        Object[] objectArray = com.mg.sq.a.m.A().z();
+        Object[] tmpArray = com.mg.sq.a.m.A().z();
+        ds[] objectArray = new ds[tmpArray.length];
+        for (int i = 0; i < tmpArray.length; i++) {
+            objectArray[i] = (ds) tmpArray[i];
+        }
         int n2 = 0;
-        int n3 = 0;
-        while (n3 < objectArray.length) {
+        for (int n3 = 0; n3 < objectArray.length; n3++) {
             if (objectArray[n3].a().length() >= 3) {
                 ++n2;
             }
-            ++n3;
         }
         ds[] dsArray = new ds[n2];
         int n4 = objectArray.length - 1;
@@ -48,32 +48,37 @@ bq {
             }
             --n4;
         }
+        dt dt2;
         if (dsArray.length <= 0) {
             dt2 = null;
         } else {
             dt3.a(dsArray);
-            dt2 = dt3 = dt3;
+            dt2 = dt3;
         }
         if (dt2 != null) {
             n = 1;
         }
-        objectArray = com.mg.sq.a.m.B();
+        Object[] tmpArray2 = com.mg.sq.a.m.B();
+        dt[] objectArray2 = new dt[tmpArray2.length];
+        for (int i = 0; i < tmpArray2.length; i++) {
+            objectArray2[i] = (dt) tmpArray2[i];
+        }
         n2 = 0;
         int n5 = 0;
-        while (n5 < objectArray.length) {
-            if (((dt)objectArray[n5]).a() == 0) {
+        while (n5 < objectArray2.length) {
+            if (objectArray2[n5].a() == 0) {
                 ++n2;
             }
             ++n5;
         }
-        hd2.k = new dt[n2 + n];
+        this.k = new dt[n2 + n];
         if (n > 0) {
-            hd2.k[0] = dt3;
+            this.k[0] = dt3;
         }
-        n5 = objectArray.length - 1;
+        n5 = objectArray2.length - 1;
         while (n5 >= 0) {
-            if (((dt)objectArray[n5]).a() == 0) {
-                hd2.k[--n2 + n] = objectArray[n5];
+            if (objectArray2[n5].a() == 0) {
+                this.k[--n2 + n] = objectArray2[n5];
             }
             --n5;
         }
@@ -86,11 +91,9 @@ bq {
         this.t();
         this.a(new ba());
         gb gb2 = new gb(-1, 2);
-        hd hd3 = this;
-        hd3.a(gb2, true);
+        this.a(gb2, true);
         gb2 = new gb(-2, 3);
-        hd3 = this;
-        hd3.b(gb2, true);
+        this.b(gb2, true);
         this.a(this);
     }
 
@@ -132,9 +135,10 @@ bq {
         this.l.n();
     }
 
-    public final aq a(aw object, int n) {
-        if ((object = ((aw)object).i(n)) instanceof ds) {
-            ds ds2 = (ds)object;
+    public final aq a(aw awObj, int n) {
+        Object obj = awObj.i(n);
+        if (obj instanceof ds) {
+            ds ds2 = (ds) obj;
             return new eu(ds2, this.m.e());
         }
         int n2 = 0;
@@ -150,48 +154,43 @@ bq {
             }
             ++n2;
         }
-        dt dt3 = (dt)object;
+        dt dt3 = (dt) obj;
         return new ev(dt3, this.n[n], this.m.e());
     }
 
-    public final void b(aq object, int n) {
-        object = this.m.i(n);
-        if (object instanceof ds) {
+    public final void b(aq aqObj, int n) {
+        Object obj = this.m.i(n);
+        if (obj instanceof ds) {
             this.d(0, -1);
             return;
         }
         int n2 = 0;
         while (n2 < this.k.length) {
-            if (object.equals(this.k[n2]) && n2 <= this.n.length) {
+            if (obj.equals(this.k[n2]) && n2 <= this.n.length) {
                 this.n[n2] = !this.n[n2];
                 this.t();
                 this.m.k(n);
-                object = this;
-                n = ((hd)object).l.r().b;
-                n2 = ((hd)object).m.s();
-                if (n2 * 22 - n >= ((hd)object).m.f() - 40 - 22) {
-                    n = n2 * 22 - (((hd)object).m.f() - 40 - 22);
+                int scrollY = this.l.r().b;
+                int idx = this.m.s();
+                if (idx * 22 - scrollY >= this.m.f() - 40 - 22) {
+                    scrollY = idx * 22 - (this.m.f() - 40 - 22);
                 }
-                ((hd)object).l.k(n);
+                this.l.k(scrollY);
                 return;
             }
             ++n2;
         }
     }
 
-    /*
-     * WARNING - Removed try catching itself - possible behaviour change.
-     */
     private void t() {
-        Object object;
         int n = 0;
         int n2 = 0;
         while (n2 < this.k.length) {
             dt dt2 = this.k[n2];
-            object = dt2.c();
+            ds[] arr = dt2.c();
             ++n;
             if (this.n[n2]) {
-                n += ((ds[])object).length;
+                n += arr.length;
             }
             ++n2;
         }
@@ -199,14 +198,12 @@ bq {
         n = 0;
         int n3 = 0;
         while (n3 < this.k.length) {
-            object = this.k[n3];
-            objectArray[n++] = object;
+            dt dtObj = this.k[n3];
+            objectArray[n++] = dtObj;
             if (this.n[n3]) {
-                object = ((dt)object).c();
-                int n4 = 0;
-                while (n4 < ((Object)object).length) {
-                    objectArray[n++] = object[n4];
-                    ++n4;
+                ds[] arr = dtObj.c();
+                for (int n4 = 0; n4 < arr.length; n4++) {
+                    objectArray[n++] = arr[n4];
                 }
             }
             ++n3;
@@ -222,12 +219,11 @@ bq {
     public final void a(aq aq2, int n) {
     }
 
-    public final void a(aq object, int n, int n2) {
-        object = this.m.i(n2);
-        if (object instanceof ds) {
+    public final void a(aq aqObj, int n, int n2) {
+        Object obj = this.m.i(n2);
+        if (obj instanceof ds) {
             gb gb2 = new gb(-1, 2);
-            object = this;
-            ((am)object).a(gb2, true);
+            ((am)this).a(gb2, true);
             return;
         }
         this.n();

@@ -16,49 +16,38 @@ implements bf {
     private int d;
     private boolean k;
 
-    public ob() {
+     public ob() {
         super(2);
-        int[] nArray = new int[4];
-        nArray[2] = 234;
-        nArray[3] = 125;
-        this.a = nArray;
+        this.a = new int[] { 0, 0, 234, 125 };
         this.d(false);
         this.b(true);
         this.a(false);
-        v.ae = true;
-        this.b = f.d("/bklogin");
-        int n = v.t - this.a[2] >> 1;
-        int n2 = v.u - 166;
+        com.mg.bas.v.ae = true;
+        this.b = com.mg.bas.f.d("/bklogin");
+        final int n = com.mg.bas.v.t - this.a[2] >> 1;
+        final int n2 = com.mg.bas.v.u - 166;
         this.a[0] = n;
         this.a[1] = n2;
         this.c = new aq[4];
-        this.c[0] = new ff("", 100, 2);
-        this.c[0].a(this.a[0] + 83, this.a[1] + 35, 119, 16);
+        (this.c[0] = new ff("", 100, 2)).a(this.a[0] + 83, this.a[1] + 35, 119, 16);
         ((ff)this.c[0]).a("Nhập nick ola");
-        this.c[1] = new ff("", 100, 3);
-        this.c[1].a(this.a[0] + 83, this.a[1] + 54, 119, 16);
+        (this.c[1] = new ff("", 100, 3)).a(this.a[0] + 83, this.a[1] + 54, 119, 16);
         ((ff)this.c[1]).a("Nhập mật khẩu ola");
-        this.c[2] = new ey("", gr.e);
-        this.c[2].a(this.a[0] + 83, this.a[1] + 73, 11, 11);
-        this.c[3] = new ey("", false);
-        this.c[3].a(this.a[0] + 83, this.a[1] + 90, 11, 11);
-        ob ob2 = this;
-        Object object = cs.a.a(107);
-        if (object != null) {
-            object = new String((byte[])object);
-            ((ff)ob2.c[0]).c((String)object);
+        (this.c[2] = new ey("", gr.e)).a(this.a[0] + 83, this.a[1] + 73, 11, 11);
+        (this.c[3] = new ey("", false)).a(this.a[0] + 83, this.a[1] + 90, 11, 11);
+        final byte[] a;
+        if ((a = cs.a.a(107)) != null) {
+            ((ff)this.c[0]).c(new String(a));
         }
-        if ((object = cs.a.a(108)) != null) {
-            object = new String((byte[])object);
-            ((ff)ob2.c[1]).c((String)object);
+        final byte[] a2;
+        if ((a2 = cs.a.a(108)) != null) {
+            ((ff)this.c[1]).c(new String(a2));
         }
         if (cs.a.c(109)) {
-            object = cs.a.a(109);
-            ((ey)ob2.c[2]).e(object[0] == 1);
+            ((ey)this.c[2]).e(cs.a.a(109)[0] == 1);
         }
         if (cs.a.c(110)) {
-            object = cs.a.a(110);
-            ((ey)ob2.c[3]).e(object[0] == 1);
+            ((ey)this.c[3]).e(cs.a.a(110)[0] == 1);
         }
         this.a(com.mg.sq.a.n);
         this.a(new ba());
@@ -67,29 +56,27 @@ implements bf {
         pa.a();
         this.c[0].d(true);
         com.mg.sq.a.s().c();
-        ob2 = this;
-        br br2 = new br("Hỗ trợ", -1);
-        object = br2;
-        br2.a(new br[]{new br("Quên mật khẩu", 202), new br("Tổng đài", 203), new br("Cài đặt", 204)});
-        bs bs2 = new bs(new br[]{new br("Đăng nhập", 200), new br("Đăng ký", 201), object, new br("Thoát", 205)});
-        object = bs2;
-        bs2.a(ob2);
-        ob2.a((bs)object);
+        final br br;
+        (br = new br("Hỗ trợ", -1)).a(new br[] { new br("Quên mật khẩu", 202), new br("Tổng đài", 203), new br("Cài đặt", 204) });
+        final bs bs;
+        (bs = new bs(new br[] { new br("Đăng nhập", 200), new br("Đăng ký", 201), br, new br("Thoát", 205) })).a(this);
+        this.a(bs);
     }
-
+    
     protected final void r() {
-        boolean bl = true;
-        boolean bl2 = ((ey)this.c[3]).a();
-        if (gr.f && bl2) {
-            bl = false;
+        boolean b = true;
+        final boolean a = ((ey)this.c[3]).a();
+        if (gr.f && a) {
+            b = false;
             this.f();
-        } else if (com.mg.sq.a.l != null && com.mg.sq.a.l.length > 0) {
+        }
+        else if (com.mg.sq.a.l != null && com.mg.sq.a.l.length > 0) {
             com.mg.sq.a.b(com.mg.sq.a.l);
             com.mg.sq.a.l = null;
         }
         gr.f = false;
-        if (bl) {
-            com.mg.sq.a.a(this);
+        if (b) {
+            com.mg.sq.a.a((am)this);
         }
         ct.b("init SQLoginScreen");
     }
@@ -159,11 +146,11 @@ implements bf {
     }
 
     protected final void a(Graphics graphics) {
-        if (v.u > this.b.getHeight() || v.t > this.b.getWidth()) {
+        if (com.mg.bas.v.u > this.b.getHeight() || com.mg.bas.v.t > this.b.getWidth()) {
             graphics.setColor(0);
-            graphics.fillRect(0, 0, v.t, v.u);
+            graphics.fillRect(0, 0, com.mg.bas.v.t, com.mg.bas.v.u);
         }
-        graphics.drawImage(this.b, v.t / 2, this.a[1] + 166, 33);
+        graphics.drawImage(this.b, com.mg.bas.v.t / 2, this.a[1] + 166, 33);
         int n = 0;
         while (n < this.c.length) {
             this.c[n].a(graphics, 0, 0);
@@ -192,12 +179,16 @@ implements bf {
                 break;
             }
             case 202: {
-                he he2 = com.mg.sq.a.a("Nhập nick muốn lấy lại mật khẩu vào bên dưới", null, "Xong", 6, "Đóng", 7);
+                he he2 = new he();
+                ff input = new ff("", 100, 2);
+                input.a("Nhập nick muốn lấy lại mật khẩu vào bên dưới");
+                he2.a((aq)input);
+                // TODO: Add buttons if he2 supports a(br[]) or method
                 he2.a(this);
                 ag.b().a(he2);
                 break;
             }
-            case 203: {
+                        case 203: {
                 MGMIDlet.d();
                 MGMIDlet.b("1900588883");
                 break;
@@ -217,7 +208,7 @@ implements bf {
     private void f() {
         String string = ((ff)this.c[0]).r();
         String string2 = ((ff)this.c[1]).r();
-        if (!i.a(string) && !i.a(string2)) {
+        if (!com.mg.bas.i.a(string) && !com.mg.bas.i.a(string2)) {
             ob ob2 = this;
             ey ey2 = (ey)ob2.c[2];
             ff ff2 = (ff)ob2.c[1];
@@ -257,8 +248,8 @@ implements bf {
         }
         object = new dz();
         new dz().b = "vn";
-        ((dz)object).e = v.t;
-        ((dz)object).f = v.u;
+        ((dz)object).e = com.mg.bas.v.t;
+        ((dz)object).f = com.mg.bas.v.u;
         ((dz)object).g = 0;
         ((dz)object).c = "123456789";
         ((dz)object).d = "patriot";

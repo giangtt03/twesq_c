@@ -53,10 +53,10 @@ implements bq {
         int n2 = 320 - ba.a;
         if (com.mg.sq.a.k == 1) {
             n = 320;
-            n2 = v.u - ba.a;
+            n2 = com.mg.bas.v.u - ba.a;
         }
-        int n3 = v.t >= n ? (v.t - n) / 2 : 0;
-        int n4 = v.u >= n2 ? (v.u - ba.a - n2) / 2 : 0;
+        int n3 = com.mg.bas.v.t >= n ? (com.mg.bas.v.t - n) / 2 : 0;
+        int n4 = com.mg.bas.v.u >= n2 ? (com.mg.bas.v.u - ba.a - n2) / 2 : 0;
         this.P = new k(n3, n4, n, n2);
         this.t();
         az az2 = this.y;
@@ -66,15 +66,15 @@ implements bq {
     }
 
     private void t() {
-        int n = v.t - 20;
-        this.u = new k((v.t - n) / 2, 140, n, this.g - 174);
-        this.v = new k((v.t - n) / 2, 30, n, 44);
+        int n = com.mg.bas.v.t - 20;
+        this.u = new k((com.mg.bas.v.t - n) / 2, 140, n, this.g - 174);
+        this.v = new k((com.mg.bas.v.t - n) / 2, 30, n, 44);
         this.p = new fg(false);
         this.p.e(true);
         this.p.i = new k(this.u.a, this.u.b, this.u.c, this.u.d);
         this.w = go.k.a();
         Object object = this.w;
-        int n2 = go.l.length - object.D.length;
+        int n2 = go.l.length - this.w.D.length;
         int n3 = 0;
         while (n3 < go.m.length) {
             n2 = go.m[n3].l == 1 ? (n2 += go.m[n3].g) : (go.m[n3].l > 1 ? (n2 += go.m[n3].g / go.m[n3].l + (go.m[n3].g % go.m[n3].l > 0 ? 1 : 0)) : ++n2);
@@ -87,17 +87,16 @@ implements bq {
         this.p.d(this.x, 1);
         this.p.a(this);
         ll[] llArray = go.l;
-        object = this;
-        n3 = object.w.D.length;
-        object.p.t();
+        n3 = this.w.D.length;
+        this.p.t();
         int n4 = 0;
         while (n4 < llArray.length) {
             if (llArray[n4] != null) {
                 boolean bl = false;
                 if (n3 > 0) {
                     int n5 = 0;
-                    while (n5 < object.w.D.length) {
-                        if (llArray[n4].c.equals(object.w.D[n5].c)) {
+                    while (n5 < this.w.D.length) {
+                        if (llArray[n4].c.equals(this.w.D[n5].c)) {
                             --n3;
                             bl = true;
                             break;
@@ -106,8 +105,8 @@ implements bq {
                     }
                 }
                 if (!bl) {
-                    dc dc2 = new dc(object.k.a(mb.a(llArray[n4]) + 98, true), llArray[n4], 0, object.S);
-                    object.p.a((Object)dc2);
+                    dc dc2 = new dc(this.k.a(mb.a(llArray[n4]) + 98, true), llArray[n4], 0, this.S);
+                    this.p.a((Object)dc2);
                 }
             }
             ++n4;
@@ -119,21 +118,20 @@ implements bq {
         this.q.j = true;
         this.q.d(true);
         this.q.i(0);
-        object = new lm[go.m.length];
+        lm[] lmArray = new lm[go.m.length];
         int n6 = 0;
-        while (n6 < ((lm[])object).length) {
-            object[n6] = go.m[n6].b();
+        while (n6 < lmArray.length) {
+            lmArray[n6] = go.m[n6].b();
             ++n6;
         }
-        this.a((lm[])object);
-        object = this;
+        this.a(lmArray);
         this.B = new byte[4][3];
-        object.B[0] = new byte[]{1, -1, 1, -1};
+        this.B[0] = new byte[]{1, -1, 1, -1};
         byte[] byArray = new byte[4];
         byArray[0] = 2;
         byArray[2] = 2;
-        object.B[1] = byArray;
-        object.B[2] = new byte[]{-1, 1, -1, 1};
+        this.B[1] = byArray;
+        this.B[2] = new byte[]{-1, 1, -1, 1};
         this.t = new ay();
         this.t.a(new k(this.v.a, this.v.b, this.v.c, this.v.d + 2));
         this.t.b(this.q);
@@ -144,7 +142,7 @@ implements bq {
         this.s.h(2);
         this.C = new ex("Kết hợp", 2);
         n6 = bx.d.a("Kết hợp") + 10;
-        this.C.a(this.c + (v.t - n6) / 2, this.u.b - 25, n6, 18);
+        this.C.a(this.c + (com.mg.bas.v.t - n6) / 2, this.u.b - 25, n6, 18);
         this.D = new aq[]{this.t, this.C, this.s};
         this.R = new by(0xFF0000);
         this.y = new gb(1, 3);
@@ -512,20 +510,20 @@ implements bq {
      */
     public final void a(String string, String object, byte by2, long l) {
         this.l.v();
-        Object object2 = this.G;
-        synchronized (object2) {
+        Object lock = this.G;
+        synchronized (lock) {
             this.e(true);
             this.K = by2;
             this.M = object;
             this.L = l;
             int n = 0;
             while (n < this.q.s()) {
-                object = (dc)this.q.k(n);
-                if (((dc)object).j == 0 && ((dc)object).k != null) {
-                    ll ll2 = (ll)((dc)object).k;
+                dc dcObj = (dc)this.q.k(n);
+                if (dcObj.j == 0 && dcObj.k != null) {
+                    ll ll2 = (ll)dcObj.k;
                     if (ll2.c.equals(string)) {
-                        this.q.a((dc)object);
-                        this.p.a(object);
+                        this.q.a(dcObj);
+                        this.p.a(dcObj);
                         this.a(this.q.r());
                         return;
                     }
@@ -544,43 +542,46 @@ implements bq {
             this.L = l;
             this.q.a(this.r);
             lm lm2 = (lm)this.r.k;
-            object = this;
             int n = 0;
             a a2 = new a();
             int n2 = 0;
-            while (n2 < ((ho)object).p.s()) {
-                lm lm3;
-                if ((((dc)((ho)object).p.k((int)n2)).j == 1 || ((dc)((ho)object).p.k((int)n2)).j == 2) && (lm3 = (lm)((dc)((ho)object).p.k((int)n2)).k) != null && lm3.a == lm2.a) {
-                    n += lm3.g;
-                    a2.a(((ho)object).p.k(n2));
+            while (n2 < this.p.s()) {
+                dc dc2 = (dc)this.p.k(n2);
+                if ((dc2.j == 1 || dc2.j == 2) && dc2.k != null) {
+                    lm lm3 = (lm)dc2.k;
+                    if (lm3.a == lm2.a) {
+                        n += lm3.g;
+                        a2.a(dc2);
+                    }
                 }
                 ++n2;
             }
             n += lm2.g;
             n2 = 0;
             while (n2 < a2.d()) {
-                ((ho)object).p.a((dc)a2.b(n2));
+                this.p.a((dc)a2.b(n2));
                 ++n2;
             }
             if (lm2.l <= 0) {
                 lm lm4 = lm2.b();
-                lm2.b().g = n;
-                dc dc2 = new dc(null, lm4, lm2.e == 3 ? 2 : 1, ((ho)object).S);
-                ((ho)object).p.a((Object)dc2);
+                lm4.g = n;
+                dc dc2 = new dc(null, lm4, lm2.e == 3 ? 2 : 1, this.S);
+                this.p.a((Object)dc2);
             } else {
                 n2 = n / lm2.l + (n % lm2.l > 0 ? 1 : 0);
                 int n3 = 0;
+                int remaining = n;
                 while (n3 < n2) {
-                    Object object2 = lm2.b();
-                    if (n >= lm2.l) {
-                        ((lm)object2).g = lm2.l;
-                        n -= lm2.l;
-                    } else if (n > 0) {
-                        ((lm)object2).g = n;
-                        n = 0;
+                    lm lmObj = lm2.b();
+                    if (remaining >= lm2.l) {
+                        lmObj.g = lm2.l;
+                        remaining -= lm2.l;
+                    } else if (remaining > 0) {
+                        lmObj.g = remaining;
+                        remaining = 0;
                     }
-                    object2 = new dc(null, object2, lm2.e == 3 ? 2 : 1, ((ho)object).S);
-                    ((ho)object).p.a(object2);
+                    dc dcObj = new dc(null, lmObj, lm2.e == 3 ? 2 : 1, this.S);
+                    this.p.a(dcObj);
                     ++n3;
                 }
             }
@@ -592,25 +593,22 @@ implements bq {
         }
     }
 
-    /*
-     * WARNING - Removed try catching itself - possible behaviour change.
-     */
     public final void b(String string, String object, byte by2, long l) {
         this.l.v();
-        Object object2 = this.G;
-        synchronized (object2) {
+        Object lock = this.G;
+        synchronized (lock) {
             this.e(true);
             this.K = by2;
             this.M = object;
             this.L = l;
             int n = 0;
             while (n < this.p.s()) {
-                object = (dc)this.p.k(n);
-                if (((dc)object).j == 0 && ((dc)object).k != null) {
-                    ll ll2 = (ll)((dc)object).k;
+                dc dcObj = (dc)this.p.k(n);
+                if (dcObj.j == 0 && dcObj.k != null) {
+                    ll ll2 = (ll)dcObj.k;
                     if (ll2.c.equals(string)) {
-                        this.p.a((dc)object);
-                        this.q.a(object);
+                        this.p.a(dcObj);
+                        this.q.a(dcObj);
                         this.a(this.p.r());
                         return;
                     }
@@ -627,69 +625,72 @@ implements bq {
             this.K = by2;
             this.M = object;
             this.L = l;
-            by2 = 0;
+            byte total = 0;
             a a2 = new a();
             int n = 0;
             while (n < this.q.s()) {
-                if (((dc)this.q.k((int)n)).j == 1 && (object = (lm)((dc)this.q.k((int)n)).k) != null && ((ld)object).a == this.J.a) {
-                    by2 = (byte)(by2 + ((lm)object).g);
+                dc dcObj = (dc)this.q.k(n);
+                if (dcObj.j == 1 && dcObj.k != null && ((ld)dcObj.k).a == this.J.a) {
+                    total = (byte)(total + ((lm)dcObj.k).g);
                     a2.a(this.q.k(n));
                 }
                 ++n;
             }
-            by2 = (byte)(by2 + this.J.g);
+            total = (byte)(total + this.J.g);
             n = 0;
             while (n < a2.d()) {
                 this.q.a((dc)a2.b(n));
                 ++n;
             }
             if (this.J.l <= 0) {
-                object = this.J.b();
-                this.J.b().g = by2;
-                dc dc2 = new dc(null, object, 1, this.S);
+                lm lmObj = this.J.b();
+                this.J.b().g = total;
+                dc dc2 = new dc(null, lmObj, 1, this.S);
                 this.q.a((Object)dc2);
             } else {
-                n = by2 / this.J.l + (by2 % this.J.l > 0 ? 1 : 0);
+                int count = total / this.J.l + (total % this.J.l > 0 ? 1 : 0);
                 int n2 = 0;
-                while (n2 < n) {
-                    object = this.J.b();
-                    if (by2 >= this.J.l) {
-                        ((lm)object).g = this.J.l;
-                        by2 = (byte)(by2 - this.J.l);
-                    } else if (by2 > 0) {
-                        ((lm)object).g = by2;
-                        by2 = 0;
+                int remaining = total;
+                while (n2 < count) {
+                    lm lmObj = this.J.b();
+                    if (remaining >= this.J.l) {
+                        lmObj.g = this.J.l;
+                        remaining = (byte)(remaining - this.J.l);
+                    } else if (remaining > 0) {
+                        lmObj.g = remaining;
+                        remaining = 0;
                     }
-                    object = new dc(null, object, 1, this.S);
-                    this.q.a(object);
+                    dc dcObj = new dc(null, lmObj, 1, this.S);
+                    this.q.a(dcObj);
                     ++n2;
                 }
             }
             lm lm2 = this.J;
-            object = this;
             int n3 = 0;
             lm lm3 = lm2.b();
             a a3 = new a();
             int n4 = 0;
-            while (n4 < ((ho)object).p.s()) {
-                lm lm4;
-                ((ho)object).r = (dc)((ho)object).p.k(n4);
-                if (((ho)object).r != null && ((ho)object).r.k != null && (((ho)object).r.j == 1 || ((ho)object).r.j == 2) && (lm4 = (lm)((ho)object).r.k) != null && lm4.a == lm2.a) {
-                    n3 += lm4.g;
-                    a3.a(((ho)object).r);
+            while (n4 < this.p.s()) {
+                this.r = (dc)this.p.k(n4);
+                if (this.r != null && this.r.k != null && (this.r.j == 1 || this.r.j == 2)) {
+                    lm lm4 = (lm)this.r.k;
+                    if (lm4 != null && lm4.a == lm2.a) {
+                        n3 += lm4.g;
+                        a3.a(this.r);
+                    }
                 }
                 ++n4;
             }
             lm3.g = n3 - lm2.g;
             n4 = 0;
             while (n4 < a3.d()) {
-                ((ho)object).p.a((dc)a3.b(n4));
+                this.p.a((dc)a3.b(n4));
                 ++n4;
             }
             if (lm3.g > 0) {
-                super.a(new lm[]{lm3});
+                this.a(new lm[]{lm3});
             }
-            super.w();
+            this.w();
             this.a(this.p.r());
         }
     }
@@ -700,20 +701,20 @@ implements bq {
     }
 
     public final void b(Graphics graphics) {
-        this.R.a(graphics, "Phí kết hợp: " + i.a(this.L, ",") + " KEN", (v.t - bx.d.a("Phí kết hợp: ")) / 2 - 10, 10, 0);
+        this.R.a(graphics, "Phí kết hợp: " + com.mg.bas.i.a(this.L, ",") + " KEN", (com.mg.bas.v.t - bx.d.a("Phí kết hợp: ")) / 2 - 10, 10, 0);
         int n = 0;
         if (!this.O) {
             if (this.M != null) {
-                String[] stringArray = bx.a(this.M, v.t - 20);
+                String[] stringArray = bx.a(this.M, com.mg.bas.v.t - 20);
                 int n2 = 0;
                 while (n2 < stringArray.length) {
-                    this.R.a(graphics, stringArray[n2], (v.t - bx.d.a(stringArray[n2])) / 2, this.q.d() + this.q.f() + 8 + n, 0);
+                    this.R.a(graphics, stringArray[n2], (com.mg.bas.v.t - bx.d.a(stringArray[n2])) / 2, this.q.d() + this.q.f() + 8 + n, 0);
                     n += this.R.a();
                     ++n2;
                 }
             }
         } else if (this.Q != null) {
-            this.R.a(graphics, this.Q, (v.t - bx.d.a(this.Q)) / 2, this.q.d() + this.q.f() + 8, 0);
+            this.R.a(graphics, this.Q, (com.mg.bas.v.t - bx.d.a(this.Q)) / 2, this.q.d() + this.q.f() + 8, 0);
         }
         if (this.t != null) {
             this.t.a(graphics, this.c, this.d);
@@ -735,59 +736,47 @@ implements bq {
     }
 
     public final void a(Graphics graphics) {
-        pc.a(graphics, this.c, this.d, this.f, this.g, v.aj, true);
+        pc.a(graphics, this.c, this.d, this.f, this.g, com.mg.bas.v.aj, true);
     }
 
     public final void b(aq object, int n) {
         this.a(object);
         if (this.D[this.A] instanceof ay) {
             k k2 = ((fg)((ay)this.D[this.A]).w()).u();
-            object = this;
-            if (((ho)object).r != null) {
+            if (this.r != null) {
                 Object object2;
                 bs bs2 = new bs();
-                if (((ho)object).t.m() && !((ho)object).O && ((ho)object).q != null && ((ho)object).r.j != 3) {
+                if (this.t.m() && !this.O && this.q != null && this.r.j != 3) {
                     bs2.a(new br("Bỏ ra", 4));
                 }
-                if (((ho)object).s.m() && !((ho)object).O && ((ho)object).p != null) {
-                    Object object3 = object;
+                if (this.s.m() && !this.O && this.p != null) {
                     int n2 = 0;
                     int n3 = 0;
-                    while (n3 < ((ho)object3).q.a()) {
-                        if (((ho)object3).q.k(n3) != null) {
+                    while (n3 < this.q.a()) {
+                        if (this.q.k(n3) != null) {
                             ++n2;
                         }
                         ++n3;
                     }
-                    if (n2 < ((ho)object).q.a()) {
-                        object2 = object3 = object;
-                        if (((ho)object3).r.k != null) {
-                            object2 = object3;
-                            if (((ho)object2).r.j == 1) {
-                                object2 = object3;
-                                Object object4 = (lm)((ho)object2).r.k;
-                                object2 = object3;
-                                Object object5 = new dc(null, ((lm)object4).b(), ((ho)object2).r.j, ((ho)object3).S);
-                                object5 = new gu((dc)object5);
-                                ((am)object5).a((bf)object3);
-                                ((gu)object5).e(((lm)object4).g);
-                                object4 = new bd("Xong", 5);
-                                object2 = object5;
-                                ((am)object2).a((az)object4, true);
-                                ((am)object5).a(new bd("", 5));
-                                object4 = new bd("Hủy", 6);
-                                object2 = object5;
-                                ((am)object2).b((az)object4, true);
-                                ((am)object5).b(-7524);
-                                ((gu)object5).j(true);
-                                ((ht)object3).l.a((al)object5, false);
-                            } else {
-                                object2 = object3;
-                                if (((ho)object2).r.j == 0) {
-                                    object2 = object3;
-                                    ks.a().a(((ho)object3).F, (byte)0, ((ll)((ho)object2).r.k).c);
-                                    com.mg.sq.a.s().a((String)null, (il)null);
-                                }
+                    if (n2 < this.q.a()) {
+                        if (this.r.k != null) {
+                            if (this.r.j == 1) {
+                                lm lmObj = (lm)this.r.k;
+                                dc dcObj = new dc(null, lmObj.b(), this.r.j, this.S);
+                                gu guObj = new gu(dcObj);
+                                ((am)guObj).a((bf)this);
+                                guObj.e(lmObj.g);
+                                bd bdDone = new bd("Xong", 5);
+                                ((am)guObj).a((az)bdDone, true);
+                                ((am)guObj).a(new bd("", 5));
+                                bd bdCancel = new bd("Hủy", 6);
+                                ((am)guObj).b((az)bdCancel, true);
+                                ((am)guObj).b(-7524);
+                                guObj.j(true);
+                                ((ht)this).l.a((al)guObj, false);
+                            } else if (this.r.j == 0) {
+                                ks.a().a(this.F, (byte)0, ((ll)this.r.k).c);
+                                com.mg.sq.a.s().a((String)null, (il)null);
                             }
                         }
                     }
@@ -795,23 +784,21 @@ implements bq {
                 if (bs2.s() == null || bs2.s().length == 0) {
                     return;
                 }
-                int n4 = k2.a + ((al)object).c + (k2.c - bs2.e()) / 2;
-                int n5 = k2.b + ((al)object).d + k2.d;
-                if (n5 + bs2.f() > v.u - ba.a) {
-                    n5 = v.u - ba.a - bs2.f();
+                int n4 = k2.a + ((al)this).c + (k2.c - bs2.e()) / 2;
+                int n5 = k2.b + ((al)this).d + k2.d;
+                if (n5 + bs2.f() > com.mg.bas.v.u - ba.a) {
+                    n5 = com.mg.bas.v.u - ba.a - bs2.f();
                 }
-                bs2.a_(((al)object).c + ((am)object).f + bs2.e(), n5);
-                bs2.d(n4 < ((al)object).c ? ((al)object).c : (n4 + bs2.e() > ((al)object).c + ((am)object).f ? ((al)object).c + ((am)object).f - bs2.e() : n4), n5);
-                bs2.a((bf)object);
-                az az2 = ((ho)object).y;
-                object2 = object;
-                ((am)object2).b(az2, true);
-                az2 = ((ho)object).z;
-                object2 = object;
-                ((am)object2).a(az2, true);
+                bs2.a_(((al)this).c + ((am)this).f + bs2.e(), n5);
+                bs2.d(n4 < ((al)this).c ? ((al)this).c : (n4 + bs2.e() > ((al)this).c + ((am)this).f ? ((al)this).c + ((am)this).f - bs2.e() : n4), n5);
+                bs2.a((bf)this);
+                az az2 = this.y;
+                ((am)this).b(az2, true);
+                az2 = this.z;
+                ((am)this).a(az2, true);
                 bs2.a_(1);
-                ((ht)object).n = true;
-                ((ht)object).a(bs2, ((ho)object).z, null, ((ho)object).y);
+                ((ht)this).n = true;
+                ((ht)this).a(bs2, this.z, null, this.y);
             }
         }
     }

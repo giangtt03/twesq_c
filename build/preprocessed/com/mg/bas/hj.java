@@ -67,8 +67,8 @@ extends at {
         this.k = new int[8];
         int n5 = 0;
         while (n5 < 8) {
-            this.j[n5] = n2 + (n * l.b(n4) >> 14);
-            this.k[n5] = n3 + (n * l.a(n4) >> 14);
+            this.j[n5] = n2 + (n * com.mg.bas.l.b(n4) >> 14);
+            this.k[n5] = n3 + (n * com.mg.bas.l.a(n4) >> 14);
             n4 += 45;
             ++n5;
         }

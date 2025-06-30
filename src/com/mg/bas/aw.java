@@ -186,17 +186,16 @@ bu {
         this.c(true);
     }
 
-    public final void c(boolean n) {
-        super.c(n != 0);
-        if (n != 0 && this.n != null) {
-            n = 0;
-            while (n < this.n.d()) {
-                ((aq)this.n.b(n)).c(true);
-                ++n;
+    public final void c(boolean flag) {
+     super.c(flag);
+     if (flag && this.n != null) {
+         int i = 0;
+         while (i < this.n.d()) {
+             ((aq)this.n.b(i)).c(true);
+             ++i;
             }
         }
     }
-
     public final void a(Graphics graphics, int n, int n2) {
         cw.a(graphics, this.o);
         int n3 = n2;

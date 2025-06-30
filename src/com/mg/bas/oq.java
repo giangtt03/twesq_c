@@ -84,7 +84,6 @@ bg {
     private void y() {
         this.r = new ms(i, j);
         byte[] byArray = k;
-        lm[] lmArray = this.r;
         this.r.o = byArray;
         this.r.a(l);
         this.r.a(m);
@@ -95,7 +94,7 @@ bg {
             this.t = new mz(this.r, this.s, this);
         } else {
             this.t = new mo(this.r, this.s, this);
-            lmArray = oq.i[0].F;
+            lm[] lmArray = oq.i[0].F;
             int n = 0;
             while (n < lmArray.length) {
                 int n2 = 0;
@@ -133,15 +132,15 @@ bg {
                 ++n;
             }
             br2.a(brArray);
-            object = br2;
+            br brObject = br2;
             if (!this.t.f()) {
                 if (o == 9) {
                     bs2.a(new br[]{new br("Thoát", 11111)});
                 } else {
-                    bs2.a(new br[]{object, new br("Thoát", 11111)});
+                    bs2.a(new br[]{brObject, new br("Thoát", 11111)});
                 }
             } else {
-                bs2.a(new br[]{new br("Tuyệt Chiêu", 11112), new br("Túi đồ", 11113), object, new br("Đầu hàng", 11111)});
+                bs2.a(new br[]{new br("Tuyệt Chiêu", 11112), new br("Túi đồ", 11113), brObject, new br("Đầu hàng", 11111)});
             }
         } else if (!this.t.f()) {
             if (o == 0) {
@@ -153,10 +152,10 @@ bg {
             bs2.a(new br[]{new br("Tuyệt Chiêu", 11112), new br("Túi đồ", 11113), new br("Đầu hàng", 11111)});
         }
         int n = bs2.e() > bs2.f() ? bs2.e() : bs2.f();
-        bs2.a_(-n, v.u);
-        bs2.d(0, v.u - ba.a - bs2.f());
-        bs2.a(this.t);
-        v.c();
+        bs2.a_(-n, com.mg.bas.v.u);
+        bs2.d(0, com.mg.bas.v.u - ba.a - bs2.f());
+        bs2.a((bf)this.t);
+        com.mg.bas.v.c();
         this.x.a(bs2);
         bs2.a(new gb(1001, 2));
         bs2.b(new gb(1002, 3));
@@ -164,7 +163,7 @@ bg {
     }
 
     public final void q() {
-        v.c();
+        com.mg.bas.v.c();
         this.x.t();
         this.x.c(true);
         oq oq2 = this;
@@ -307,13 +306,11 @@ bg {
         this.z();
         this.w = true;
         lh[] lhArray2 = new lh[1];
-        lh[] lhArray3 = lhArray2;
         lhArray2[0] = lhArray;
         lh[] lhArray4 = new lh[1];
-        lhArray = lhArray4;
         lhArray4[0] = lh2;
-        i = lhArray3;
-        j = lhArray;
+        i = lhArray2;
+        j = lhArray4;
         n = by;
         o = by2;
         k = byArray;

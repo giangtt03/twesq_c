@@ -18,7 +18,7 @@ extends aq {
     private Image s;
     private int t;
     private int u;
-    private int v;
+//    private int v;
     private int[] w;
     private Image x;
     private Image y;
@@ -31,18 +31,19 @@ extends aq {
     private int F;
     public String i;
     private bf G;
-    private Image H = f.d("/corner/4");
-    private Image I = f.d("/corner/5");
+    private Image H = com.mg.bas.f.d("/corner/4");
+    private Image I = com.mg.bas.f.d("/corner/5");
+    private int vIndex;
 
     public fc() {
         this.j = new a();
         this.k = new a();
         this.w = new int[0];
         this.x = pc.c;
-        this.y = f.d("/questnotifyicon");
+        this.y = com.mg.bas.f.d("/questnotifyicon");
         this.a(0, v.u, v.t, 69);
         this.t = this.d();
-        this.s = f.d("/focustab");
+        this.s = com.mg.bas.f.d("/focustab");
         this.u = this.s.getWidth();
         this.k(0);
     }
@@ -62,7 +63,7 @@ private void j(int var1_1) {
         return;
     }
     if (this.l < this.j.d()) {
-        this.v = this.q().i;
+        this.vIndex = this.q().i;
     }
     this.l = var1_1;
     int var2_4 = var1_1;
@@ -220,7 +221,7 @@ private void j(int var1_1) {
             this.k.a(fb2);
         }
         if (fb2.i == 107 && this.z == null) {
-            this.z = f.d("/notificationnewsicon");
+            this.z = com.mg.bas.f.d("/notificationnewsicon");
         }
         int[] nArray = new int[this.j.d() + 1];
         fb fb3 = this.q();
@@ -287,7 +288,7 @@ private void j(int var1_1) {
                 this.t();
                 return;
             }
-            int n2 = this.l(this.v);
+            int n2 = this.l(this.vIndex);
             if (n2 >= 0) {
                 this.j(n2);
                 return;
@@ -455,49 +456,49 @@ private void j(int var1_1) {
             int n4 = this.e();
             int n5 = this.d();
             int n6 = this.c();
-            Object object = graphics;
+            Graphics g = graphics;
             fc fc2 = this;
             int n7 = n6 + fc2.H.getWidth() - 1;
             int n8 = n5 + 2;
             int n9 = n4 - fc2.H.getWidth() - fc2.H.getWidth() + 2;
-            object.setColor(16764571);
-            object.fillRect(n7, n8 + 2, n9, 15);
-            object.setColor(13077582);
-            object.drawLine(n7, n8, n7 + n9, n8);
-            object.drawLine(n7, n8 + 17, n7 + n9, n8 + 17);
-            object.setColor(7225619);
-            object.drawLine(n7, n8 + 1, n7 + n9, n8 + 1);
+            g.setColor(16764571);
+            g.fillRect(n7, n8 + 2, n9, 15);
+            g.setColor(13077582);
+            g.drawLine(n7, n8, n7 + n9, n8);
+            g.drawLine(n7, n8 + 17, n7 + n9, n8 + 17);
+            g.setColor(7225619);
+            g.drawLine(n7, n8 + 1, n7 + n9, n8 + 1);
             n7 = n6 + 1;
             n8 = n5 + 20;
             n9 = n4 - 2;
             int n10 = n3 - fc2.H.getHeight() + 2 - 1;
-            object.setColor(7225619);
-            object.drawRect(n7, n8, n9 - 1, n10 - 1);
-            object.setColor(13077582);
-            object.drawRect(n7 + 1, n8 + 1, n9 - 3, n10 - 3);
-            object.setColor(14854509);
-            object.drawRect(n7 + 2, n8 + 2, n9 - 5, n10 - 5);
-            object.setColor(16764571);
-            object.fillRect(n7 + 1, n8 + 3, n9 - 4, n10 - 6);
-            object.drawImage(fc2.H, n6, n5, 0);
-            object.drawRegion(fc2.H, 0, 0, fc2.H.getWidth(), fc2.H.getHeight(), 2, n6 + n4, n5, 24);
-            object.setColor(13077582);
-            object.drawLine(n6, n5 + 10, n6, n5 + n3);
-            object.setColor(0x333333);
-            object.drawLine(n6 + n4 - 1, n5 + 10, n6 + n4 - 1, n5 + n3);
-            object.drawLine(n6, n5 + n3 - 1, n6 + n4 - 1, n5 + n3 - 1);
-            object.drawImage(fc2.I, n6 + 2, n5 + fc2.H.getHeight() - 1, 0);
-            object.drawRegion(fc2.I, 0, 0, fc2.I.getWidth(), fc2.I.getHeight(), 2, n6 + n4 - 2, n5 + fc2.H.getHeight() - 1, 24);
-            object.drawRegion(fc2.I, 0, 0, fc2.I.getWidth(), fc2.I.getHeight(), 1, n6 + 2, n5 + n3 - 2, 36);
-            object.drawRegion(fc2.I, 0, 0, fc2.I.getWidth(), fc2.I.getHeight(), 3, n6 + n4 - 2, n5 + n3 - 2, 40);
+            g.setColor(7225619);
+            g.drawRect(n7, n8, n9 - 1, n10 - 1);
+            g.setColor(13077582);
+            g.drawRect(n7 + 1, n8 + 1, n9 - 3, n10 - 3);
+            g.setColor(14854509);
+            g.drawRect(n7 + 2, n8 + 2, n9 - 5, n10 - 5);
+            g.setColor(16764571);
+            g.fillRect(n7 + 1, n8 + 3, n9 - 4, n10 - 6);
+            g.drawImage(fc2.H, n6, n5, 0);
+            g.drawRegion(fc2.H, 0, 0, fc2.H.getWidth(), fc2.H.getHeight(), 2, n6 + n4, n5, 24);
+            g.setColor(13077582);
+            g.drawLine(n6, n5 + 10, n6, n5 + n3);
+            g.setColor(0x333333);
+            g.drawLine(n6 + n4 - 1, n5 + 10, n6 + n4 - 1, n5 + n3);
+            g.drawLine(n6, n5 + n3 - 1, n6 + n4 - 1, n5 + n3 - 1);
+            g.drawImage(fc2.I, n6 + 2, n5 + fc2.H.getHeight() - 1, 0);
+            g.drawRegion(fc2.I, 0, 0, fc2.I.getWidth(), fc2.I.getHeight(), 2, n6 + n4 - 2, n5 + fc2.H.getHeight() - 1, 24);
+            g.drawRegion(fc2.I, 0, 0, fc2.I.getWidth(), fc2.I.getHeight(), 1, n6 + 2, n5 + n3 - 2, 36);
+            g.drawRegion(fc2.I, 0, 0, fc2.I.getWidth(), fc2.I.getHeight(), 3, n6 + n4 - 2, n5 + n3 - 2, 40);
             n6 = this.r;
             int n11 = this.d() + 4;
             if (this.j.d() <= 0) {
                 return;
             }
-            object = (fb)this.j.b(this.m);
-            if (object.j != null) {
-                bx.e.a(graphics, object.j, this.e() / 2, n11 + 1, 1);
+            fb selectedFb = (fb)this.j.b(this.m);
+            if (selectedFb.j != null) {
+                bx.e.a(graphics, selectedFb.j, this.e() / 2, n11 + 1, 1);
             }
             n11 += bx.e.a() + 6;
             cw.a(graphics);

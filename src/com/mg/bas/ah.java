@@ -26,10 +26,10 @@ r {
     private int p;
     private boolean q;
     private boolean r;
-    private boolean s;
+    private boolean flagS;
     private Object[] t;
     private int u;
-    private int v;
+    private int vValue;
     private int w;
     al e = null;
     protected ax f;
@@ -93,7 +93,7 @@ r {
     }
 
     final void a(int n) {
-        if (this.i || this.s) {
+        if (this.i || this.flagS) {
             return;
         }
         if (this.b != null) {
@@ -112,7 +112,7 @@ r {
     }
 
     final void b(int n) {
-        if (this.i || this.s) {
+        if (this.i || this.flagS) {
             return;
         }
         if (this.b != null) {
@@ -129,7 +129,7 @@ r {
     }
 
     final void a(int n, int n2) {
-        if (this.i || this.s) {
+        if (this.i || this.flagS) {
             return;
         }
         v.A = n;
@@ -137,7 +137,7 @@ r {
     }
 
     final void b(int n, int n2) {
-        if (this.i || this.s) {
+        if (this.i || this.flagS) {
             return;
         }
         v.C = n;
@@ -145,7 +145,7 @@ r {
     }
 
     final void c(int n, int n2) {
-        if (this.i || this.s) {
+        if (this.i || this.flagS) {
             return;
         }
         if (v.E < 0) {
@@ -174,16 +174,16 @@ r {
                     if (((ah)object).u > 0) {
                         --((ah)object).u;
                         int n = ((ah)object).u % 5;
-                        ((ah)object).v = g[n];
+                        ((ah)object).vValue = g[n];
                         ((ah)object).w = h[n];
                         if (((ah)object).u == 0) {
                             ((ah)object).w = 0;
-                            ((ah)object).v = 0;
+                            ((ah)object).vValue = 0;
                         }
                     }
                     al2 = ((ah)object).b;
                     an2 = ((ah)object).a;
-                    if (((ah)object).s) break block11;
+                    if (((ah)object).flagS) break block11;
                     if (((ah)object).n == null) break block12;
                     ((ah)object).m = null;
                     ((ah)object).n.b();
@@ -217,12 +217,12 @@ r {
 
     protected static void a(Graphics graphics) {
         graphics.setColor(0);
-        graphics.fillRect(0, 0, v.v, v.w);
+        graphics.fillRect(0, 0, com.mg.bas.v.v, com.mg.bas.v.w);
     }
 
     final void a(Graphics object, Image image, Graphics graphics) {
         try {
-            if (this.s) {
+            if (this.flagS) {
                 if (this.r) {
                     this.o.a((Graphics)object, true);
                 }
@@ -280,11 +280,7 @@ r {
             if (this.f != null) {
                 this.f.a((Graphics)object);
             }
-            Graphics graphics2 = graphics;
-            graphics = image;
-            image = graphics2;
-            object = this;
-            image.drawImage((Image)graphics, v.x + object.v, v.y + object.w, 20);
+            graphics.drawImage(image, com.mg.bas.v.x + this.vValue, com.mg.bas.v.y + this.w, 20);
             return;
         }
         catch (Exception exception) {
@@ -323,9 +319,9 @@ r {
         String[] stringArray2 = stringArray;
         stringArray[0] = object;
         int[] nArray = new int[1];
-        object = nArray;
+        int[] intArray = nArray;
         nArray[0] = n;
-        return this.a(string, string2, stringArray2, (int[])object, 1);
+        return this.a(string, string2, stringArray2, intArray, 1);
     }
 
     public final al a(String string, String string2, String object, int n, String string3, int n2, int n3) {
@@ -334,10 +330,10 @@ r {
         stringArray[0] = object;
         stringArray2[1] = string3;
         int[] nArray = new int[2];
-        object = nArray;
+        int[] intArray = nArray;
         nArray[0] = n;
-        object[1] = n2;
-        return this.a(string, string2, stringArray2, (int[])object, 1);
+        intArray[1] = n2;
+        return this.a(string, string2, stringArray2, intArray, 1);
     }
 
     public final al a(String string, String string2, boolean bl) {
@@ -481,7 +477,7 @@ r {
             this.m = null;
             this.n = null;
             this.a.i(false);
-            this.s = false;
+            this.flagS = false;
             if (bl) {
                 this.a.r();
             }
@@ -500,18 +496,18 @@ r {
             this.m = null;
             this.t = objectArray;
             v.c();
-            ah ah2 = this;
-            if (ah2.o == null) {
-                ah2.o = new ak();
+            ah ahObj = this;
+            if (ahObj.o == null) {
+                ahObj.o = new ak();
             }
-            ah2.m = null;
-            ah2.n = null;
+            ahObj.m = null;
+            ahObj.n = null;
             ag.a().e();
-            ah2.o.a();
+            ahObj.o.a();
             v.ag = false;
-            ah2.s = true;
-            if (ah2.r) {
-                ah2.o.a(0);
+            ahObj.flagS = true;
+            if (ahObj.r) {
+                ahObj.o.a(0);
             }
             s.a().a(this);
         }
@@ -580,7 +576,7 @@ r {
         this.a(-10001, false);
         Object object = this.a("Chú ý", "Mạng di động đang có vấn đề hoặc quá tải, vui lòng thử lại sau", "Đóng", 3, 1);
         ((am)object).a(this);
-        al al2 = object;
+        al al2 = (al) object;
         object = this;
         ((ah)object).a(al2, false);
     }
@@ -597,23 +593,18 @@ r {
             if ("reco".toLowerCase().equals(string3)) {
                 cs.a(n2, n, string, object);
                 if (MGMIDlet.b) {
-                    object = MGMIDlet.d();
-                    object.notifyDestroyed();
+                    MGMIDlet midlet = MGMIDlet.d();
+                    midlet.notifyDestroyed();
                     return;
                 }
                 n = n2;
-                ah ah2 = this;
-                if (ah2.a != null && ah2.a.h() == -100004) {
-                    object = (cd)ah2.a;
-                    ((cd)object).d();
-                } else {
-                    object = null;
-                }
-                if (object != null) {
-                    string = object;
-                    object = ah2;
-                    ((ah)object).a((an)((Object)string), true, null);
-                    ah2.a(-10006, false);
+                ah ahObj = this;
+                if (ahObj.a != null && ahObj.a.h() == -100004) {
+                    cd cdObj = (cd)ahObj.a;
+                    if (cdObj != null) {
+                        ahObj.a((an) cdObj, true, null);
+                        ahObj.a(-10006, false);
+                    }
                 }
                 return;
             }
@@ -646,8 +637,8 @@ r {
                 return;
             }
             if (n2 == 4) {
-                MGMIDlet mGMIDlet = MGMIDlet.d();
-                mGMIDlet.notifyDestroyed();
+                MGMIDlet midlet = MGMIDlet.d();
+                midlet.notifyDestroyed();
                 return;
             }
             if (n2 == 6) {
@@ -657,8 +648,7 @@ r {
             if (n2 == 5) {
                 try {
                     MGMIDlet.d().a("http://game.ola.vn");
-                }
-                catch (ConnectionNotFoundException connectionNotFoundException) {}
+                } catch (Exception e) {}
                 this.a(false);
                 return;
             }

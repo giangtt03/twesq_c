@@ -22,7 +22,7 @@ extends mq {
                 this.e(n - 148);
                 return;
             }
-        } else if (v.a() && n == 142 || !v.a() && n == 135) {
+        } else if (com.mg.bas.v.a() && n == 142 || !com.mg.bas.v.a() && n == 135) {
             this.t = true;
         }
         mt mt2 = this.b;
@@ -40,7 +40,7 @@ extends mq {
             this.b.d.f(n);
             return;
         }
-        if (v.ai && (n < 93 || n > 99) || n >= 148 && n <= 157) {
+        if (com.mg.bas.v.ai && (n < 93 || n > 99) || n >= 148 && n <= 157) {
             this.b.a();
             this.b.d.f(n);
             return;
@@ -56,7 +56,7 @@ extends mq {
     }
 
     public final void c(int n) {
-        if (this.t && (v.a() && n == 142 || !v.a() && n == 135)) {
+        if (this.t && (com.mg.bas.v.a() && n == 142 || !com.mg.bas.v.a() && n == 135)) {
             this.t = false;
         }
         mt mt2 = this.b;

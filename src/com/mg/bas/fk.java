@@ -31,10 +31,11 @@ extends fn {
         if (this.l < 0) {
             return false;
         }
-        int n3 = this.u().f(n2);
-        if (n3 != 0) {
+        boolean result = this.u().f(n2);
+        if (result) {
             return true;
         }
+        int n3;
         switch (n2) {
             case 99: {
                 fk fk2 = this;
@@ -127,7 +128,7 @@ extends fn {
                         }
                     }
                 }
-                if ((n5 = aq2.c(n2, n3)) != 0) {
+                if (aq2.c(n2, n3)) {
                     return true;
                 }
                 this.f(95);

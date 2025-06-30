@@ -47,8 +47,8 @@ ik {
         this.b.h(1);
         int n = 0;
         int n2 = 0;
-        int n3 = v.t;
-        int n4 = v.u - ba.a;
+        int n3 = com.mg.bas.v.t;
+        int n4 = com.mg.bas.v.u - ba.a;
         if (n3 > oh.a(this.c).getWidth()) {
             n = (n3 - oh.a(this.c).getWidth()) / 2;
             n3 = oh.a(this.c).getWidth();
@@ -124,24 +124,24 @@ ik {
     public final void d() {
     }
 
-    public final void a(jn object, byte[][] object2) {
+    public final void a(final jn jn, final byte[][] array) {
         com.mg.sq.a.s().v();
-        if (object2 == null || ((byte[][])object2).length <= 0) {
-            try {
-                this.a = ((jn)object).l;
-                if (go.x >= 0 && this.a != null && !this.a[go.x].h) {
-                    object2 = new bd("Vào Thành", -1);
-                    object = this;
-                    ((am)object).a((az)object2, true);
-                    return;
-                }
-                this.n();
+        if (array != null) {
+            if (array.length > 0) {
                 return;
             }
-            catch (Exception exception) {
-                object = exception;
-                exception.printStackTrace();
+        }
+        try {
+            this.a = jn.l;
+            if (go.x >= 0 && this.a != null && !this.a[go.x].h) {
+                this.a(new bd("Vào Thành", -1), true);
+                return;
             }
+            this.n();
+        }
+        catch (final Exception ex) {
+//            final Throwable t;
+            ex.printStackTrace();
         }
     }
 

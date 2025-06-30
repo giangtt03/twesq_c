@@ -34,13 +34,13 @@ bq {
         this.m = oa2;
         this.x = ol2;
         this.a_(3);
-        this.a(0, 0, v.t, v.u);
+        this.a(0, 0, com.mg.bas.v.t, com.mg.bas.v.u);
         this.a((byte)0);
         this.x.a(new gb(105, 0));
         this.x.b(new gb(109, 1));
         this.x.c(com.mg.sq.a.n);
         this.x.a(new ba());
-        this.x.a(this);
+        this.x.a((aq)this);
     }
 
     private void a(byte by) {
@@ -48,18 +48,18 @@ bq {
         os os2 = this;
         switch (os2.u) {
             case 1: {
-                os2.n = new k(0, 73, v.t, 1);
+                os2.n = new k(0, 73, com.mg.bas.v.t, 1);
                 os2.o = new k(0, os2.n.b + 4, os2.e(), os2.f() - (os2.n.b + 4) - ba.a);
                 break;
             }
             default: {
-                os2.n = new k(0, 5, v.t, 1);
+                os2.n = new k(0, 5, com.mg.bas.v.t, 1);
                 os2.o = new k(0, os2.n.b + 5, os2.e(), os2.f() - (os2.n.b + 4) - ba.a);
             }
         }
         this.k = new fk();
         this.k.i = true;
-        this.k.a(this);
+        this.k.a((bq)this);
         this.k.a_(this.o.a, this.o.b);
         this.p = new ay(0);
         this.p.a(this.o);
@@ -98,29 +98,30 @@ bq {
         this.p.c(true);
     }
 
-    public final void a(Graphics object, int n, int n2) {
+    public final void a(final Graphics graphics, final int n, int n2) {
         if (this.p != null && this.p.k()) {
-            Graphics graphics = object;
-            object = this;
-            graphics.setColor(v.am);
-            graphics.fillRect(0, 0, ((aq)object).e(), ((aq)object).f());
-            graphics.drawImage(pc.d, ((aq)object).c() + ((aq)object).e(), ((aq)object).d() + ((aq)object).f() - ba.a, 40);
-            switch (((os)object).u) {
+            graphics.setColor(com.mg.bas.v.am);
+            graphics.fillRect(0, 0, this.e(), this.f());
+            graphics.drawImage(pc.d, this.c() + this.e(), this.d() + this.f() - ba.a, 40);
+            switch (this.u) {
                 case 1: {
-                    if (((os)object).t != null) {
-                        ((os)object).t.a(graphics, 0, 0);
+                    if (this.t != null) {
+                        this.t.a(graphics, 0, 0);
                     }
-                    pc.a(graphics, ((os)object).n.a, ((os)object).n.b, ((os)object).n.c);
-                    if (((os)object).z == null) break;
-                    long l = ((os)object).A - System.currentTimeMillis() > 0L ? ((os)object).A - System.currentTimeMillis() : 0L;
-                    n2 = v.t - bx.c.a(((os)object).z) - bx.c.a(i.b(l, "hh:mm:ss")) - 5;
-                    com.mg.sq.a.h.a(graphics, String.valueOf(((os)object).z) + " " + i.b(l, "hh:mm:ss"), n2, v.u - 35, 0);
+                    pc.a(graphics, this.n.a, this.n.b, this.n.c);
+                    if (this.z != null) {
+                        final long n3 = (this.A - System.currentTimeMillis() > 0L) ? (this.A - System.currentTimeMillis()) : 0L;
+                        n2 = com.mg.bas.v.t - bx.c.a(this.z) - bx.c.a(com.mg.bas.i.b(n3, "hh:mm:ss")) - 5;
+                        com.mg.sq.a.h.a(graphics, String.valueOf(this.z) + " " + com.mg.bas.i.b(n3, "hh:mm:ss"), n2, com.mg.bas.v.u - 35, 0);
+                        break;
+                    }
+                    break;
                 }
             }
-            if (((os)object).p != null) {
+            if (this.p != null) {
                 cw.a(graphics);
-                cw.b(graphics, ((os)object).p.h());
-                ((os)object).p.a(graphics, ((aq)object).c(), ((aq)object).d());
+                cw.b(graphics, this.p.h());
+                this.p.a(graphics, this.c(), this.d());
                 cw.b(graphics);
             }
         }
@@ -197,57 +198,63 @@ bq {
         this.t();
     }
 
-    private void a(doo object) {
+    private void a(final doo doo) {
         try {
+            ew ew;
+            if (doo.a.length() < 6) {
+                ew = new ew(doo, this.e(), this.y);
+            }
+            else {
+                ew = new ew(doo, this.e());
+            }
+            ew.a_(this.v++);
+            final String a = doo.a;
+            int n2;
             int n;
-            ew ew2;
-            block10: {
-                ew2 = ((doo)object).a.length() < 6 ? new ew((doo)object, this.e(), this.y) : new ew((doo)object, this.e());
-                ew2.a_(this.v++);
-                String string = ((doo)object).a;
-                object = this;
-                if (((os)object).k.r() == 0) {
-                    n = -1;
-                } else {
-                    int n2 = 0;
-                    int n3 = ((os)object).k.r();
-                    int n4 = n3 + 0 >> 1;
-                    while (true) {
-                        doo doo2 = ((ew)((os)object).k.j((int)n4)).i;
-                        if (string.compareTo(doo2.a) > 0) {
-                            n2 = n4;
-                            n4 = n2 + n3 >> 1;
-                        } else {
-                            if (string.compareTo(doo2.a) >= 0) {
-                                n = n4;
-                                break block10;
-                            }
-                            n3 = n4;
-                            n4 = n2 + n3 >> 1;
-                        }
-                        if (n2 != n4) continue;
-                        doo2 = ((ew)((os)object).k.j((int)n4)).i;
-                        if (string.compareTo(doo2.a) > 0) {
-                            n = n3 == ((os)object).k.r() ? -1 : n3;
-                            break block10;
-                        }
-                        if (string.compareTo(doo2.a) < 0) break;
+            if (this.k.r() == 0) {
+                n = (n2 = -1);
+            }
+            else {
+                int n3 = 0;
+                int r = this.k.r();
+                int n4 = r + 0 >> 1;
+                while (true) {
+                    final doo i = ((ew)this.k.j(n4)).i;
+                    if (a.compareTo(i.a) > 0) {
+                        n4 = (n3 = n4) + r >> 1;
                     }
-                    n = n2;
+                    else {
+                        if (a.compareTo(i.a) >= 0) {
+                            n = (n2 = n4);
+                            break;
+                        }
+                        r = n4;
+                        n4 = n3 + r >> 1;
+                    }
+                    if (n3 == n4) {
+                        final doo j = ((ew)this.k.j(n4)).i;
+                        if (a.compareTo(j.a) > 0) {
+                            n = (n2 = ((r == this.k.r()) ? -1 : r));
+                            break;
+                        }
+                        if (a.compareTo(j.a) < 0) {
+                            n = (n2 = n3);
+                            break;
+                        }
+                        continue;
+                    }
                 }
             }
-            int n5 = n;
+            final int n5 = n2;
             if (n == -1) {
-                this.k.b(ew2);
+                this.k.b(ew);
                 return;
             }
-            this.k.a(ew2, n5);
-            return;
+            this.k.a(ew, n5);
         }
-        catch (OutOfMemoryError outOfMemoryError) {
+        catch (final OutOfMemoryError outOfMemoryError) {
             com.mg.sq.a.m.G();
             ct.a("[RoomTab] khong du bo nho them ng choi vao room");
-            return;
         }
     }
 
@@ -261,136 +268,136 @@ bq {
         this.c(true);
     }
 
-    public final void b(aq aq2, int n) {
-        block28: {
-            block27: {
-                block29: {
-                    aq aq3;
-                    Object object;
-                    block31: {
-                        block30: {
-                            if (!(aq2 instanceof ew)) break block27;
-                            if (this.k.r() <= 1) break block28;
-                            aq2 = (ew)aq2;
-                            object = ((ew)aq2).i;
-                            aq2 = this;
-                            if (((doo)object).a.equals(go.k.b)) break block29;
-                            ((os)aq2).s = object;
-                            object = new bs();
-                            if (com.mg.sq.a.m == null || !com.mg.sq.a.o) break block30;
-                            aq3 = (fc)((os)aq2).x.l();
-                            switch (((os)aq2).s.c) {
-                                case 2: {
-                                    if (((fc)aq3).b(com.mg.sq.a.m)) {
-                                        if ((((os)aq2).B & 2) != 0) {
-                                            ((bs)object).a(new br("Giao dịch", 10100));
-                                        }
-                                        ((bs)object).a(new br[]{new br("Chat!", 10101), new br("Xem ME", 10102)});
-                                        break;
-                                    }
-                                    ((bs)object).a(new br[]{new br("Giao dịch", 10100)});
-                                    break;
-                                }
-                                case 3: {
-                                    if (((fc)aq3).b(com.mg.sq.a.m)) {
-                                        ((bs)object).a(new br[]{new br("Chat!", 10101), new br("Xem ME", 10102)});
-                                        break;
-                                    }
-                                    break block28;
-                                }
-                                case 1: {
-                                    if (((fc)aq3).b(com.mg.sq.a.m)) {
-                                        if ((((os)aq2).B & 4) != 0) {
-                                            ((bs)object).a(new br("Xem Trận đánh", 10103));
-                                        }
-                                        ((bs)object).a(new br[]{new br("Chat!", 10101), new br("Xem ME", 10102)});
-                                        break;
-                                    }
-                                    ((bs)object).a(new br[]{new br("Xem Trận đánh", 10103)});
-                                    break;
-                                }
-                                default: {
-                                    if (((fc)aq3).b(com.mg.sq.a.m)) {
-                                        if (((os)aq2).s.f > 0L) {
-                                            ((bs)object).a(new br[]{new br("Đánh!", 10104), new br("Giao dịch", 10100), new br("Chat!", 10101), new br("Xem ME", 10102)});
-                                            break;
-                                        }
-                                        if ((((os)aq2).B & 1) != 0) {
-                                            ((bs)object).a(new br("Khiêu Chiến", 10105));
-                                        }
-                                        if ((((os)aq2).B & 2) != 0) {
-                                            ((bs)object).a(new br("Giao dịch", 10100));
-                                        }
-                                        ((bs)object).a(new br[]{new br("Chat!", 10101), new br("Xem ME", 10102)});
-                                        break;
-                                    }
-                                    if (((os)aq2).s.f > 0L) {
-                                        ((bs)object).a(new br[]{new br("Đánh!", 10104), new br("Giao dịch", 10100)});
-                                        break;
-                                    }
-                                    if ((((os)aq2).B & 1) != 0) {
-                                        ((bs)object).a(new br("Khiêu Chiến", 10105));
-                                    }
-                                    if ((((os)aq2).B & 2) != 0) {
-                                        ((bs)object).a(new br("Giao dịch", 10100));
-                                        break;
-                                    }
-                                    break block31;
-                                }
-                            }
-                            break block31;
-                        }
-                        switch (((os)aq2).s.c) {
+    public final void b(final aq aq, final int n) {
+        if (aq instanceof ew) {
+            if (this.k.r() > 1) {
+                final doo i = ((ew)aq).i;
+                if (!i.a.equals(go.k.b)) {
+                    this.s = i;
+                    final bs bs = new bs();
+                    if (com.mg.sq.a.m != null && com.mg.sq.a.o) {
+                        final fc fc = (fc)this.x.l();
+                        switch (this.s.c) {
                             case 2: {
-                                if ((((os)aq2).B & 2) == 0) break;
-                                ((bs)object).a(new br("Giao dịch", 10100));
+                                if (fc.b(com.mg.sq.a.m)) {
+                                    if ((this.B & 0x2) != 0x0) {
+                                        bs.a(new br("Giao dịch", 10100));
+                                    }
+                                    bs.a(new br[] { new br("Chat!", 10101), new br("Xem ME", 10102) });
+                                    break;
+                                }
+                                bs.a(new br[] { new br("Giao dịch", 10100) });
                                 break;
                             }
                             case 3: {
-                                break block28;
+                                if (fc.b(com.mg.sq.a.m)) {
+                                    bs.a(new br[] { new br("Chat!", 10101), new br("Xem ME", 10102) });
+                                    break;
+                                }
+                                return;
                             }
                             case 1: {
-                                if ((((os)aq2).B & 4) == 0) break;
-                                ((bs)object).a(new br("Xem Trận đánh", 10103));
+                                if (fc.b(com.mg.sq.a.m)) {
+                                    if ((this.B & 0x4) != 0x0) {
+                                        bs.a(new br("Xem Trận đánh", 10103));
+                                    }
+                                    bs.a(new br[] { new br("Chat!", 10101), new br("Xem ME", 10102) });
+                                    break;
+                                }
+                                bs.a(new br[] { new br("Xem Trận đánh", 10103) });
                                 break;
                             }
                             default: {
-                                if (((os)aq2).s.f > 0L) {
-                                    ((bs)object).a(new br[]{new br("Đánh!", 10104), new br("Giao dịch", 10100)});
+                                if (fc.b(com.mg.sq.a.m)) {
+                                    if (this.s.f > 0L) {
+                                        bs.a(new br[] { new br("Đánh!", 10104), new br("Giao dịch", 10100), new br("Chat!", 10101), new br("Xem ME", 10102) });
+                                        break;
+                                    }
+                                    if ((this.B & 0x1) != 0x0) {
+                                        bs.a(new br("Khiêu Chiến", 10105));
+                                    }
+                                    if ((this.B & 0x2) != 0x0) {
+                                        bs.a(new br("Giao dịch", 10100));
+                                    }
+                                    bs.a(new br[] { new br("Chat!", 10101), new br("Xem ME", 10102) });
                                     break;
                                 }
-                                if ((((os)aq2).B & 1) != 0) {
-                                    ((bs)object).a(new br("Khiêu Chiến", 10105));
+                                else {
+                                    if (this.s.f > 0L) {
+                                        bs.a(new br[] { new br("Đánh!", 10104), new br("Giao dịch", 10100) });
+                                        break;
+                                    }
+                                    if ((this.B & 0x1) != 0x0) {
+                                        bs.a(new br("Khiêu Chiến", 10105));
+                                    }
+                                    if ((this.B & 0x2) != 0x0) {
+                                        bs.a(new br("Giao dịch", 10100));
+                                        break;
+                                    }
+                                    break;
                                 }
-                                if ((((os)aq2).B & 2) == 0) break;
-                                ((bs)object).a(new br("Giao dịch", 10100));
+//                                break;
                             }
                         }
                     }
-                    aq3 = ((os)aq2).k.u();
-                    k k2 = ((os)aq2).p.r();
-                    int n2 = (v.t - ((aq)object).e()) / 2;
-                    int n3 = ((os)aq2).p.d() + aq3.d() - k2.b;
-                    if (n3 + ((aq)object).f() > v.u - ba.a) {
-                        n3 = v.u - ba.a - ((aq)object).f();
+                    else {
+                        switch (this.s.c) {
+                            case 2: {
+                                if ((this.B & 0x2) != 0x0) {
+                                    bs.a(new br("Giao dịch", 10100));
+                                    break;
+                                }
+                                break;
+                            }
+                            case 3: {
+                                return;
+                            }
+                            case 1: {
+                                if ((this.B & 0x4) != 0x0) {
+                                    bs.a(new br("Xem Trận đánh", 10103));
+                                    break;
+                                }
+                                break;
+                            }
+                            default: {
+                                if (this.s.f > 0L) {
+                                    bs.a(new br[] { new br("Đánh!", 10104), new br("Giao dịch", 10100) });
+                                    break;
+                                }
+                                if ((this.B & 0x1) != 0x0) {
+                                    bs.a(new br("Khiêu Chiến", 10105));
+                                }
+                                if ((this.B & 0x2) != 0x0) {
+                                    bs.a(new br("Giao dịch", 10100));
+                                    break;
+                                }
+                                break;
+                            }
+                        }
                     }
-                    ((bs)object).a_(v.t + ((aq)object).e(), n3);
-                    ((bs)object).d(n2, n3);
-                    ((bs)object).a((bg)((Object)aq2));
-                    ((bs)object).a(new gb(113, 2));
-                    ((bs)object).b(new gb(106, 3));
-                    ((bs)object).c(com.mg.sq.a.n);
-                    ((aq)object).a_(1);
-                    ((os)aq2).x.a((bs)object);
+                    final aq u = this.k.u();
+                    final k r = this.p.r();
+                    final int n2 = (com.mg.bas.v.t - bs.e()) / 2;
+                    int n3;
+                    if ((n3 = this.p.d() + u.d() - r.b) + bs.f() > com.mg.bas.v.u - ba.a) {
+                        n3 = com.mg.bas.v.u - ba.a - bs.f();
+                    }
+                    bs.a_(com.mg.bas.v.t + bs.e(), n3);
+                    bs.d(n2, n3);
+                    bs.a((bg)this);
+                    bs.a(new gb(113, 2));
+                    bs.b(new gb(106, 3));
+                    bs.c(com.mg.sq.a.n);
+                    bs.a_(1);
+                    this.x.a(bs);
                 }
-                return;
             }
-            if (aq2 instanceof fz) {
-                aq2 = (fz)aq2;
-                if (!((fz)aq2).i.a()) {
-                    ks.a().q(((fz)aq2).i.b);
-                    com.mg.sq.a.s().a((String)null, (il)null);
-                }
+        }
+        else {
+            final fz fz;
+            if (aq instanceof fz && !(fz = (fz)aq).i.a()) {
+                ks.a().q(fz.i.b);
+                com.mg.sq.a.s().a(null, (il)null);
             }
         }
     }
@@ -415,7 +422,7 @@ bq {
         }
     }
 
-    public final void d(int n, int n2) {
+    public final void d(final int n, final int n2) {
         switch (n2) {
             case 106: {
                 this.x.t();
@@ -430,24 +437,25 @@ bq {
                 return;
             }
             case 105: {
-                os os2 = this;
-                bs bs2 = new bs();
-                oa cfr_ignored_0 = os2.m;
-                bs2.a(oa.a(os2.x));
-                int n3 = bs2.e() > bs2.f() ? bs2.e() : bs2.f();
-                bs2.a_(-n3, os2.f() - bs2.f() + n3);
-                bs2.d(0, v.u - ba.a - bs2.f());
-                bs2.a(os2);
-                gb gb2 = new gb(113, 2);
-                gb gb3 = new gb(106, 3);
+                final bs bs2;
+                final bs bs = bs2 = new bs();
+                final oa m = this.m;
+                bs.a(oa.a((fb)this.x));
+                final int n3 = (bs2.e() > bs2.f()) ? bs2.e() : bs2.f();
+                bs2.a_(-n3, this.f() - bs2.f() + n3);
+                bs2.d(0, com.mg.bas.v.u - ba.a - bs2.f());
+                bs2.a((bg)this);
+                final gb gb = new gb(113, 2);
+                final gb gb2 = new gb(106, 3);
                 bs2.c(com.mg.sq.a.n);
-                bs2.a(gb2);
-                bs2.b(gb3);
-                os2.x.a(bs2);
+                bs2.a(gb);
+                bs2.b(gb2);
+                this.x.a(bs2);
                 return;
             }
             case 0: {
                 ag.b().a(-9, false);
+                break;
             }
         }
     }

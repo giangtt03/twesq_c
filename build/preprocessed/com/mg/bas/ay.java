@@ -1,4 +1,5 @@
 package com.mg.bas;
+
 // Decompiled with: CFR 0.152
 // Class Version: 1
 // UI/game component extending aq, manages state, rendering, and user interaction for a specific screen or feature.
@@ -19,7 +20,7 @@ extends aq {
     private int s = 50;
     private cu t = new cu(-1987, -1987);
     private boolean u = false;
-    private long v = -1L;
+    private long vTime = -1L;
 
     public ay() {
         this(0);
@@ -61,27 +62,23 @@ extends aq {
     }
 
     private void x() {
-        Object object = (bu)((Object)this.l);
-        Object object2 = object = object.v();
-        Object object3 = this;
-        g g2 = ((aq)object3).g();
-        j j2 = ((ay)object3).a();
-        int n2 = g2.a - ((ay)object3).k.b - j2.d;
-        int n3 = g2.b - ((ay)object3).k.a - j2.c;
-        if (((ay)object3).i != 2 && ((ay)object3).i == 0) {
-            int cfr_ignored_0 = ((g)object2).a;
-            int cfr_ignored_1 = ((g)object2).b;
+        g gTarget = ((bu) this.l).v();
+        g gScreen = ((aq)this).g();
+        j jScreen = this.a();
+        int n2 = gScreen.a - this.k.b - jScreen.d;
+        int n3 = gScreen.b - this.k.a - jScreen.c;
+        g gOffset = new g(n2, n3);
+        if (this.i != 2 && this.i == 0) {
+            // Đã loại bỏ biến không sử dụng
         }
-        object3 = new g(n2, n3);
-        object2 = this.a();
-        if (this.r || this.l.e() != ((g)object3).a || this.l.f() != ((g)object3).b) {
-            this.l.a(((j)object2).b + this.c(), this.d() + ((j)object2).a, ((g)object3).a, ((g)object3).b);
+        if (this.r || this.l.e() != gOffset.a || this.l.f() != gOffset.b) {
+            this.l.a(jScreen.b + this.c(), this.d() + jScreen.a, gOffset.a, gOffset.b);
             this.r = false;
         }
-        this.n.b(this.n.q(), ((g)object3).a, 0, ((g)object).a);
-        this.n.a(this.c() + ((j)object2).b, this.d() + ((g)object3).b, this.e() - ((j)object2).b - ((j)object2).d, this.n.f());
-        this.m.b(this.m.q(), ((g)object3).b, 0, ((g)object).b);
-        this.m.a(this.c() + ((j)object2).b + ((g)object3).a, this.d() + ((j)object2).a, this.m.e(), this.f() - ((j)object2).a - ((j)object2).c);
+        this.n.b(this.n.q(), gOffset.a, 0, gTarget.a);
+        this.n.a(this.c() + jScreen.b, this.d() + gOffset.b, this.e() - jScreen.b - jScreen.d, this.n.f());
+        this.m.b(this.m.q(), gOffset.b, 0, gTarget.b);
+        this.m.a(this.c() + jScreen.b + gOffset.a, this.d() + jScreen.a, this.m.e(), this.f() - jScreen.a - jScreen.c);
         this.o.a(this.n.q(), this.m.q(), this.n.r(), this.m.r());
         this.p.a(this.n.q(), this.m.q(), this.n.r(), this.m.r());
     }
@@ -239,8 +236,8 @@ extends aq {
         if (this.l == null) {
             return;
         }
-        if (this.v > 0L && System.currentTimeMillis() - this.v > 100L) {
-            this.v = -1L;
+        if (this.vTime > 0L && System.currentTimeMillis() - this.vTime > 100L) {
+            this.vTime = -1L;
             if (this.m.q() != this.o.b) {
                 this.k(this.o.b);
                 this.u = true;
@@ -386,7 +383,7 @@ extends aq {
                 this.d(true);
             }
             this.u = false;
-            this.v = System.currentTimeMillis();
+            this.vTime = System.currentTimeMillis();
             this.t.a = n2;
             this.t.b = n3;
             return true;
@@ -417,16 +414,16 @@ extends aq {
             this.t.a = -1;
             return true;
         }
-        if (this.v >= 0L && !this.u && this.t.a >= 0 && this.t.b >= 0 && this.l != null && this.l.c(this.t.a + this.o.a, this.t.b + this.o.b)) {
+        if (this.vTime >= 0L && !this.u && this.t.a >= 0 && this.t.b >= 0 && this.l != null && this.l.c(this.t.a + this.o.a, this.t.b + this.o.b)) {
             this.t.a = -1;
             this.t.b = -1;
-            this.v = -1L;
+            this.vTime = -1L;
             this.u = false;
             return true;
         }
         this.t.a = -1;
         this.t.b = -1;
-        this.v = -1L;
+        this.vTime = -1L;
         this.u = false;
         this.u = false;
         if (this.n.h().a(n2, n3)) {
@@ -439,7 +436,7 @@ extends aq {
     }
 
     public final boolean e(int n2, int n3) {
-        this.v = -1L;
+        this.vTime = -1L;
         if (this.t.a >= 0 && this.t.b >= 0) {
             if (this.u) {
                 this.t.a += n2;

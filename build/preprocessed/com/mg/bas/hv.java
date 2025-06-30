@@ -60,8 +60,7 @@ implements bf {
         this.b(241216);
         this.a(new ba());
         bd bd3 = new bd("Đóng", 5);
-        object = this;
-        ((am)object).b(bd3, true);
+        this.b(bd3, true);
         this.d(false);
         ((aq)this.n.b(this.p)).d(true);
     }
@@ -215,17 +214,17 @@ implements bf {
         this.s.b(!bl);
         int n2 = this.p;
         this.j(bl);
-        this.k(n != 0);
+        this.k(n);
         this.p = n2;
-        n = 0;
-        while (n < this.n.d()) {
-            aq aq2 = (aq)this.n.b(n);
-            if (n == n2) {
+        int n3 = 0;
+        while (n3 < this.n.d()) {
+            aq aq2 = (aq)this.n.b(n3);
+            if (n3 == n2) {
                 aq2.d(true);
             } else {
                 aq2.d(false);
             }
-            ++n;
+            ++n3;
         }
     }
 

@@ -13,7 +13,7 @@ public final class lg {
 
     public lg(lh object) {
         lh lh2 = object;
-        object = this;
+//        object = this;
         this.a = lh2;
     }
 

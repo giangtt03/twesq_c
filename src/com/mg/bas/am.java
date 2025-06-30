@@ -136,7 +136,7 @@ public abstract class am {
                 n = v.A;
                 int n6 = v.B;
                 if (n >= 0 && n6 >= 0) {
-                    n5 = ag.b;
+                    n5 = ag.b ? 1 : 0;
                     ag.c = false;
                     n4 = n6;
                     n6 = n;
@@ -312,4 +312,12 @@ public abstract class am {
     public abstract void b_();
 
     public abstract void c(Graphics var1);
+    
+     public void resetHandlerAndArray() {
+        this.i = null;
+        this.j = null;
+    }
+    public boolean isM() {
+        return this.m;
+    }
 }

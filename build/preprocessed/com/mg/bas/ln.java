@@ -38,7 +38,7 @@ extends as {
     }
 
     public ln() {
-        this.a(f.d("/magicgate"), 4);
+        this.a(com.mg.bas.f.d("/magicgate"), 4);
         this.a(s);
     }
 
